@@ -1,0 +1,146 @@
+# Founding context for this project
+You are helping me build a submission for the Prox Technologies founding engineer challenge. The repo is forked from prox-technologies/prox-challenge. The deliverable is a multimodal reasoning agent over the 48-page Vulcan OmniPro 220 welder manual, judged on technical accuracy, multimodal output quality, tone, and knowledge extraction quality. Reviewers must be able to clone, paste their own API key, and run within 2 minutes.
+Before writing any code, your first action is to commit the rest of this prompt verbatim to CLAUDE.md at the repo root, so future sessions in Cursor pick it up automatically. After that, follow the staged build plan.
+
+## Mission
+Build a multimodal reasoning agent for the Vulcan OmniPro 220 using the Claude Agent SDK. The agent must answer deep technical questions correctly, surface diagrams and images when geometry or appearance is the answer, generate interactive artifacts when the question is about relationships, and diagnose problems agentically when the user is in trouble.
+The thesis driving every design decision: the manual is an artifact for someone sitting at a desk; the agent is a tool for someone standing at a machine. Their hands are busy. Their eyes are on the equipment. They want the next action, not the explanation. Every UI choice flows from this.
+The second thesis is that this should generalize. Nothing in the code should hardcode "welder." Swap the PDF in files/, re-run ingestion, and the agent should work on a CNC mill or a furnace. The mechanism for generalization is per-manual schema inference (described below).
+
+## Architecture (three tiers)
+
+### Tier 1 — Ingestion (offline, run once, results committed to data/)
+Reviewers must not pay your API bill. Run ingestion once on your own key, commit the JSON outputs, ship the repo with everything pre-computed. Provide a npm run ingest script that regenerates them but do not run it as part of npm run dev.
+Pipeline stages, in order:
+
+1. Schema inference. Claude reads the manual's table of contents, the first ~8 pages, and any spec/safety summary, then proposes a domain-specific ontology as JSON: entity types, relation predicates, expected attributes per entity type. Output committed as data/schema.json. This step is what lets the system generalize across product classes.
+2. Three parallel extraction passes against the inferred schema, page-by-page, using Claude with vision:
+   - Structural pass — entities, relations, tables (parsed into rows), diagrams with bounding boxes for every labeled region, embedded photos. Output: data/entities.json, data/relations.json, data/tables.json, data/diagrams.json, data/images/.
+   - Procedural pass — every "how to..." section becomes a state machine: ordered steps, explicit postconditions per step (e.g., "wire protrudes 1/4 inch past contact tip"), branching on failure. Output: data/procedures.json.
+   - Diagnostic pass — for every symptom in the manual, build a Bayesian network: candidate causes with priors, checks with likelihood ratios, vernacular synonyms. Every numeric prior/likelihood must carry a source flag: manual_derived or llm_estimated. Output: data/diagnostic_trees.json.
+3. Salience synthesis. Reads the assembled stores (not the raw PDF again) and produces:
+   - data/critical_facts.json — atomic, quotable assertions like "MIG duty cycle at 200A on 240V is 30%", "TIG ground clamp goes in the negative DINSE socket". One fact, one citation per entry.
+   - Salience weights (0–1) attached to every entity, relation, and diagram. Stored as updates to the existing JSON files.
+   - data/canonical_setups.json — pre-computed cross-section assemblies for common task patterns (e.g., "full setup for 1/8" mild steel MIG").
+4. Cross-page resolution. Links duplicate entity mentions across pages, resolves "see figure 7-3" references to hard pointers, attaches canonical citations (page + region bbox + photo if applicable) to every entity. Mutates the existing JSON files in place.
+5. Vernacular embedding index. Embed only the symptom synonyms from diagnostic_trees.json (expect ~500 vectors total). Store as data/vernacular.index.json — a plain JSON file with vectors inline. Do not use Pinecone, Weaviate, or any external vector DB. A cosine-similarity loop over an in-memory array is the correct implementation.
+
+### Tier 2 — Knowledge layer (committed JSON, no database)
+Six stores plus one tiny embedding index, all in data/. A thin TypeScript query layer in lib/knowledge/ exposes typed functions over them. The graph is small enough (≤500 entities) that the entire JS query layer is ~200 lines. Do not add a database, do not chunk for RAG, do not add a vector DB beyond the vernacular index. If you feel the urge, write the question in a comment and ask me first.
+
+### Tier 3 — Runtime (Claude Agent SDK)
+Use the official Claude Agent SDK for TypeScript. The agent has six tools:
+
+- query_graph(start_entity, relation, depth) — graph traversal
+- get_table(name, filters) — typed row lookup
+- surface_region(diagram_id | page) — returns image URL + caption + optional highlighted bbox
+- render_artifact(spec) — emits a widget descriptor that renders in the artifact panel (contract defined in Stage 0, see below)
+- diagnose_loop(belief_state, last_observation) — Bayesian update + next-best-check selection
+- verify_setup(procedure_id, current_step) — walks postconditions, returns the first failure or ok
+
+The agent operates in four modes, all sharing the same tool surface. The mode is determined by an intent router that runs on each user turn:
+
+- Lookup mode (default) — Q&A with citation, diagram surfacing, table excerpts.
+- Procedure mode — guided one-step-at-a-time UI with postcondition photo verification.
+- Diagnose mode — runs verify_setup first; if clean, enters Bayesian narrowing with a live side panel showing the candidate-cause distribution as bars that compress as questions get answered. Each completed check is rewindable. Terminates when one cause crosses ~0.85 mass OR offers a human handoff.
+- Configure mode — interactive SVG of the front panel (extracted from the manual's labeled diagrams). User picks process + material + thickness; the panel animates to the recommended settings. User can drag dials and the agent narrates what would change.
+
+### UI surfaces
+
+- Chat (linear spine, the worst-case fallback when no other surface fits)
+- Artifact panel (right side, renders widgets emitted by render_artifact)
+- Diagnosis side panel (only visible in diagnose mode, shows live belief bars + completed-check chips)
+- Manual companion (collapsible quarter-width PDF sliver, synced to citations; clicking a citation thumbnail jumps the PDF to the highlighted region)
+- Camera input (photo upload, prepared for live webcam later)
+- Bench card export (one-page PDF download with the user's current configuration + QR code that deep-links back to the agent in this exact context)
+
+### What's been deliberately cut (do not build these, and explain why in the README)
+
+- Voice in / voice out — only worthwhile if flawless; janky voice undercuts the polished parts. Architecture-friendly to add later.
+- Live AR overlay — requires WebRTC + edge inference, way out of scope for the time budget.
+- Cross-product compatibility queries — needs a multi-product graph, only meaningful in the SaaS version.
+- Fully freeform LLM-generated JSX as artifacts — we constrain to a small set of widget templates for reliability; mention you considered the freeform path.
+
+## Rubric (the four things being graded)
+
+1. Deep technical accuracy — must correctly answer questions like "what's the duty cycle for MIG at 200A on 240V" by pulling the actual cell, not paraphrasing nearby prose. Critical facts and tables exist for this.
+2. Multimodal responses — the most important axis. Show diagrams, generate calculators, surface reference photos. When something is "too cognitively hard to explain in words, the agent should draw it." This is the entire point of render_artifact and surface_region.
+3. Tone and helpfulness — user is in their garage, smart but not a professional welder. Short answers, sockets named not described, page citations as light footnotes.
+4. Knowledge extraction quality — reviewers will see how well the visual content was extracted. The diagram with labeled regions is the artifact that proves this.
+
+## Tech stack and non-negotiable constraints
+
+- TypeScript, Next.js App Router, Claude Agent SDK
+- Single repo, npm install && npm run dev to start
+- Vercel for hosting with a "bring your own API key" landing page — the key lives in the user's browser (sessionStorage), is sent with each request as a header, and is never logged server-side
+- data/ contains all pre-computed ingestion outputs, committed to the repo
+- Ingestion artifacts must not regenerate as part of dev startup; reviewers should never wait
+- README at the root, written with senior-eng readers in mind: explains the three load-bearing decisions (schema inference, structured extraction over RAG, salience synthesis), lists what was deliberately cut and why, and includes a 60-second "how to demo this" section
+- 2-minute clone-to-running setup, tested on a clean machine before submission
+
+## Build plan (staged, do not skip stages)
+
+### Stage 0 — Lock the three load-bearing contracts before writing any framework code
+These are the three places where guessing now will cost 1–2 days of rework later. Deliver them as documents/specs, not as running code yet. Pause after each and report back to me.
+
+**0a. prompts/schema-inference.md** — the exact prompt sent to Claude during schema inference, including:
+- What pages are included in the input (decision: TOC + first 8 pages + any chapter named "specifications" or "safety")
+- The exact JSON shape Claude must return
+- A validator (scripts/validate-schema.ts) that catches overlapping entity types, missing required fields, and incoherent relation predicates
+- A fallback policy when validation fails (retry up to 2× with the validator's error message appended; then surface for human review via a npm run schema:review command)
+
+**0b. prompts/diagnostic-extract.md** — the prompt for the diagnostic extraction pass, including:
+- The explicit priors policy: priors should be derived from the manual's troubleshooting section ordering (most-commonly-listed cause first) when possible, and LLM-estimated otherwise. Every numeric value carries a source: "manual_derived" | "llm_estimated" flag in the output. This flag drives a UI indicator and is mentioned honestly in the README.
+- The output JSON shape (see Tier 1 description)
+- A small worked example using one symptom from the welder manual
+
+**0c. lib/artifact-harness/CONTRACT.md** — the contract between the agent's render_artifact(spec) tool call and the iframe renderer:
+- Decision: constrained widget descriptors, not freeform JSX. The agent emits { type: "duty_cycle_calculator" | "two_curve_chart" | "polarity_router" | "troubleshooting_flowchart" | "front_panel_twin" | "comparison_table", props: {...} }. Define the props schema for each type as TypeScript interfaces in lib/artifact-harness/types.ts.
+- Include a freeform escape hatch: { type: "custom", jsx: string, imports: string[] } — used only when none of the templates fit. Imports allowlist: react, recharts, lucide-react. Babel standalone for JSX compilation. Sandboxed iframe for rendering.
+- Self-correction protocol: if the iframe reports a render error, the agent retries once with the error message in the next tool call.
+
+Stop after Stage 0 and show me the three documents before proceeding.
+
+### Stage 1 — Run ingestion against the actual PDF and commit results
+Implement the schema inference script first, run it against files/owners-manual.pdf, eyeball the output. If the schema is sane, proceed to the three extraction passes, then salience synthesis, then cross-page resolution, then the vernacular index. Commit every JSON output to data/. Add npm run ingest to package.json but mark in README that it should not be run unless re-ingesting.
+
+### Stage 2 — Knowledge query layer
+TypeScript modules in lib/knowledge/ exposing typed query functions over the JSON stores. ~200 lines total. Unit tests for non-trivial query paths (graph traversal, salience-ranked diagram retrieval).
+
+### Stage 3 — Agent + tools
+Claude Agent SDK setup, the six tools above, the mode router, the system prompt (tone: garage, smart-not-pro, short answers, sockets named, page-cited). The system prompt is its own file at prompts/system.md.
+
+### Stage 4 — UI surfaces
+Chat + artifact panel + manual companion + diagnosis side panel + camera input + bench card export. The diagnosis side panel with live compressing belief bars is one of the three demo wow moments and deserves extra polish.
+
+### Stage 5 — The three asymmetric demo wins, then polish
+In order of priority:
+1. Photo-of-bad-weld → defect identification with side-by-side reference + cited fix
+2. On-the-fly calculator generation when user asks a relationship question
+3. Bayesian diagnose mode with the live belief panel
+
+Then: BYO-key Vercel deployment, README polish, record a 3-minute video walkthrough, test the 2-minute setup on a clean machine.
+
+## Decisions you can make on your own without checking with me
+
+- Code organization within each lib/ module
+- React component structure for the UI
+- Styling approach (Tailwind is fine, keep it minimal)
+- Test framework and which paths to test
+- Exact wording of Claude prompts beyond the load-bearing structure
+- Bench card PDF library choice (react-pdf, @react-pdf/renderer, or server-side puppeteer — pick what's simplest)
+
+## Decisions to surface to me before acting
+
+- Any change to the architecture above
+- Adding any external service (database, vector DB, queue, etc.)
+- Anything that breaks the 2-minute setup contract
+- Anything that would make ingestion need to run on the reviewer's machine
+- Any deviation from the four modes or six tools without asking
+
+## Quality bar
+
+- Code is for humans reading on a tight schedule. Functions ≤30 lines where possible, names descriptive, comments explain why not what.
+- README is the most important document in the repo after CLAUDE.md. Write it like a senior engineer is reading it. Lead with the three load-bearing decisions and what was cut.
+- Honesty in the documentation is a feature. The llm_estimated flag on diagnostic priors, the schema-review escape hatch, the deliberate scope cuts — all of these are listed prominently. The reviewer is more impressed by honest scope than by hidden weaknesses.
+- Every commit message is a sentence, not a fragment.
