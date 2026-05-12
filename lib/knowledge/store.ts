@@ -36,10 +36,19 @@ for (const e of allEntities) {
   entityByType.set(e.type, bucket);
 }
 
-// Outgoing adjacency list keyed by subject entity id, used for graph traversal.
-export const adjacency = new Map<string, Relation[]>();
+// Adjacency lists for bidirectional graph traversal.
+export const outgoing = new Map<string, Relation[]>(); // subject_id → relations leaving that node
+export const incoming = new Map<string, Relation[]>(); // object_id  → relations arriving at that node
+
 for (const r of allRelations) {
-  const list = adjacency.get(r.subject_id) ?? [];
-  list.push(r);
-  adjacency.set(r.subject_id, list);
+  const out = outgoing.get(r.subject_id) ?? [];
+  out.push(r);
+  outgoing.set(r.subject_id, out);
+
+  const inc = incoming.get(r.object_id) ?? [];
+  inc.push(r);
+  incoming.set(r.object_id, inc);
 }
+
+// Backward-compat alias — existing code that imports `adjacency` still works.
+export const adjacency = outgoing;

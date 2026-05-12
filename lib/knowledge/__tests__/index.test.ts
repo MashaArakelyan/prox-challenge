@@ -190,3 +190,70 @@ test("surfaceRegion returns diagram for known id", () => {
   assert.equal(result.diagram.id, "diagram_1_1");
   assert.equal(result.region, null); // no label filter
 });
+
+// ── Bidirectional traversal & predicate filtering ─────────────────────────────
+
+test("direction: 'both' reaches strictly more entities than direction: 'out' from a node with incoming edges", () => {
+  // Find programmatically: an entity that appears as both subject AND object
+  // so it has both outgoing and incoming edges to traverse.
+  const subjectSet = new Set(allRelations.map(r => r.subject_id));
+  const biId = allRelations.map(r => r.object_id).find(id => subjectSet.has(id));
+  assert.ok(biId, "there must be an entity that appears as both subject and object");
+
+  const outOnly = queryGraph(biId, 1, { direction: "out" });
+  const both    = queryGraph(biId, 1, { direction: "both" });
+
+  // "both" must include everything "out" found
+  const outIds  = new Set(outOnly.entities.map(e => e.id));
+  const bothIds = new Set(both.entities.map(e => e.id));
+  for (const id of outIds) assert.ok(bothIds.has(id), `direction:'both' dropped entity ${id}`);
+
+  // "both" must reach strictly more because there are incoming edges to follow
+  assert.ok(
+    both.entities.length > outOnly.entities.length,
+    `direction:'both' (${both.entities.length}) should exceed direction:'out' (${outOnly.entities.length})`,
+  );
+});
+
+test("direction: 'in' reaches incoming neighbor; direction: 'out' does not", () => {
+  // Known relation: safety_guideline_general_safety --mitigates_hazard--> failure_mode_electric_shock
+  // Seed: failure_mode_electric_shock
+  //   direction:"in"  → should walk the reverse edge → reach safety_guideline_general_safety
+  //   direction:"out" → no outgoing edges from electric_shock to that node → must NOT reach it
+  const withIn  = queryGraph("failure_mode_electric_shock", 1, { direction: "in" });
+  const withOut = queryGraph("failure_mode_electric_shock", 1, { direction: "out" });
+
+  assert.ok(
+    withIn.entities.some(e => e.id === "safety_guideline_general_safety"),
+    "direction:'in' must reach safety_guideline_general_safety via the reverse mitigates_hazard edge",
+  );
+  assert.ok(
+    !withOut.entities.some(e => e.id === "safety_guideline_general_safety"),
+    "direction:'out' must NOT reach safety_guideline_general_safety",
+  );
+});
+
+test("predicates allow-list returns only relations matching that predicate", () => {
+  // Find the most common predicate programmatically so the test survives ingest changes.
+  const counts = new Map<string, number>();
+  for (const r of allRelations) counts.set(r.predicate, (counts.get(r.predicate) ?? 0) + 1);
+  const [topPredicate] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+
+  // Seed from the subject of a known relation with this predicate — guarantees ≥1 result.
+  const seedRel = allRelations.find(r => r.predicate === topPredicate);
+  assert.ok(seedRel, `must find a relation with predicate "${topPredicate}"`);
+
+  const { relations } = queryGraph(seedRel.subject_id, 1, { predicates: [topPredicate] });
+
+  assert.ok(relations.every(r => r.predicate === topPredicate),
+    `every returned relation must be "${topPredicate}"`);
+  assert.ok(relations.length > 0,
+    `"${topPredicate}" must appear when seeded from its own subject`);
+});
+
+test("predicates: [] (empty allow-list) returns only the seed, zero relations", () => {
+  const { entities, relations } = queryGraph("welding_process_mig", 2, { predicates: [] });
+  assert.equal(relations.length, 0, "empty predicate set blocks all relations");
+  assert.equal(entities.length, 1, "only the seed entity should be present");
+  assert.equal(entities[0].id, "welding_process_mig");
+});

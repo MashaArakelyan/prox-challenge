@@ -3,7 +3,7 @@
 
 import {
   entityById, entityByType, tableById, procedureById, symptomById, diagramById,
-  adjacency, allRelations, allTables, allDiagrams, allProcedures, allSymptoms,
+  outgoing, incoming, allRelations, allTables, allDiagrams, allProcedures, allSymptoms,
   allFacts, allSetups,
 } from "./store.js";
 import type {
@@ -25,12 +25,35 @@ export function getEntitiesByType(type: string): Entity[] {
 
 // ── Graph traversal ───────────────────────────────────────────────────────────
 
+export type Direction = "out" | "in" | "both";
+export type QueryGraphOptions = {
+  /** Which edges to follow. Defaults to "both" — most useful for the agent. */
+  direction?: Direction;
+  /**
+   * Predicate allow-list. When omitted all predicates pass.
+   * Empty array [] means no relations pass → only the seed entity is returned.
+   */
+  predicates?: string[];
+};
+
 /**
- * BFS from seedId up to `depth` hops along outgoing relation edges.
- * Returns every reached entity (seed included) and every traversed relation,
- * both without duplicates regardless of how many paths lead to the same node.
+ * BFS from seedId up to `depth` hops.
+ * direction:"out"  — follow subject→object edges only.
+ * direction:"in"   — follow object→subject edges only (reverse traversal).
+ * direction:"both" — follow edges in either direction (default).
+ * Deduplicates entities and relations regardless of how many paths reach them.
  */
-export function queryGraph(seedId: string, depth: number): { entities: Entity[]; relations: Relation[] } {
+export function queryGraph(
+  seedId: string,
+  depth: number,
+  options: QueryGraphOptions = {},
+): { entities: Entity[]; relations: Relation[] } {
+  const { direction = "both", predicates } = options;
+  const predicateSet = predicates !== undefined ? new Set(predicates) : null;
+
+  const includeOut = direction === "out" || direction === "both";
+  const includeIn  = direction === "in"  || direction === "both";
+
   const seenEntityIds = new Set<string>([seedId]);
   const seenRelKeys   = new Set<string>();
   const entities: Entity[]    = [];
@@ -39,20 +62,35 @@ export function queryGraph(seedId: string, depth: number): { entities: Entity[];
   const seed = entityById.get(seedId);
   if (seed) entities.push(seed);
 
+  const addRel = (rel: Relation): void => {
+    const key = `${rel.predicate}:${rel.subject_id}:${rel.object_id}`;
+    if (!seenRelKeys.has(key)) { seenRelKeys.add(key); relations.push(rel); }
+  };
+
+  const addNeighbor = (neighborId: string, next: string[]): void => {
+    if (!seenEntityIds.has(neighborId)) {
+      seenEntityIds.add(neighborId);
+      const e = entityById.get(neighborId);
+      if (e) { entities.push(e); next.push(neighborId); }
+    }
+  };
+
   let frontier = [seedId];
   for (let hop = 0; hop < depth && frontier.length > 0; hop++) {
     const next: string[] = [];
     for (const id of frontier) {
-      for (const rel of adjacency.get(id) ?? []) {
-        const key = `${rel.predicate}:${rel.subject_id}:${rel.object_id}`;
-        if (!seenRelKeys.has(key)) {
-          seenRelKeys.add(key);
-          relations.push(rel);
+      if (includeOut) {
+        for (const rel of outgoing.get(id) ?? []) {
+          if (predicateSet && !predicateSet.has(rel.predicate)) continue;
+          addRel(rel);
+          addNeighbor(rel.object_id, next);
         }
-        if (!seenEntityIds.has(rel.object_id)) {
-          seenEntityIds.add(rel.object_id);
-          const neighbor = entityById.get(rel.object_id);
-          if (neighbor) { entities.push(neighbor); next.push(rel.object_id); }
+      }
+      if (includeIn) {
+        for (const rel of incoming.get(id) ?? []) {
+          if (predicateSet && !predicateSet.has(rel.predicate)) continue;
+          addRel(rel);
+          addNeighbor(rel.subject_id, next);
         }
       }
     }
