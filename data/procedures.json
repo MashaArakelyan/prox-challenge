@@ -1,0 +1,2075 @@
+[
+  {
+    "id": "install_wire_spool_p10",
+    "name": "Install Wire Spool / Wire Setup (1–2 lb)",
+    "description": "Configures the welder for MIG/Flux-Cored welding by powering down, opening the wire compartment door, and installing a 1–2 lb wire spool onto the spool spindle.",
+    "applies_to_process": "MIG",
+    "manual_citation": {
+      "page": 10,
+      "section": "Wire Spool Installation/Wire Setup"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Turn the Power Switch OFF and unplug the Welder from the power outlet before proceeding.",
+        "postcondition": "The Power Switch is in the OFF position and the power cord is disconnected from the outlet.",
+        "expected_image": "Power switch in OFF position with plug visibly removed from wall outlet.",
+        "entity_refs": [
+          "control_element_power_switch",
+          "safety_guideline_power_off_before_setup"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Pull up on the Door Latch, then open the Door.",
+        "postcondition": "The wire compartment Door is fully open, exposing the spool spindle and interior.",
+        "expected_image": "Welder door open showing spool spindle assembly inside the wire compartment.",
+        "entity_refs": [
+          "control_element_door_latch",
+          "control_element_door"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Remove the Wingnut and Spacer from the Spool Spindle; if replacing an existing spool, also remove the old spool and all remaining wire from the liners.",
+        "postcondition": "The Spool Spindle is bare with no spool, spacer, or wingnut installed; no old wire remains in the liners.",
+        "expected_image": "Empty spool spindle with wingnut and spacer set aside.",
+        "entity_refs": [
+          "control_element_wingnut",
+          "control_element_spacer",
+          "control_element_spool_spindle",
+          "welding_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Place the new 1–2 lb Wire Spool over the Spool Spindle and against the Spool Brake Pad, orienting the spool so that the wire unwinds clockwise.",
+        "postcondition": "The wire spool is seated flush against the Spool Brake Pad with wire unwinding in the clockwise direction.",
+        "expected_image": "Wire spool mounted on spindle against the brake pad with clockwise unwinding direction visible.",
+        "entity_refs": [
+          "welding_wire",
+          "control_element_spool_spindle",
+          "control_element_spool_brake_pad"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Replace the Spacer over the Spool Spindle and secure the spool in place by tightening the Wingnut.",
+        "postcondition": "The Wingnut is tightened sufficiently that the wire spool does not spin freely when pushed by hand.",
+        "expected_image": "Wingnut and spacer installed on spindle with spool held firmly in place.",
+        "entity_refs": [
+          "control_element_wingnut",
+          "control_element_spacer",
+          "control_element_spool_spindle"
+        ],
+        "branches": [
+          {
+            "condition": "If the wire spool can still spin freely after tightening",
+            "goto_step": 5,
+            "note": "Wingnut is too loose; continue tightening to prevent wire from unraveling and causing tangling or feeding problems."
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "instruction": "Remove the Wingnut and Spacer from the Spool Spindle, and if replacing a spool, remove the old Spool and all remaining wire from the liners.",
+        "postcondition": "Spool Spindle is bare with no spool, spacer, or wingnut attached.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_wingnut",
+          "physical_connector_spool_spindle",
+          "welding_wire_wire_spool"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Place the Spool Adapter over the Spool Spindle and against the Spool Brake Pad as illustrated.",
+        "postcondition": "Spool Adapter sits flush against the Spool Brake Pad on the Spool Spindle.",
+        "expected_image": "Spool Adapter seated on Spool Spindle flush against the Brake Pad on the Welder Wall.",
+        "entity_refs": [
+          "physical_connector_spool_spindle",
+          "control_element_spool_brake_pad"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "Place the new 10–12 lb Wire Spool over the Adapter, aligning the pin on the Adapter with the hole in the Spool, and orient the Spool so the wire unwinds clockwise.",
+        "postcondition": "Wire Spool is seated on the Adapter with the alignment pin engaged and wire unwinding in a clockwise direction.",
+        "expected_image": "Wire Spool mounted on Adapter with arrow indicating clockwise wire unwind direction.",
+        "entity_refs": [
+          "welding_wire_wire_spool",
+          "physical_connector_spool_spindle"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Replace the Spacer over the Spool Spindle and secure the Spool in place by tightening the Wingnut.",
+        "postcondition": "The Wire Spool does not spin freely when pushed by hand; the Wingnut is snug.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_wingnut",
+          "welding_wire_wire_spool",
+          "physical_connector_spool_spindle"
+        ],
+        "branches": [
+          {
+            "condition": "If the Wire Spool can spin freely after tightening",
+            "goto_step": 9,
+            "note": "Wingnut is too loose; tighten further to prevent wire tangling and feeding problems."
+          }
+        ]
+      },
+      {
+        "step": 10,
+        "instruction": "Screw the Spool Knob into the Spool Adapter.",
+        "postcondition": "Spool Knob is threaded fully into the Spool Adapter and the assembly is secure.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_spool_knob"
+        ],
+        "branches": []
+      },
+      {
+        "step": 11,
+        "instruction": "Turn the Feed Tensioner knob counterclockwise to loosen it enough to pull it down and remove tension, allowing the spring-loaded Idler Arm to move up.",
+        "postcondition": "Idler Arm has moved upward into the open position as shown in the diagram.",
+        "expected_image": "Feed Tensioner knob loosened with Idler Arm raised up away from the drive roll.",
+        "entity_refs": [
+          "control_element_feed_tensioner",
+          "control_element_idler_arm"
+        ],
+        "branches": []
+      },
+      {
+        "step": 12,
+        "instruction": "Check that the Feed Roller is correct for the type of wire being used (solid core or flux-cored) and that it is turned to properly match the wire size marked on the Wire Spool.",
+        "postcondition": "The groove size visible on the Feed Roller matches the wire diameter marked on the Wire Spool.",
+        "expected_image": "Close-up of the Feed Roller showing the groove label matching the wire diameter on the spool.",
+        "entity_refs": [
+          "control_element_feed_roller_knob",
+          "welding_wire_wire_spool"
+        ],
+        "branches": []
+      },
+      {
+        "step": 13,
+        "instruction": "Unscrew the Feed Roller Knob counterclockwise.",
+        "postcondition": "The Feed Roller Knob is loose and no longer clamping the Feed Roller assembly.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_feed_roller_knob"
+        ],
+        "branches": []
+      },
+      {
+        "step": 14,
+        "instruction": "Remove the Feed Roller Knob to expose the Feed Roller.",
+        "postcondition": "The Feed Roller is visible and accessible with the knob fully removed.",
+        "expected_image": "Feed Roller exposed after knob removal, as shown in diagram B.",
+        "entity_refs": [
+          "control_element_feed_roller_knob",
+          "control_element_feed_roller"
+        ],
+        "branches": []
+      },
+      {
+        "step": 15,
+        "instruction": "Flip or replace the Feed Roller as needed, confirming it is the correct roller for the wire type being used and that the number showing matches the wire diameter on the Spool.",
+        "postcondition": "The groove number displayed on the Feed Roller matches the wire diameter on the Wire Spool, with the correct groove type (V-Groove for solid core, Knurled Groove for flux-cored) facing the wire path.",
+        "expected_image": "Feed Roller oriented with correct groove type and wire-diameter number facing outward, matching spool label.",
+        "entity_refs": [
+          "control_element_feed_roller",
+          "welding_wire_wire_spool"
+        ],
+        "branches": [
+          {
+            "condition": "If using solid core wire",
+            "goto_step": 15,
+            "note": "Select the V-Groove side (0.025 or 0.030/0.035 groove)."
+          },
+          {
+            "condition": "If using flux-cored wire",
+            "goto_step": 15,
+            "note": "Select the Knurled Groove side (0.030/0.035 or 0.045 groove)."
+          }
+        ]
+      },
+      {
+        "step": 16,
+        "instruction": "Screw the Feed Roller Knob back into place to secure the Feed Roller.",
+        "postcondition": "The Feed Roller Knob is tightened and the Feed Roller is firmly held in position without play.",
+        "expected_image": "Feed Roller Knob fully screwed in, as shown in diagram D.",
+        "entity_refs": [
+          "control_element_feed_roller_knob",
+          "control_element_feed_roller"
+        ],
+        "branches": []
+      },
+      {
+        "step": 17,
+        "instruction": "Plug the Ground Clamp Cable into the Negative (–) Socket, plug the Wire Feed Power Cable into the Positive (+) Socket, and twist both cables clockwise all the way to lock them in place.",
+        "postcondition": "Ground Clamp Cable is seated in the Negative socket and Wire Feed Power Cable is seated in the Positive socket; both cables are locked and do not rotate freely.",
+        "expected_image": "Photo showing the ground clamp cable plugged into the negative socket and the wire feed power cable plugged into the positive socket on the welder body.",
+        "entity_refs": [
+          "physical_connector_negative_socket",
+          "physical_connector_positive_socket"
+        ],
+        "branches": []
+      },
+      {
+        "step": 18,
+        "instruction": "Determine the appropriate shielding gas for your welding application by referring to the Settings Chart on the inside of the Welder door.",
+        "postcondition": "The correct shielding gas type for the intended weld has been identified.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas",
+          "reference_diagram_settings_chart"
+        ],
+        "branches": []
+      },
+      {
+        "step": 19,
+        "instruction": "With assistance, set the shielding gas cylinder onto a cabinet or cart near the Welder and secure it in place with two straps to prevent tipping.",
+        "postcondition": "The cylinder is upright on a stable surface near the welder and is secured by two straps so it cannot tip over.",
+        "expected_image": "Photo showing a gas cylinder strapped securely to a cart or cabinet adjacent to the welder.",
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 20,
+        "instruction": "Remove the cylinder's cap, stand to the side of the valve opening, then briefly open the valve to blow out dust and dirt, then close the cylinder valve.",
+        "postcondition": "The valve opening is clear of debris and the cylinder valve is closed.",
+        "expected_image": "Photo showing the cylinder valve being briefly opened with an operator standing to the side.",
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 21,
+        "instruction": "Close the Regulator's valve until it is loose, then thread the Regulator onto the cylinder and wrench-tighten the connection.",
+        "postcondition": "The Regulator is firmly attached to the cylinder with no visible play in the connection.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": [
+          {
+            "condition": "If using C100 shielding gas",
+            "goto_step": 22,
+            "note": "Connect the enclosed CGA 580/320 adapter to the Regulator inlet before threading onto the cylinder."
+          }
+        ]
+      },
+      {
+        "step": 22,
+        "instruction": "If using C100 shielding gas, connect the enclosed CGA 580/320 adapter to the inlet connection of the Regulator and wrench-tighten it, then thread the adapter onto the gas cylinder and wrench-tighten.",
+        "postcondition": "The CGA 580/320 adapter is securely wrench-tightened at both the Regulator inlet and the cylinder.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 23,
+        "instruction": "Attach the Gas Hose to the Regulator's outlet and to the Welder's gas inlet, then wrench-tighten both connections.",
+        "postcondition": "The Gas Hose is firmly connected at both ends with no slack at the fittings; neither connection can be loosened by hand.",
+        "expected_image": "Photo showing the gas hose running from the regulator outlet to the welder gas inlet with both ends wrench-tightened.",
+        "entity_refs": [
+          "shielding_gas",
+          "physical_connector_gas_inlet"
+        ],
+        "branches": []
+      },
+      {
+        "step": 24,
+        "instruction": "Plug either the 120VAC or 240VAC Power Cord into the Power Input Socket.",
+        "postcondition": "Power cord is fully seated in the Power Input Socket and will not pull out freely.",
+        "expected_image": "Close-up of power cord plugged into the Power Input Socket on the welder body.",
+        "entity_refs": [
+          "physical_connector_power_input_socket",
+          "product_specification_input_voltage"
+        ],
+        "branches": []
+      },
+      {
+        "step": 25,
+        "instruction": "Without touching the Gun's Trigger, plug the Power Cord into a properly grounded, GFCI-protected 120VAC (20 amp rated) or 240VAC receptacle that matches the plug, then turn the Power Switch ON.",
+        "postcondition": "Power Switch is in the ON position and the welder is energized.",
+        "expected_image": "Power Switch in the ON position with the power cord plugged into a wall receptacle.",
+        "entity_refs": [
+          "control_element_power_switch",
+          "physical_connector_power_cord",
+          "safety_guideline_electric_shock"
+        ],
+        "branches": []
+      },
+      {
+        "step": 26,
+        "instruction": "Point the MIG Gun away from all objects, then press and hold the Cold Wire Feed Switch until the welding wire feeds through approximately two inches past the contact tip.",
+        "postcondition": "Welding wire protrudes approximately 2 inches beyond the end of the MIG Gun.",
+        "expected_image": "MIG Gun tip showing approximately 2 inches of welding wire extending past the contact tip.",
+        "entity_refs": [
+          "control_element_cold_wire_feed_switch",
+          "welding_wire_mig_wire",
+          "physical_connector_mig_gun"
+        ],
+        "branches": [
+          {
+            "condition": "If the wire liner comes out with the welding wire",
+            "goto_step": 26,
+            "note": "Push the wire liner back into the Gun and continue — this is normal."
+          },
+          {
+            "condition": "If the wire does not feed properly and the spool is stationary",
+            "goto_step": 26,
+            "note": "Turn OFF and unplug the welder, slightly tighten the Feed Tensioner clockwise, then retry."
+          }
+        ]
+      },
+      {
+        "step": 27,
+        "instruction": "Press and hold the Trigger to feed the wire against a piece of wood held 2 to 3 inches away, and check that the wire bends rather than stops.",
+        "postcondition": "Wire bends under feed pressure, confirming tension is set properly.",
+        "expected_image": "Wire visibly bending against a piece of wood held 2–3 inches from the gun tip.",
+        "entity_refs": [
+          "control_element_trigger",
+          "welding_wire",
+          "control_element_feed_tensioner"
+        ],
+        "branches": [
+          {
+            "condition": "If the wire stops instead of bending",
+            "goto_step": 27,
+            "note": "Unplug the Welder, slightly tighten the Feed Tensioner clockwise, then retry the tension check."
+          }
+        ]
+      },
+      {
+        "step": 28,
+        "instruction": "Turn OFF the Power Switch and unplug the Power Cord from its electrical outlet.",
+        "postcondition": "Welder is de-energized and Power Cord is disconnected from the outlet.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_power_switch",
+          "physical_connector_power_cord"
+        ],
+        "branches": []
+      },
+      {
+        "step": 29,
+        "instruction": "Close the Door and make sure it is securely latched.",
+        "postcondition": "Door is fully closed and latched with no gap visible.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 30,
+        "instruction": "Select a Contact Tip compatible with the welding wire used, slide it over the wire, thread it clockwise into the MIG Gun, and tighten it.",
+        "postcondition": "Contact Tip is firmly threaded into the MIG Gun and does not rotate when touched.",
+        "expected_image": "Contact Tip fully seated and tightened into the MIG Gun nozzle area.",
+        "entity_refs": [
+          "welding_wire",
+          "physical_connector_mig_gun",
+          "control_element_contact_tip"
+        ],
+        "branches": []
+      },
+      {
+        "step": 31,
+        "instruction": "Replace the Nozzle and cut the wire off at 1/2 inch from the tip (1/2 inch stickout).",
+        "postcondition": "Nozzle is installed and wire protrudes exactly 1/2 inch past the Contact Tip.",
+        "expected_image": "Wire sticking out 1/2 inch beyond the nozzle tip of the MIG Gun.",
+        "entity_refs": [
+          "physical_connector_mig_gun",
+          "welding_wire"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "setup_spool_gun_p17",
+    "name": "Set Up Optional Spool Gun",
+    "description": "Connects and configures an optional spool gun to the welder for MIG welding with a separate wire feed mechanism.",
+    "applies_to_process": "MIG",
+    "manual_citation": {
+      "page": 17,
+      "section": "Optional Spool Gun Setup"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Plug the Ground Clamp Cable into the Negative (–) Socket and the Wire Feed Power Cable into the Positive (+) Socket, then twist both cables clockwise all the way to lock them in place.",
+        "postcondition": "Both cables are locked in their respective sockets and do not pull out when tugged.",
+        "expected_image": "Ground Clamp Cable in Negative socket and Wire Feed Power Cable in Positive socket, both twisted and seated.",
+        "entity_refs": [
+          "physical_connector_negative_socket",
+          "physical_connector_positive_socket"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Loosen the Knob on the Wire Feed mechanism, then insert the Spool Gun Cable Connector through the hole on the Welder front and into the socket on the Wire Feed.",
+        "postcondition": "Spool Gun Cable Connector is seated in the Wire Feed socket.",
+        "expected_image": "Spool Gun Cable Connector inserted through the Welder front hole and into the Wire Feed socket.",
+        "entity_refs": [
+          "control_element_wire_feed_knob",
+          "physical_connector_wire_feed_socket",
+          "physical_connector_spool_gun_cable_connector"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Ensure the Cable Connector is fully inserted, then tighten the Knob securely — do not overtighten.",
+        "postcondition": "Knob is snug and the Cable Connector cannot be pulled loose; gas connection is sealed.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_wire_feed_knob",
+          "physical_connector_spool_gun_cable_connector",
+          "shielding_gas"
+        ],
+        "branches": [
+          {
+            "condition": "If Connector is not fully inserted",
+            "goto_step": 2,
+            "note": "Gas connection will leak, preventing shielding gas from reaching the welding arc."
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "instruction": "Insert the Wire Feed Control Cable through the hole on the Welder front, connect it to the Wire Feed Control Socket inside the machine, then tighten the lock ring on the Cable plug.",
+        "postcondition": "Lock ring is tightened and the Cable plug is secured in one specific orientation inside the socket.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_wire_feed_control_socket",
+          "control_element_wire_feed_control_cable"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Connect the Gas Hose on the Spool Gun Cable Connector to the Spool Gun Gas Outlet on the front of the Welder.",
+        "postcondition": "Gas Hose is attached to the Spool Gun Gas Outlet and shielding gas pathway is completed.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_spool_gun_gas_outlet",
+          "shielding_gas",
+          "physical_connector_spool_gun_cable_connector"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Refer to the Spool Gun manual for operational information.",
+        "postcondition": null,
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "setup_weld_p19",
+    "name": "Set Up The Weld",
+    "description": "Prepare workpieces and establish a proper ground connection before welding.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 19,
+      "section": "Setting Up The Weld"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Make practice welds on scrap pieces of the same thickness as your intended workpiece, then clean the weld surfaces thoroughly with a wire brush or angle grinder to remove all rust, paint, oil, or other materials, leaving only bare metal.",
+        "postcondition": "Weld surfaces are visibly clean, bare metal with no rust, paint, or oil present.",
+        "expected_image": "Close-up of a cleaned metal surface showing bright, bare metal with no discoloration or contaminants.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Use clamps (not included) to hold the workpieces in position, ensuring the distance between the two workpieces is controlled properly, and chamfer (bevel) the edges of thicker workpieces to allow proper weld penetration.",
+        "postcondition": "Workpieces are held securely in position by clamps and do not shift when handled; thick workpiece edges are visibly chamfered.",
+        "expected_image": "Two workpieces clamped together showing the gap and chamfered edges aligned for welding.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Clamp the Ground Cable to bare metal on the workpiece near the weld area, or to a metal work bench where the workpiece is clamped.",
+        "postcondition": "Ground clamp is firmly attached to bare metal and does not pull free when tugged; the clamped surface is free of paint or coatings.",
+        "expected_image": "Ground clamp attached to bare metal surface of a workpiece or metal bench near the weld area.",
+        "entity_refs": [
+          "physical_connector_ground_clamp",
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Turn the Power Switch to the OFF position, then plug the Power Cord into a properly grounded, GFCI protected 120VAC (20 amp rated) or 240VAC receptacle that matches the plug.",
+        "postcondition": "Power cord is fully seated in the receptacle and the Power Switch is in the OFF position.",
+        "expected_image": "Power switch in OFF position with power cord plugged into grounded outlet.",
+        "entity_refs": [
+          "control_element_power_switch",
+          "physical_connector_power_cord",
+          "product_specification_input_voltage"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Set the MIG Gun down on a nonconductive, nonflammable surface away from any grounded objects.",
+        "postcondition": "MIG Gun rests on a nonconductive, nonflammable surface with no contact with grounded objects.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_mig_gun"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Turn the Power Switch ON.",
+        "postcondition": "The LCD display screen illuminates and the machine powers on.",
+        "expected_image": "LCD display lit and showing home screen.",
+        "entity_refs": [
+          "control_element_power_switch"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Press the Home Button on the Control Panel.",
+        "postcondition": "The display returns to or shows the home screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_home_button"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "Turn the Main Control Knob until the desired welding process appears on the LCD display screen.",
+        "postcondition": "The desired welding process is highlighted or shown on the LCD display screen.",
+        "expected_image": "LCD display showing selected welding process name such as 'MIG Stainless Steel'.",
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Press the Main Control Knob to select the process.",
+        "postcondition": "The selected welding process is confirmed and the display advances to the next settings screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "welding_process_selected"
+        ],
+        "branches": []
+      },
+      {
+        "step": 10,
+        "instruction": "For Polarity and Gas Settings: plug cables in according to the screen, connect gas according to the screen, and set SCFH between 20–30.",
+        "postcondition": "Cables are connected per the screen diagram, gas hose is connected, and gas flow is set to 20–30 SCFH.",
+        "expected_image": "Screen showing polarity diagram with cables connected to correct terminals.",
+        "entity_refs": [
+          "physical_connector_polarity_terminals",
+          "shielding_gas_supply",
+          "welding_parameter_gas_flow"
+        ],
+        "branches": []
+      },
+      {
+        "step": 11,
+        "instruction": "Set Wire Diameter: turn the Left Knob to select the wire diameter matching the wire installed.",
+        "postcondition": "The wire diameter value displayed on the LCD matches the installed wire (e.g., .025\").",
+        "expected_image": "LCD screen showing wire diameter setting such as '.025\"'.",
+        "entity_refs": [
+          "control_element_left_knob",
+          "welding_wire_diameter",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 12,
+        "instruction": "Set Material Thickness: turn the Right Knob to select the thickness of the workpiece material.",
+        "postcondition": "The material thickness value displayed on the LCD matches the workpiece (e.g., 24Ga).",
+        "expected_image": "LCD screen showing material thickness setting such as '24Ga'.",
+        "entity_refs": [
+          "control_element_right_knob",
+          "welding_parameter_material_thickness",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 13,
+        "instruction": "In the Auto Weld Settings screen, turn the Left Knob to adjust Wire Feed Speed (Amperage) as needed.",
+        "postcondition": "The Wire Feed Speed (Amperage) value on the display reflects the adjusted setting.",
+        "expected_image": "LCD screen showing adjusted WFS/amperage value.",
+        "entity_refs": [
+          "control_element_left_knob",
+          "welding_parameter_wire_feed_speed",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 14,
+        "instruction": "Turn the Right Knob to adjust Voltage as needed.",
+        "postcondition": "The Voltage value on the display reflects the adjusted setting.",
+        "expected_image": "LCD screen showing adjusted voltage value.",
+        "entity_refs": [
+          "control_element_right_knob",
+          "welding_parameter_voltage",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 15,
+        "instruction": "Press the Main Control Knob to enter Optional Settings.",
+        "postcondition": "The Optional Settings menu is displayed on screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob"
+        ],
+        "branches": []
+      },
+      {
+        "step": 16,
+        "instruction": "Turn the Main Control Knob until the desired optional setting (Run-In WFS, Inductance, Spot Timer, Recall Setting, or Save Setting) appears on screen.",
+        "postcondition": "The desired optional setting name is highlighted on the display.",
+        "expected_image": "Display screen showing one of: Run-In WFS, Inductance, Spot Timer, Recall Setting, or Save Setting.",
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "welding_parameter_run_in_wfs",
+          "welding_parameter_inductance"
+        ],
+        "branches": []
+      },
+      {
+        "step": 17,
+        "instruction": "Press the Main Control Knob to select the desired optional setting.",
+        "postcondition": "The selected optional setting is active and its adjustment screen is displayed.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob"
+        ],
+        "branches": []
+      },
+      {
+        "step": 18,
+        "instruction": "Turn the Main Control Knob to adjust the selected optional setting to the desired value.",
+        "postcondition": "The setting value on screen reflects the adjusted value.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob"
+        ],
+        "branches": [
+          {
+            "condition": "If Save Setting is selected, turn the Main Control Knob to scroll between 5 available memory slots, press the knob to access OVERWRITE MEMORY SETTING screen, turn knob to choose YES, then press knob to save.",
+            "goto_step": 18,
+            "note": "Saves up to 5 different welder configurations."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "setup_shielding_gas_p21",
+    "name": "Set Up Shielding Gas (Gas Shielded, Solid-Core Wire Only)",
+    "description": "Opens the gas cylinder valve and sets the flow gauge to the correct SCFH value for gas-shielded MIG welding.",
+    "applies_to_process": "MIG",
+    "manual_citation": {
+      "page": 21,
+      "section": "Gas Shielded, Solid-Core Wire Only"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Open the gas cylinder valve all the way.",
+        "postcondition": "The gas cylinder valve is fully open and gas pressure is visible on the regulator gauge.",
+        "expected_image": "Gas cylinder valve turned fully counterclockwise with regulator gauge showing pressure.",
+        "entity_refs": [
+          "shielding_gas_cylinder"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Set the Flow Gauge to the SCFH value indicated on the Settings Chart.",
+        "postcondition": "The flow gauge reads the SCFH value specified in the Settings Chart.",
+        "expected_image": "Flow gauge needle pointing to the correct SCFH value.",
+        "entity_refs": [
+          "shielding_gas_flow_gauge",
+          "reference_diagram_settings_chart"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "basic_wire_welding_technique_p22",
+    "name": "Basic Wire Welding Technique",
+    "description": "Guides the operator through the fundamental hand technique for wire welding, including arc ignition, bead type selection, gun angle, and contact tip distance.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 22,
+      "section": "Basic Wire Welding Technique"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Press and hold the trigger on the MIG gun and contact the area to be welded with the electrode wire to ignite the arc.",
+        "postcondition": "An arc is established between the electrode wire and the workpiece.",
+        "expected_image": "Arc visible between wire tip and workpiece surface.",
+        "entity_refs": [
+          "control_element_trigger",
+          "welding_wire_electrode_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "For a narrow weld, draw the wire in a steady straight line along the joint to produce a stringer bead; for a wider weld, draw the wire back and forth across the joint to produce a weave bead.",
+        "postcondition": "A consistent weld bead is visible along the joint — either a narrow stringer bead or a wider weave bead.",
+        "expected_image": "Side-by-side comparison of a stringer bead (narrow, linear) and a weave bead (wider, rippled pattern).",
+        "entity_refs": [
+          "welding_wire_electrode_wire"
+        ],
+        "branches": [
+          {
+            "condition": "If a narrow weld is desired",
+            "goto_step": 2,
+            "note": "Use a stringer bead — draw wire in a straight line."
+          },
+          {
+            "condition": "If a wider weld is desired",
+            "goto_step": 2,
+            "note": "Use a weave bead — draw wire back and forth across the joint."
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "instruction": "Direct the welding wire straight into the joint at 90° (straight up and down) for butt welds, or at 45° for fillet (T-shaped) welds.",
+        "postcondition": "The MIG gun is angled correctly relative to the joint — 90° for butt joints, 45° for fillet joints.",
+        "expected_image": "Diagram showing MIG gun at 45° angle for fillet weld joint and 90° angle for butt weld joint, viewed from front.",
+        "entity_refs": [
+          "reference_diagram_gun_angles",
+          "welding_wire_electrode_wire"
+        ],
+        "branches": [
+          {
+            "condition": "If welding a butt (end-to-end) joint",
+            "goto_step": 3,
+            "note": "Hold gun at 90° to the workpiece surface."
+          },
+          {
+            "condition": "If welding a fillet (T-shaped) joint",
+            "goto_step": 3,
+            "note": "Hold gun at 45° to the workpiece surface."
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "instruction": "For MIG welding with solid wire and shielding gas, tilt the end of the MIG gun so the wire angles 0–15° away from the direction of travel (push angle).",
+        "postcondition": "The MIG gun is tilted 0–15° away from the weld direction, creating a push angle.",
+        "expected_image": "MIG gun shown with 0–15° push angle relative to weld direction, labeled 'Solid Wire with Shielding Gas'.",
+        "entity_refs": [
+          "welding_process_mig",
+          "welding_wire_electrode_wire",
+          "shielding_gas_shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "For flux-cored wire welding without shielding gas, tilt the end of the MIG gun so the wire angles 0–15° in the direction of travel (drag angle).",
+        "postcondition": "The MIG gun is tilted 0–15° toward the weld direction, creating a drag angle.",
+        "expected_image": "MIG gun shown with 0–15° drag angle relative to weld direction, labeled 'Flux-Cored Wire without Gas'.",
+        "entity_refs": [
+          "welding_process_flux_cored",
+          "welding_wire_electrode_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Maintain the contact tip within 1/2\" of the work surface throughout the weld (Contact Tip to Work Distance — CTWD).",
+        "postcondition": "The contact tip is no more than 1/2\" from the workpiece surface during welding.",
+        "expected_image": "MIG gun contact tip shown with bracket indicating CTWD distance of up to 1/2\" from the work surface.",
+        "entity_refs": [
+          "welding_parameter_ctwd",
+          "welding_wire_electrode_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "After welding the test weld on a piece of scrap for a few seconds, stop and check your progress, then clean and compare your weld's appearance with the diagrams in the Welding Tips section, making any necessary adjustments before continuing to weld while following the duty cycle guidelines.",
+        "postcondition": "Weld appearance has been evaluated and any adjustments have been made; operator is ready to continue welding within duty cycle limits.",
+        "expected_image": null,
+        "entity_refs": [
+          "product_specification_duty_cycle",
+          "welding_process_mig"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "When welding is complete, set the MIG Gun down on a heat-proof, electrically non-conductive surface and turn the Power Switch OFF.",
+        "postcondition": "MIG Gun is resting on a non-conductive surface and the Power Switch is in the OFF position.",
+        "expected_image": "MIG Gun resting on a concrete slab with the welder Power Switch turned to the OFF position.",
+        "entity_refs": [
+          "control_element_power_switch"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Allow the Welder to cool down, then unplug the Power Cord from the outlet.",
+        "postcondition": "Power Cord is disconnected from the wall outlet and the welder is unpowered.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_power_cord"
+        ],
+        "branches": []
+      },
+      {
+        "step": 10,
+        "instruction": "Remove the Ground Clamp from the workpiece or table and disconnect the MIG Gun.",
+        "postcondition": "Ground Clamp is detached from the workpiece and MIG Gun is disconnected from the welder.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_ground_clamp"
+        ],
+        "branches": []
+      },
+      {
+        "step": 11,
+        "instruction": "Respool the wire by clipping the wire, removing the gas nozzle and contact tip on the MIG Gun, releasing the Idler Arm on the Wire Feed mechanism, and rotating the Wire Spool counterclockwise while securely holding the wire as it is being respooled.",
+        "postcondition": "Wire is respooled onto the spool, Idler Arm is released, and the wire end is secured to prevent unraveling.",
+        "expected_image": null,
+        "entity_refs": [
+          "welding_wire",
+          "physical_connector_mig_gun_nozzle"
+        ],
+        "branches": []
+      },
+      {
+        "step": 12,
+        "instruction": "For MIG only: close the shielding gas cylinder valve securely, remove the Regulator and replace the cap, disconnect the Gas Hose from the Welder, then store and secure the gas cylinder.",
+        "postcondition": "Shielding gas cylinder valve is closed, regulator is removed and capped, gas hose is disconnected, and the cylinder is stored securely.",
+        "expected_image": "Regulator removed and cylinder cap replaced on the shielding gas cylinder.",
+        "entity_refs": [
+          "shielding_gas",
+          "physical_connector_gas_hose"
+        ],
+        "branches": [
+          {
+            "condition": "If process is not MIG (no shielding gas used)",
+            "goto_step": null,
+            "note": "Skip step 12 for Flux-Cored welding where no shielding gas cylinder is in use."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "connect_tig_cables_p24",
+    "name": "Connect TIG Setup Cables",
+    "description": "Connect the Ground Clamp Cable, TIG Torch Cable, Foot Pedal Cable, and Shielding Gas Hose to the welder for TIG welding setup.",
+    "applies_to_process": "TIG",
+    "manual_citation": {
+      "page": 24,
+      "section": "TIG Setup – Connect Cables"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Plug the Ground Clamp Cable into the Positive Socket and twist clockwise all the way to lock in place.",
+        "postcondition": "Ground Clamp Cable is fully seated in the Positive Socket and does not rotate or pull out freely.",
+        "expected_image": "Ground Clamp Cable connector locked into the Positive Socket on the welder body.",
+        "entity_refs": [
+          "physical_connector_positive_socket",
+          "physical_connector_ground_clamp_cable"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Plug the TIG Torch Cable (TIG Torch sold separately) into the Negative Socket and twist clockwise all the way to lock in place.",
+        "postcondition": "TIG Torch Cable is fully seated in the Negative Socket and does not rotate or pull out freely.",
+        "expected_image": "TIG Torch Cable connector locked into the Negative Socket on the welder body.",
+        "entity_refs": [
+          "physical_connector_negative_socket",
+          "physical_connector_tig_torch_cable"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Insert the Foot Pedal Cable (Foot Pedal sold separately) through the hole on the Welder front, connect it to the Foot Pedal Socket inside the machine, and secure by turning the collar clockwise until tight.",
+        "postcondition": "Foot Pedal Cable collar is tightened and the cable is firmly secured to the Foot Pedal Socket inside the welder.",
+        "expected_image": "Foot Pedal Cable routed through the welder front panel hole and connected to the internal Foot Pedal Socket.",
+        "entity_refs": [
+          "physical_connector_foot_pedal_socket",
+          "physical_connector_foot_pedal_cable"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Connect the Shielding Gas Hose by referring to the Connect Shielding Gas section on the next page.",
+        "postcondition": null,
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas_shielding_gas_hose"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "connect_shielding_gas_tig_p25",
+    "name": "Connect Shielding Gas (TIG)",
+    "description": "Installs and connects a 100% Argon shielding gas cylinder and regulator to the TIG torch for TIG welding.",
+    "applies_to_process": "TIG",
+    "manual_citation": {
+      "page": 25,
+      "section": "Connect Shielding Gas"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "With assistance, place a 100% Argon cylinder onto a cabinet or cart near the welder and secure the cylinder in place with two straps to prevent tipping.",
+        "postcondition": "The cylinder is upright and secured with two straps so it cannot tip over.",
+        "expected_image": "Argon cylinder standing upright on a cart, strapped securely at two points.",
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Remove the cylinder's cap, stand to the side of the valve opening, briefly open the valve to blow out dust and dirt, then close the cylinder valve.",
+        "postcondition": "The cylinder cap is removed and the valve is fully closed after the brief purge.",
+        "expected_image": "Operator standing to the side while briefly opening the cylinder valve to purge debris.",
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Locate the regulator (included), close its valve until loose, then thread the regulator onto the cylinder and wrench-tighten the connection.",
+        "postcondition": "The regulator is firmly attached to the cylinder and does not rotate by hand.",
+        "expected_image": "Regulator threaded onto cylinder valve with wrench-tightened connection visible.",
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Connect the shielding gas hose on the TIG torch cable connector to the regulator's outlet and wrench-tighten the connection.",
+        "postcondition": "The TIG torch gas hose is firmly attached to the regulator outlet and does not pull free by hand.",
+        "expected_image": "Gas hose connected from the TIG torch cable to the regulator outlet, connection snug.",
+        "entity_refs": [
+          "shielding_gas",
+          "physical_connector"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "connect_power_cord_p25",
+    "name": "Connect Power Cord",
+    "description": "Plugs the power cord into the welder's power input socket in preparation for operation.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 25,
+      "section": "Connect Power Cord"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Plug either the 120VAC or 240VAC power cord into the Power Input Socket on the welder (do not plug the cord into the wall outlet at this time).",
+        "postcondition": "The power cord is fully seated in the Power Input Socket on the welder; the cord is not connected to a wall outlet.",
+        "expected_image": "Power cord plugged into the welder's power input socket, free end not connected to wall.",
+        "entity_refs": [
+          "physical_connector",
+          "product_specification"
+        ],
+        "branches": [
+          {
+            "condition": "If plug does not fit one orientation",
+            "goto_step": 1,
+            "note": "Plug will only fit one way; rotate and re-insert if it does not seat."
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "instruction": "Plug either the 120VAC or 240VAC Power Cord into the Power Input Socket (plug will only fit one way).",
+        "postcondition": "The power cord is fully seated in the Power Input Socket; do not plug the other end into the wall outlet at this time.",
+        "expected_image": "Power cord connector fully inserted into the Power Input Socket on the welder.",
+        "entity_refs": [
+          "physical_connector_power_input_socket",
+          "product_specification_input_voltage"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "sharpen_tungsten_electrode_p26",
+    "name": "Sharpen Tungsten Electrode",
+    "description": "Grind the tungsten electrode to a proper conical point for TIG welding.",
+    "applies_to_process": "TIG",
+    "manual_citation": {
+      "page": 26,
+      "section": "Sharpen Tungsten Electrode (sold separately)"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Shut off the welder and wait until the Electrode and Torch have cooled enough to handle.",
+        "postcondition": "The Electrode and Torch are cool to the touch.",
+        "expected_image": null,
+        "entity_refs": [
+          "welding_process_tig"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Remove the Back Cap and pull the Electrode from the front of the Torch.",
+        "postcondition": "The Electrode is fully removed from the Torch and Back Cap is off.",
+        "expected_image": null,
+        "entity_refs": [
+          "setup_procedure_tig"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "If the Electrode has dulled or been contaminated, use pliers or a suitable tool to grip the Electrode above the contaminated section and snap off the end of the Electrode.",
+        "postcondition": "The contaminated portion of the Electrode has been removed.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": [
+          {
+            "condition": "If Electrode is not contaminated or dulled",
+            "goto_step": 4,
+            "note": "Skip snapping off the end and proceed directly to grinding."
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "instruction": "Lightly press the Electrode tip against the surface of the grinding wheel at an angle and rotate the Electrode tip until a blunt point is formed, keeping the grinding direction parallel to the length of the Electrode.",
+        "postcondition": "The Electrode tip has a uniform conical point with grinding marks running lengthwise along the tip.",
+        "expected_image": "Close-up of the tungsten electrode tip showing a smooth conical grind with lengthwise grinding marks.",
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Verify that the conical portion of the ground tip is 2-1/2 times as long as the Electrode diameter.",
+        "postcondition": "The conical taper length visually measures approximately 2.5 times the electrode's diameter.",
+        "expected_image": "Side view of the electrode tip showing the conical section length compared to the electrode diameter.",
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Re-insert the Electrode into the Collet with the tip protruding 1/8\"–1/4\" beyond the Ceramic Nozzle, then re-tighten the Back Cap.",
+        "postcondition": "The Electrode tip protrudes 1/8\" to 1/4\" beyond the Ceramic Nozzle and the Back Cap is snug.",
+        "expected_image": "Photo showing the tungsten tip extending 1/8\" to 1/4\" past the end of the Ceramic Nozzle.",
+        "entity_refs": [],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "assemble_tig_torch_p26",
+    "name": "Assemble TIG Torch (sold separately)",
+    "description": "Install and configure all TIG Torch components including Collet, Collet Body, Ceramic Nozzle, and Tungsten Electrode prior to welding.",
+    "applies_to_process": "TIG",
+    "manual_citation": {
+      "page": 26,
+      "section": "Assemble TIG Torch (sold separately)"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Consult the Settings Chart on top of the welder to determine the proper Tungsten Electrode size for the thickness of material to be welded.",
+        "postcondition": "The correct Tungsten Electrode size has been identified.",
+        "expected_image": null,
+        "entity_refs": [
+          "reference_diagram_settings_chart",
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Match the Collet and Collet Body sizes to the Tungsten Electrode size selected.",
+        "postcondition": "The Collet and Collet Body are the same size as the chosen Tungsten Electrode.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Thread the Collet Body into the front of the Torch.",
+        "postcondition": "The Collet Body is firmly threaded into the front of the Torch.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Verify that the Ceramic Nozzle size is appropriate for the application.",
+        "postcondition": "The correct Ceramic Nozzle size has been confirmed for the application.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Thread the Ceramic Nozzle onto the Collet Body.",
+        "postcondition": "The Ceramic Nozzle is fully threaded onto the Collet Body.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Insert the Collet into the back of the Torch and into the Collet Body.",
+        "postcondition": "The Collet is seated inside the Torch body and engaged with the Collet Body.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Insert the Tungsten Electrode into the Collet from the front of the Torch.",
+        "postcondition": "The Tungsten Electrode is inserted through the Collet at the front of the Torch.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "Lock the Electrode in place by tightening the Back Cap so that the Electrode protrudes 1/8\" to 1/4\" beyond the Ceramic Nozzle.",
+        "postcondition": "The Electrode is locked in the Collet and protrudes 1/8\" to 1/4\" past the end of the Ceramic Nozzle.",
+        "expected_image": "Photo showing the assembled TIG Torch with the tungsten tip visibly extending 1/8\" to 1/4\" beyond the Ceramic Nozzle.",
+        "entity_refs": [],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "connect_stick_cables_p27",
+    "name": "Connect Stick Setup Cables",
+    "description": "Connect the ground clamp cable and electrode holder cable to the welder's negative and positive sockets for Stick welding.",
+    "applies_to_process": "Stick",
+    "manual_citation": {
+      "page": 27,
+      "section": "Connect Cables"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Plug the Ground Clamp Cable into the Negative Socket and twist clockwise all the way to lock in place.",
+        "postcondition": "The ground clamp cable is fully seated in the negative socket and does not pull out when tugged.",
+        "expected_image": "Ground clamp cable connector fully inserted and rotated into the negative socket on the welder front panel.",
+        "entity_refs": [
+          "physical_connector_negative_socket",
+          "physical_connector_ground_clamp_cable"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Plug the Electrode Holder Cable into the Positive Socket and twist clockwise all the way to lock in place.",
+        "postcondition": "The electrode holder cable is fully seated in the positive socket and does not pull out when tugged.",
+        "expected_image": "Electrode holder cable connector fully inserted and rotated into the positive socket on the welder front panel.",
+        "entity_refs": [
+          "physical_connector_positive_socket",
+          "physical_connector_electrode_holder_cable"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "setup_weld_workpiece_p29",
+    "name": "Set Up the Weld (Workpiece Preparation)",
+    "description": "Prepares workpieces and clamps for welding by cleaning surfaces, positioning pieces, and attaching the ground cable.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 29,
+      "section": "Setting up the Weld"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Clean the weld surfaces thoroughly with a wire brush or angle grinder, removing all rust, paint, oil, or other materials so only bare metal remains.",
+        "postcondition": "Weld surfaces are visibly clean bare metal with no rust, paint, or oil present.",
+        "expected_image": "Close-up of a cleaned metal weld surface showing shiny bare metal.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Use clamps (not included) to hold the workpieces in position, controlling the gap between them and chamfering (beveling) the edges of thicker workpieces as needed to allow proper weld penetration.",
+        "postcondition": "Workpieces are held firmly in position with the joint gap controlled and thick edges chamfered where required.",
+        "expected_image": "Two workpieces clamped in position showing controlled gap and chamfered edges on thicker material.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Clamp the Ground Cable to bare metal on the workpiece near the weld area, or to a metal work bench where the workpiece is clamped.",
+        "postcondition": "Ground clamp is securely attached to bare metal near the weld area with no loose movement.",
+        "expected_image": "Ground clamp attached to bare metal on workpiece near weld zone.",
+        "entity_refs": [
+          "physical_connector",
+          "workpiece_material"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "tig_welding_operation_p30",
+    "name": "Operate TIG Welding Process",
+    "description": "Steps to configure and initiate TIG welding on the Vulcan OMNIPRO 220.",
+    "applies_to_process": "TIG",
+    "manual_citation": {
+      "page": 30,
+      "section": "TIG Welding"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Open the gas cylinder's valve all the way.",
+        "postcondition": "Gas cylinder valve is fully open.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Set the Flow Gauge to the SCFH value indicated on the Settings Chart on the inside of the Welder door.",
+        "postcondition": "Flow gauge reads the SCFH value specified on the Settings Chart.",
+        "expected_image": null,
+        "entity_refs": [
+          "welding_parameter",
+          "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Turn the Power Switch to the OFF position, then plug the Welder into a properly grounded, GFCI protected, 120VAC (20 amp rated) outlet or 240V outlet with a delayed action-type circuit breaker or fuses.",
+        "postcondition": "Welder is plugged into a grounded outlet and the Power Switch is in the OFF position.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "physical_connector",
+          "product_specification"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Set the TIG Torch down on a nonconductive, nonflammable surface away from any grounded objects.",
+        "postcondition": "TIG Torch rests on a nonconductive, nonflammable surface not touching any grounded objects.",
+        "expected_image": null,
+        "entity_refs": [
+          "safety_guideline"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Turn the Power Switch to the ON position.",
+        "postcondition": "Welder is powered on.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Press the Home Button on the Control Panel.",
+        "postcondition": "The Home screen is displayed on the LCD display screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Turn the Main Control Knob until the TIG process appears on the LCD display screen.",
+        "postcondition": "TIG process is shown on the LCD display screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "welding_process"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "Press the Main Control Knob to select the TIG process.",
+        "postcondition": "TIG process is selected and the screen advances to the TIG settings.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "welding_process"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Adjust settings for the TIG process by completing sub-steps 9a, 9b, and 9c using the screen prompts.",
+        "postcondition": "All TIG process settings screens have been configured.",
+        "expected_image": null,
+        "entity_refs": [
+          "welding_process",
+          "welding_parameter"
+        ],
+        "branches": []
+      },
+      {
+        "step": 10,
+        "instruction": "For Polarity and Gas Settings: plug cables in according to the screen, connect gas according to the screen, and set SCFH between 10–25.",
+        "postcondition": "Cables and gas are connected per the screen diagram and SCFH is set between 10 and 25.",
+        "expected_image": "Screen showing negative terminal, positive terminal, and 100% Argon gas with CONFIRM button visible.",
+        "entity_refs": [
+          "physical_connector",
+          "shielding_gas",
+          "welding_parameter",
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 11,
+        "instruction": "For Rod Diameter and Material Thickness: turn the Left Knob to set rod diameter and turn the Right Knob to set material thickness.",
+        "postcondition": "LCD displays the selected rod diameter (e.g., 1/16\") and material thickness (e.g., 24 Ga).",
+        "expected_image": "TIG settings screen showing Diameter and Thickness fields with selected values.",
+        "entity_refs": [
+          "control_element",
+          "welding_parameter"
+        ],
+        "branches": []
+      },
+      {
+        "step": 12,
+        "instruction": "For Auto Weld Settings: turn the Left Knob to adjust output amperage and turn the Right Knob to ON to energize the TIG Torch.",
+        "postcondition": "Output amperage is set and the TIG Torch is energized; the display shows ON and Open Circuit Voltage is present.",
+        "expected_image": "Auto Weld Settings screen showing amperage value, ON/OFF toggle set to ON, and 0.0 V open circuit voltage display.",
+        "entity_refs": [
+          "control_element",
+          "welding_parameter",
+          "safety_guideline"
+        ],
+        "branches": []
+      },
+      {
+        "step": 13,
+        "instruction": "Hold the TIG Torch in one gloved hand and the TIG Rod (sold separately) in the other gloved hand.",
+        "postcondition": "Both torch and TIG rod are held securely in gloved hands, ready to begin welding.",
+        "expected_image": null,
+        "entity_refs": [
+          "setup_procedure_tig_welding_operation"
+        ],
+        "branches": []
+      },
+      {
+        "step": 14,
+        "instruction": "Open the valve on the TIG Torch to start gas flow.",
+        "postcondition": "Shielding gas flows through the TIG Torch.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas_tig",
+          "control_element_tig_torch_valve"
+        ],
+        "branches": []
+      },
+      {
+        "step": 15,
+        "instruction": "Push the Foot Pedal and touch the Electrode to the work piece, then lift to initiate the welding arc.",
+        "postcondition": "A welding arc is established between the Tungsten Electrode and the workpiece.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_foot_pedal",
+          "stick_electrode_tungsten_electrode"
+        ],
+        "branches": [
+          {
+            "condition": "If not using Foot Pedal",
+            "goto_step": 15,
+            "note": "Touch Electrode to work piece and lift without using the Foot Pedal."
+          }
+        ]
+      },
+      {
+        "step": 16,
+        "instruction": "When the welding puddle is hot enough, tilt the Torch backward about 10–15 degrees from vertical, move it back slightly, and add TIG Rod material to the front end of the weld puddle as needed.",
+        "postcondition": "Torch is angled 10–15 degrees from vertical and TIG Rod is being fed into the front of the molten weld puddle.",
+        "expected_image": null,
+        "entity_refs": [
+          "setup_procedure_tig_welding_operation"
+        ],
+        "branches": []
+      },
+      {
+        "step": 17,
+        "instruction": "Alternate between pushing the torch/weld puddle forward and adding TIG Rod material.",
+        "postcondition": "Weld bead progresses steadily along the joint with consistent TIG Rod addition.",
+        "expected_image": null,
+        "entity_refs": [
+          "setup_procedure_tig_welding_operation"
+        ],
+        "branches": []
+      },
+      {
+        "step": 18,
+        "instruction": "When finished welding, release the Foot Pedal but keep the Torch on the weld puddle until the weld solidifies.",
+        "postcondition": "Welding arc is extinguished and weld puddle solidifies under gas coverage.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_foot_pedal"
+        ],
+        "branches": [
+          {
+            "condition": "If not using Foot Pedal",
+            "goto_step": 18,
+            "note": "Pull Torch away from the work piece until the welding arc is broken, then return gas coverage until the weld solidifies."
+          }
+        ]
+      },
+      {
+        "step": 19,
+        "instruction": "Close the valve on the TIG Torch and turn the Right Knob to OFF to turn off power to the TIG Torch.",
+        "postcondition": "Gas flow is stopped and power to the TIG Torch is OFF.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_right_knob",
+          "control_element_tig_torch_valve"
+        ],
+        "branches": []
+      },
+      {
+        "step": 20,
+        "instruction": "Set the TIG Torch down on a nonconductive, nonflammable surface away from any grounded objects.",
+        "postcondition": "TIG Torch rests safely on a nonconductive, nonflammable surface, away from grounded objects.",
+        "expected_image": null,
+        "entity_refs": [
+          "setup_procedure_tig_welding_operation"
+        ],
+        "branches": []
+      },
+      {
+        "step": 21,
+        "instruction": "Turn the Power Switch OFF.",
+        "postcondition": "Welder Power Switch is in the OFF position and the machine is no longer energized.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_power_switch"
+        ],
+        "branches": []
+      },
+      {
+        "step": 22,
+        "instruction": "Allow the Welder to cool down, then unplug the Welder's power cord from the outlet.",
+        "postcondition": "Welder is cool and power cord is disconnected from the outlet.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_power_cord"
+        ],
+        "branches": []
+      },
+      {
+        "step": 23,
+        "instruction": "Remove the Ground Clamp from the workpiece or table.",
+        "postcondition": "Ground Clamp is detached from the workpiece or table.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_ground_clamp"
+        ],
+        "branches": []
+      },
+      {
+        "step": 24,
+        "instruction": "Disconnect the TIG Torch, Ground, and Foot Pedal Cables.",
+        "postcondition": "All TIG Torch, ground, and foot pedal cables are unplugged from the welder.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_tig_torch_cable",
+          "physical_connector_ground_cable",
+          "control_element_foot_pedal"
+        ],
+        "branches": []
+      },
+      {
+        "step": 25,
+        "instruction": "Close the gas cylinder's valve securely, then remove the regulator and replace the cap.",
+        "postcondition": "Gas cylinder valve is fully closed, regulator is removed, and protective cap is installed.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas_cylinder",
+          "physical_connector_gas_regulator"
+        ],
+        "branches": []
+      },
+      {
+        "step": 26,
+        "instruction": "Disconnect the Gas Hose from the Welder.",
+        "postcondition": "Gas hose is fully disconnected from the welder.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_gas_hose"
+        ],
+        "branches": []
+      },
+      {
+        "step": 27,
+        "instruction": "Store and secure the gas cylinder.",
+        "postcondition": "Gas cylinder is stored upright and secured against tipping.",
+        "expected_image": null,
+        "entity_refs": [
+          "shielding_gas_cylinder"
+        ],
+        "branches": []
+      },
+      {
+        "step": 28,
+        "instruction": "Clean the Welder and its accessories, then store them indoors out of children's reach.",
+        "postcondition": "Welder and all accessories are clean and stored indoors in a location inaccessible to children.",
+        "expected_image": null,
+        "entity_refs": [],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "stick_welding_operation_p32",
+    "name": "Operate Stick Welding Process",
+    "description": "Configures and starts the Stick (SMAW) welding process on the welder, including power setup, process selection, and parameter adjustment.",
+    "applies_to_process": "Stick",
+    "manual_citation": {
+      "page": 32,
+      "section": "Stick Welding"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Turn the Power Switch to the OFF position, then plug the welder into a properly grounded, GFCI-protected 120VAC (20 amp rated) outlet or 240V outlet with a delayed action-type circuit breaker or fuses.",
+        "postcondition": "Welder is plugged into a grounded outlet and the Power Switch is in the OFF position.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_power_switch",
+          "product_specification_input_voltage"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Set the Electrode Holder down on a nonconductive, nonflammable surface away from any grounded objects.",
+        "postcondition": "Electrode Holder is resting on a nonconductive, nonflammable surface and is not in contact with any grounded objects.",
+        "expected_image": null,
+        "entity_refs": [
+          "stick_electrode_holder"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Turn the Power Switch ON.",
+        "postcondition": "Welder is powered on and the LCD display screen illuminates.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_power_switch"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Press the Home Button on the Control Panel.",
+        "postcondition": "The display returns to the home screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_home_button"
+        ],
+        "branches": []
+      },
+      {
+        "step": 5,
+        "instruction": "Turn the Main Control Knob until the Stick process appears on the LCD display screen.",
+        "postcondition": "The LCD display screen shows the Stick process name.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "welding_process_stick"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Press the Main Control Knob to select the STICK process.",
+        "postcondition": "The STICK process is selected and the display advances to the next setup screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "welding_process_stick"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Plug the welding cables into the correct polarity terminals as shown on the Polarity Setting screen.",
+        "postcondition": "Cables are connected to the correct positive and negative terminals per the screen diagram; the screen shows 'No Gas Required'.",
+        "expected_image": "Screen displaying polarity diagram with minus and plus terminals labeled and 'No Gas Required' message.",
+        "entity_refs": [
+          "physical_connector_polarity_terminals",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "Turn the Main Control Knob to set the electrode type on the Electrode type screen.",
+        "postcondition": "The desired electrode type (e.g., 60xx or 70xx) is displayed on the LCD screen.",
+        "expected_image": "LCD screen showing 'Stick' process and electrode type such as '60xx'.",
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "stick_electrode_type",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Turn the Left Knob to set the electrode diameter and turn the Right Knob to set the material thickness on the Electrode Diameter and Material Thickness screen.",
+        "postcondition": "The selected electrode diameter (e.g., 3/32\") and material thickness (e.g., 16 Ga) are shown on the LCD display.",
+        "expected_image": "LCD screen showing 'Stick' with Diameter field reading '3/32\"' and Thickness field reading '16 Ga'.",
+        "entity_refs": [
+          "control_element_left_knob",
+          "control_element_right_knob",
+          "welding_parameter_electrode_diameter",
+          "welding_parameter_material_thickness",
+          "stick_electrode"
+        ],
+        "branches": []
+      },
+      {
+        "step": 10,
+        "instruction": "Turn the Left Knob to adjust the output amperage on the Auto Weld Settings screen.",
+        "postcondition": "The desired output amperage value is displayed on the LCD screen.",
+        "expected_image": "LCD screen showing output amperage value in the left field.",
+        "entity_refs": [
+          "control_element_left_knob",
+          "welding_parameter_output_amperage",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 11,
+        "instruction": "Turn the Right Knob to the ON position to energize the Electrode Holder.",
+        "postcondition": "The ON indicator is active on the display and the Electrode Holder is energized; open circuit voltage is present.",
+        "expected_image": "LCD screen showing 'ON' selected and output voltage reading (e.g., 0.0 V) with welder energized.",
+        "entity_refs": [
+          "control_element_right_knob",
+          "stick_electrode_holder",
+          "control_element_lcd_display"
+        ],
+        "branches": []
+      },
+      {
+        "step": 12,
+        "instruction": "Configure optional settings by pressing the Main Control Knob to enter Optional Settings, turning it to scroll to the desired setting, pressing it to select, and turning it again to adjust the value.",
+        "postcondition": "The selected optional setting value is shown on screen.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_main_control_knob",
+          "welding_parameter_hot_start",
+          "welding_parameter_arc_force"
+        ],
+        "branches": []
+      },
+      {
+        "step": 13,
+        "instruction": "Place the bare metal end of the Stick Electrode inside the jaws of the Electrode Holder.",
+        "postcondition": "The bare metal end of the electrode is gripped securely in the Electrode Holder jaws.",
+        "expected_image": "Stick electrode clamped in electrode holder with bare metal end seated in jaws.",
+        "entity_refs": [
+          "stick_electrode_stick_electrode",
+          "physical_connector_electrode_holder"
+        ],
+        "branches": []
+      },
+      {
+        "step": 14,
+        "instruction": "Stroke the workpiece lightly with the Electrode to ignite the arc using one of three techniques: tap the surface, stroke the surface, or strike the surface like a match.",
+        "postcondition": "The welding arc is ignited between the electrode and the workpiece.",
+        "expected_image": null,
+        "entity_refs": [
+          "stick_electrode_stick_electrode",
+          "workpiece_material_workpiece"
+        ],
+        "branches": []
+      },
+      {
+        "step": 15,
+        "instruction": "After the arc ignites, lift the Electrode off the workpiece to a distance equal to the diameter of the bare metal end, then tilt the Electrode back 10 to 20 degrees.",
+        "postcondition": "The electrode is held at the correct arc gap and angle above the workpiece.",
+        "expected_image": "Electrode held at slight tilt above workpiece at arc length equal to electrode bare-metal diameter.",
+        "entity_refs": [
+          "stick_electrode_stick_electrode",
+          "workpiece_material_workpiece"
+        ],
+        "branches": []
+      },
+      {
+        "step": 16,
+        "instruction": "Drag the Electrode to the back end of the weld puddle to deposit material as needed.",
+        "postcondition": "Weld material is being deposited along the joint.",
+        "expected_image": null,
+        "entity_refs": [
+          "stick_electrode_stick_electrode",
+          "workpiece_material_workpiece"
+        ],
+        "branches": []
+      },
+      {
+        "step": 17,
+        "instruction": "When finished welding, lift the Electrode from the workpiece, then set the Electrode Holder down on a nonconductive, nonflammable surface away from any grounded objects.",
+        "postcondition": "The arc is extinguished and the Electrode Holder rests safely on a nonconductive surface.",
+        "expected_image": null,
+        "entity_refs": [
+          "stick_electrode_stick_electrode",
+          "physical_connector_electrode_holder",
+          "safety_guideline_safety_guideline"
+        ],
+        "branches": []
+      },
+      {
+        "step": 18,
+        "instruction": "Turn the Power Switch OFF.",
+        "postcondition": "The welder is powered off.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element_power_switch"
+        ],
+        "branches": []
+      },
+      {
+        "step": 19,
+        "instruction": "After use, allow the Welder to cool down, unplug the power cord from the outlet, remove the Ground Clamp, and disconnect the Electrode Holder and Ground Cables.",
+        "postcondition": "The welder is fully de-energized, cooled, and all cables are disconnected.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_power_cord",
+          "physical_connector_ground_clamp",
+          "physical_connector_electrode_holder",
+          "safety_guideline_safety_guideline"
+        ],
+        "branches": []
+      },
+      {
+        "step": 20,
+        "instruction": "Clean the Welder and store it with its accessories indoors out of children's reach.",
+        "postcondition": "The welder and accessories are stored safely indoors.",
+        "expected_image": null,
+        "entity_refs": [
+          "safety_guideline_safety_guideline"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "strike_test_p34",
+    "name": "Perform Strike Test",
+    "description": "Tests weld quality by striking a test weld on scrap material to determine if the weld is good or poor.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 34,
+      "section": "Strike Test"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "After two scraps have been welded together and the weld has cooled, clamp one scrap securely in a sturdy vise.",
+        "postcondition": "One scrap workpiece is held firmly in the vise with the weld joint exposed and accessible.",
+        "expected_image": "Scrap workpiece clamped in vise with weld joint visible.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Stay clear from underneath the workpiece and strike the opposite scrap with a heavy dead-blow hammer.",
+        "postcondition": "The hammer blow has been applied to the free scrap piece across the weld joint.",
+        "expected_image": "Operator striking the free scrap with a dead-blow hammer while standing clear of underneath.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Observe whether the weld deforms without breaking (good weld) or snaps and cracks at the weld (poor weld), and adjust your technique accordingly.",
+        "postcondition": "The weld either bends and remains intact (good weld) or has snapped or cracked at the joint (poor weld).",
+        "expected_image": "Side-by-side comparison: top shows weld bending without breaking; bottom shows weld snapped or cracked.",
+        "entity_refs": [
+          "failure_mode"
+        ],
+        "branches": [
+          {
+            "condition": "If the weld deforms but does not break",
+            "goto_step": null,
+            "note": "This indicates a GOOD WELD; no technique adjustment needed."
+          },
+          {
+            "condition": "If the weld is brittle and snaps at the weld line",
+            "goto_step": null,
+            "note": "This indicates a POOR WELD; adjust welding technique to remedy the problem."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clean_weld_p34",
+    "name": "Clean the Weld",
+    "description": "Removes slag and debris from a completed weld using a chipping hammer and wire brush.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 34,
+      "section": "Cleaning the Weld"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Use a chipping hammer to knock slag off the weld, being careful not to damage the weld or base material.",
+        "postcondition": "Slag has been removed from the weld surface without visible damage to the weld bead or base material.",
+        "expected_image": "Chipping hammer being used to strike slag off the weld bead.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Use a wire brush to further clean the weld, or use an angle grinder (sold separately) to shape the weld.",
+        "postcondition": "The weld surface is clean and free of residual slag or debris, with the weld bead shape clearly visible.",
+        "expected_image": "Wire brush being applied to cleaned weld bead.",
+        "entity_refs": [
+          "workpiece_material"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "inspect_mig_gun_nozzle_contact_tip_p41",
+    "name": "Inspect and Clean MIG Gun Nozzle and Contact Tip",
+    "description": "Inspects, cleans, and reinstalls the MIG Gun nozzle and contact tip to ensure optimal weld quality for MIG/Flux-Cored welding.",
+    "applies_to_process": "MIG",
+    "manual_citation": {
+      "page": 41,
+      "section": "MIG Gun Nozzle and Contact Tip Inspection and Cleaning"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Ensure the entire MIG Gun is completely cool and unplug the Power Cord from the electrical outlet before proceeding.",
+        "postcondition": "MIG Gun is cool to the touch and power cord is disconnected from the outlet.",
+        "expected_image": null,
+        "entity_refs": [
+          "safety_guideline",
+          "physical_connector"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Pull the Nozzle to remove it from the MIG Gun.",
+        "postcondition": "Nozzle is detached and separated from the MIG Gun body.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Scrub the interior of the Nozzle clean with a wire brush.",
+        "postcondition": "Interior of the Nozzle is visibly free of spatter and debris.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 4,
+        "instruction": "Examine the end of the Nozzle to verify it is flat and even, with no chips, melting, cracks, or other damage.",
+        "postcondition": "Nozzle end appears flat and even with no visible damage.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": [
+          {
+            "condition": "If the end is uneven, chipped, melted, cracked, or otherwise damaged",
+            "goto_step": 5,
+            "note": "A damaged Nozzle will adversely affect weld quality and should be replaced."
+          }
+        ]
+      },
+      {
+        "step": 5,
+        "instruction": "Unscrew the Contact Tip counterclockwise and slide it off the welding wire to remove it.",
+        "postcondition": "Contact Tip is fully removed from the MIG Gun.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "welding_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 6,
+        "instruction": "Scrub the outside of the Contact Tip clean with a wire brush and clean the inside with a tip cleaner (sold separately), then verify the Tip is the correct type for the wire size used.",
+        "postcondition": "Contact Tip exterior and interior are visibly clean; tip type matches the welding wire size.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "welding_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 7,
+        "instruction": "Examine the shape of the hole at the end of the Contact Tip to confirm it is an even circle with no oblong shape or bulges.",
+        "postcondition": "Contact Tip hole appears as an even, round circle with no deformation.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 8,
+        "instruction": "If any problems are noted, replace the Contact Tip by selecting a new tip of the correct size for the welding wire used.",
+        "postcondition": "A new, correct-size Contact Tip is ready for installation.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element",
+          "welding_wire"
+        ],
+        "branches": []
+      },
+      {
+        "step": 9,
+        "instruction": "Reinstall the Contact Tip onto the MIG Gun and securely reinstall the Nozzle as well.",
+        "postcondition": "Contact Tip is threaded on securely and Nozzle is fully seated on the MIG Gun.",
+        "expected_image": "MIG Gun with nozzle and contact tip fully assembled and seated, matching the reference diagram showing Nozzle and Contact Tip positions.",
+        "entity_refs": [
+          "control_element",
+          "reference_diagram"
+        ],
+        "branches": []
+      }
+    ]
+  },
+  {
+    "id": "replace_lcd_screen_cover_p41",
+    "name": "Replace the LCD Screen Cover",
+    "description": "Removes and replaces the LCD Screen Cover on the welder Display.",
+    "applies_to_process": null,
+    "manual_citation": {
+      "page": 41,
+      "section": "Replacing the LCD Screen Cover"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "instruction": "Carefully pry the frame off of Display (22) by inserting a flathead screwdriver (sold separately) into one of the side slots.",
+        "postcondition": "The Display frame is separated from the Display unit.",
+        "expected_image": "Flathead screwdriver inserted into the side slot of the Display frame, with the frame partially removed.",
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      },
+      {
+        "step": 2,
+        "instruction": "Insert a new Screen Cover (17) into Screen Frame (18) with the gap facing downward.",
+        "postcondition": "New Screen Cover is seated in the Screen Frame with the gap oriented at the bottom.",
+        "expected_image": "Screen Cover inserted into Screen Frame with gap visibly facing downward, as shown in reference diagram.",
+        "entity_refs": [
+          "control_element",
+          "reference_diagram"
+        ],
+        "branches": []
+      },
+      {
+        "step": 3,
+        "instruction": "Insert the frame back into the slot on Display with the top end placed in first.",
+        "postcondition": "Screen Frame with new Screen Cover is fully seated and secured in the Display with top edge inserted first.",
+        "expected_image": null,
+        "entity_refs": [
+          "control_element"
+        ],
+        "branches": []
+      }
+    ]
+  }
+]

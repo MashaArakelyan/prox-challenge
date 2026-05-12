@@ -1,0 +1,1382 @@
+[
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_natural_forced_air_ventilation",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_keep_head_out_fumes",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_use_ventilation_exhaust",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_approved_respirator_confined_area",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_ansi_welding_eye_protection",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_leather_leggings_fire_resistant_shoes",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_no_open_pockets_cuffs",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_clothing_free_flammables",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_insulating_gloves_protective_clothing",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_head_covering_neck_protection",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_welding_jacket_sleeves",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_ear_protection_overhead_welding",
+    "object_id": "safety_guideline_exposure_welding_exhaust_fumes",
+    "page": 3
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_turn_off_disconnect_power",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_touch_energized_parts",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_grounded_gfci_power_supply",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_not_near_water_damp",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_pacemaker_consultation",
+    "object_id": "failure_mode_pacemaker_interference",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_not_in_rain_wet",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_abuse_cord",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_insulate_from_workpiece_ground",
+    "object_id": "failure_mode_electrical_shock",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_clear_flammable_objects",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_abc_fire_extinguisher",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_maintain_safe_working_environment",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_not_in_dangerous_atmospheres",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_prevent_ignition_metal_wall",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_not_weld_combustible_coating",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_hot_slag_disposal",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_examine_after_welding",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_not_heat_unknown_container",
+    "object_id": "failure_mode_fire",
+    "page": 4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_use_if_switch_broken",
+    "object_id": "failure_mode_switch_malfunction",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_disconnect_plug_before_adjustments",
+    "object_id": "failure_mode_accidental_start",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_prevent_unintentional_starting_switch_off",
+    "object_id": "failure_mode_accidental_start",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_store_idle_welders_away_from_children",
+    "object_id": "failure_mode_unsafe_operation",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_maintain_welders",
+    "object_id": "failure_mode_equipment_deterioration",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_have_welder_serviced_by_qualified_person",
+    "object_id": "failure_mode_equipment_deterioration",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_weld_pressurized_closed_cylinder",
+    "object_id": "failure_mode_cylinder_explosion",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_protect_gas_cylinders_from_heat_damage",
+    "object_id": "failure_mode_cylinder_explosion",
+    "page": 5
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_prevent_electric_shock_incorrect_grounding",
+    "object_id": "safety_guideline_proper_grounding_connection",
+    "page": 6
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_no_extension_cords",
+    "object_id": "safety_guideline_prevent_electric_shock_incorrect_grounding",
+    "page": 6
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_use_supplied_power_cord",
+    "object_id": "safety_guideline_prevent_electric_shock_incorrect_grounding",
+    "page": 6
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_no_patched_cords",
+    "object_id": "safety_guideline_prevent_electric_shock_incorrect_grounding",
+    "page": 6
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_p8_spool_gun_setup",
+    "object_id": "reference_diagram_front_panel_controls",
+    "page": 8
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_feed_tensioner",
+    "object_id": "welding_parameter_wire_feed_speed",
+    "page": 9
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_feed_roller_knob",
+    "object_id": "welding_parameter_wire_feed_speed",
+    "page": 9
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_wire_spool_installation",
+    "object_id": "reference_diagram_wire_spool_installation",
+    "page": 10
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_wire_spool_installation",
+    "object_id": "reference_diagram_door_and_latch",
+    "page": 10
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_wire_spool_installation",
+    "object_id": "reference_diagram_power_switch_outlet",
+    "page": 10
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_wire_spool_installation",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 10
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_turn_power_switch_off_unplug",
+    "object_id": "failure_mode_wire_feed_problems_tight_wingnut",
+    "page": 10
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_remove_protective_foam_cardboard",
+    "object_id": "failure_mode_wire_feed_problems_tight_wingnut",
+    "page": 10
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_door_latch",
+    "object_id": "welding_parameter_wire_feed_speed",
+    "page": 10
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_10_12_pound_wire_spool_installation",
+    "object_id": "reference_diagram_10_12_lb_spool_loading",
+    "page": 11
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_10_12_pound_wire_spool_installation",
+    "object_id": "reference_diagram_wire_unwind_direction",
+    "page": 11
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_10_12_pound_wire_spool_installation",
+    "object_id": "reference_diagram_feed_tensioner_adjustment",
+    "page": 11
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_spool_unwind_direction",
+    "object_id": "failure_mode_wire_feed_problems_counterclockwise_unwind",
+    "page": 11
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_spool_spindle_rotation_check",
+    "object_id": "failure_mode_wire_feed_problems_counterclockwise_unwind",
+    "page": 11
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_feed_roller_instructions",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 12
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_mig_flux_cored_wire_welding",
+    "object_id": "welding_wire_solid_core",
+    "page": 12
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_mig_flux_cored_wire_welding",
+    "object_id": "welding_wire_flux_cored",
+    "page": 12
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_feed_roller_instructions",
+    "object_id": "reference_diagram_feed_roller_knob_removal",
+    "page": 12
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_feed_roller_instructions",
+    "object_id": "reference_diagram_feed_roller_groove_comparison",
+    "page": 12
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_feed_roller_instructions",
+    "object_id": "reference_diagram_feed_roller_installation_sequence",
+    "page": 12
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_feed_roller_knob",
+    "object_id": "welding_parameter_wire_feed_speed",
+    "page": 12
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_gun_cable_connector_installation",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 13
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_overtighten_wire_feed_knob",
+    "object_id": "failure_mode_gas_connection_leak_connector_not_fully_inserted",
+    "page": 13
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_wire_feed_control_cable_installation",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 13
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_dcen_flux_cored_polarity_setup",
+    "object_id": "welding_process_dcen_flux_cored_gasless",
+    "page": 13
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_dcen_flux_cored_polarity_setup",
+    "object_id": "reference_diagram_dcen_flux_cored_polarity_setup",
+    "page": 13
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_dcep_solid_core_polarity_setup",
+    "object_id": "welding_process_dcep_solid_core_gas_shielded",
+    "page": 14
+  },
+  {
+    "predicate": "requires_shielding_gas",
+    "subject_id": "welding_process_dcep_solid_core_gas_shielded",
+    "object_id": "shielding_gas_c100",
+    "page": 14
+  },
+  {
+    "predicate": "connects_to",
+    "subject_id": "shielding_gas_c100",
+    "object_id": "physical_connector_welder_gas_inlet",
+    "page": 14
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_dcep_solid_core_polarity_setup",
+    "object_id": "reference_diagram_dcep_solid_core_gas_shielded_setup",
+    "page": 14
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_hold_wire_tension",
+    "object_id": "failure_mode_wire_unravel_tangle_feed",
+    "page": 15
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_wire_inlet_feed_guide_installation",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 15
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_wire_inlet_feed_guide_installation",
+    "object_id": "reference_diagram_wire_feed_setup_procedure",
+    "page": 15
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_wire_tension_solid_flux_core",
+    "object_id": "failure_mode_flux_core_wire_crush",
+    "page": 15
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_feed_roller_idler_arm_tensioner",
+    "object_id": "reference_diagram_wire_feed_setup_procedure",
+    "page": 15
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_mig_gun_cable_straightening",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 15
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_mig_gun_cable_straightening",
+    "object_id": "reference_diagram_wire_feed_setup_procedure",
+    "page": 15
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_stainless_steel_wire_gun_cable_straight",
+    "object_id": "failure_mode_wire_feed_problems_tight_wingnut",
+    "page": 15
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_keep_hands_from_wire_feed",
+    "object_id": "failure_mode_wire_feed_problems_tight_wingnut",
+    "page": 16
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_close_door_before_plugging",
+    "object_id": "safety_guideline_welding_voltage_electric_shock",
+    "page": 16
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_touch_trigger_feeding_wire",
+    "object_id": "safety_guideline_welding_voltage_electric_shock",
+    "page": 16
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_power_input_socket",
+    "object_id": "product_specification_power_input_voltage",
+    "page": 16
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_cold_wire_feed_setup",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 16
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_cold_wire_feed_switch_p16",
+    "object_id": "setup_procedure_cold_wire_feed_setup",
+    "page": 16
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_feed_tensioner_p16",
+    "object_id": "failure_mode_wire_not_feeding_properly",
+    "page": 16
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_cold_wire_feed_setup",
+    "object_id": "reference_diagram_cold_wire_feed_setup_p16",
+    "page": 16
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_flux_cored_wire",
+    "object_id": "workpiece_material_mild_steel",
+    "page": 18
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_flux_cored_wire",
+    "object_id": "workpiece_material_stainless_steel_page18",
+    "page": 18
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_mig_welding",
+    "object_id": "workpiece_material_mild_steel",
+    "page": 18
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_mig_welding",
+    "object_id": "workpiece_material_stainless_steel_page18",
+    "page": 18
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_aluminum_welding",
+    "object_id": "workpiece_material_aluminum",
+    "page": 18
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_practice_welding_technique",
+    "object_id": "welding_process_flux_cored_wire",
+    "page": 18
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_practice_welding_technique",
+    "object_id": "welding_process_mig_welding",
+    "page": 18
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_practice_welding_technique",
+    "object_id": "welding_process_aluminum_welding",
+    "page": 18
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_wear_protective_gear_welding",
+    "object_id": "failure_mode_wire_unravel_tangle_feed",
+    "page": 18
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_arc_light_eye_damage",
+    "object_id": "failure_mode_wire_unravel_tangle_feed",
+    "page": 18
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_breathe_arc_fumes",
+    "object_id": "failure_mode_wire_unravel_tangle_feed",
+    "page": 18
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_observe_duty_cycle_limitations",
+    "object_id": "failure_mode_welder_thermal_protection_overstress",
+    "page": 19
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_duty_cycle_rest_periods",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 19
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_thermal_protection_shutdown",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 19
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_clean_weld_surfaces",
+    "object_id": "failure_mode_wire_not_feeding_properly",
+    "page": 19
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_vehicle_battery_disconnection",
+    "object_id": "failure_mode_wire_not_feeding_properly",
+    "page": 19
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_duty_cycle_operation",
+    "object_id": "reference_diagram_duty_cycle_pie_chart_120vac",
+    "page": 19
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_duty_cycle_operation",
+    "object_id": "reference_diagram_duty_cycle_pie_chart_240vac",
+    "page": 19
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_setting_up_weld",
+    "object_id": "reference_diagram_welding_setup_illustration",
+    "page": 19
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_clamp_ground_cable",
+    "object_id": "reference_diagram_welder_ground_clamp_connection",
+    "page": 19
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob",
+    "object_id": "welding_parameter_run_in_wfs",
+    "page": 21
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob",
+    "object_id": "welding_parameter_inductance",
+    "page": 21
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob",
+    "object_id": "welding_parameter_spot_timer",
+    "page": 21
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_flow_gauge",
+    "object_id": "shielding_gas_c100",
+    "page": 21
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_prevent_asphyxiation_gas_ventilation",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 21
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_gas_cylinder_setup",
+    "object_id": "reference_diagram_gas_cylinder_regulator",
+    "page": 21
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_basic_wire_welding_technique",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_stringer_bead",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_weave_bead",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_gun_angle_90_degrees",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_gun_angle_45_degrees",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_push_angle",
+    "object_id": "welding_process_mig_welding",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_drag_angle",
+    "object_id": "welding_process_dcen_flux_cored_gasless",
+    "page": 22
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_ctwd",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 22
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_basic_wire_welding_technique",
+    "object_id": "reference_diagram_bead_patterns",
+    "page": 22
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_basic_wire_welding_technique",
+    "object_id": "reference_diagram_weld_mig_gun_angles",
+    "page": 22
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_basic_wire_welding_technique",
+    "object_id": "reference_diagram_push_drag_angles",
+    "page": 22
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_basic_wire_welding_technique",
+    "object_id": "reference_diagram_ctwd_distance",
+    "page": 22
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "control_element_lcd_display_p23",
+    "object_id": "failure_mode_welder_overheat_warning_display",
+    "page": 23
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_welder_hot_do_not_touch",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 23
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_duty_cycle_rest_periods",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 23
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_post_weld_examination",
+    "object_id": "welding_process_mig_welding",
+    "page": 23
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_mig_gun_placement",
+    "object_id": "welding_process_mig_welding",
+    "page": 23
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_tig_setup",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 24
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_tig_setup",
+    "object_id": "reference_diagram_tig_setup_connections",
+    "page": 24
+  },
+  {
+    "predicate": "requires_shielding_gas",
+    "subject_id": "welding_process_tig_stick_welding",
+    "object_id": "shielding_gas_100_percent_argon",
+    "page": 25
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_connect_shielding_gas",
+    "object_id": "reference_diagram_shielding_gas_setup",
+    "page": 25
+  },
+  {
+    "predicate": "connects_to",
+    "subject_id": "shielding_gas_100_percent_argon",
+    "object_id": "physical_connector_tig_torch_cable_connector",
+    "page": 25
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_sharpen_tungsten_electrode",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 26
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_tig_stick_welding",
+    "object_id": "stick_electrode_tungsten",
+    "page": 26
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_electrode_contamination_prevention",
+    "object_id": "stick_electrode_tungsten",
+    "page": 26
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_electrode_hazardous_materials",
+    "object_id": "stick_electrode_tungsten",
+    "page": 26
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_assemble_tig_torch",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 26
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_sharpen_tungsten_electrode",
+    "object_id": "reference_diagram_sharpen_tungsten_electrode_process",
+    "page": 26
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_assemble_tig_torch",
+    "object_id": "reference_diagram_tig_torch_assembly",
+    "page": 26
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_stick_setup",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 27
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_setup",
+    "object_id": "reference_diagram_stick_setup_connections",
+    "page": 27
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_plug_cord_into_wall_outlet",
+    "object_id": "failure_mode_welder_overstress_accidental_operation",
+    "page": 27
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_dc_tig_welding",
+    "object_id": "workpiece_material_mild_steel_page28",
+    "page": 28
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_dc_tig_welding",
+    "object_id": "workpiece_material_stainless_steel_page28",
+    "page": 28
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_ac_tig_welding",
+    "object_id": "workpiece_material_aluminum_page28",
+    "page": 28
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_stick_welding",
+    "object_id": "workpiece_material_mild_steel_page28",
+    "page": 28
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_stick_welding",
+    "object_id": "workpiece_material_stainless_steel_page28",
+    "page": 28
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_protective_gear_welding_mask_shade_10",
+    "object_id": "safety_guideline_arc_light_permanent_damage_eyes_skin",
+    "page": 28
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_fire_resistant_work_clothes",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 28
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_tig_welding_operation",
+    "object_id": "welding_process_tig_welding_p31",
+    "page": 31
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_foot_pedal_p31",
+    "object_id": "welding_parameter_torch_tilt_angle",
+    "page": 31
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_tig_shutdown",
+    "object_id": "welding_process_tig_welding_p31",
+    "page": 31
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_tig_torch_distance_spacing",
+    "object_id": "failure_mode_puddle_insufficient_tig_rod_material",
+    "page": 31
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_tig_rod_electrode_advancement",
+    "object_id": "failure_mode_puddle_insufficient_tig_rod_material",
+    "page": 31
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_protective_gear_tig_welding",
+    "object_id": "safety_guideline_arc_light_injury_tig",
+    "page": 31
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_metal_work_bench_grounding_tig",
+    "object_type": "failure_mode",
+    "page": 31
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob_p33",
+    "object_id": "welding_parameter_hot_start",
+    "page": 33
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob_p33",
+    "object_id": "welding_parameter_arc_force",
+    "page": 33
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_optional_settings_p33",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 33
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_practice_weld_scrap",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 33
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_protective_gear_shade_10",
+    "object_id": "safety_guideline_arc_light_permanent_damage",
+    "page": 33
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_ignite_arc_stick",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 33
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_arc_ignition_positioning",
+    "object_id": "reference_diagram_strike_test_page_34",
+    "page": 33
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_strike_test",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 34
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_strike_test",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 34
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_strike_test_ppe",
+    "object_id": "failure_mode_brittle_weld_snap",
+    "page": 34
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_weld_cleaning_ppe",
+    "object_id": "failure_mode_brittle_weld_snap",
+    "page": 34
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_do_not_damage_weld_base_material",
+    "object_id": "failure_mode_brittle_weld_snap",
+    "page": 34
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_cleaning_weld",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 34
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_cleaning_weld",
+    "object_id": "welding_process_tig_stick_welding",
+    "page": 34
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_weld_current",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_travel_speed",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_wire_feed_speed_penetration",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_ctwd_penetration",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_increase_workpiece_heat_penetration",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_reduce_workpiece_heat_penetration",
+    "object_id": "welding_process_mig_flux_cored_wire_welding",
+    "page": 35
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_increase_workpiece_heat_penetration",
+    "object_id": "reference_diagram_wire_weld_diagnosis_penetration",
+    "page": 35
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_reduce_workpiece_heat_penetration",
+    "object_id": "reference_diagram_wire_weld_diagnosis_penetration",
+    "page": 35
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_workpiece_heat_control",
+    "object_id": "failure_mode_excess_penetration_burnthrough",
+    "page": 35
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_workpiece_heat_control",
+    "object_id": "failure_mode_inadequate_penetration",
+    "page": 35
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_polarity_mig_welding",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_shielding_gas_flow_mig",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_wire_feed_speed_excessive_spatter",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_ctwd_mig_welding",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_travel_speed_weld",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_current_weld",
+    "object_id": "welding_process_mig_welding",
+    "page": 37
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_stick_current",
+    "object_id": "welding_process_stick_welding",
+    "page": 38
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_stick_travel_speed",
+    "object_id": "welding_process_stick_welding",
+    "page": 38
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "welding_parameter_stick_current",
+    "object_id": "failure_mode_stick_current_too_low",
+    "page": 38
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "welding_parameter_stick_current",
+    "object_id": "failure_mode_stick_current_too_high",
+    "page": 38
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "welding_parameter_stick_travel_speed",
+    "object_id": "failure_mode_stick_travel_speed_too_fast",
+    "page": 38
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "welding_parameter_stick_travel_speed",
+    "object_id": "failure_mode_stick_travel_speed_too_slow",
+    "page": 38
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_increase_stick_heat_penetration",
+    "object_id": "welding_process_stick_welding",
+    "page": 38
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_reduce_stick_heat_penetration",
+    "object_id": "welding_process_stick_welding",
+    "page": 38
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_increase_stick_heat_penetration",
+    "object_id": "reference_diagram_stick_weld_diagnosis_penetration",
+    "page": 38
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_reduce_stick_heat_penetration",
+    "object_id": "reference_diagram_stick_weld_diagnosis_penetration",
+    "page": 38
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "reference_diagram_stick_weld_penetration_control",
+    "object_id": "failure_mode_stick_weld_excess_penetration_burnthrough",
+    "page": 39
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "reference_diagram_stick_weld_penetration_control",
+    "object_id": "failure_mode_stick_weld_proper_penetration",
+    "page": 39
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "reference_diagram_stick_weld_penetration_control",
+    "object_id": "failure_mode_stick_weld_inadequate_penetration",
+    "page": 39
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_stick_weld_heat_control",
+    "object_id": "failure_mode_stick_weld_excess_penetration_burnthrough",
+    "page": 39
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_stick_weld_proper_clamping",
+    "object_id": "failure_mode_stick_weld_bend_at_joint",
+    "page": 39
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_clean_slag_chipping_hammer_wire_brush",
+    "object_id": "failure_mode_stick_weld_coat_of_slag",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_clean_workpiece_bare_metal",
+    "object_id": "failure_mode_dirty_workpiece_fill_material",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_maintain_steady_weld_speed",
+    "object_id": "failure_mode_inconsistent_welding_speed",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_use_two_hands_steady_surface",
+    "object_id": "failure_mode_inaccurate_welding",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_maintain_steady_weld_speed",
+    "object_id": "failure_mode_stick_weld_crooked_wavy_bead",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_clean_workpiece_bare_metal",
+    "object_id": "failure_mode_stick_weld_excessive_spatter",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_reduce_current",
+    "object_id": "failure_mode_workpiece_overheating",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_increase_welding_speed_steady",
+    "object_id": "failure_mode_welding_speed_too_slow",
+    "page": 40
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "setup_procedure_reduce_amount_fill_material",
+    "object_id": "failure_mode_excessive_material_at_weld",
+    "page": 40
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_mig_gun_nozzle_contact_tip_inspection",
+    "object_id": "welding_process_mig_welding",
+    "page": 41
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_mig_gun_nozzle_contact_tip_inspection",
+    "object_id": "welding_process_flux_cored_wire",
+    "page": 41
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_display_frame_removal",
+    "object_id": "reference_diagram_lcd_screen_replacement",
+    "page": 41
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_mig_gun_nozzle_contact_tip_inspection",
+    "object_id": "reference_diagram_mig_gun_nozzle_contact_tip",
+    "page": 41
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_unplug_welder_cool_before_service",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 41
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "control_element_lcd_display",
+    "object_id": "failure_mode_lcd_display_not_lighting",
+    "page": 43
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_follow_all_safety_precautions_diagnosing_servicing",
+    "object_id": "failure_mode_welder_does_not_function_thermal_protection",
+    "page": 43
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_observe_duty_cycle_limitations",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 43
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_thermal_protection_shutdown",
+    "object_id": "failure_mode_tripped_thermal_protection_device",
+    "page": 43
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_duty_cycle_duration_use",
+    "object_id": "welding_process_mig_welding",
+    "page": 43
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_shut_off_welder_disconnect_power_discharge_electrode",
+    "object_id": "failure_mode_welder_does_not_function_when_switched_on",
+    "page": 44
+  },
+  {
+    "predicate": "indicates_failure",
+    "subject_id": "control_element_lcd_display_p23",
+    "object_id": "failure_mode_lcd_display_does_not_light_when_welder_switched_on",
+    "page": 44
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_line_voltage",
+    "object_id": "welding_process_tig_stick_welding_page44",
+    "page": 44
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_thermal_protection_device",
+    "object_id": "product_specification_duty_cycle_wear_reduction",
+    "page": 44
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_observe_duty_cycle_limitations",
+    "object_id": "failure_mode_welder_overheat_shutdown",
+    "page": 44
+  },
+  {
+    "predicate": "connects_to",
+    "subject_id": "shielding_gas_c100",
+    "object_id": "shielding_gas_outlet_connection",
+    "page": 44
+  }
+]

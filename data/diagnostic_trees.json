@@ -1,0 +1,3053 @@
+{
+  "symptoms": [
+    {
+      "id": "weld_snaps_or_cracks_on_strike_test",
+      "label": "Weld snaps or cracks during strike test",
+      "description": "When a test weld between two scrap pieces is struck with a hammer, the weld is brittle and snaps or cracks rather than deforming.",
+      "process_scope": "all",
+      "causes": [
+        {
+          "id": "insufficient_heat_lack_of_fusion",
+          "label": "Insufficient heat / lack of fusion into base metal",
+          "prior": 0.3,
+          "prior_source": "llm_estimated"
+        },
+        {
+          "id": "contaminated_base_metal",
+          "label": "Contaminated base metal (rust, paint, oil, mill scale)",
+          "prior": 0.2,
+          "prior_source": "llm_estimated"
+        },
+        {
+          "id": "improper_filler_or_electrode",
+          "label": "Wrong filler rod or electrode for the base material",
+          "prior": 0.15,
+          "prior_source": "llm_estimated"
+        },
+        {
+          "id": "inadequate_shielding",
+          "label": "Inadequate shielding gas or flux coverage causing porosity",
+          "prior": 0.15,
+          "prior_source": "llm_estimated"
+        },
+        {
+          "id": "poor_technique_travel_or_angle",
+          "label": "Poor welding technique (travel speed, torch angle, arc length)",
+          "prior": 0.15,
+          "prior_source": "llm_estimated"
+        }
+      ],
+      "checks": [
+        {
+          "id": "base_metal_clean",
+          "question": "Was the base metal cleaned to bare bright metal before welding?",
+          "modality": "self_report",
+          "positive_meaning": "User confirms base metal was cleaned prior to welding",
+          "likelihood_ratios": {
+            "contaminated_base_metal": {
+              "lr_positive": 0.2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Rule out contamination; investigate heat input and technique."
+        },
+        {
+          "id": "weld_appearance_photo",
+          "question": "Take a photo of the broken weld cross-section.",
+          "modality": "user_photo",
+          "positive_meaning": "Photo of the fracture surface for evaluation of porosity, fusion depth, and color",
+          "likelihood_ratios": {
+            "inadequate_shielding": {
+              "lr_positive": 4,
+              "source": "llm_estimated",
+              "note": "Visible porosity/pinholes indicates poor gas coverage"
+            },
+            "insufficient_heat_lack_of_fusion": {
+              "lr_positive": 4,
+              "source": "llm_estimated",
+              "note": "Shallow penetration visible on fracture surface"
+            }
+          },
+          "recommended_action_if_positive": "Inspect fracture surface for porosity (gas issue) or shiny unfused interface (heat issue)."
+        },
+        {
+          "id": "filler_matches_base",
+          "question": "Is the filler rod/electrode rated for the base metal you are welding?",
+          "modality": "self_report",
+          "positive_meaning": "Filler is correctly matched to base metal",
+          "likelihood_ratios": {
+            "improper_filler_or_electrode": {
+              "lr_positive": 0.2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Filler is likely not the issue; focus on heat and technique."
+        },
+        {
+          "id": "amperage_appropriate",
+          "question": "Is the amperage setting within the recommended range for the material thickness?",
+          "modality": "self_report",
+          "positive_meaning": "User confirms amperage matches recommended range for thickness",
+          "likelihood_ratios": {
+            "insufficient_heat_lack_of_fusion": {
+              "lr_positive": 0.25,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Heat input is likely adequate; investigate technique or contamination."
+        },
+        {
+          "id": "travel_speed_steady",
+          "question": "Did you maintain a steady travel speed and consistent arc length/torch angle?",
+          "modality": "self_report",
+          "positive_meaning": "Technique was consistent",
+          "likelihood_ratios": {
+            "poor_technique_travel_or_angle": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Technique is likely not the issue; check heat and material prep."
+        }
+      ],
+      "manual_citation": {
+        "page": 34,
+        "section": "Strike Test"
+      }
+    },
+    {
+      "id": "excess_penetration_or_burn_through",
+      "label": "Excess penetration or burn-through",
+      "description": "Weld droops on top and underneath, or falls through entirely, making a hole.",
+      "process_scope": [
+        "MIG",
+        "flux-cored wire"
+      ],
+      "causes": [
+        {
+          "id": "workpiece_overheating",
+          "label": "Workpiece overheating",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first under possible causes"
+        },
+        {
+          "id": "travel_speed_too_slow",
+          "label": "Travel speed too slow",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "excessive_material_at_weld",
+          "label": "Excessive material at weld (wire feed too high)",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "hole_through_workpiece",
+          "question": "Has the weld fallen through entirely, leaving a hole?",
+          "modality": "self_report",
+          "positive_meaning": "Severe burn-through, indicating excessive heat input",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 4,
+              "source": "llm_estimated"
+            },
+            "travel_speed_too_slow": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce wire feed speed and weld current, increase travel speed"
+        },
+        {
+          "id": "travel_speed_slow_observation",
+          "question": "Are you moving the gun slowly or pausing in one spot during the weld?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed is too slow, depositing too much heat per inch",
+          "likelihood_ratios": {
+            "travel_speed_too_slow": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            },
+            "workpiece_overheating": {
+              "lr_positive": 2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase travel speed and keep it steady"
+        },
+        {
+          "id": "wire_feed_speed_high",
+          "question": "Is the wire feed speed set near the upper end of the recommended range?",
+          "modality": "self_report",
+          "positive_meaning": "Too much filler material being deposited",
+          "likelihood_ratios": {
+            "excessive_material_at_weld": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "workpiece_overheating": {
+              "lr_positive": 2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce wire feed speed"
+        },
+        {
+          "id": "thin_workpiece",
+          "question": "Is the workpiece thin (e.g., sheet metal under 1/8\")?",
+          "modality": "self_report",
+          "positive_meaning": "Thin material overheats easily",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce weld current and use shorter weld passes"
+        }
+      ],
+      "manual_citation": {
+        "page": 36,
+        "section": "Wire Weld Penetration (Workpiece Heat Control)"
+      }
+    },
+    {
+      "id": "inadequate_penetration",
+      "label": "Inadequate penetration",
+      "description": "Weld does not penetrate the joint fully, just sits on the surface.",
+      "process_scope": [
+        "MIG",
+        "flux-cored wire"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_welding_technique",
+          "label": "Incorrect welding technique (CTWD, arc position, gun angle)",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_heat",
+          "label": "Insufficient weld heat",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "workpieces_too_thick_or_close",
+          "label": "Workpieces too thick or gap too tight",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_material",
+          "label": "Insufficient weld material (wire feed too low)",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "ctwd_over_half_inch",
+          "question": "Is your contact-tip-to-work distance (CTWD) more than 1/2\"?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Excessive stickout reduces current and penetration",
+          "likelihood_ratios": {
+            "incorrect_welding_technique": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Maintain 1/2\" or less CTWD"
+        },
+        {
+          "id": "arc_on_trailing_edge",
+          "question": "Are you aiming the arc behind (trailing edge of) the weld puddle?",
+          "modality": "self_report",
+          "positive_meaning": "Arc not focused on leading edge, reducing penetration",
+          "likelihood_ratios": {
+            "incorrect_welding_technique": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Keep arc on leading edge of weld puddle"
+        },
+        {
+          "id": "travel_speed_fast",
+          "question": "Are you moving the gun quickly across the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Insufficient dwell time to develop penetration",
+          "likelihood_ratios": {
+            "insufficient_weld_heat": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce travel speed and/or increase weld current"
+        },
+        {
+          "id": "thick_workpiece_no_bevel",
+          "question": "Are the workpieces thick (>1/4\") and joined without a bevel?",
+          "modality": "self_report",
+          "positive_meaning": "Joint geometry prevents the arc from reaching the root",
+          "likelihood_ratios": {
+            "workpieces_too_thick_or_close": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Bevel workpieces, allow slight gap, weld in multiple passes"
+        },
+        {
+          "id": "wire_feed_speed_low",
+          "question": "Is the wire feed speed set near the lower end of the recommended range?",
+          "modality": "self_report",
+          "positive_meaning": "Not enough filler deposited",
+          "likelihood_ratios": {
+            "insufficient_weld_material": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase wire feed speed"
+        }
+      ],
+      "manual_citation": {
+        "page": 36,
+        "section": "Wire Weld Penetration (Workpiece Heat Control)"
+      }
+    },
+    {
+      "id": "bend_at_joint",
+      "label": "Bend at joint",
+      "description": "Workpieces have warped or bent at the welded joint.",
+      "process_scope": [
+        "MIG",
+        "flux-cored wire"
+      ],
+      "causes": [
+        {
+          "id": "improper_clamping",
+          "label": "Improper clamping",
+          "prior": 0.5,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "excessive_heat_distortion",
+          "label": "Excessive heat causing distortion",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "workpieces_clamped",
+          "question": "Were the workpieces firmly clamped and tack-welded before the main weld?",
+          "modality": "self_report",
+          "positive_meaning": "Workpieces were restrained against distortion",
+          "likelihood_ratios": {
+            "improper_clamping": {
+              "lr_positive": 0.2,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clamping appears adequate; investigate heat instead"
+        },
+        {
+          "id": "long_continuous_weld",
+          "question": "Did you weld a long continuous bead without pausing to let it cool?",
+          "modality": "self_report",
+          "positive_meaning": "Heat accumulated and distorted the joint",
+          "likelihood_ratios": {
+            "excessive_heat_distortion": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Weld in small portions, allow cooling, increase travel speed, reduce wire feed"
+        }
+      ],
+      "manual_citation": {
+        "page": 36,
+        "section": "Bend at Joint"
+      }
+    },
+    {
+      "id": "weld_not_adhering_properly",
+      "label": "Weld not adhering properly",
+      "description": "Gaps present between weld and previous bead or between weld and workpiece.",
+      "process_scope": [
+        "MIG",
+        "flux-cored wire"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_welding_technique_adhesion",
+          "label": "Incorrect welding technique (bead placement, gun angle, arc position)",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_heat_adhesion",
+          "label": "Insufficient weld heat",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_workpiece",
+          "label": "Dirty workpiece",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_material_adhesion",
+          "label": "Insufficient weld material (wire feed too low)",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "workpiece_gap_too_narrow",
+          "label": "Workpiece gap too narrow",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "visible_rust_paint_oil",
+          "question": "Is there visible rust, paint, mill scale, or oil on the workpiece surface where you welded?",
+          "modality": "user_photo",
+          "positive_meaning": "Surface contamination preventing fusion",
+          "likelihood_ratios": {
+            "dirty_workpiece": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece down to bare metal"
+        },
+        {
+          "id": "stringer_bead_misplaced",
+          "question": "Did you place the stringer bead away from the root of the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Bead not located where fusion is needed",
+          "likelihood_ratios": {
+            "incorrect_welding_technique_adhesion": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Place stringer bead at correct place in joint; pause at sides during weave"
+        },
+        {
+          "id": "low_current_setting",
+          "question": "Is the welder current set near the low end of the recommended range for this material thickness?",
+          "modality": "self_report",
+          "positive_meaning": "Not enough heat to fuse the base metal",
+          "likelihood_ratios": {
+            "insufficient_weld_heat_adhesion": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase current and wire feed speed"
+        },
+        {
+          "id": "narrow_groove",
+          "question": "Is the groove or gap between workpieces very narrow (arc can't reach the bottom)?",
+          "modality": "self_report",
+          "positive_meaning": "Joint geometry prevents proper fill and adhesion",
+          "likelihood_ratios": {
+            "workpiece_gap_too_narrow": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Widen groove or increase bevel"
+        },
+        {
+          "id": "weld_bead_thin_undersized",
+          "question": "Does the weld bead look noticeably thin or undersized?",
+          "modality": "user_photo",
+          "positive_meaning": "Insufficient filler deposited",
+          "likelihood_ratios": {
+            "insufficient_weld_material_adhesion": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase wire feed speed"
+        }
+      ],
+      "manual_citation": {
+        "page": 36,
+        "section": "Weld Not Adhering Properly"
+      }
+    },
+    {
+      "id": "wire_weld_porosity",
+      "label": "Wire Weld - Porosity",
+      "description": "Small cavities or holes in the weld bead, visible from the top.",
+      "process_scope": [
+        "MIG",
+        "Wire Weld"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_polarity",
+          "label": "Incorrect polarity",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in possible causes"
+        },
+        {
+          "id": "insufficient_shielding_gas",
+          "label": "Insufficient shielding gas (MIG only)",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_shielding_gas",
+          "label": "Incorrect shielding gas (MIG only)",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_workpiece_or_wire",
+          "label": "Dirty workpiece or welding wire",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "inconsistent_travel_speed",
+          "label": "Inconsistent travel speed",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ctwd_too_long",
+          "label": "Contact-tip-to-work distance (CTWD) too long",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "polarity_correct_for_process",
+          "question": "Is the polarity set correctly for the type of wire/welding you are using?",
+          "modality": "self_report",
+          "positive_meaning": "Polarity is correctly set for the welding process",
+          "likelihood_ratios": {
+            "incorrect_polarity": {
+              "lr_positive": 0.15,
+              "source": "manual_derived",
+              "note": "Correct polarity rules out the polarity cause"
+            }
+          },
+          "recommended_action_if_positive": "Polarity is fine; investigate other causes."
+        },
+        {
+          "id": "gas_flow_below_15_cfh",
+          "question": "Is the shielding gas flow rate below 15 CFH (or otherwise low)?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Shielding gas flow is insufficient to protect the weld pool",
+          "likelihood_ratios": {
+            "insufficient_shielding_gas": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            },
+            "incorrect_polarity": {
+              "lr_positive": 0.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase gas flow, clean nozzle, and maintain proper CTWD."
+        },
+        {
+          "id": "gas_type_matches_wire_recommendation",
+          "question": "Is the shielding gas you are using the type recommended by the wire supplier?",
+          "modality": "self_report",
+          "positive_meaning": "Correct gas mix is being used for the wire",
+          "likelihood_ratios": {
+            "incorrect_shielding_gas": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Gas type is correct; investigate other causes."
+        },
+        {
+          "id": "workpiece_or_wire_visibly_dirty",
+          "question": "Is the workpiece or welding wire visibly dirty, rusty, oily, or coated (e.g., paint, mill scale)?",
+          "modality": "user_photo",
+          "positive_meaning": "Contamination is present on the base metal or wire",
+          "likelihood_ratios": {
+            "dirty_workpiece_or_wire": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece to bare metal and ensure wire is clean and free of oil/coatings."
+        },
+        {
+          "id": "travel_speed_inconsistent",
+          "question": "Did your travel speed vary noticeably during the weld (start/stop, jerky motion)?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed was not steady",
+          "likelihood_ratios": {
+            "inconsistent_travel_speed": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Use two hands or rest on a steady surface and maintain consistent travel speed."
+        },
+        {
+          "id": "ctwd_over_three_quarter_inch",
+          "question": "Is the contact-tip-to-work distance greater than about 3/4 inch (19 mm)?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Stickout is excessive",
+          "likelihood_ratios": {
+            "ctwd_too_long": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "insufficient_shielding_gas": {
+              "lr_positive": 1.5,
+              "source": "llm_estimated",
+              "note": "Long CTWD also degrades gas coverage"
+            }
+          },
+          "recommended_action_if_positive": "Reduce CTWD to roughly 3/8–3/4 in."
+        }
+      ],
+      "manual_citation": {
+        "page": 37,
+        "section": "Wire Weld - Porosity"
+      }
+    },
+    {
+      "id": "wire_weld_excessive_spatter",
+      "label": "Wire Weld - Excessive Spatter",
+      "description": "Spatter around the weld bead that is grainy and large (fine spatter is normal).",
+      "process_scope": [
+        "MIG",
+        "Wire Weld"
+      ],
+      "causes": [
+        {
+          "id": "dirty_workpiece_or_wire",
+          "label": "Dirty workpiece or welding wire",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_polarity",
+          "label": "Incorrect polarity",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_shielding_gas",
+          "label": "Insufficient shielding gas (MIG only)",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_feed_too_fast",
+          "label": "Wire feeding too fast",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ctwd_too_long",
+          "label": "CTWD too long",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "workpiece_or_wire_visibly_dirty",
+          "question": "Is the workpiece or welding wire visibly dirty, rusty, oily, or coated?",
+          "modality": "user_photo",
+          "positive_meaning": "Contamination is present on the base metal or wire",
+          "likelihood_ratios": {
+            "dirty_workpiece_or_wire": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece to bare metal; ensure wire is clean."
+        },
+        {
+          "id": "polarity_correct_for_process",
+          "question": "Is the polarity set correctly for the type of wire you are using?",
+          "modality": "self_report",
+          "positive_meaning": "Polarity matches process requirements",
+          "likelihood_ratios": {
+            "incorrect_polarity": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Polarity is fine; investigate other causes."
+        },
+        {
+          "id": "gas_flow_below_15_cfh",
+          "question": "Is the shielding gas flow rate low (below ~15 CFH)?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Inadequate gas coverage",
+          "likelihood_ratios": {
+            "insufficient_shielding_gas": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase gas flow, clean nozzle, maintain proper CTWD."
+        },
+        {
+          "id": "wire_feed_speed_high",
+          "question": "Does the wire appear to be feeding faster than the puddle can absorb (stubbing into the work or pushing the gun back)?",
+          "modality": "self_report",
+          "positive_meaning": "Wire feed speed is too high for the current",
+          "likelihood_ratios": {
+            "wire_feed_too_fast": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce wire feed speed."
+        },
+        {
+          "id": "ctwd_over_three_quarter_inch",
+          "question": "Is the contact-tip-to-work distance greater than about 3/4 inch?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Stickout is excessive",
+          "likelihood_ratios": {
+            "ctwd_too_long": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce CTWD."
+        }
+      ],
+      "manual_citation": {
+        "page": 37,
+        "section": "Wire Weld - Excessive Spatter"
+      }
+    },
+    {
+      "id": "wire_weld_crooked_wavy_bead",
+      "label": "Wire Weld - Crooked/Wavy Bead",
+      "description": "The weld bead is not straight; it wanders or has a wavy path.",
+      "process_scope": [
+        "MIG",
+        "Wire Weld"
+      ],
+      "causes": [
+        {
+          "id": "inaccurate_welding_technique",
+          "label": "Inaccurate welding (unsteady hand)",
+          "prior": 0.45,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "inconsistent_travel_speed",
+          "label": "Inconsistent travel speed",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ctwd_too_long",
+          "label": "CTWD too long",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "hand_unsupported_during_weld",
+          "question": "Were you welding freehand without bracing your hand or arm on a steady surface?",
+          "modality": "self_report",
+          "positive_meaning": "Operator did not stabilize the gun",
+          "likelihood_ratios": {
+            "inaccurate_welding_technique": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Use two hands or rest your hand on a steady surface."
+        },
+        {
+          "id": "travel_speed_inconsistent",
+          "question": "Did your travel speed vary noticeably during the weld?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed not steady",
+          "likelihood_ratios": {
+            "inconsistent_travel_speed": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Maintain steady travel speed."
+        },
+        {
+          "id": "ctwd_over_three_quarter_inch",
+          "question": "Is the contact-tip-to-work distance greater than about 3/4 inch?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Stickout is excessive, reducing arc control",
+          "likelihood_ratios": {
+            "ctwd_too_long": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce CTWD."
+        }
+      ],
+      "manual_citation": {
+        "page": 37,
+        "section": "Wire Weld - Crooked/Wavy Bead"
+      }
+    },
+    {
+      "id": "wire_weld_burn_through",
+      "label": "Wire Weld - Burn-Through",
+      "description": "Base material melts away, leaving a hole in the weld.",
+      "process_scope": [
+        "MIG",
+        "Wire Weld"
+      ],
+      "causes": [
+        {
+          "id": "workpiece_overheating",
+          "label": "Workpiece overheating (current/WFS too high)",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "travel_speed_too_slow",
+          "label": "Travel speed too slow",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "excessive_material_at_weld",
+          "label": "Excessive material at weld (too much wire deposited)",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "current_or_wfs_above_chart",
+          "question": "Are the current setting and/or wire feed speed set higher than recommended for this material thickness?",
+          "modality": "self_report",
+          "positive_meaning": "Heat input is too high for the base material",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "excessive_material_at_weld": {
+              "lr_positive": 2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce current and/or wire feed speed."
+        },
+        {
+          "id": "travel_speed_slow",
+          "question": "Were you moving the gun slowly, lingering in one spot?",
+          "modality": "self_report",
+          "positive_meaning": "Excess heat is dumped into a small area",
+          "likelihood_ratios": {
+            "travel_speed_too_slow": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase travel speed and keep it steady."
+        },
+        {
+          "id": "bead_excessively_tall_or_wide",
+          "question": "Is the bead unusually tall or wide compared to the joint, suggesting too much wire deposited?",
+          "modality": "user_photo",
+          "positive_meaning": "Too much filler being added",
+          "likelihood_ratios": {
+            "excessive_material_at_weld": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce wire feed speed."
+        },
+        {
+          "id": "base_material_thin",
+          "question": "Is the base material thin sheet (e.g., under ~1/8 inch / 3 mm)?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Thin material is more prone to burn-through",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 2.5,
+              "source": "llm_estimated"
+            },
+            "travel_speed_too_slow": {
+              "lr_positive": 1.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce current/WFS and increase travel speed; consider stitch welding."
+        }
+      ],
+      "manual_citation": {
+        "page": 37,
+        "section": "Wire Weld - Burn-Through"
+      }
+    },
+    {
+      "id": "stick_weld_inadequate_penetration",
+      "label": "Inadequate stick weld penetration",
+      "description": "Stick weld bead sits on top of the workpiece with shallow or no fusion into the base metal",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "current_too_low",
+          "label": "Welding current too low",
+          "prior": 0.45,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Manual lists 'Increase current' as first correction"
+        },
+        {
+          "id": "travel_speed_too_fast",
+          "label": "Travel speed too fast (welding too quickly)",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Manual lists 'Weld more slowly' as second correction"
+        },
+        {
+          "id": "arc_length_too_long_penetration",
+          "label": "Arc length too long, dispersing heat",
+          "prior": 0.1,
+          "prior_source": "llm_estimated"
+        }
+      ],
+      "checks": [
+        {
+          "id": "bead_sits_on_surface",
+          "question": "After cleaning slag, does the bead sit narrow and raised on the surface with little fusion into the base metal?",
+          "modality": "user_photo",
+          "positive_meaning": "Visual signature of inadequate penetration (cold weld)",
+          "likelihood_ratios": {
+            "current_too_low": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "travel_speed_too_fast": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase current and/or weld more slowly"
+        },
+        {
+          "id": "travel_speed_fast_self_report",
+          "question": "Were you moving the electrode quickly along the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed too fast reduces heat input to workpiece",
+          "likelihood_ratios": {
+            "travel_speed_too_fast": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "current_too_low": {
+              "lr_positive": 0.7,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Weld more slowly"
+        },
+        {
+          "id": "current_setting_at_or_below_low_end",
+          "question": "Is the amperage setting at or below the low end of the recommended range for the electrode and material thickness?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Current is insufficient for proper penetration",
+          "likelihood_ratios": {
+            "current_too_low": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase current"
+        }
+      ],
+      "manual_citation": {
+        "page": 38,
+        "section": "Stick Weld Diagnosis – Workpiece Heat Control / Weld Penetration"
+      }
+    },
+    {
+      "id": "stick_weld_excess_penetration_or_burnthrough",
+      "label": "Excess penetration or burn-through",
+      "description": "Stick weld penetrates too deeply or burns a hole through the workpiece",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "current_too_high",
+          "label": "Welding current too high",
+          "prior": 0.45,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Manual lists 'Decrease current' as first correction"
+        },
+        {
+          "id": "travel_speed_too_slow",
+          "label": "Travel speed too slow (dwelling on the joint)",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Manual lists 'Weld more quickly' as second correction"
+        },
+        {
+          "id": "workpiece_too_thin_for_settings",
+          "label": "Workpiece too thin for chosen settings",
+          "prior": 0.15,
+          "prior_source": "llm_estimated"
+        }
+      ],
+      "checks": [
+        {
+          "id": "hole_or_crater_through_workpiece",
+          "question": "Is there a hole burned through the workpiece or a deep crater on the back side?",
+          "modality": "user_photo",
+          "positive_meaning": "Clear evidence of excess heat input / burn-through",
+          "likelihood_ratios": {
+            "current_too_high": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "travel_speed_too_slow": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            },
+            "workpiece_too_thin_for_settings": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Decrease current and/or weld more quickly"
+        },
+        {
+          "id": "wide_irregular_bead",
+          "question": "After cleaning slag, is the bead unusually wide, irregular, or undercut at the edges?",
+          "modality": "user_photo",
+          "positive_meaning": "Visual signature of current too high",
+          "likelihood_ratios": {
+            "current_too_high": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease current"
+        },
+        {
+          "id": "travel_speed_slow_self_report",
+          "question": "Were you moving the electrode slowly or pausing along the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Slow travel increases heat input and penetration",
+          "likelihood_ratios": {
+            "travel_speed_too_slow": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "current_too_high": {
+              "lr_positive": 0.7,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Weld more quickly"
+        },
+        {
+          "id": "current_at_or_above_high_end",
+          "question": "Is the amperage setting at or above the high end of the recommended range for the electrode and material thickness?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Current is excessive for the workpiece",
+          "likelihood_ratios": {
+            "current_too_high": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease current"
+        }
+      ],
+      "manual_citation": {
+        "page": 38,
+        "section": "Stick Weld Diagnosis – Workpiece Heat Control / Weld Penetration"
+      }
+    },
+    {
+      "id": "stick_weld_bead_appearance_problem",
+      "label": "Stick weld bead has abnormal appearance",
+      "description": "After cleaning slag, the bead does not look like a proper, evenly rippled weld (too narrow, too wide, ropy, or irregular)",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "current_too_low_bead",
+          "label": "Current too low (narrow, ropy bead with poor fusion)",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "current_too_high_bead",
+          "label": "Current too high (wide, flat bead, possible undercut/spatter)",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "weld_speed_too_fast_bead",
+          "label": "Weld speed too fast (narrow, irregular bead)",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "weld_speed_too_slow_bead",
+          "label": "Weld speed too slow (wide piled-up bead)",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "arc_length_too_short",
+          "label": "Arc length too short (electrode sticks, ropy bead)",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "arc_length_too_long",
+          "label": "Arc length too long (wide, spattery bead with poor fusion)",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "bead_narrow_and_ropy",
+          "question": "Is the cleaned bead narrow, tall, or ropy (piled up) with poor fusion to the base metal?",
+          "modality": "user_photo",
+          "positive_meaning": "Signature of low current or fast travel",
+          "likelihood_ratios": {
+            "current_too_low_bead": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "weld_speed_too_fast_bead": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "current_too_high_bead": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            },
+            "weld_speed_too_slow_bead": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase current or weld more slowly"
+        },
+        {
+          "id": "bead_wide_and_flat",
+          "question": "Is the cleaned bead wide and flat, possibly with undercut at the edges or heavy spatter?",
+          "modality": "user_photo",
+          "positive_meaning": "Signature of high current, slow travel, or long arc",
+          "likelihood_ratios": {
+            "current_too_high_bead": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "weld_speed_too_slow_bead": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            },
+            "arc_length_too_long": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            },
+            "current_too_low_bead": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Decrease current, weld faster, or shorten arc"
+        },
+        {
+          "id": "electrode_sticks_to_work",
+          "question": "Does the electrode tend to stick to the workpiece when you start or weld?",
+          "modality": "self_report",
+          "positive_meaning": "Arc length too short or current too low",
+          "likelihood_ratios": {
+            "arc_length_too_short": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "current_too_low_bead": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase distance between electrode tip and workpiece (lengthen arc)"
+        },
+        {
+          "id": "heavy_spatter_and_erratic_arc",
+          "question": "Is there heavy spatter and an erratic, hard-to-control arc?",
+          "modality": "self_report",
+          "positive_meaning": "Arc length too long",
+          "likelihood_ratios": {
+            "arc_length_too_long": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease distance between electrode tip and workpiece (shorten arc)"
+        },
+        {
+          "id": "slag_not_cleaned_before_inspection",
+          "question": "Did you remove the slag coating before inspecting the bead?",
+          "modality": "self_report",
+          "positive_meaning": "Confirms inspection is valid; slag obscures the true bead appearance",
+          "likelihood_ratios": {},
+          "recommended_action_if_positive": "Proceed with bead diagnosis; if no, clean slag first per 'CLEAN WELDS FIRST!' note"
+        }
+      ],
+      "manual_citation": {
+        "page": 38,
+        "section": "Example Stick Weld Diagrams"
+      }
+    },
+    {
+      "id": "stick_excess_penetration_or_burnthrough",
+      "label": "Stick weld excess penetration or burn-through",
+      "description": "Weld droops on top and underneath, or falls through entirely making a hole",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "workpiece_overheating",
+          "label": "Workpiece overheating (current too high)",
+          "prior": 0.5,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first under possible causes"
+        },
+        {
+          "id": "welding_speed_too_slow",
+          "label": "Welding speed too slow",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed second under possible causes"
+        }
+      ],
+      "checks": [
+        {
+          "id": "current_above_recommended",
+          "question": "Is the welding current set above the recommended range for your electrode/material thickness?",
+          "modality": "self_report",
+          "positive_meaning": "Current setting is too high for the workpiece, causing overheating",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 5,
+              "source": "manual_derived",
+              "note": "Manual says reduce current"
+            }
+          },
+          "recommended_action_if_positive": "Reduce current setting"
+        },
+        {
+          "id": "travel_speed_slow_or_uneven",
+          "question": "Are you moving the electrode slowly or pausing/lingering over the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed is too slow or inconsistent, depositing too much heat",
+          "likelihood_ratios": {
+            "welding_speed_too_slow": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase welding speed and keep it steady"
+        },
+        {
+          "id": "hole_through_workpiece",
+          "question": "Has the weld fallen through the workpiece creating a hole?",
+          "modality": "user_photo",
+          "positive_meaning": "Burn-through occurred — confirms excess penetration symptom",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            },
+            "welding_speed_too_slow": {
+              "lr_positive": 3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce current and/or increase travel speed"
+        }
+      ],
+      "manual_citation": {
+        "page": 39,
+        "section": "Stick Weld Penetration (Workpiece Heat Control) — Excess Penetration or Burn-Through"
+      }
+    },
+    {
+      "id": "stick_inadequate_penetration",
+      "label": "Stick weld inadequate penetration",
+      "description": "Weld does not contact the joint fully, sitting just on the surface",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_welding_technique_penetration",
+          "label": "Incorrect welding technique (arc not on leading edge / wrong torch angle)",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_heat",
+          "label": "Insufficient weld heat (current too low / speed too fast)",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "workpieces_too_thick_or_close",
+          "label": "Workpieces too thick or gap too small",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_material",
+          "label": "Insufficient weld material / fill",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "current_below_recommended",
+          "question": "Is the welding current set below the recommended range for your electrode/material thickness?",
+          "modality": "self_report",
+          "positive_meaning": "Current is too low to melt into joint",
+          "likelihood_ratios": {
+            "insufficient_weld_heat": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "incorrect_welding_technique_penetration": {
+              "lr_positive": 0.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase current and slow down so fill material has time to melt in"
+        },
+        {
+          "id": "travel_speed_too_fast",
+          "question": "Are you moving the electrode quickly across the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed too fast — not enough heat input",
+          "likelihood_ratios": {
+            "insufficient_weld_heat": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Slow down so fill material has time to melt into the weld location"
+        },
+        {
+          "id": "arc_on_trailing_edge",
+          "question": "Are you keeping the arc on the trailing edge or middle of the puddle rather than the leading edge?",
+          "modality": "self_report",
+          "positive_meaning": "Arc placement is not directing heat into unmelted base metal",
+          "likelihood_ratios": {
+            "incorrect_welding_technique_penetration": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Keep arc on leading edge of weld puddle and hold torch at proper angles"
+        },
+        {
+          "id": "thick_workpieces_no_bevel",
+          "question": "Are the workpieces thick (>1/4 in) and joined without a bevel?",
+          "modality": "self_report",
+          "positive_meaning": "Joint geometry prevents weld from reaching the root",
+          "likelihood_ratios": {
+            "workpieces_too_thick_or_close": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Bevel thick workpieces, allow slight gap, and weld in several passes"
+        },
+        {
+          "id": "low_fill_material_deposited",
+          "question": "Does the weld bead appear thin or under-filled compared to the joint?",
+          "modality": "user_photo",
+          "positive_meaning": "Not enough filler being deposited",
+          "likelihood_ratios": {
+            "insufficient_weld_material": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase amount of fill material"
+        }
+      ],
+      "manual_citation": {
+        "page": 39,
+        "section": "Stick Weld Penetration — Inadequate Penetration"
+      }
+    },
+    {
+      "id": "stick_weld_not_adhering",
+      "label": "Stick weld not adhering properly",
+      "description": "Gaps present between weld and previous bead or between weld and workpiece",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_welding_technique_adhesion",
+          "label": "Incorrect welding technique (stringer placement, angle)",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_heat_adhesion",
+          "label": "Insufficient weld heat",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_workpiece",
+          "label": "Dirty workpiece (paint, rust, oil, scale)",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "insufficient_weld_material_adhesion",
+          "label": "Insufficient weld material",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "distance_between_workpieces_too_large",
+          "label": "Distance between workpieces too large",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "workpiece_surface_dirty",
+          "question": "Is the workpiece surface coated with paint, rust, mill scale, oil, or other contaminants?",
+          "modality": "user_photo",
+          "positive_meaning": "Surface contamination is preventing fusion",
+          "likelihood_ratios": {
+            "dirty_workpiece": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece down to bare metal"
+        },
+        {
+          "id": "current_below_recommended_adhesion",
+          "question": "Is the welding current set below the recommended range?",
+          "modality": "self_report",
+          "positive_meaning": "Not enough heat to fuse weld to base metal",
+          "likelihood_ratios": {
+            "insufficient_weld_heat_adhesion": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase current"
+        },
+        {
+          "id": "gap_between_workpieces_large",
+          "question": "Is there a visible gap between the two workpieces larger than the electrode diameter?",
+          "modality": "user_photo",
+          "positive_meaning": "Joint gap is too wide to bridge",
+          "likelihood_ratios": {
+            "distance_between_workpieces_too_large": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease distance and increase bevel"
+        },
+        {
+          "id": "stringer_bead_misplaced",
+          "question": "Is the stringer bead placed off-center or at the wrong location in the joint?",
+          "modality": "user_photo",
+          "positive_meaning": "Bead placement or torch angle preventing fusion to bottom of joint",
+          "likelihood_ratios": {
+            "incorrect_welding_technique_adhesion": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Place stringer bead correctly, adjust angle, keep arc on leading edge"
+        },
+        {
+          "id": "bead_under_filled",
+          "question": "Does the weld bead look thin or starved of filler?",
+          "modality": "user_photo",
+          "positive_meaning": "Not enough fill material deposited",
+          "likelihood_ratios": {
+            "insufficient_weld_material_adhesion": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase amount of fill material"
+        }
+      ],
+      "manual_citation": {
+        "page": 39,
+        "section": "Stick Weld – Weld Not Adhering Properly"
+      }
+    },
+    {
+      "id": "stick_weld_bend_at_joint",
+      "label": "Stick weld bend at joint",
+      "description": "Workpieces have bent or distorted at the welded joint",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "improper_clamping",
+          "label": "Improper clamping of workpieces",
+          "prior": 0.5,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "excessive_heat_distortion",
+          "label": "Excessive heat causing distortion",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "workpieces_clamped",
+          "question": "Were the workpieces firmly clamped and/or tack welded before welding?",
+          "modality": "self_report",
+          "positive_meaning": "Workpieces were restrained — clamping is unlikely to be the cause",
+          "likelihood_ratios": {
+            "improper_clamping": {
+              "lr_positive": 0.2,
+              "source": "manual_derived"
+            },
+            "excessive_heat_distortion": {
+              "lr_positive": 2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Investigate heat input as primary cause"
+        },
+        {
+          "id": "long_continuous_weld_pass",
+          "question": "Did you weld a long continuous pass without letting the workpiece cool?",
+          "modality": "self_report",
+          "positive_meaning": "Heat input was concentrated and prolonged, causing thermal distortion",
+          "likelihood_ratios": {
+            "excessive_heat_distortion": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Weld a small portion and allow to cool before proceeding; increase weld speed"
+        },
+        {
+          "id": "tack_welds_present",
+          "question": "Did you make tack welds at multiple points to hold workpieces before the main weld?",
+          "modality": "self_report",
+          "positive_meaning": "Tack welds were used to constrain the joint",
+          "likelihood_ratios": {
+            "improper_clamping": {
+              "lr_positive": 0.3,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clamping is unlikely the cause; look at heat input"
+        }
+      ],
+      "manual_citation": {
+        "page": 39,
+        "section": "Stick Weld – Bend at Joint"
+      }
+    },
+    {
+      "id": "stick_weld_porosity",
+      "label": "Stick Weld - Porosity",
+      "description": "Small cavities or holes in the stick weld bead.",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "dirty_workpiece_or_fill_material",
+          "label": "Dirty workpiece or fill material",
+          "prior": 0.55,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in manual's possible causes"
+        },
+        {
+          "id": "inconsistent_welding_speed",
+          "label": "Inconsistent welding speed",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed second in manual's possible causes"
+        }
+      ],
+      "checks": [
+        {
+          "id": "workpiece_visibly_dirty",
+          "question": "Is the workpiece or electrode visibly contaminated with oil, rust, paint, or coatings?",
+          "modality": "self_report",
+          "positive_meaning": "Surface contamination is present that can outgas during welding and cause porosity",
+          "likelihood_ratios": {
+            "dirty_workpiece_or_fill_material": {
+              "lr_positive": 5,
+              "source": "manual_derived",
+              "note": "Manual identifies dirty workpiece/fill as a direct cause"
+            },
+            "inconsistent_welding_speed": {
+              "lr_positive": 0.7,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece down to bare metal; ensure fill and electrode are free from oil, coatings, and residues."
+        },
+        {
+          "id": "weld_speed_varies",
+          "question": "Did your travel speed vary noticeably during the weld?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed was not steady, allowing variation in arc time and gas coverage",
+          "likelihood_ratios": {
+            "inconsistent_welding_speed": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "dirty_workpiece_or_fill_material": {
+              "lr_positive": 0.8,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Maintain a steady weld speed; use two hands or rest hand on a steady surface."
+        }
+      ],
+      "manual_citation": {
+        "page": 40,
+        "section": "Stick Weld - Porosity"
+      }
+    },
+    {
+      "id": "stick_weld_crooked_wavy_bead",
+      "label": "Stick Weld - Crooked/Wavy Bead",
+      "description": "Stick weld bead is crooked or wavy rather than straight.",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "inaccurate_welding",
+          "label": "Inaccurate welding (unsteady hand)",
+          "prior": 0.55,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in manual"
+        },
+        {
+          "id": "inconsistent_welding_speed",
+          "label": "Inconsistent welding speed",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed second in manual"
+        }
+      ],
+      "checks": [
+        {
+          "id": "hand_unsupported",
+          "question": "Were you welding freehand without bracing or resting your hand on a steady surface?",
+          "modality": "self_report",
+          "positive_meaning": "Hand was unsupported, leading to wavering torch position",
+          "likelihood_ratios": {
+            "inaccurate_welding": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Use two hands or rest hand on a steady surface."
+        },
+        {
+          "id": "travel_speed_varied",
+          "question": "Did your travel speed vary during the weld pass?",
+          "modality": "self_report",
+          "positive_meaning": "Travel speed varied, causing inconsistent bead width and shape",
+          "likelihood_ratios": {
+            "inconsistent_welding_speed": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Maintain a steady weld speed."
+        }
+      ],
+      "manual_citation": {
+        "page": 40,
+        "section": "Stick Weld - Crooked/Wavy Bead"
+      }
+    },
+    {
+      "id": "stick_weld_excessive_spatter",
+      "label": "Stick Weld - Excessive Spatter",
+      "description": "Spatter around the bead is grainy and large rather than fine. Fine spatter is normal.",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "dirty_workpiece_or_fill_material",
+          "label": "Dirty workpiece or fill material",
+          "prior": 0.7,
+          "prior_source": "manual_derived",
+          "prior_note": "Manual lists this as the only cause"
+        }
+      ],
+      "checks": [
+        {
+          "id": "spatter_grainy_and_large",
+          "question": "Is the spatter grainy and large rather than fine?",
+          "modality": "user_photo",
+          "positive_meaning": "Spatter pattern is abnormal and indicates a problem",
+          "likelihood_ratios": {
+            "dirty_workpiece_or_fill_material": {
+              "lr_positive": 4,
+              "source": "manual_derived",
+              "note": "Manual: 'Fine spatter is normal. Spatter that is grainy and large is a problem.'"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece to bare metal; ensure fill material and electrode are clean and free from oil, coatings, and residues."
+        },
+        {
+          "id": "workpiece_visibly_contaminated",
+          "question": "Is the workpiece or electrode visibly contaminated with oil, rust, paint, or coatings?",
+          "modality": "self_report",
+          "positive_meaning": "Surface contamination present that disrupts arc stability and increases spatter",
+          "likelihood_ratios": {
+            "dirty_workpiece_or_fill_material": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean workpiece down to bare metal; clean fill material and electrode."
+        }
+      ],
+      "manual_citation": {
+        "page": 40,
+        "section": "Stick Weld - Excessive Spatter"
+      }
+    },
+    {
+      "id": "stick_weld_burn_through",
+      "label": "Stick Weld - Burn-Through",
+      "description": "Base material melts away, leaving a hole in the weld.",
+      "process_scope": [
+        "Stick"
+      ],
+      "causes": [
+        {
+          "id": "workpiece_overheating",
+          "label": "Workpiece overheating (current too high)",
+          "prior": 0.45,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in manual"
+        },
+        {
+          "id": "welding_speed_too_slow",
+          "label": "Welding speed too slow",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed second in manual"
+        },
+        {
+          "id": "excessive_fill_material",
+          "label": "Excessive material at weld",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed third in manual"
+        }
+      ],
+      "checks": [
+        {
+          "id": "current_high_for_thickness",
+          "question": "Is the welder's current setting high relative to the base metal thickness?",
+          "modality": "self_report",
+          "positive_meaning": "Amperage is high enough to overheat thin base metal",
+          "likelihood_ratios": {
+            "workpiece_overheating": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "welding_speed_too_slow": {
+              "lr_positive": 0.8,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Reduce welding current."
+        },
+        {
+          "id": "travel_speed_slow",
+          "question": "Were you moving the electrode slowly along the joint?",
+          "modality": "self_report",
+          "positive_meaning": "Heat input per unit length is high due to slow travel",
+          "likelihood_ratios": {
+            "welding_speed_too_slow": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "workpiece_overheating": {
+              "lr_positive": 1.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase welding speed and keep it steady."
+        },
+        {
+          "id": "excess_filler_deposited",
+          "question": "Did you deposit a large amount of fill material at the burn-through location?",
+          "modality": "self_report",
+          "positive_meaning": "Excess filler concentrated heat and material in one spot",
+          "likelihood_ratios": {
+            "excessive_fill_material": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reduce amount of fill material."
+        }
+      ],
+      "manual_citation": {
+        "page": 40,
+        "section": "Stick Weld - Burn-Through"
+      }
+    },
+    {
+      "id": "wire_feed_motor_runs_but_wire_not_feeding",
+      "label": "Wire Feed Motor Runs but Wire Does Not Feed Properly",
+      "description": "The wire feed motor is running and audible, but the welding wire is not being fed out of the gun properly.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "insufficient_wire_feed_pressure",
+          "label": "Insufficient wire feed pressure",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in Possible Causes"
+        },
+        {
+          "id": "incorrect_feed_roller_size",
+          "label": "Incorrect wire feed roller size",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "damaged_gun_cable_or_liner",
+          "label": "Damaged MIG Gun, cable, or liner assembly",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "feed_tensioner_too_tight",
+          "label": "Feed Tensioner is too tight",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "feed_roller_groove_matches_wire",
+          "question": "Does the groove size stamped on the feed roller match the wire diameter you are using?",
+          "modality": "self_report",
+          "positive_meaning": "Feed roller is the correct size for the wire",
+          "likelihood_ratios": {
+            "incorrect_feed_roller_size": {
+              "lr_positive": 0.15,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Rule out incorrect roller size; investigate tension and gun/liner."
+        },
+        {
+          "id": "tensioner_very_tight",
+          "question": "Is the feed tensioner knob set very tight (high pressure setting)?",
+          "modality": "self_report",
+          "positive_meaning": "Tensioner is over-tightened, potentially deforming or jamming the wire",
+          "likelihood_ratios": {
+            "feed_tensioner_too_tight": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "insufficient_wire_feed_pressure": {
+              "lr_positive": 0.2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Loosen Feed Tensioner so it applies only enough pressure to prevent continued spinning after the Gun Trigger is released."
+        },
+        {
+          "id": "wire_slips_under_roller",
+          "question": "When the motor runs, does the wire slip under the feed roller (roller spins but wire barely moves)?",
+          "modality": "self_report",
+          "positive_meaning": "Feed roller is not gripping wire — pressure too low",
+          "likelihood_ratios": {
+            "insufficient_wire_feed_pressure": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "feed_tensioner_too_tight": {
+              "lr_positive": 0.2,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Increase wire feed pressure properly per step 27 on page 17."
+        },
+        {
+          "id": "gun_cable_visibly_damaged",
+          "question": "Is the MIG gun, cable, or liner visibly kinked, cut, or damaged?",
+          "modality": "user_photo",
+          "positive_meaning": "Mechanical damage in the gun/cable/liner path",
+          "likelihood_ratios": {
+            "damaged_gun_cable_or_liner": {
+              "lr_positive": 6,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Have a qualified technician inspect and replace as necessary."
+        }
+      ],
+      "manual_citation": {
+        "page": 42,
+        "section": "Troubleshooting – MIG/Flux-Cored Welding"
+      }
+    },
+    {
+      "id": "wire_birds_nest",
+      "label": "Wire Creates a Bird's Nest During Operation",
+      "description": "Wire bunches up into a tangled mass ('bird's nest') at the feed mechanism during welding.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "excess_wire_feed_pressure",
+          "label": "Excess wire feed pressure",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_contact_tip_size",
+          "label": "Incorrect Contact Tip size",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "gun_cable_connector_not_seated",
+          "label": "MIG Gun Cable Connector not fully inserted into Wire Feed mechanism",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "damaged_liner",
+          "label": "Damaged liner",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "contact_tip_marked_for_wire_size",
+          "question": "Is the contact tip stamped with a size matching your wire diameter?",
+          "modality": "self_report",
+          "positive_meaning": "Contact tip is correctly sized for wire",
+          "likelihood_ratios": {
+            "incorrect_contact_tip_size": {
+              "lr_positive": 0.15,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Rule out incorrect tip; investigate pressure and gun connector."
+        },
+        {
+          "id": "gun_connector_fully_inserted",
+          "question": "Is the MIG Gun Cable Connector fully inserted into the wire feed mechanism with no gap visible?",
+          "modality": "self_report",
+          "positive_meaning": "Connector is properly seated",
+          "likelihood_ratios": {
+            "gun_cable_connector_not_seated": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out connector issue; check pressure and contact tip."
+        },
+        {
+          "id": "tensioner_set_high",
+          "question": "Is the feed tensioner set to a high pressure value?",
+          "modality": "self_report",
+          "positive_meaning": "Excess wire feed pressure likely",
+          "likelihood_ratios": {
+            "excess_wire_feed_pressure": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Adjust wire feed pressure properly per step 27 on page 17."
+        }
+      ],
+      "manual_citation": {
+        "page": 42,
+        "section": "Troubleshooting – MIG/Flux-Cored Welding"
+      }
+    },
+    {
+      "id": "wire_stops_during_welding",
+      "label": "Wire Stops During Welding",
+      "description": "Wire feeding starts but then stops or intermittently halts during a weld.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "gun_cable_severely_bent",
+          "label": "Gun cable severely bent; feed mechanism cannot feed wire",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "gun_liner_clogged_or_worn",
+          "label": "Gun liner clogged or worn",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "gun_liner_too_small_for_wire",
+          "label": "Gun liner too small for welding wire being used",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_tangled_on_spool",
+          "label": "Wire is tangled on the spool",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_not_contacting_feed_rollers",
+          "label": "Wire is not making contact with Feed Rollers",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "feed_roller_insufficient_contact_or_crushing",
+          "label": "Feed Roller is not making enough contact with wire, or is crushing flux-cored wire",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "gun_cable_visibly_bent",
+          "question": "Is the gun cable severely bent, looped tightly, or kinked?",
+          "modality": "user_photo",
+          "positive_meaning": "Cable geometry is restricting wire feed",
+          "likelihood_ratios": {
+            "gun_cable_severely_bent": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Straighten the gun cable and retry."
+        },
+        {
+          "id": "wire_spool_tangled",
+          "question": "When you look at the wire spool, is the wire cross-wound, overlapping, or tangled?",
+          "modality": "user_photo",
+          "positive_meaning": "Spool is tangled and binding",
+          "likelihood_ratios": {
+            "wire_tangled_on_spool": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Replace or rewind the spool; check tension on the spool hub."
+        },
+        {
+          "id": "wire_seated_in_roller_groove",
+          "question": "Is the wire seated in the feed roller groove between the inlet and outlet guides?",
+          "modality": "self_report",
+          "positive_meaning": "Wire is properly engaged with the feed rollers",
+          "likelihood_ratios": {
+            "wire_not_contacting_feed_rollers": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out feed-roller contact issue; investigate liner and cable."
+        },
+        {
+          "id": "flux_cored_wire_visibly_crushed",
+          "question": "If using flux-cored wire, is the wire emerging from the feed rollers visibly flattened or crushed?",
+          "modality": "user_photo",
+          "positive_meaning": "Feed roller pressure is crushing the flux-cored wire",
+          "likelihood_ratios": {
+            "feed_roller_insufficient_contact_or_crushing": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Loosen tension and/or verify knurled roller appropriate for flux-cored wire."
+        },
+        {
+          "id": "liner_size_matches_wire",
+          "question": "Is the gun liner rated for the diameter of wire you are using?",
+          "modality": "self_report",
+          "positive_meaning": "Liner is correctly sized for wire",
+          "likelihood_ratios": {
+            "gun_liner_too_small_for_wire": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out liner sizing; inspect liner for clog/wear."
+        }
+      ],
+      "manual_citation": {
+        "page": 42,
+        "section": "Troubleshooting – MIG/Flux-Cored Welding"
+      }
+    },
+    {
+      "id": "welding_arc_not_stable",
+      "label": "Welding Arc Not Stable",
+      "description": "The welding arc sputters, flickers, or is otherwise unstable during operation.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "wire_not_feeding_properly",
+          "label": "Wire not feeding properly",
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_tip_or_liner_or_wear",
+          "label": "Incorrect Contact Tip or liner size, or excessive wear",
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_wire_feed_speed",
+          "label": "Incorrect wire feed speed",
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "loose_gun_or_ground_cable",
+          "label": "Loose MIG Gun cable or ground cable",
+          "prior": 0.051,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "damaged_gun_or_loose_internal_connection",
+          "label": "Damaged MIG Gun or loose connection within Gun",
+          "prior": 0.026,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_polarity_for_process",
+          "label": "Incorrect polarity for process being run",
+          "prior": 0.051,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "gas_coverage_insufficient_or_too_high",
+          "label": "Gas coverage insufficient or too high",
+          "prior": 0.051,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "poor_workpiece_connection",
+          "label": "Poor connection with workpiece",
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "loose_electrode_or_ground_cable",
+          "label": "Loose electrode cable or ground cable",
+          "prior": 0.154,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "damaged_electrode_holder",
+          "label": "Damaged electrode holder or loose connection inside it",
+          "prior": 0.103,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_current_setting",
+          "label": "Current setting incorrect for the job",
+          "prior": 0.128,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "low_shielding_gas",
+          "label": "Shielding gas getting low",
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "polarity_matches_process",
+          "question": "Is the machine set to DCEP for MIG, or DCEN for Flux-Cored self-shielded welding?",
+          "modality": "self_report",
+          "positive_meaning": "Polarity is correct for the selected process",
+          "likelihood_ratios": {
+            "incorrect_polarity_for_process": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out polarity; check other causes."
+        },
+        {
+          "id": "ground_clamp_secure_on_clean_metal",
+          "question": "Is the ground clamp firmly attached to clean, bare metal on the workpiece?",
+          "modality": "self_report",
+          "positive_meaning": "Workpiece connection is solid",
+          "likelihood_ratios": {
+            "poor_workpiece_connection": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out ground connection; investigate other causes."
+        },
+        {
+          "id": "cable_connections_tight",
+          "question": "Are all gun and ground cable connections at the machine firmly tightened (no wobble)?",
+          "modality": "self_report",
+          "positive_meaning": "External cable connections are tight",
+          "likelihood_ratios": {
+            "loose_gun_or_ground_cable": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out loose cables; investigate other causes."
+        },
+        {
+          "id": "contact_tip_worn",
+          "question": "Is the contact tip visibly worn, elongated, or burned at the opening?",
+          "modality": "user_photo",
+          "positive_meaning": "Contact tip is worn out",
+          "likelihood_ratios": {
+            "incorrect_tip_or_liner_or_wear": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Replace contact tip with proper size for wire used."
+        },
+        {
+          "id": "gas_flow_rate_in_range",
+          "question": "Is the shielding gas flow rate set according to the Settings Chart?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Gas flow is within recommended range",
+          "likelihood_ratios": {
+            "gas_coverage_insufficient_or_too_high": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out gas flow; verify gun cable connector seating with no O-Rings exposed."
+        },
+        {
+          "id": "wire_feeding_smoothly",
+          "question": "Is the wire feeding smoothly and consistently out of the gun?",
+          "modality": "self_report",
+          "positive_meaning": "Wire feed itself is not the source of instability",
+          "likelihood_ratios": {
+            "wire_not_feeding_properly": {
+              "lr_positive": 0.15,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Rule out wire feeding; check polarity, gas, and ground."
+        },
+        {
+          "id": "cables_tight",
+          "question": "Are all electrode and ground cable connections tight?",
+          "modality": "self_report",
+          "positive_meaning": "Cables are tight, making loose connections less likely",
+          "likelihood_ratios": {
+            "loose_electrode_or_ground_cable": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Inspect electrode holder and current setting next."
+        },
+        {
+          "id": "electrode_holder_damage_visible",
+          "question": "Is the electrode holder visibly damaged, cracked, or feel loose?",
+          "modality": "user_photo",
+          "positive_meaning": "Damaged or loose electrode holder is likely causing the unstable arc",
+          "likelihood_ratios": {
+            "damaged_electrode_holder": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Have a qualified technician inspect and repair/replace as necessary."
+        },
+        {
+          "id": "current_matches_chart",
+          "question": "Does your current setting match the recommended setting on the chart for your electrode and material?",
+          "modality": "self_report",
+          "positive_meaning": "Current setting matches recommendation, ruling out incorrect setting",
+          "likelihood_ratios": {
+            "incorrect_current_setting": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Move on to other possible causes."
+        },
+        {
+          "id": "gas_cylinder_pressure_low",
+          "question": "Is the shielding gas cylinder pressure low or near empty?",
+          "modality": "self_report",
+          "positive_meaning": "Low gas supply could be destabilizing the arc",
+          "likelihood_ratios": {
+            "low_shielding_gas": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Replace the shielding gas cylinder."
+        }
+      ],
+      "manual_citation": {
+        "page": 42,
+        "section": "Troubleshooting – MIG/Flux-Cored Welding"
+      }
+    },
+    {
+      "id": "weak_arc_strength",
+      "label": "Weak Arc Strength",
+      "description": "The welding arc is weak or underpowered, producing poor penetration or weak fusion.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "incorrect_line_voltage",
+          "label": "Incorrect line voltage",
+          "prior": 0.211,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "improper_cord_gauge_or_length",
+          "label": "Improper gauge or length of cord (e.g., extension cord)",
+          "prior": 0.211,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "not_enough_current_setting",
+          "label": "Not enough current (welder set too low for metal thickness)",
+          "prior": 0.211,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "improper_extension_cord",
+          "label": "Improper gauge or length of power cord",
+          "prior": 0.317,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "using_extension_cord",
+          "question": "Are you powering the welder through an extension cord (rather than the supplied power cord directly into a wall outlet)?",
+          "modality": "self_report",
+          "positive_meaning": "An extension cord is in use, which the manual prohibits",
+          "likelihood_ratios": {
+            "improper_extension_cord": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            },
+            "incorrect_line_voltage": {
+              "lr_positive": 1.5,
+              "source": "llm_estimated"
+            },
+            "improper_cord_gauge_or_length": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Do not use an extension cord on this welder. Use only the supplied power cord or an identical replacement."
+        },
+        {
+          "id": "line_voltage_in_spec",
+          "question": "Is the measured line voltage at the outlet within the welder's specified range?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Line voltage is acceptable",
+          "likelihood_ratios": {
+            "incorrect_line_voltage": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out line voltage; check current setting and cord."
+        },
+        {
+          "id": "current_setting_matches_thickness",
+          "question": "Is the current/heat setting set appropriately for the thickness of metal being welded?",
+          "modality": "self_report",
+          "positive_meaning": "Current setting is appropriate for the workpiece",
+          "likelihood_ratios": {
+            "not_enough_current_setting": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out current setting; verify line voltage and cord."
+        },
+        {
+          "id": "measured_line_voltage",
+          "question": "What is the measured line voltage at the outlet (in volts)?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Voltage below specification confirms incorrect line voltage",
+          "likelihood_ratios": {
+            "incorrect_line_voltage": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Have a licensed electrician remedy the line voltage situation."
+        }
+      ],
+      "manual_citation": {
+        "page": 42,
+        "section": "Troubleshooting – MIG/Flux-Cored Welding"
+      }
+    },
+    {
+      "id": "welder_does_not_function_when_switched_on",
+      "label": "Welder does not function when switched on",
+      "description": "Welder is switched on but does not operate; may show a warning screen on LCD.",
+      "process_scope": "all",
+      "causes": [
+        {
+          "id": "tripped_thermal_protection",
+          "label": "Tripped thermal protection device",
+          "prior": 0.256,
+          "prior_source": "manual_order_heuristic",
+          "prior_note": "Listed first in possible causes"
+        },
+        {
+          "id": "insufficient_input_voltage_amperage",
+          "label": "Circuit supplies insufficient input voltage or amperage",
+          "prior": 0.146,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "faulty_trigger_connection",
+          "label": "Faulty or improperly connected trigger",
+          "prior": 0.11,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "voltage_protection_engaged",
+          "label": "Machine is in low- or over-voltage protection",
+          "prior": 0.073,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_mode_selected",
+          "label": "Machine is in the incorrect mode",
+          "prior": 0.11,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ground_clamp_not_attached",
+          "label": "Ground clamp not attached to workpiece",
+          "prior": 0.146,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "shielding_gas_not_connected",
+          "label": "Shielding gas not connected",
+          "prior": 0.11,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "warning_on_lcd",
+          "question": "Is a warning screen appearing on the LCD display?",
+          "modality": "self_report",
+          "positive_meaning": "Welder has detected overheating or a voltage fault",
+          "likelihood_ratios": {
+            "tripped_thermal_protection": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "voltage_protection_engaged": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            },
+            "incorrect_mode_selected": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            },
+            "faulty_trigger_connection": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "If overheat warning, wait with Power Switch ON for unit to cool; if voltage warning, verify input voltage and press Reset Button on back of machine."
+        },
+        {
+          "id": "welder_was_in_extended_use",
+          "question": "Had the welder been running for an extended period before it stopped?",
+          "modality": "self_report",
+          "positive_meaning": "Duty cycle may have been exceeded leading to thermal shutdown",
+          "likelihood_ratios": {
+            "tripped_thermal_protection": {
+              "lr_positive": 5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Allow welder to cool; reduce duration/frequency of welding periods (see Duty Cycle on page 19)."
+        },
+        {
+          "id": "input_voltage_in_spec",
+          "question": "Is the supply circuit input voltage within the specified range on the Specifications table?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Input voltage is within spec; insufficient supply is unlikely",
+          "likelihood_ratios": {
+            "insufficient_input_voltage_amperage": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            },
+            "voltage_protection_engaged": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Rule out supply issues; investigate other causes."
+        },
+        {
+          "id": "gun_trigger_seated",
+          "question": "Is the gun/trigger connection properly seated on the machine?",
+          "modality": "self_report",
+          "positive_meaning": "Trigger connection is good",
+          "likelihood_ratios": {
+            "faulty_trigger_connection": {
+              "lr_positive": 0.2,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out trigger; check other causes. If not seated, reseat or have qualified technician replace trigger."
+        },
+        {
+          "id": "correct_process_selected",
+          "question": "Is the correct welding process selected on the machine?",
+          "modality": "self_report",
+          "positive_meaning": "Mode selection is correct",
+          "likelihood_ratios": {
+            "incorrect_mode_selected": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Rule out mode error; investigate other causes."
+        },
+        {
+          "id": "recent_long_welding_session",
+          "question": "Have you been welding for an extended period or at high duty cycle just before the failure?",
+          "modality": "self_report",
+          "positive_meaning": "Heat buildup likely tripped the thermal protection device",
+          "likelihood_ratios": {
+            "tripped_thermal_protection": {
+              "lr_positive": 5,
+              "source": "llm_estimated",
+              "note": "Thermal trips correlate strongly with extended use beyond duty cycle"
+            },
+            "faulty_trigger_connection": {
+              "lr_positive": 0.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Let the welder cool down; reduce duration/frequency of welding per Duty Cycle on page 29."
+        },
+        {
+          "id": "ground_clamp_attached",
+          "question": "Is the ground clamp securely attached to the workpiece?",
+          "modality": "self_report",
+          "positive_meaning": "Ground clamp is properly attached, ruling out that cause",
+          "likelihood_ratios": {
+            "ground_clamp_not_attached": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Move on to inspect other possible causes."
+        },
+        {
+          "id": "shielding_gas_hose_connected",
+          "question": "Is the shielding gas hose connected to the welder?",
+          "modality": "self_report",
+          "positive_meaning": "Shielding gas is connected, ruling out that cause",
+          "likelihood_ratios": {
+            "shielding_gas_not_connected": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Move on to other possible causes."
+        },
+        {
+          "id": "trigger_visibly_loose_or_damaged",
+          "question": "Does the trigger appear loose, damaged, or improperly connected?",
+          "modality": "user_photo",
+          "positive_meaning": "Trigger connection issue is likely the cause",
+          "likelihood_ratios": {
+            "faulty_trigger_connection": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Have a qualified technician check and secure/replace the trigger."
+        }
+      ],
+      "manual_citation": {
+        "page": 43,
+        "section": "Troubleshooting - Welder Does Not Function When Switched On"
+      }
+    },
+    {
+      "id": "lcd_display_does_not_light",
+      "label": "LCD display does not light when welder is switched on",
+      "description": "When the welder is switched on, the LCD display does not illuminate.",
+      "process_scope": "all",
+      "causes": [
+        {
+          "id": "unit_not_connected_properly",
+          "label": "Unit is not connected to outlet properly",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "outlet_unpowered",
+          "label": "Outlet is unpowered",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "plug_incorrect_rating",
+          "label": "Plug does not have correct rating",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "circuit_breaker_tripped",
+          "label": "Circuit breaker on welder has tripped due to high input amperage",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "power_cord_not_seated",
+          "label": "Input power cord is not seated properly",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "outlet_voltage_present",
+          "question": "Is voltage present at the outlet when measured?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Outlet is powered",
+          "likelihood_ratios": {
+            "outlet_unpowered": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            },
+            "unit_not_connected_properly": {
+              "lr_positive": 1.5,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Outlet is OK; check connection, plug, and welder breaker."
+        },
+        {
+          "id": "house_breaker_tripped",
+          "question": "Is the circuit breaker or GFCI for this outlet tripped?",
+          "modality": "self_report",
+          "positive_meaning": "Outlet supply is interrupted at the breaker/GFCI",
+          "likelihood_ratios": {
+            "outlet_unpowered": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Determine and remedy cause before resetting the breaker/GFCI."
+        },
+        {
+          "id": "plug_rating_correct",
+          "question": "Is the installed plug the correct rating per the Specifications on page 7?",
+          "modality": "self_report",
+          "positive_meaning": "Plug rating matches specification",
+          "likelihood_ratios": {
+            "plug_incorrect_rating": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Plug is correct; rule out this cause."
+        },
+        {
+          "id": "welder_breaker_tripped",
+          "question": "Is the circuit breaker / Reset Button on the back of the welder tripped?",
+          "modality": "self_report",
+          "positive_meaning": "Welder's onboard breaker has tripped",
+          "likelihood_ratios": {
+            "circuit_breaker_tripped": {
+              "lr_positive": 7,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Press Reset Button on back of machine to reset the circuit breaker."
+        },
+        {
+          "id": "twist_lock_secured",
+          "question": "Is the twist-lock input power cord fully secured at the welder?",
+          "modality": "self_report",
+          "positive_meaning": "Cord is properly seated",
+          "likelihood_ratios": {
+            "power_cord_not_seated": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            },
+            "unit_not_connected_properly": {
+              "lr_positive": 0.3,
+              "source": "llm_estimated"
+            }
+          },
+          "recommended_action_if_positive": "Cord seating is OK; investigate other causes."
+        },
+        {
+          "id": "plug_fully_seated",
+          "question": "Is the welder's power cord fully plugged into the outlet?",
+          "modality": "self_report",
+          "positive_meaning": "Plug is fully seated, making improper connection less likely",
+          "likelihood_ratios": {
+            "unit_not_connected_properly": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Verify outlet voltage next."
+        },
+        {
+          "id": "other_devices_work_on_outlet",
+          "question": "Do other devices plugged into the same outlet receive power?",
+          "modality": "self_report",
+          "positive_meaning": "Outlet is powered, ruling out an unpowered outlet",
+          "likelihood_ratios": {
+            "outlet_unpowered": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Focus on the welder's power cord connection and internal protection."
+        },
+        {
+          "id": "circuit_breaker_tripped",
+          "question": "Is the circuit breaker or GFCI for this outlet tripped?",
+          "modality": "self_report",
+          "positive_meaning": "Tripped breaker confirms outlet is unpowered",
+          "likelihood_ratios": {
+            "outlet_unpowered": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Determine and remedy the cause before resetting; verify circuit is rated for welder amperage (see Specifications, p. 7)."
+        }
+      ],
+      "manual_citation": {
+        "page": 43,
+        "section": "Troubleshooting - LCD Display Does Not Light When Welder is Switched On"
+      }
+    },
+    {
+      "id": "wire_feeds_but_arc_does_not_ignite",
+      "label": "Wire feeds, but arc does not ignite",
+      "description": "Welding wire feeds out of the gun, but no arc is established when attempting to weld.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "improper_ground_connection",
+          "label": "Improper ground connection",
+          "prior": 0.35,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "improperly_sized_contact_tip",
+          "label": "Improperly sized contact tip",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "worn_contact_tip",
+          "label": "Excessively worn contact tip",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_contact_tip",
+          "label": "Dirty contact tip",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "ground_clamp_on_clean_metal",
+          "question": "Is the ground clamp attached to clean bare metal near the welding location?",
+          "modality": "self_report",
+          "positive_meaning": "Ground connection is good",
+          "likelihood_ratios": {
+            "improper_ground_connection": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Ground is OK; inspect contact tip."
+        },
+        {
+          "id": "contact_tip_size_matches_wire",
+          "question": "Is the contact tip the correct size for the welding wire being used?",
+          "modality": "self_report",
+          "positive_meaning": "Contact tip size matches wire",
+          "likelihood_ratios": {
+            "improperly_sized_contact_tip": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Tip size is correct; inspect for wear or fouling."
+        },
+        {
+          "id": "contact_tip_hole_deformed",
+          "question": "Is the hole in the contact tip deformed or enlarged?",
+          "modality": "user_photo",
+          "positive_meaning": "Contact tip is worn out",
+          "likelihood_ratios": {
+            "worn_contact_tip": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Replace contact tip with proper size and type."
+        },
+        {
+          "id": "contact_tip_appears_dirty",
+          "question": "Does the contact tip appear dirty, fouled, or carry spatter/residue?",
+          "modality": "user_photo",
+          "positive_meaning": "Contact tip is contaminated",
+          "likelihood_ratios": {
+            "dirty_contact_tip": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Clean the contact tip properly."
+        }
+      ],
+      "manual_citation": {
+        "page": 43,
+        "section": "Troubleshooting - Wire Feeds, but Arc Does Not Ignite"
+      }
+    },
+    {
+      "id": "porosity_in_weld_metal",
+      "label": "Porosity in the weld metal",
+      "description": "Visible pores, holes, or pinholes in the finished weld bead.",
+      "process_scope": [
+        "MIG",
+        "Flux-Cored"
+      ],
+      "causes": [
+        {
+          "id": "empty_shielding_gas_bottle",
+          "label": "Shielding gas bottle is empty",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "improper_shielding_gas_flow",
+          "label": "Not enough or too much shielding gas",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_workpiece",
+          "label": "Dirty workpiece",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "gun_too_far_from_workpiece",
+          "label": "Gun is being used too far away from workpiece (excessive CTWD)",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "incorrect_polarity",
+          "label": "Polarity is incorrect for the application",
+          "prior": 0.1,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "dirty_welding_wire",
+          "label": "Dirty welding wire introducing contamination",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "gas_bottle_has_pressure",
+          "question": "Does the shielding gas bottle have pressure remaining on the gauge?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Bottle is not empty",
+          "likelihood_ratios": {
+            "empty_shielding_gas_bottle": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Bottle not empty; check regulator and flow."
+        },
+        {
+          "id": "gas_flow_in_range",
+          "question": "Is the gas regulator showing proper shielding gas flow rate for the process?",
+          "modality": "numeric_measurement",
+          "positive_meaning": "Gas flow is within proper range",
+          "likelihood_ratios": {
+            "improper_shielding_gas_flow": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Gas flow OK; inspect workpiece, technique, polarity, and wire."
+        },
+        {
+          "id": "workpiece_clean_to_bare_metal",
+          "question": "Is the workpiece cleaned down to bare metal at the weld area?",
+          "modality": "user_photo",
+          "positive_meaning": "Workpiece surface is clean",
+          "likelihood_ratios": {
+            "dirty_workpiece": {
+              "lr_positive": 0.15,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Workpiece OK; check other contamination sources."
+        },
+        {
+          "id": "ctwd_excessive",
+          "question": "Is the contact-tip-to-work distance (CTWD) longer than recommended?",
+          "modality": "self_report",
+          "positive_meaning": "Gun is being held too far from workpiece",
+          "likelihood_ratios": {
+            "gun_too_far_from_workpiece": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Hold gun closer per recommended CTWD procedure."
+        },
+        {
+          "id": "polarity_correct_for_process",
+          "question": "Is the polarity set to DCEP for MIG (or DCEN for Flux-Cored) as appropriate?",
+          "modality": "self_report",
+          "positive_meaning": "Polarity matches the process",
+          "likelihood_ratios": {
+            "incorrect_polarity": {
+              "lr_positive": 0.1,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Polarity correct; inspect other causes."
+        },
+        {
+          "id": "welding_wire_rusty_or_dirty",
+          "question": "Does the welding wire show rust, oxidation, or residue?",
+          "modality": "user_photo",
+          "positive_meaning": "Wire is contaminated and may introduce porosity",
+          "likelihood_ratios": {
+            "dirty_welding_wire": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Replace with clean wire free of rust and residues."
+        }
+      ],
+      "manual_citation": {
+        "page": 43,
+        "section": "Troubleshooting - Porosity in the Weld Metal"
+      }
+    }
+  ]
+}

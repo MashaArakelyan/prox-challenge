@@ -1,0 +1,243 @@
+[
+  {
+    "id": "table_2_1",
+    "name": "Warning Symbols and Definitions",
+    "page": 2,
+    "columns": [
+      "Symbol",
+      "Definition"
+    ],
+    "rows": [
+      {
+        "Symbol": "Safety alert symbol (triangle with exclamation mark)",
+        "Definition": "This is the Safety alert symbol. It is used to alert you to potential personal injury hazards. Obey all Safety messages that follow this symbol to avoid possible injury or death."
+      },
+      {
+        "Symbol": "DANGER",
+        "Definition": "Indicates a hazardous situation which, if not avoided, will result in death or serious injury."
+      },
+      {
+        "Symbol": "WARNING",
+        "Definition": "Indicates a hazardous situation which, if not avoided, could result in death or serious injury."
+      },
+      {
+        "Symbol": "CAUTION",
+        "Definition": "Indicates a hazardous situation which, if not avoided, could result in minor or moderate injury."
+      },
+      {
+        "Symbol": "NOTICE CAUTION",
+        "Definition": "Addresses practices not related to personal injury."
+      }
+    ]
+  },
+  {
+    "id": "table_6_1",
+    "name": "Symbolology Reference",
+    "page": 6,
+    "columns": [
+      "Symbol",
+      "Meaning"
+    ],
+    "rows": [
+      {
+        "Symbol": "Wire Feed (Speed)",
+        "Meaning": "IPM - Inches Per Minute"
+      },
+      {
+        "Symbol": "Workpiece Ground Cable",
+        "Meaning": "Workpiece Ground Cable"
+      },
+      {
+        "Symbol": "Torch Cable",
+        "Meaning": "Torch Cable"
+      },
+      {
+        "Symbol": "Overheat Shutdown Indicator",
+        "Meaning": "Overheat Shutdown Indicator"
+      },
+      {
+        "Symbol": "Cooling Fan",
+        "Meaning": "Cooling Fan"
+      },
+      {
+        "Symbol": "Housing Ground Point",
+        "Meaning": "Housing Ground Point"
+      },
+      {
+        "Symbol": "VAC",
+        "Meaning": "Volts Alternating Current"
+      },
+      {
+        "Symbol": "A",
+        "Meaning": "Amperes"
+      },
+      {
+        "Symbol": "OCV",
+        "Meaning": "Open Circuit Voltage"
+      },
+      {
+        "Symbol": "KVA",
+        "Meaning": "Kilovolt Amperes (Volts / 1000 * Amperes)"
+      },
+      {
+        "Symbol": "IPM",
+        "Meaning": "Inches Per Minute"
+      },
+      {
+        "Symbol": "AWG",
+        "Meaning": "American Wire Gauge"
+      },
+      {
+        "Symbol": "Electric Shock Hazard",
+        "Meaning": "Electric Shock Hazard. Do not touch energized parts."
+      },
+      {
+        "Symbol": "Inhalation Hazard",
+        "Meaning": "Inhalation Hazard. Keep head out of fumes and use proper ventilation."
+      },
+      {
+        "Symbol": "Read manual before setup and/or use",
+        "Meaning": "Read manual before setup and/or use."
+      },
+      {
+        "Symbol": "Fire Hazard",
+        "Meaning": "Fire Hazard. Keep flammable materials away during welding. Spatter can cause accidental fires."
+      },
+      {
+        "Symbol": "Arc Ray Hazard",
+        "Meaning": "Arc Ray Hazard. Wear welding helmet with properly rated filter lens."
+      },
+      {
+        "Symbol": "Pacemaker Hazard",
+        "Meaning": "Pacemaker Hazard. Welding processes may interfere with pacemakers. Consult doctor before use."
+      }
+    ]
+  },
+  {
+    "id": "table_23_1",
+    "name": "Follow Duty Cycle",
+    "page": 23,
+    "columns": [
+      "Voltage",
+      "Usage Rate",
+      "Duration",
+      "Welding Time",
+      "Rest Time",
+      "Continuous Use"
+    ],
+    "rows": [
+      {
+        "voltage": "120VAC",
+        "usage_rate": "40% Use at 100A",
+        "duration": "For 10 Continuous Minutes",
+        "welding_time": "4 Minutes Welding",
+        "rest_time": "6 Minutes Resting",
+        "continuous_use": "100% Continuous Use at 75A"
+      },
+      {
+        "voltage": "240VAC",
+        "usage_rate": "25% Use at 200A",
+        "duration": "For 10 Continuous Minutes",
+        "welding_time": "2-1/2 Minutes Welding",
+        "rest_time": "7-1/2 Minutes Resting",
+        "continuous_use": "100% Continuous Use at 115A"
+      }
+    ]
+  },
+  {
+    "id": "table_43_1",
+    "name": "Troubleshooting Guide",
+    "page": 43,
+    "columns": [
+      "Problem",
+      "Possible Causes",
+      "Likely Solutions"
+    ],
+    "rows": [
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible Causes": "1. Tripped thermal protection device. 2. Circuit supplies insufficient input voltage or amperage. 3. Faulty or improperly connected Trigger. 4. Machine is in low- or over-voltage protection. 5. Machine is in the incorrect mode.",
+        "Likely_Solutions": "1. If a warning screen appears in the LCD Display window, Welder may have overheated and shut down. Stop and wait with the Power Switch ON for the Welder to cool. The Welder automatically returns to service after cooling off. Reduce duration or frequency of welding periods to help reduce wear on the Welder. Refer to Duty Cycle (Duration of Use) on page 19. 2. Verify that the circuit is designed to supply the required input voltage and amperage as detailed on the Specifications table. If a warning screen appears in the LCD Display window, check the input voltage to ensure it is within specified range. 3. Ensure the gun connection is properly seated on machine. Qualified technician must check and secure/replace Trigger. 4. Check input voltage and ensure it falls within the specified range. If input voltage is correct, press Reset Button on back of machine to reset circuit breaker. 5. Ensure the correct process has been selected."
+      },
+      {
+        "Problem": "LCD Display Does Not Light When Welder is Switched On",
+        "Possible_Causes": "1. Unit is not connected to outlet properly. 2. Outlet is unpowered. 3. Plug does not have correct rating. 4. Circuit breaker has tripped due to high input amperage. 5. Input Power Cord is not seated properly.",
+        "Likely_Solutions": "1. Verify the voltage at the outlet and the connection to the outlet. 2. Check circuit breaker/GFCI devices; if any are tripped, determine and remedy cause before resetting. 3. Make sure installed plug is correct rating. See Specifications on page 7. 4. Press Reset Button on back of machine to reset circuit breaker. 5. Ensure the twist lock input Power Cord is fully secured."
+      },
+      {
+        "Problem": "Wire Feeds, but Arc Does Not Ignite",
+        "Possible_Causes": "1. Improper ground connection. 2. Improperly sized Contact Tip. 3. Excessively worn Contact Tip. 4. Dirty Contact Tip.",
+        "Likely_Solutions": "1. Make certain that the workpiece is contacted properly by the Ground Clamp and that the workpiece is properly cleaned near the ground clamp and the welding location. 2. Verify that Contact Tip is the proper size for welding wire. If needed, replace Contact Tip with proper size and type. 3. Check that the hole in the tip is not deformed or enlarged. If needed, replace Contact Tip with proper size and type. 4. Properly clean Contact Tip."
+      },
+      {
+        "Problem": "Porosity in the Weld Metal",
+        "Possible_Causes": "1. Shielding gas bottle is empty. 2. Not enough or too much shielding gas. 3. Dirty workpiece. 4. Gun is being used too far away from workpiece. 5. Polarity is incorrect for the application. 6. Dirty welding wire is introducing contamination into the weld.",
+        "Likely_Solutions": "1. Check gas bottle and replenish as necessary. 2. Check gas regulator to ensure proper flow. 3. Clean workpiece down to bare metal. 4. Check CTWD (contact tip to work distance) for the proper procedure. 5. Check the polarity and ensure it is DCEP for MIG and DCEN for Flux-Cored. 6. Make certain that welding wire is clean and free of rust and residues."
+      }
+    ]
+  },
+  {
+    "id": "table_44_1",
+    "name": "Troubleshooting - TIG/Stick Welding",
+    "page": 44,
+    "columns": [
+      "Problem",
+      "Possible Causes",
+      "Likely Solutions"
+    ],
+    "rows": [
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible_Causes": [
+          "1. Tripped thermal protection device.",
+          "2. Faulty or improperly connected Trigger.",
+          "3. Ground Clamp not attached to workpiece.",
+          "4. Shielding Gas not connected."
+        ],
+        "Likely_Solutions": [
+          "1. Reduce duration or frequency of welding periods to help reduce wear on the welder. Refer to Duty Cycle (Duration of Use) on page 29.",
+          "2. Qualified technician must check and secure/replace Trigger.",
+          "3. Attach Ground Clamp to workpiece.",
+          "4. Connect shielding gas to Welder."
+        ]
+      },
+      {
+        "Problem": "LCD Display Does Not Light When Welder is Switched On",
+        "Possible_Causes": [
+          "1. Unit is not connected to outlet properly.",
+          "2. Outlet is unpowered."
+        ],
+        "Likely_Solutions": [
+          "1. Verify the voltage at the outlet and the connection to the outlet.",
+          "2. Check circuit breaker/GFCI devices; if any are tripped, determine and remedy cause before resetting. Verify that the circuit is designed to supply the required input amperage as detailed in Specifications on page 7."
+        ]
+      },
+      {
+        "Problem": "Weak Arc Strength",
+        "Possible_Causes": [
+          "1. Incorrect line voltage.",
+          "2. Improper gauge or length of cord."
+        ],
+        "Likely_Solutions": [
+          "1. Check the line voltage and, if insufficient, have a licensed electrician remedy the situation.",
+          "2. Do not use an extension cord on this Welder. Use only one of the supplied power cords for this Welder or an identical replacement cord."
+        ]
+      },
+      {
+        "Problem": "Welding Arc Not Stable",
+        "Possible_Causes": [
+          "1. Loose electrode cable or ground cable.",
+          "2. Damaged electrode holder or loose connection within electrode holder.",
+          "3. Adjust current setting.",
+          "4. Shielding gas getting low."
+        ],
+        "Likely_Solutions": [
+          "1. Check to ensure that all connections are tight.",
+          "2. Have a qualified technician inspect and repair/replace as necessary.",
+          "3. Make sure setting matches recommended setting on chart.",
+          "4. Replace shielding gas cylinder."
+        ]
+      }
+    ]
+  }
+]
