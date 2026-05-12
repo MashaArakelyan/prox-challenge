@@ -267,7 +267,7 @@
         }
       }
     ],
-    "salience": 0.9
+    "salience": 0.8
   },
   {
     "id": "diagram_10_1",
@@ -771,7 +771,7 @@
         }
       }
     ],
-    "salience": 0.9
+    "salience": 0.8
   },
   {
     "id": "diagram_15_2",
@@ -798,7 +798,7 @@
         }
       }
     ],
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_15_3",
@@ -1221,7 +1221,7 @@
         }
       }
     ],
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_21_1",
@@ -1275,7 +1275,7 @@
         }
       }
     ],
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_21_2",
@@ -1293,7 +1293,7 @@
         }
       }
     ],
-    "salience": 0.2
+    "salience": 0.3
   },
   {
     "id": "diagram_21_3",
@@ -1410,7 +1410,7 @@
         }
       }
     ],
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_23_1",
@@ -1644,7 +1644,7 @@
         }
       }
     ],
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_25_2",
@@ -1662,7 +1662,7 @@
         }
       }
     ],
-    "salience": 0.6
+    "salience": 0.5
   },
   {
     "id": "diagram_26_1",
@@ -2382,7 +2382,7 @@
         }
       }
     ],
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "id": "diagram_37_2",
@@ -2400,7 +2400,7 @@
         }
       }
     ],
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "id": "diagram_37_3",
@@ -2418,7 +2418,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.6
   },
   {
     "id": "diagram_37_4",
@@ -2436,7 +2436,7 @@
         }
       }
     ],
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "id": "diagram_38_1",
@@ -2499,7 +2499,7 @@
         }
       }
     ],
-    "salience": 0.7
+    "salience": 0.8
   },
   {
     "id": "diagram_38_2",
@@ -2607,7 +2607,7 @@
         }
       }
     ],
-    "salience": 0.7
+    "salience": 0.8
   },
   {
     "id": "diagram_39_2",
@@ -2625,7 +2625,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.6
   },
   {
     "id": "diagram_39_3",
@@ -2679,7 +2679,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "id": "diagram_40_3",
@@ -2697,7 +2697,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.6
   },
   {
     "id": "diagram_40_4",
@@ -2715,7 +2715,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "id": "diagram_40_5",
@@ -2733,7 +2733,7 @@
         }
       }
     ],
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "id": "diagram_41_1",
@@ -3499,5 +3499,581 @@
       }
     ],
     "salience": 0.2
+  },
+  {
+    "id": "diagram_20_1",
+    "page": 20,
+    "caption": "Power Switch and Power Cord Connection Diagram",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Power Switch",
+        "bbox": {
+          "x": 0.5,
+          "y": 0.1,
+          "width": 0.18,
+          "height": 0.18
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_20_2",
+    "page": 20,
+    "caption": "Control Panel with Left Knob, Main Control Knob, and Right Knob",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Left Knob",
+        "bbox": {
+          "x": 0.13,
+          "y": 0.4,
+          "width": 0.1,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Main Control Knob",
+        "bbox": {
+          "x": 0.26,
+          "y": 0.4,
+          "width": 0.12,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Right Knob",
+        "bbox": {
+          "x": 0.39,
+          "y": 0.4,
+          "width": 0.1,
+          "height": 0.18
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_20_3",
+    "page": 20,
+    "caption": "Stainless Tri-Mix Polarity and Gas Connection Screen",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Stainless Tri-Mix Polarity Diagram",
+        "bbox": {
+          "x": 0.13,
+          "y": 0.78,
+          "width": 0.36,
+          "height": 0.18
+        }
+      }
+    ],
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_20_4",
+    "page": 20,
+    "caption": "MIG Stainless Steel Wire Diameter and Material Thickness Settings Screen",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Diameter (.025\")",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.42,
+          "width": 0.18,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Thickness (24Ga)",
+        "bbox": {
+          "x": 0.73,
+          "y": 0.42,
+          "width": 0.18,
+          "height": 0.1
+        }
+      }
+    ],
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_20_5",
+    "page": 20,
+    "caption": "Auto Weld Settings Screen with Process, Gas Type, Wire Diameter, Material Thickness, Run-In WFS, Inductance, Spot Timer",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Process / Gas Type",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.68,
+          "width": 0.2,
+          "height": 0.12
+        }
+      },
+      {
+        "label": "Wire Diameter",
+        "bbox": {
+          "x": 0.78,
+          "y": 0.68,
+          "width": 0.18,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Material Thickness",
+        "bbox": {
+          "x": 0.78,
+          "y": 0.74,
+          "width": 0.18,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Run-In WFS",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.8,
+          "width": 0.12,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Inductance",
+        "bbox": {
+          "x": 0.65,
+          "y": 0.8,
+          "width": 0.12,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Spot Timer",
+        "bbox": {
+          "x": 0.78,
+          "y": 0.8,
+          "width": 0.14,
+          "height": 0.06
+        }
+      }
+    ],
+    "salience": 0.9
+  },
+  {
+    "id": "diagram_30_1",
+    "page": 30,
+    "caption": "Front panel of OMNIPRO 220 with Left Knob, Main Control Knob, and Right Knob; TIG selected on LCD display",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Left Knob",
+        "bbox": {
+          "x": 0.16,
+          "y": 0.74,
+          "width": 0.1,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Main Control Knob",
+        "bbox": {
+          "x": 0.27,
+          "y": 0.74,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Right Knob",
+        "bbox": {
+          "x": 0.4,
+          "y": 0.74,
+          "width": 0.1,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "LCD Display (TIG selected)",
+        "bbox": {
+          "x": 0.22,
+          "y": 0.61,
+          "width": 0.22,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Home Button",
+        "bbox": {
+          "x": 0.13,
+          "y": 0.66,
+          "width": 0.06,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Back Button",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.66,
+          "width": 0.06,
+          "height": 0.05
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_30_2",
+    "page": 30,
+    "caption": "Polarity and Gas Settings LCD screen showing TIG polarity and 100% Argon",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Negative socket (TIG torch)",
+        "bbox": {
+          "x": 0.62,
+          "y": 0.38,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Positive socket (Ground clamp)",
+        "bbox": {
+          "x": 0.81,
+          "y": 0.38,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "100% Argon label",
+        "bbox": {
+          "x": 0.69,
+          "y": 0.48,
+          "width": 0.2,
+          "height": 0.04
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_30_3",
+    "page": 30,
+    "caption": "TIG Rod Diameter and Material Thickness LCD screen: Diameter 1/16\", Thickness 24 Ga",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Diameter 1/16\"",
+        "bbox": {
+          "x": 0.68,
+          "y": 0.62,
+          "width": 0.12,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Thickness 24 Ga",
+        "bbox": {
+          "x": 0.81,
+          "y": 0.62,
+          "width": 0.12,
+          "height": 0.08
+        }
+      }
+    ],
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_30_4",
+    "page": 30,
+    "caption": "Auto Weld Settings LCD screen showing amperage, voltage, gas, rod diameter, and material thickness",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Amperage 30 A",
+        "bbox": {
+          "x": 0.66,
+          "y": 0.84,
+          "width": 0.12,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "ON/OFF Toggle",
+        "bbox": {
+          "x": 0.81,
+          "y": 0.84,
+          "width": 0.14,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Voltage 0.0 V",
+        "bbox": {
+          "x": 0.81,
+          "y": 0.89,
+          "width": 0.12,
+          "height": 0.04
+        }
+      },
+      {
+        "label": "Process / Gas Type",
+        "bbox": {
+          "x": 0.66,
+          "y": 0.92,
+          "width": 0.16,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Rod Diameter 1/16\"",
+        "bbox": {
+          "x": 0.83,
+          "y": 0.92,
+          "width": 0.1,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Material Thickness 24Ga",
+        "bbox": {
+          "x": 0.83,
+          "y": 0.95,
+          "width": 0.1,
+          "height": 0.03
+        }
+      }
+    ],
+    "salience": 0.9
+  },
+  {
+    "id": "diagram_32_1",
+    "page": 32,
+    "caption": "Vulcan OmniPro 220 front panel showing Left Knob, Main Control Knob, and Right Knob with Stick process selected on LCD.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Left Knob",
+        "bbox": {
+          "x": 0.16,
+          "y": 0.59,
+          "width": 0.1,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Main Control Knob",
+        "bbox": {
+          "x": 0.27,
+          "y": 0.59,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Right Knob",
+        "bbox": {
+          "x": 0.4,
+          "y": 0.59,
+          "width": 0.1,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Stick Process on LCD",
+        "bbox": {
+          "x": 0.22,
+          "y": 0.5,
+          "width": 0.27,
+          "height": 0.08
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_32_2",
+    "page": 32,
+    "caption": "Stick polarity setting diagram showing cable plug positions with 'No Gas Required'.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Negative Cable",
+        "bbox": {
+          "x": 0.18,
+          "y": 0.78,
+          "width": 0.13,
+          "height": 0.13
+        }
+      },
+      {
+        "label": "Positive Cable",
+        "bbox": {
+          "x": 0.34,
+          "y": 0.78,
+          "width": 0.13,
+          "height": 0.13
+        }
+      },
+      {
+        "label": "No Gas Required",
+        "bbox": {
+          "x": 0.16,
+          "y": 0.91,
+          "width": 0.34,
+          "height": 0.04
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_32_3",
+    "page": 32,
+    "caption": "Stick Electrode Type selection LCD screen displaying 60xx.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Stick",
+        "bbox": {
+          "x": 0.66,
+          "y": 0.21,
+          "width": 0.2,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Electrode 60xx",
+        "bbox": {
+          "x": 0.66,
+          "y": 0.26,
+          "width": 0.2,
+          "height": 0.1
+        }
+      }
+    ],
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_32_4",
+    "page": 32,
+    "caption": "Stick Electrode Diameter (3/32\") and Material Thickness (16 Ga) LCD screen.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Diameter 3/32\"",
+        "bbox": {
+          "x": 0.62,
+          "y": 0.48,
+          "width": 0.13,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Thickness 16 Ga",
+        "bbox": {
+          "x": 0.76,
+          "y": 0.48,
+          "width": 0.13,
+          "height": 0.1
+        }
+      }
+    ],
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_32_5",
+    "page": 32,
+    "caption": "Stick Auto Weld Settings LCD showing 60A, 0.0V, Process Stick, Electrode 70XX, 3/32\", 16Ga, Hot Start 6, Arc Force 0, with ON/OFF energize.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Output Amperage 60A",
+        "bbox": {
+          "x": 0.58,
+          "y": 0.78,
+          "width": 0.16,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Voltage 0.0V",
+        "bbox": {
+          "x": 0.75,
+          "y": 0.78,
+          "width": 0.16,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "ON/OFF Energize",
+        "bbox": {
+          "x": 0.75,
+          "y": 0.76,
+          "width": 0.16,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Process Stick",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.85,
+          "width": 0.15,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Electrode Type 70XX",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.87,
+          "width": 0.15,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Electrode Diameter 3/32\"",
+        "bbox": {
+          "x": 0.8,
+          "y": 0.85,
+          "width": 0.15,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Material Thickness 16Ga",
+        "bbox": {
+          "x": 0.8,
+          "y": 0.87,
+          "width": 0.15,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "Hot Start",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.9,
+          "width": 0.15,
+          "height": 0.04
+        }
+      },
+      {
+        "label": "Arc Force",
+        "bbox": {
+          "x": 0.8,
+          "y": 0.9,
+          "width": 0.15,
+          "height": 0.04
+        }
+      }
+    ],
+    "salience": 0.9
   }
 ]

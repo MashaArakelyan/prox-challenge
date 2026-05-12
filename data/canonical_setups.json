@@ -20,18 +20,22 @@
       "welding_process_mig",
       "welding_process_mig_gas_shielded",
       "welding_wire_solid_core",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
-      "physical_connector_gas_hose",
-      "physical_connector_flow_gauge",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
+      "physical_connector_flow_gauge",
+      "shielding_gas_general",
       "welding_parameter_push_angle",
-      "welding_parameter_wire_feed_speed"
+      "welding_parameter_polarity"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
@@ -55,19 +59,23 @@
       "welding_process_mig",
       "welding_process_mig_gas_shielded",
       "welding_wire_solid_core",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
-      "physical_connector_gas_hose",
-      "physical_connector_flow_gauge",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
+      "physical_connector_flow_gauge",
+      "shielding_gas_general",
       "welding_parameter_push_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
@@ -91,19 +99,23 @@
       "welding_process_mig",
       "welding_process_mig_gas_shielded",
       "welding_wire_solid_core",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
-      "physical_connector_gas_hose",
-      "physical_connector_flow_gauge",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
+      "physical_connector_flow_gauge",
+      "shielding_gas_general",
       "welding_parameter_push_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
@@ -127,19 +139,23 @@
       "welding_process_mig",
       "welding_process_mig_gas_shielded",
       "welding_wire_solid_core",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
-      "physical_connector_gas_hose",
-      "physical_connector_flow_gauge",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
+      "physical_connector_flow_gauge",
+      "shielding_gas_general",
       "welding_parameter_push_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
@@ -163,24 +179,28 @@
       "welding_process_mig",
       "welding_process_mig_gas_shielded",
       "welding_wire_solid_core",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
-      "physical_connector_gas_hose",
-      "physical_connector_flow_gauge",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
+      "physical_connector_flow_gauge",
+      "shielding_gas_general",
       "welding_parameter_push_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
     "id": "flux_cored_mild_steel_1_8_120v",
-    "label": "Flux-Cored 1/8 inch mild steel 120V",
+    "label": "Flux-Cored mild steel 1/8 inch 120V",
     "process": "Flux-Cored",
     "material": "mild_steel",
     "thickness_in": 0.125,
@@ -198,22 +218,26 @@
     "entity_refs": [
       "welding_process_flux_cored",
       "welding_wire_flux_cored",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
       "physical_connector_negative_socket",
       "physical_connector_positive_socket",
       "welding_parameter_drag_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd",
+      "welding_parameter_feed_tensioner_setting"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
     "id": "flux_cored_mild_steel_3_16_240v",
-    "label": "Flux-Cored 3/16 inch mild steel 240V",
+    "label": "Flux-Cored mild steel 3/16 inch 240V",
     "process": "Flux-Cored",
     "material": "mild_steel",
     "thickness_in": 0.1875,
@@ -231,30 +255,34 @@
     "entity_refs": [
       "welding_process_flux_cored",
       "welding_wire_flux_cored",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
       "physical_connector_mig_gun",
       "physical_connector_ground_clamp_cable",
       "physical_connector_negative_socket",
       "physical_connector_positive_socket",
       "welding_parameter_drag_angle",
-      "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_ctwd",
+      "welding_parameter_feed_tensioner_setting"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 22
+      "page": 7
     }
   },
   {
-    "id": "tig_mild_steel_1_16_240v",
-    "label": "TIG 1/16 inch mild steel 240V",
+    "id": "tig_mild_steel_1_16_120v",
+    "label": "TIG mild steel 1/16 inch 120V",
     "process": "TIG",
     "material": "mild_steel",
     "thickness_in": 0.0625,
-    "input_voltage": "240V",
+    "input_voltage": "120V",
     "settings": {
       "voltage_v": null,
       "wire_feed_speed_ipm": null,
-      "amperage_a": null,
+      "amperage_a": 90,
       "wire_type": null,
       "wire_diameter_in": null,
       "shielding_gas": "100% Argon",
@@ -267,22 +295,25 @@
       "physical_connector_tig_torch",
       "physical_connector_tig_torch_cable",
       "physical_connector_ground_clamp_tig",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
-      "physical_connector_foot_pedal",
-      "physical_connector_foot_pedal_cable",
-      "physical_connector_foot_pedal_socket",
+      "physical_connector_negative_socket",
       "physical_connector_tungsten_electrode",
       "physical_connector_collet",
       "physical_connector_collet_body",
       "physical_connector_ceramic_nozzle",
       "physical_connector_back_cap",
+      "physical_connector_foot_pedal",
+      "physical_connector_foot_pedal_cable",
+      "physical_connector_foot_pedal_socket",
       "shielding_gas_100_argon",
-      "physical_connector_flow_gauge",
       "physical_connector_regulator",
       "physical_connector_shielding_gas_hose_tig",
-      "welding_wire_tig_rod",
-      "welding_parameter_amperes"
+      "physical_connector_flow_gauge",
+      "welding_parameter_amperes",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
+      "welding_parameter_electrode_diameter",
+      "welding_wire_tig_rod"
     ],
     "diagram_refs": [],
     "manual_citation": {
@@ -291,7 +322,7 @@
   },
   {
     "id": "tig_mild_steel_1_8_240v",
-    "label": "TIG 1/8 inch mild steel 240V",
+    "label": "TIG mild steel 1/8 inch 240V",
     "process": "TIG",
     "material": "mild_steel",
     "thickness_in": 0.125,
@@ -299,7 +330,7 @@
     "settings": {
       "voltage_v": null,
       "wire_feed_speed_ipm": null,
-      "amperage_a": null,
+      "amperage_a": 105,
       "wire_type": null,
       "wire_diameter_in": null,
       "shielding_gas": "100% Argon",
@@ -312,22 +343,25 @@
       "physical_connector_tig_torch",
       "physical_connector_tig_torch_cable",
       "physical_connector_ground_clamp_tig",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
-      "physical_connector_foot_pedal",
-      "physical_connector_foot_pedal_cable",
-      "physical_connector_foot_pedal_socket",
+      "physical_connector_negative_socket",
       "physical_connector_tungsten_electrode",
       "physical_connector_collet",
       "physical_connector_collet_body",
       "physical_connector_ceramic_nozzle",
       "physical_connector_back_cap",
+      "physical_connector_foot_pedal",
+      "physical_connector_foot_pedal_cable",
+      "physical_connector_foot_pedal_socket",
       "shielding_gas_100_argon",
-      "physical_connector_flow_gauge",
       "physical_connector_regulator",
       "physical_connector_shielding_gas_hose_tig",
-      "welding_wire_tig_rod",
-      "welding_parameter_amperes"
+      "physical_connector_flow_gauge",
+      "welding_parameter_amperes",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
+      "welding_parameter_electrode_diameter",
+      "welding_wire_tig_rod"
     ],
     "diagram_refs": [],
     "manual_citation": {
@@ -335,11 +369,11 @@
     }
   },
   {
-    "id": "tig_aluminum_1_8_240v",
-    "label": "TIG 1/8 inch aluminum 240V",
+    "id": "tig_aluminum_spool_gun_240v",
+    "label": "TIG aluminum (spool gun) 240V",
     "process": "TIG",
     "material": "aluminum",
-    "thickness_in": 0.125,
+    "thickness_in": null,
     "input_voltage": "240V",
     "settings": {
       "voltage_v": null,
@@ -355,35 +389,38 @@
       "welding_process_tig",
       "welding_process_ac_tig",
       "welding_process_aluminum",
-      "welding_wire_aluminum",
       "physical_connector_tig_torch",
       "physical_connector_tig_torch_cable",
       "physical_connector_ground_clamp_tig",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
-      "physical_connector_foot_pedal",
-      "physical_connector_foot_pedal_cable",
-      "physical_connector_foot_pedal_socket",
+      "physical_connector_negative_socket",
       "physical_connector_tungsten_electrode",
       "physical_connector_collet",
       "physical_connector_collet_body",
       "physical_connector_ceramic_nozzle",
       "physical_connector_back_cap",
+      "physical_connector_foot_pedal",
+      "physical_connector_foot_pedal_cable",
+      "physical_connector_foot_pedal_socket",
       "shielding_gas_100_argon",
-      "physical_connector_flow_gauge",
       "physical_connector_regulator",
       "physical_connector_shielding_gas_hose_tig",
-      "welding_wire_tig_rod",
-      "welding_parameter_amperes"
+      "physical_connector_flow_gauge",
+      "welding_parameter_amperes",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
+      "welding_parameter_electrode_diameter",
+      "welding_wire_aluminum",
+      "welding_wire_tig_rod"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 29
+      "page": 7
     }
   },
   {
-    "id": "stick_6013_mild_steel_120v",
-    "label": "Stick 6013 mild steel 120V",
+    "id": "stick_6013_1_8_120v",
+    "label": "Stick 6013 1/8 inch electrode 120V",
     "process": "Stick",
     "material": "mild_steel",
     "thickness_in": null,
@@ -402,11 +439,14 @@
       "welding_process_stick",
       "physical_connector_electrode_holder",
       "physical_connector_ground_clamp",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
       "welding_parameter_amperes",
-      "welding_parameter_arc_force",
-      "welding_parameter_hot_start"
+      "welding_parameter_electrode_type",
+      "welding_parameter_electrode_diameter",
+      "welding_parameter_arc_length",
+      "welding_parameter_hot_start",
+      "welding_parameter_arc_force"
     ],
     "diagram_refs": [],
     "manual_citation": {
@@ -414,16 +454,16 @@
     }
   },
   {
-    "id": "stick_6011_mild_steel_120v",
-    "label": "Stick 6011 mild steel 120V",
+    "id": "stick_6011_1_8_240v",
+    "label": "Stick 6011 1/8 inch electrode 240V",
     "process": "Stick",
     "material": "mild_steel",
     "thickness_in": null,
-    "input_voltage": "120V",
+    "input_voltage": "240V",
     "settings": {
       "voltage_v": null,
       "wire_feed_speed_ipm": null,
-      "amperage_a": 80,
+      "amperage_a": 100,
       "wire_type": null,
       "wire_diameter_in": null,
       "shielding_gas": null,
@@ -434,11 +474,14 @@
       "welding_process_stick",
       "physical_connector_electrode_holder",
       "physical_connector_ground_clamp",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
       "welding_parameter_amperes",
-      "welding_parameter_arc_force",
-      "welding_parameter_hot_start"
+      "welding_parameter_electrode_type",
+      "welding_parameter_electrode_diameter",
+      "welding_parameter_arc_length",
+      "welding_parameter_hot_start",
+      "welding_parameter_arc_force"
     ],
     "diagram_refs": [],
     "manual_citation": {
@@ -446,8 +489,8 @@
     }
   },
   {
-    "id": "stick_7018_mild_steel_240v",
-    "label": "Stick 7018 mild steel 240V",
+    "id": "stick_7018_1_8_240v",
+    "label": "Stick 7018 1/8 inch electrode 240V",
     "process": "Stick",
     "material": "mild_steel",
     "thickness_in": null,
@@ -455,7 +498,7 @@
     "settings": {
       "voltage_v": null,
       "wire_feed_speed_ipm": null,
-      "amperage_a": 175,
+      "amperage_a": 100,
       "wire_type": null,
       "wire_diameter_in": null,
       "shielding_gas": null,
@@ -466,11 +509,14 @@
       "welding_process_stick",
       "physical_connector_electrode_holder",
       "physical_connector_ground_clamp",
-      "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_negative_socket",
       "welding_parameter_amperes",
-      "welding_parameter_arc_force",
-      "welding_parameter_hot_start"
+      "welding_parameter_electrode_type",
+      "welding_parameter_electrode_diameter",
+      "welding_parameter_arc_length",
+      "welding_parameter_hot_start",
+      "welding_parameter_arc_force"
     ],
     "diagram_refs": [],
     "manual_citation": {
@@ -478,11 +524,11 @@
     }
   },
   {
-    "id": "mig_aluminum_spool_gun_1_8_240v",
-    "label": "MIG aluminum spool gun 1/8 inch 240V",
+    "id": "mig_aluminum_spool_gun_240v",
+    "label": "MIG aluminum spool gun 240V",
     "process": "MIG",
     "material": "aluminum",
-    "thickness_in": 0.125,
+    "thickness_in": null,
     "input_voltage": "240V",
     "settings": {
       "voltage_v": null,
@@ -502,67 +548,66 @@
       "physical_connector_spool_gun_cable_connector",
       "physical_connector_spool_gun_gas_hose",
       "physical_connector_spool_gun_gas_outlet",
-      "physical_connector_ground_clamp_cable",
-      "physical_connector_wire_feed_power_cable",
       "physical_connector_wire_feed_control_cable",
       "physical_connector_wire_feed_control_socket_inner",
+      "physical_connector_ground_clamp_cable",
       "physical_connector_negative_socket",
       "physical_connector_positive_socket",
+      "physical_connector_wire_feed_power_cable",
       "shielding_gas_100_argon",
-      "physical_connector_flow_gauge",
       "physical_connector_regulator",
-      "welding_parameter_push_angle",
+      "physical_connector_flow_gauge",
       "welding_parameter_wire_feed_speed",
-      "welding_parameter_amperes"
+      "welding_parameter_wire_diameter",
+      "welding_parameter_scfh",
+      "welding_parameter_push_angle",
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 17
+      "page": 7
     }
   },
   {
-    "id": "tig_mild_steel_1_16_120v",
-    "label": "TIG 1/16 inch mild steel 120V",
-    "process": "TIG",
-    "material": "mild_steel",
-    "thickness_in": 0.0625,
-    "input_voltage": "120V",
+    "id": "mig_stainless_steel_1_8_240v",
+    "label": "MIG stainless steel 1/8 inch 240V",
+    "process": "MIG",
+    "material": "stainless",
+    "thickness_in": 0.125,
+    "input_voltage": "240V",
     "settings": {
       "voltage_v": null,
       "wire_feed_speed_ipm": null,
       "amperage_a": null,
-      "wire_type": null,
-      "wire_diameter_in": null,
-      "shielding_gas": "100% Argon",
-      "polarity": "DCEN",
+      "wire_type": "solid",
+      "wire_diameter_in": "0.030",
+      "shielding_gas": null,
+      "polarity": "DCEP",
       "electrode_class": null
     },
     "entity_refs": [
-      "welding_process_tig",
-      "welding_process_dc_tig",
-      "physical_connector_tig_torch",
-      "physical_connector_tig_torch_cable",
-      "physical_connector_ground_clamp_tig",
-      "physical_connector_negative_socket",
+      "welding_process_mig",
+      "welding_process_mig_stainless_steel",
+      "welding_wire_stainless_steel",
+      "welding_wire_solid_core",
+      "physical_connector_mig_gun",
+      "physical_connector_ground_clamp_cable",
       "physical_connector_positive_socket",
-      "physical_connector_foot_pedal",
-      "physical_connector_foot_pedal_cable",
-      "physical_connector_foot_pedal_socket",
-      "physical_connector_tungsten_electrode",
-      "physical_connector_collet",
-      "physical_connector_collet_body",
-      "physical_connector_ceramic_nozzle",
-      "physical_connector_back_cap",
-      "shielding_gas_100_argon",
-      "physical_connector_flow_gauge",
+      "physical_connector_negative_socket",
+      "shielding_gas_stainless_tri_mix",
       "physical_connector_regulator",
-      "physical_connector_shielding_gas_hose_tig",
-      "welding_wire_tig_rod",
-      "welding_parameter_amperes"
+      "physical_connector_flow_gauge",
+      "welding_parameter_wire_feed_speed",
+      "welding_parameter_amperes",
+      "welding_parameter_wire_diameter",
+      "welding_parameter_material_thickness",
+      "welding_parameter_scfh",
+      "welding_parameter_push_angle",
+      "welding_parameter_ctwd"
     ],
     "diagram_refs": [],
     "manual_citation": {
-      "page": 29
+      "page": 7
     }
   }
 ]

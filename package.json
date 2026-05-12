@@ -12,6 +12,7 @@
     "ingest:procedural": "tsx scripts/run-procedural-extract.ts",
     "ingest:diagnostic": "tsx scripts/run-diagnostic-extract.ts",
     "ingest:salience": "tsx scripts/run-salience-synthesis.ts",
+    "rescue:structural": "tsx scripts/rescue-structural.ts",
     "rescue:procedural": "tsx scripts/rescue-procedural.ts",
     "rescue:diagnostic": "tsx scripts/rescue-diagnostic.ts",
     "schema:review": "node scripts/schema-review.js"

@@ -244,7 +244,7 @@
       6
     ],
     "is_new": true,
-    "salience": 0.4
+    "salience": 0.7
   },
   {
     "id": "safety_guideline_extension_cords",
@@ -355,7 +355,7 @@
       6
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.4
   },
   {
     "id": "control_element_housing_ground_point",
@@ -378,7 +378,7 @@
       36
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "welding_parameter_voltage_vac",
@@ -389,7 +389,7 @@
       6
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "welding_parameter_amperes",
@@ -400,7 +400,7 @@
       6
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "welding_parameter_ocv",
@@ -499,7 +499,7 @@
       8
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "control_element_left_knob",
@@ -534,7 +534,7 @@
       23
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "control_element_power_switch",
@@ -670,7 +670,7 @@
       16
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "control_element_wire_feed_mechanism",
@@ -682,7 +682,7 @@
       13
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "control_element_idler_arm",
@@ -859,7 +859,7 @@
       11
     ],
     "is_new": true,
-    "salience": 0.4
+    "salience": 0.7
   },
   {
     "id": "control_element_spool_spindle",
@@ -906,7 +906,7 @@
       11
     ],
     "is_new": true,
-    "salience": 1
+    "salience": 0.7
   },
   {
     "id": "reference_diagram_wire_spool_installation",
@@ -1608,7 +1608,7 @@
       17
     ],
     "is_new": true,
-    "salience": 0.4
+    "salience": 0.7
   },
   {
     "id": "safety_guideline_spool_gun_connector_fully_inserted",
@@ -1816,7 +1816,7 @@
       29
     ],
     "is_new": true,
-    "salience": 0.4
+    "salience": 0.7
   },
   {
     "id": "failure_mode_overheat_warning_screen",
@@ -1829,7 +1829,7 @@
       29
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_setting_up_weld",
@@ -1996,7 +1996,8 @@
     "type": "safety_guideline",
     "description": "DANGER warning: Do not open gas without proper ventilation. Fix gas leaks immediately. Shielding gas can displace air and cause rapid loss of consciousness and death. Shielding gas without carbon dioxide can be even more hazardous because asphyxiation can start without feeling shortness of breath.",
     "page_refs": [
-      21
+      21,
+      30
     ],
     "is_new": true,
     "salience": 0.4
@@ -2007,7 +2008,8 @@
     "type": "failure_mode",
     "description": "Shielding gas can displace air and cause rapid loss of consciousness and death; gases without CO2 are especially hazardous as asphyxiation can start without shortness of breath",
     "page_refs": [
-      21
+      21,
+      30
     ],
     "is_new": true,
     "salience": 0.4
@@ -2043,7 +2045,7 @@
       21
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_basic_wire_welding_technique",
@@ -2054,7 +2056,7 @@
       22
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "welding_parameter_stringer_bead",
@@ -2110,7 +2112,7 @@
       36
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "welding_parameter_fillet_weld_angle",
@@ -2176,7 +2178,7 @@
       22
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.85
   },
   {
     "id": "failure_mode_duty_cycle_exceeded",
@@ -2198,7 +2200,7 @@
       23
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "failure_mode_high_voltage_input",
@@ -2209,7 +2211,7 @@
       23
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_post_welding_shutdown",
@@ -2368,7 +2370,7 @@
       31
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.85
   },
   {
     "id": "physical_connector_foot_pedal",
@@ -2391,7 +2393,7 @@
       24
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.85
   },
   {
     "id": "reference_diagram_tig_connect_cables",
@@ -2413,7 +2415,7 @@
       25
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "shielding_gas_100_argon",
@@ -2421,7 +2423,8 @@
     "type": "shielding_gas",
     "description": "100% Argon shielding gas used for TIG welding, supplied from a cylinder secured with two straps.",
     "page_refs": [
-      25
+      25,
+      30
     ],
     "is_new": true,
     "salience": 0.7
@@ -2468,7 +2471,7 @@
       25
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "diagram_25_2",
@@ -2479,7 +2482,7 @@
       25
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_sharpen_tungsten_electrode",
@@ -2490,7 +2493,7 @@
       26
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_assemble_tig_torch",
@@ -2524,7 +2527,7 @@
       31
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.85
   },
   {
     "id": "physical_connector_collet",
@@ -2590,7 +2593,7 @@
       26
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_stick_connect_cables",
@@ -2612,7 +2615,7 @@
       27
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 1
   },
   {
     "id": "physical_connector_electrode_holder",
@@ -2623,7 +2626,7 @@
       27
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_stick_connect_power_cord",
@@ -2667,7 +2670,7 @@
       27
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "setup_procedure_basic_tig_stick_welding",
@@ -2678,7 +2681,7 @@
       28
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.85
   },
   {
     "id": "welding_process_dc_tig",
@@ -3233,7 +3236,7 @@
       35
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 1
   },
   {
     "id": "welding_parameter_travel_speed",
@@ -3257,7 +3260,7 @@
       36
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 1
   },
   {
     "id": "failure_mode_bend_at_joint",
@@ -3554,7 +3557,7 @@
       38
     ],
     "is_new": true,
-    "salience": 0.7
+    "salience": 1
   },
   {
     "id": "safety_guideline_clean_welds_first",
@@ -3785,7 +3788,7 @@
       41
     ],
     "is_new": true,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "setup_procedure_replacing_lcd_screen_cover",
@@ -3796,7 +3799,7 @@
       41
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "id": "control_element_screen_cover",
@@ -3807,7 +3810,7 @@
       41
     ],
     "is_new": true,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "id": "control_element_screen_frame",
@@ -3818,7 +3821,7 @@
       41
     ],
     "is_new": true,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "id": "control_element_display_22",
@@ -3840,7 +3843,7 @@
       41
     ],
     "is_new": true,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "diagram_41_2",
@@ -3873,7 +3876,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "failure_mode_birds_nest",
@@ -3884,7 +3887,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "failure_mode_wire_stops_during_welding",
@@ -3895,7 +3898,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "failure_mode_welding_arc_not_stable",
@@ -3906,7 +3909,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "failure_mode_weak_arc_strength",
@@ -3917,7 +3920,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "reference_diagram_mig_flux_cored_troubleshooting_table",
@@ -3928,7 +3931,7 @@
       42
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "id": "setup_procedure_tig_stick_troubleshoot",
@@ -3939,7 +3942,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "failure_mode_welder_no_function_switch_on",
@@ -3950,7 +3953,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "id": "failure_mode_lcd_no_light",
@@ -3961,7 +3964,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "failure_mode_tripped_thermal_protection",
@@ -3972,7 +3975,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "id": "failure_mode_faulty_trigger",
@@ -4104,7 +4107,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.4
+    "salience": 0.1
   },
   {
     "id": "reference_diagram_tig_stick_troubleshooting_table",
@@ -4115,7 +4118,7 @@
       44
     ],
     "is_new": true,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "id": "reference_diagram_wiring_schematic_p45",
@@ -4126,7 +4129,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "id": "control_element_mcu_board",
@@ -4137,7 +4140,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "id": "control_element_pfc_igbt",
@@ -4148,7 +4151,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "id": "control_element_remote_board",
@@ -4181,7 +4184,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "id": "control_element_wire_feeder_motor",
@@ -4192,7 +4195,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "id": "control_element_fan2",
@@ -4203,7 +4206,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "id": "physical_connector_aviation_plug",
@@ -4214,7 +4217,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "id": "control_element_fast_wire_feed_switch",
@@ -4225,7 +4228,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "id": "product_specification_input_voltage_120_240vac",
@@ -4236,7 +4239,7 @@
       45
     ],
     "is_new": true,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "id": "safety_guideline_parts_list_disclaimer",
@@ -4258,7 +4261,7 @@
       46
     ],
     "is_new": true,
-    "salience": 0.3
+    "salience": 0.1
   },
   {
     "id": "reference_diagram_assembly_diagram_p47",
@@ -4281,5 +4284,744 @@
     ],
     "is_new": true,
     "salience": 0.1
+  },
+  {
+    "id": "product_specification_mig_power_input",
+    "name": "MIG Power Input 120VAC/60Hz or 240VAC/60Hz",
+    "type": "product_specification",
+    "description": "MIG power input ratings: 120VAC/60Hz and 240VAC/60Hz",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_mig_current_input",
+    "name": "MIG Current Input at Output",
+    "type": "product_specification",
+    "description": "MIG current input: 20.8A at 100A (120VAC), 25.5A at 200A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_mig_welding_current_range",
+    "name": "MIG Welding Current Range",
+    "type": "product_specification",
+    "description": "MIG welding current range: 30-140A (120VAC), 30-220A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_mig_max_ocv",
+    "name": "MIG Maximum OCV 86VDC",
+    "type": "product_specification",
+    "description": "MIG maximum open circuit voltage of 86VDC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "product_specification_mig_wire_capacity",
+    "name": "MIG Welding Wire Capacity",
+    "type": "product_specification",
+    "description": "Solid Core: 0.025\"/0.030\"/0.035\"; Flux Cored: 0.030\"/0.035\"/0.045\"",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_mig_wire_speed",
+    "name": "MIG Wire Speed 50-500 IPM",
+    "type": "product_specification",
+    "description": "MIG wire feed speed range: 50-500 IPM",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_mig_spool_capacity",
+    "name": "MIG Wire Spool Capacity Up to 12 lb",
+    "type": "product_specification",
+    "description": "Wire spool capacity up to 12 lb spool",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_tig_power_input",
+    "name": "TIG Power Input 120VAC/60Hz or 240VAC/60Hz",
+    "type": "product_specification",
+    "description": "TIG power input ratings",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_tig_current_input",
+    "name": "TIG Current Input at Output",
+    "type": "product_specification",
+    "description": "TIG current input: 20.6A at 125A (120VAC), 15.6A at 175A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_tig_welding_current_range",
+    "name": "TIG Welding Current Range",
+    "type": "product_specification",
+    "description": "TIG welding current range: 10A-125A (120VAC), 10A-175A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_tig_duty_cycle_120vac_100pct",
+    "name": "TIG Rated Duty Cycle 120VAC 100% at 90A",
+    "type": "product_specification",
+    "description": "TIG 100% duty cycle at 90A on 120VAC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_tig_duty_cycle_240vac_100pct",
+    "name": "TIG Rated Duty Cycle 240VAC 100% at 105A",
+    "type": "product_specification",
+    "description": "TIG 100% duty cycle at 105A on 240VAC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_tig_max_ocv",
+    "name": "TIG Maximum OCV 86VDC",
+    "type": "product_specification",
+    "description": "TIG maximum open circuit voltage of 86VDC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "product_specification_stick_power_input",
+    "name": "Stick Power Input 120VAC/60Hz or 240VAC/60Hz",
+    "type": "product_specification",
+    "description": "Stick power input ratings",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_stick_current_input",
+    "name": "Stick Current Input at Output",
+    "type": "product_specification",
+    "description": "Stick current input: 19.5A at 80A (120VAC), 23.7A at 175A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "product_specification_stick_welding_current_range",
+    "name": "Stick Welding Current Range",
+    "type": "product_specification",
+    "description": "Stick welding current range: 10A-80A (120VAC), 10A-175A (240VAC)",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_stick_duty_cycle_120vac_100pct",
+    "name": "Stick Rated Duty Cycle 120VAC 100% at 60A",
+    "type": "product_specification",
+    "description": "Stick 100% duty cycle at 60A on 120VAC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_stick_duty_cycle_240vac_100pct",
+    "name": "Stick Rated Duty Cycle 240VAC 100% at 100A",
+    "type": "product_specification",
+    "description": "Stick 100% duty cycle at 100A on 240VAC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "product_specification_stick_max_ocv",
+    "name": "Stick Maximum OCV 86VDC",
+    "type": "product_specification",
+    "description": "Stick maximum open circuit voltage of 86VDC",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "workpiece_material_chrome_moly",
+    "name": "Chrome Moly",
+    "type": "workpiece_material",
+    "description": "Chrome moly steel weldable with TIG",
+    "page_refs": [
+      7
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "setup_procedure_settings",
+    "name": "Settings Configuration Procedure",
+    "type": "setup_procedure",
+    "description": "Procedure for configuring welding settings via Home button, Main Control Knob, and adjustment of polarity, gas, wire diameter, material thickness, and auto weld settings (WFS and Voltage).",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.9
+  },
+  {
+    "id": "welding_parameter_wire_diameter",
+    "name": "Wire Diameter",
+    "type": "welding_parameter",
+    "description": "Diameter of welding wire, set by turning the Left Knob on the control panel.",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_material_thickness",
+    "name": "Material Thickness",
+    "type": "welding_parameter",
+    "description": "Workpiece material thickness, set by turning the Right Knob on the control panel.",
+    "page_refs": [
+      20,
+      30
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_scfh",
+    "name": "Gas Flow Rate (SCFH)",
+    "type": "welding_parameter",
+    "description": "Shielding gas flow rate, recommended setting between 20-30 SCFH.",
+    "page_refs": [
+      20,
+      30
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_process_mig_stainless_steel",
+    "name": "MIG Stainless Steel Welding",
+    "type": "welding_process",
+    "description": "MIG welding process configured for stainless steel using Stainless Tri-Mix shielding gas.",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "shielding_gas_stainless_tri_mix",
+    "name": "Stainless Tri-Mix",
+    "type": "shielding_gas",
+    "description": "Tri-mix shielding gas used for MIG stainless steel welding.",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "safety_guideline_gfci_protected_outlet",
+    "name": "GFCI Protected Outlet and Delayed Action Circuit Breaker Requirement",
+    "type": "safety_guideline",
+    "description": "Power Cord must be plugged into a properly grounded, GFCI protected 120VAC (20 amp) or 240VAC receptacle matching the plug. Circuit must be equipped with delayed action-type circuit breaker or fuses.",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "safety_guideline_mig_gun_nonconductive_surface",
+    "name": "Set MIG Gun on Nonconductive, Nonflammable Surface",
+    "type": "safety_guideline",
+    "description": "Set MIG Gun down on nonconductive, nonflammable surface away from any grounded objects.",
+    "page_refs": [
+      20
+    ],
+    "is_new": true,
+    "salience": 0.1
+  },
+  {
+    "id": "setup_procedure_tig_welding_p30",
+    "name": "TIG Welding Setup Procedure",
+    "type": "setup_procedure",
+    "description": "Step-by-step procedure for setting up TIG welding: opening gas valve, setting flow gauge, powering on, selecting TIG process, configuring polarity/gas/rod diameter/material thickness, and Auto Weld settings.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 0.9
+  },
+  {
+    "id": "safety_guideline_grounding_clamp_required",
+    "name": "Do Not Weld Without Grounding Clamp Warning",
+    "type": "safety_guideline",
+    "description": "Warning to prevent serious injury and death: do not weld without grounding clamp; non-holding torch must rest on nonconductive nonflammable surface; only hold TIG rod with electrically insulated welding glove.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "welding_parameter_rod_diameter",
+    "name": "Rod Diameter",
+    "type": "welding_parameter",
+    "description": "TIG rod diameter setting (e.g., 1/16\") configured via Left Knob.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_output_amperage",
+    "name": "Output Amperage",
+    "type": "welding_parameter",
+    "description": "TIG output amperage adjustable via Left Knob in Auto Weld settings.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_tig_torch_energize",
+    "name": "TIG Torch Energize (ON/OFF)",
+    "type": "welding_parameter",
+    "description": "Toggle to energize TIG torch via Right Knob in Auto Weld settings.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "diagram_30_1",
+    "name": "Front Panel with Knobs Diagram",
+    "type": "reference_diagram",
+    "description": "Diagram of the OMNIPRO 220 front panel showing Left Knob, Main Control Knob, and Right Knob along with the TIG process selected on LCD screen.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_30_2",
+    "name": "Polarity and Gas Settings LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing TIG polarity (negative TIG torch, positive ground clamp) and 100% Argon gas selection.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_30_3",
+    "name": "TIG Rod Diameter and Material Thickness LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing TIG settings: Diameter 1/16\" and Thickness 24 Ga.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_30_4",
+    "name": "Auto Weld Settings LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing Auto Weld settings: 30 A, 0 A, ON/OFF, 0.0 V, TIG with Pedal, 100% Ar, 1/16\" rod diameter, 24Ga material thickness.",
+    "page_refs": [
+      30
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "setup_procedure_stick_welding_p32",
+    "name": "Stick Welding Setup Procedure",
+    "type": "setup_procedure",
+    "description": "Procedure for setting up and configuring the welder for Stick welding, including power, electrode setup, polarity, electrode type, diameter, material thickness, and auto weld settings.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.9
+  },
+  {
+    "id": "safety_guideline_electrode_holder_nonconductive",
+    "name": "Electrode Holder on Nonconductive Surface Warning",
+    "type": "safety_guideline",
+    "description": "When the operator is not holding the Electrode Holder, it must sit on a nonconductive, nonflammable surface to prevent injury or death.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.1
+  },
+  {
+    "id": "welding_parameter_electrode_type",
+    "name": "Electrode Type",
+    "type": "welding_parameter",
+    "description": "Stick electrode classification (e.g., 60xx, 70XX) selected via Main Control Knob.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_electrode_diameter",
+    "name": "Electrode Diameter",
+    "type": "welding_parameter",
+    "description": "Diameter of the stick electrode (e.g., 3/32\") set via Left Knob.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "stick_electrode_60xx",
+    "name": "60xx Stick Electrode",
+    "type": "stick_electrode",
+    "description": "6011/6013-class stick electrode option shown in the electrode type selection screen.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "stick_electrode_70xx",
+    "name": "70XX Stick Electrode",
+    "type": "stick_electrode",
+    "description": "7014/7018-class stick electrode option shown on the auto weld settings screen.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "safety_guideline_welder_energized",
+    "name": "Welder Energized / Open Circuit Voltage Present Warning",
+    "type": "safety_guideline",
+    "description": "Warning that once the electrode holder is energized via the Right Knob, OCV is present at the holder and serious injury can result.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 0.4
+  },
+  {
+    "id": "diagram_32_1",
+    "name": "Stick Front Panel Knobs Diagram",
+    "type": "reference_diagram",
+    "description": "Diagram showing the Vulcan OmniPro 220 front panel highlighting the Left Knob, Main Control Knob, and Right Knob with the Stick process displayed on the LCD.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_32_2",
+    "name": "Stick Polarity Setting - No Gas Required Diagram",
+    "type": "reference_diagram",
+    "description": "Diagram showing polarity cable connection for Stick welding with the message 'No Gas Required'.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_32_3",
+    "name": "Stick Electrode Type LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing Stick process with Electrode type 60xx selection.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_32_4",
+    "name": "Stick Electrode Diameter and Material Thickness LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing Stick electrode diameter 3/32\" and material thickness 16 Ga settings.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "diagram_32_5",
+    "name": "Stick Auto Weld Settings LCD Screen",
+    "type": "reference_diagram",
+    "description": "LCD screen showing Stick auto weld settings: 60A output, 0.0V, electrode 70XX 3/32\", 16Ga, Hot Start 6, Arc Force 0, with ON/OFF for electrode holder energize.",
+    "page_refs": [
+      32
+    ],
+    "is_new": true,
+    "salience": 1
+  },
+  {
+    "id": "failure_mode_porosity_weld_metal",
+    "name": "Porosity in the Weld Metal",
+    "type": "failure_mode",
+    "description": "Weld metal porosity caused by empty/improper shielding gas, dirty workpiece, gun too far from workpiece, incorrect polarity, or dirty welding wire",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_wire_feeds_no_arc",
+    "name": "Wire Feeds, but Arc Does Not Ignite",
+    "type": "failure_mode",
+    "description": "Wire feeds out of the gun but no arc is established, typically due to improper ground, wrong contact tip size, worn or dirty contact tip",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.8
+  },
+  {
+    "id": "failure_mode_insufficient_input_voltage",
+    "name": "Circuit Supplies Insufficient Input Voltage or Amperage",
+    "type": "failure_mode",
+    "description": "Branch circuit does not provide required voltage/amperage causing welder malfunction",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_low_or_overvoltage_protection",
+    "name": "Machine in Low- or Over-Voltage Protection",
+    "type": "failure_mode",
+    "description": "Welder has entered low- or over-voltage protection and requires reset",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_incorrect_mode",
+    "name": "Machine in Incorrect Mode",
+    "type": "failure_mode",
+    "description": "Selected process/mode is not the correct one for the intended weld",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.8
+  },
+  {
+    "id": "failure_mode_plug_wrong_rating",
+    "name": "Plug Does Not Have Correct Rating",
+    "type": "failure_mode",
+    "description": "Power plug installed on cord is not the correct rating for the welder",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_circuit_breaker_tripped",
+    "name": "Circuit Breaker Tripped Due to High Input Amperage",
+    "type": "failure_mode",
+    "description": "House circuit breaker tripped from high amperage draw",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_input_power_cord_not_seated",
+    "name": "Input Power Cord Not Seated Properly",
+    "type": "failure_mode",
+    "description": "Twist-lock input power cord not fully secured",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_improper_ground_connection",
+    "name": "Improper Ground Connection",
+    "type": "failure_mode",
+    "description": "Ground clamp not properly contacting clean workpiece near weld",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.8
+  },
+  {
+    "id": "failure_mode_improper_contact_tip_size",
+    "name": "Improperly Sized Contact Tip",
+    "type": "failure_mode",
+    "description": "Contact tip size does not match welding wire diameter",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_worn_contact_tip",
+    "name": "Excessively Worn Contact Tip",
+    "type": "failure_mode",
+    "description": "Contact tip hole deformed or enlarged from wear",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_dirty_contact_tip",
+    "name": "Dirty Contact Tip",
+    "type": "failure_mode",
+    "description": "Contact tip is contaminated with debris affecting arc",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_shielding_gas_empty",
+    "name": "Shielding Gas Bottle Empty",
+    "type": "failure_mode",
+    "description": "Shielding gas cylinder is depleted",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_improper_shielding_gas_flow",
+    "name": "Not Enough or Too Much Shielding Gas",
+    "type": "failure_mode",
+    "description": "Shielding gas flow rate is incorrect",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_dirty_workpiece",
+    "name": "Dirty Workpiece",
+    "type": "failure_mode",
+    "description": "Workpiece surface contaminated, causing porosity",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_gun_too_far",
+    "name": "Gun Used Too Far Away from Workpiece",
+    "type": "failure_mode",
+    "description": "Excessive contact tip to work distance causes porosity",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
+  },
+  {
+    "id": "failure_mode_incorrect_polarity",
+    "name": "Incorrect Polarity for Application",
+    "type": "failure_mode",
+    "description": "Wrong polarity setting (e.g., not DCEP for MIG or not DCEN for Flux-Cored)",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.8
+  },
+  {
+    "id": "failure_mode_dirty_welding_wire",
+    "name": "Dirty Welding Wire",
+    "type": "failure_mode",
+    "description": "Welding wire has rust or residues contaminating the weld",
+    "page_refs": [
+      43
+    ],
+    "is_new": true,
+    "salience": 0.7
   }
 ]

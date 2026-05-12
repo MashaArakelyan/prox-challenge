@@ -666,5 +666,178 @@
         "Qty": 1
       }
     ]
+  },
+  {
+    "id": "table_7_1",
+    "name": "MIG Specifications",
+    "page": 7,
+    "columns": [
+      "Specification",
+      "120VAC / 60Hz",
+      "240VAC / 60Hz"
+    ],
+    "rows": [
+      {
+        "Specification": "Power Input",
+        "120VAC / 60Hz": "120VAC / 60Hz",
+        "240VAC / 60Hz": "240VAC / 60Hz"
+      },
+      {
+        "Specification": "Current Input at Output",
+        "120VAC / 60Hz": "20.8A at 100A",
+        "240VAC / 60Hz": "25.5A at 200A"
+      },
+      {
+        "Specification": "Welding Current Range",
+        "120VAC / 60Hz": "30-140A",
+        "240VAC / 60Hz": "30-220A"
+      },
+      {
+        "Specification": "Rated Duty Cycles",
+        "120VAC / 60Hz": "40% @ 100A; 100% @ 75A",
+        "240VAC / 60Hz": "25% @ 200A; 100% @ 115A"
+      },
+      {
+        "Specification": "Maximum OCV",
+        "120VAC / 60Hz": "86VDC",
+        "240VAC / 60Hz": "86VDC"
+      },
+      {
+        "Specification": "Weldable Materials",
+        "120VAC / 60Hz": "Mild Steel, Stainless Steel, Aluminum (with optional Spool Gun)",
+        "240VAC / 60Hz": "Mild Steel, Stainless Steel, Aluminum (with optional Spool Gun)"
+      },
+      {
+        "Specification": "Welding Wire Capacity",
+        "120VAC / 60Hz": "Solid Core: 0.025\"/0.030\"/0.035\"; Flux Cored: 0.030\"/0.035\"/0.045\"",
+        "240VAC / 60Hz": "Solid Core: 0.025\"/0.030\"/0.035\"; Flux Cored: 0.030\"/0.035\"/0.045\""
+      },
+      {
+        "Specification": "Wire Speed",
+        "120VAC / 60Hz": "50-500 IPM",
+        "240VAC / 60Hz": "50-500 IPM"
+      },
+      {
+        "Specification": "Wire Spool Capacity",
+        "120VAC / 60Hz": "Up to 12 lb spool",
+        "240VAC / 60Hz": "Up to 12 lb spool"
+      }
+    ]
+  },
+  {
+    "id": "table_7_2",
+    "name": "TIG Specifications",
+    "page": 7,
+    "columns": [
+      "Specification",
+      "120VAC / 60Hz",
+      "240VAC / 60Hz"
+    ],
+    "rows": [
+      {
+        "Specification": "Power Input",
+        "120VAC / 60Hz": "120VAC / 60Hz",
+        "240VAC / 60Hz": "240VAC / 60Hz"
+      },
+      {
+        "Specification": "Current Input at Output",
+        "120VAC / 60Hz": "20.6A at 125A",
+        "240VAC / 60Hz": "15.6A at 175A"
+      },
+      {
+        "Specification": "Welding Current Range",
+        "120VAC / 60Hz": "10A-125A",
+        "240VAC / 60Hz": "10A-175A"
+      },
+      {
+        "Specification": "Rated Duty Cycles",
+        "120VAC / 60Hz": "40% @ 125A; 100% @ 90A",
+        "240VAC / 60Hz": "30% @ 175A; 100% @ 105A"
+      },
+      {
+        "Specification": "Maximum OCV",
+        "120VAC / 60Hz": "86VDC",
+        "240VAC / 60Hz": "86VDC"
+      },
+      {
+        "Specification": "Weldable Materials",
+        "120VAC / 60Hz": "Mild Steel, Stainless Steel, Chrome Moly",
+        "240VAC / 60Hz": "Mild Steel, Stainless Steel, Chrome Moly"
+      }
+    ]
+  },
+  {
+    "id": "table_7_3",
+    "name": "Stick Specifications",
+    "page": 7,
+    "columns": [
+      "Specification",
+      "120VAC / 60Hz",
+      "240VAC / 60Hz"
+    ],
+    "rows": [
+      {
+        "Specification": "Power Input",
+        "120VAC / 60Hz": "120VAC / 60Hz",
+        "240VAC / 60Hz": "240VAC / 60Hz"
+      },
+      {
+        "Specification": "Current Input at Output",
+        "120VAC / 60Hz": "19.5A at 80A",
+        "240VAC / 60Hz": "23.7A at 175A"
+      },
+      {
+        "Specification": "Welding Current Range",
+        "120VAC / 60Hz": "10A-80A",
+        "240VAC / 60Hz": "10A-175A"
+      },
+      {
+        "Specification": "Rated Duty Cycles",
+        "120VAC / 60Hz": "40% @ 80A; 100% @ 60A",
+        "240VAC / 60Hz": "25% @ 175A; 100% @ 100A"
+      },
+      {
+        "Specification": "Maximum OCV",
+        "120VAC / 60Hz": "86VDC",
+        "240VAC / 60Hz": "86VDC"
+      },
+      {
+        "Specification": "Weldable Materials",
+        "120VAC / 60Hz": "Mild Steel, Stainless Steel",
+        "240VAC / 60Hz": "Mild Steel, Stainless Steel"
+      }
+    ]
+  },
+  {
+    "id": "table_43_1",
+    "name": "Troubleshooting - TIG/Stick Welding (continued)",
+    "page": 43,
+    "columns": [
+      "Problem",
+      "Possible Causes",
+      "Likely Solutions"
+    ],
+    "rows": [
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible Causes": "1. Tripped thermal protection device. 2. Circuit supplies insufficient input voltage or amperage. 3. Faulty or improperly connected Trigger. 4. Machine is in low- or over-voltage protection. 5. Machine is in the incorrect mode.",
+        "Likely Solutions": "1. If a warning screen appears in the LCD Display window, Welder may have overheated and shut down. Stop and wait with the Power Switch ON for the Welder to cool. Reduce duration or frequency of welding periods. Refer to Duty Cycle on page 19. 2. Verify circuit supplies required input voltage and amperage per Specifications table; check LCD for warning screen. 3. Ensure gun connection is properly seated; qualified technician must check/replace Trigger. 4. Check input voltage is within specified range; if correct press Reset Button on back of machine. 5. Ensure correct process has been selected."
+      },
+      {
+        "Problem": "LCD Display Does Not Light When Welder is Switched On",
+        "Possible Causes": "1. Unit not connected to outlet properly. 2. Outlet is unpowered. 3. Plug does not have correct rating. 4. Circuit breaker tripped due to high input amperage. 5. Input Power Cord not seated properly.",
+        "Likely Solutions": "1. Verify voltage at outlet and connection to outlet. 2. Check circuit breaker/GFCI devices; if tripped determine cause before resetting. 3. Make sure installed plug is correct rating; See Specifications on page 7. 4. Press Reset Button on back of machine to reset circuit breaker. 5. Ensure twist lock input Power Cord is fully secured."
+      },
+      {
+        "Problem": "Wire Feeds, but Arc Does Not Ignite",
+        "Possible Causes": "1. Improper ground connection. 2. Improperly sized Contact Tip. 3. Excessively worn Contact Tip. 4. Dirty Contact Tip.",
+        "Likely Solutions": "1. Make certain workpiece is contacted properly by Ground Clamp and that workpiece is cleaned near ground clamp and welding location. 2. Verify Contact Tip is proper size for welding wire; replace if needed. 3. Check tip hole is not deformed or enlarged; replace if needed. 4. Properly clean Contact Tip."
+      },
+      {
+        "Problem": "Porosity in the Weld Metal",
+        "Possible Causes": "1. Shielding gas bottle empty. 2. Not enough or too much shielding gas. 3. Dirty workpiece. 4. Gun used too far away from workpiece. 5. Polarity incorrect for application. 6. Dirty welding wire introducing contamination.",
+        "Likely Solutions": "1. Check gas bottle and replenish as necessary. 2. Check gas regulator to ensure proper flow. 3. Clean workpiece down to bare metal. 4. Check CTWD (contact tip to work distance) for proper procedure. 5. Check polarity and ensure DCEP for MIG and DCEN for Flux-Cored. 6. Ensure welding wire is clean and free of rust and residues."
+      }
+    ]
   }
 ]

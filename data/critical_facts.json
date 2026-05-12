@@ -1,7 +1,18 @@
 [
   {
     "id": "mig_duty_cycle_120vac_40pct",
-    "claim": "At 120VAC, MIG/Flux-Cored rated duty cycle is 40% at 100A for any 10-minute period (4 minutes welding, 6 minutes resting).",
+    "claim": "On 120VAC, MIG duty cycle is 40% at 100A, allowing 4 minutes of welding followed by 6 minutes of rest per 10-minute period.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 23,
+      "table_id": "table_23_2",
+      "entity_id": "product_specification_duty_cycle_120vac_40pct",
+      "section": "Duty Cycle Summary"
+    }
+  },
+  {
+    "id": "mig_duty_cycle_120vac_100pct",
+    "claim": "On 120VAC, MIG can run at 100% continuous duty cycle at 75A.",
     "process_scope": "MIG",
     "citation": {
       "page": 23,
@@ -12,7 +23,7 @@
   },
   {
     "id": "mig_duty_cycle_240vac_25pct",
-    "claim": "At 240VAC, MIG/Flux-Cored rated duty cycle is 25% at 200A for any 10-minute period (2.5 minutes welding, 7.5 minutes resting).",
+    "claim": "On 240VAC, MIG duty cycle is 25% at 200A, allowing 2.5 minutes of welding followed by 7.5 minutes of rest per 10-minute period.",
     "process_scope": "MIG",
     "citation": {
       "page": 23,
@@ -22,19 +33,8 @@
     }
   },
   {
-    "id": "mig_duty_cycle_120vac_100pct",
-    "claim": "At 120VAC, MIG/Flux-Cored can run at 100% continuous duty cycle at 75A.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 23,
-      "table_id": "table_23_2",
-      "entity_id": "product_specification_duty_cycle_120vac_40pct",
-      "section": "Duty Cycle Summary"
-    }
-  },
-  {
     "id": "mig_duty_cycle_240vac_100pct",
-    "claim": "At 240VAC, MIG/Flux-Cored can run at 100% continuous duty cycle at 115A.",
+    "claim": "On 240VAC, MIG can run at 100% continuous duty cycle at 115A.",
     "process_scope": "MIG",
     "citation": {
       "page": 23,
@@ -45,40 +45,29 @@
   },
   {
     "id": "tig_duty_cycle_240vac_30pct",
-    "claim": "At 240VAC, TIG rated duty cycle is 30% at 175A for any 10-minute period (3 minutes welding, 7 minutes resting).",
+    "claim": "On 240VAC, TIG duty cycle is 30% at 175A, allowing 3 minutes of welding followed by 7 minutes of rest per 10-minute period.",
     "process_scope": "TIG",
     "citation": {
       "page": 29,
       "table_id": "table_29_1",
       "entity_id": "product_specification_tig_duty_cycle_240vac_30pct",
-      "section": "TIG Rated Duty Cycles"
-    }
-  },
-  {
-    "id": "tig_duty_cycle_120vac_40pct",
-    "claim": "At 120VAC, TIG rated duty cycle is 40% at 125A for any 10-minute period (4 minutes welding, 6 minutes resting).",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 29,
-      "table_id": "table_29_1",
-      "entity_id": "product_specification_tig_duty_cycle_120vac_40pct",
       "section": "TIG Rated Duty Cycles"
     }
   },
   {
     "id": "tig_duty_cycle_240vac_100pct",
-    "claim": "At 240VAC, TIG can run at 100% continuous duty cycle at 105A.",
+    "claim": "On 240VAC, TIG can run at 100% continuous duty cycle at 105A.",
     "process_scope": "TIG",
     "citation": {
       "page": 29,
       "table_id": "table_29_1",
-      "entity_id": "product_specification_tig_duty_cycle_240vac_30pct",
+      "entity_id": "product_specification_tig_duty_cycle_240vac_100pct",
       "section": "TIG Rated Duty Cycles"
     }
   },
   {
-    "id": "tig_duty_cycle_120vac_100pct",
-    "claim": "At 120VAC, TIG can run at 100% continuous duty cycle at 90A.",
+    "id": "tig_duty_cycle_120vac_40pct",
+    "claim": "On 120VAC, TIG duty cycle is 40% at 125A, allowing 4 minutes of welding followed by 6 minutes of rest per 10-minute period.",
     "process_scope": "TIG",
     "citation": {
       "page": 29,
@@ -88,41 +77,41 @@
     }
   },
   {
+    "id": "tig_duty_cycle_120vac_100pct",
+    "claim": "On 120VAC, TIG can run at 100% continuous duty cycle at 90A.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 29,
+      "table_id": "table_29_1",
+      "entity_id": "product_specification_tig_duty_cycle_120vac_100pct",
+      "section": "TIG Rated Duty Cycles"
+    }
+  },
+  {
     "id": "stick_duty_cycle_240vac_25pct",
-    "claim": "At 240VAC, Stick rated duty cycle is 25% at 175A for any 10-minute period (2.5 minutes welding, 7.5 minutes resting).",
+    "claim": "On 240VAC, Stick duty cycle is 25% at 175A, allowing 2.5 minutes of welding followed by 7.5 minutes of rest per 10-minute period.",
     "process_scope": "Stick",
     "citation": {
       "page": 29,
       "table_id": "table_29_2",
       "entity_id": "product_specification_stick_duty_cycle_240vac_25pct",
-      "section": "Stick Rated Duty Cycles"
-    }
-  },
-  {
-    "id": "stick_duty_cycle_120vac_40pct",
-    "claim": "At 120VAC, Stick rated duty cycle is 40% at 80A for any 10-minute period (4 minutes welding, 6 minutes resting).",
-    "process_scope": "Stick",
-    "citation": {
-      "page": 29,
-      "table_id": "table_29_2",
-      "entity_id": "product_specification_stick_duty_cycle_120vac_40pct",
       "section": "Stick Rated Duty Cycles"
     }
   },
   {
     "id": "stick_duty_cycle_240vac_100pct",
-    "claim": "At 240VAC, Stick can run at 100% continuous duty cycle at 100A.",
+    "claim": "On 240VAC, Stick can run at 100% continuous duty cycle at 100A.",
     "process_scope": "Stick",
     "citation": {
       "page": 29,
       "table_id": "table_29_2",
-      "entity_id": "product_specification_stick_duty_cycle_240vac_25pct",
+      "entity_id": "product_specification_stick_duty_cycle_240vac_100pct",
       "section": "Stick Rated Duty Cycles"
     }
   },
   {
-    "id": "stick_duty_cycle_120vac_100pct",
-    "claim": "At 120VAC, Stick can run at 100% continuous duty cycle at 60A.",
+    "id": "stick_duty_cycle_120vac_40pct",
+    "claim": "On 120VAC, Stick duty cycle is 40% at 80A, allowing 4 minutes of welding followed by 6 minutes of rest per 10-minute period.",
     "process_scope": "Stick",
     "citation": {
       "page": 29,
@@ -132,19 +121,239 @@
     }
   },
   {
-    "id": "flux_cored_polarity_dcen",
-    "claim": "Flux-cored self-shielded welding requires DCEN (Direct Current Electrode Negative) polarity.",
+    "id": "stick_duty_cycle_120vac_100pct",
+    "claim": "On 120VAC, Stick can run at 100% continuous duty cycle at 60A.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 29,
+      "table_id": "table_29_2",
+      "entity_id": "product_specification_stick_duty_cycle_120vac_100pct",
+      "section": "Stick Rated Duty Cycles"
+    }
+  },
+  {
+    "id": "mig_current_range_120vac",
+    "claim": "MIG welding current range on 120VAC is 30–140A.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_welding_current_range",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "mig_current_range_240vac",
+    "claim": "MIG welding current range on 240VAC is 30–220A.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_welding_current_range",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "tig_current_range_120vac",
+    "claim": "TIG welding current range on 120VAC is 10–125A.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_2",
+      "entity_id": "product_specification_tig_welding_current_range",
+      "section": "TIG Specifications"
+    }
+  },
+  {
+    "id": "tig_current_range_240vac",
+    "claim": "TIG welding current range on 240VAC is 10–175A.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_2",
+      "entity_id": "product_specification_tig_welding_current_range",
+      "section": "TIG Specifications"
+    }
+  },
+  {
+    "id": "stick_current_range_120vac",
+    "claim": "Stick welding current range on 120VAC is 10–80A.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_3",
+      "entity_id": "product_specification_stick_welding_current_range",
+      "section": "Stick Specifications"
+    }
+  },
+  {
+    "id": "stick_current_range_240vac",
+    "claim": "Stick welding current range on 240VAC is 10–175A.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_3",
+      "entity_id": "product_specification_stick_welding_current_range",
+      "section": "Stick Specifications"
+    }
+  },
+  {
+    "id": "max_ocv_all_processes",
+    "claim": "Maximum Open Circuit Voltage (OCV) is 86VDC for MIG, TIG, and Stick processes on both 120VAC and 240VAC.",
+    "process_scope": "all",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_max_ocv",
+      "section": "Specifications"
+    }
+  },
+  {
+    "id": "mig_current_input_120vac",
+    "claim": "MIG input current draw on 120VAC is 20.8A at 100A output.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_current_input",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "mig_current_input_240vac",
+    "claim": "MIG input current draw on 240VAC is 25.5A at 200A output.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_current_input",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "tig_current_input_120vac",
+    "claim": "TIG input current draw on 120VAC is 20.6A at 125A output.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_2",
+      "entity_id": "product_specification_tig_current_input",
+      "section": "TIG Specifications"
+    }
+  },
+  {
+    "id": "tig_current_input_240vac",
+    "claim": "TIG input current draw on 240VAC is 15.6A at 175A output.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_2",
+      "entity_id": "product_specification_tig_current_input",
+      "section": "TIG Specifications"
+    }
+  },
+  {
+    "id": "stick_current_input_120vac",
+    "claim": "Stick input current draw on 120VAC is 19.5A at 80A output.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_3",
+      "entity_id": "product_specification_stick_current_input",
+      "section": "Stick Specifications"
+    }
+  },
+  {
+    "id": "stick_current_input_240vac",
+    "claim": "Stick input current draw on 240VAC is 23.7A at 175A output.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_3",
+      "entity_id": "product_specification_stick_current_input",
+      "section": "Stick Specifications"
+    }
+  },
+  {
+    "id": "mig_wire_speed_range",
+    "claim": "MIG wire feed speed range is 50–500 IPM on both 120VAC and 240VAC.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_wire_speed",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "mig_spool_capacity",
+    "claim": "MIG wire spool capacity is up to 12 lb.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_spool_capacity",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "mig_solid_wire_sizes",
+    "claim": "Solid core wire sizes supported are 0.025\", 0.030\", and 0.035\".",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_wire_capacity",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "flux_cored_wire_sizes",
+    "claim": "Flux-cored wire sizes supported are 0.030\", 0.035\", and 0.045\".",
     "process_scope": "Flux-Cored",
     "citation": {
-      "page": 42,
-      "table_id": "table_42_1",
+      "page": 7,
+      "table_id": "table_7_1",
+      "entity_id": "product_specification_mig_wire_capacity",
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "mig_weldable_materials",
+    "claim": "MIG welding supports Mild Steel, Stainless Steel, and Aluminum (with optional Spool Gun).",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_1",
       "entity_id": null,
-      "section": "MIG/Flux-Cored Welding Troubleshooting"
+      "section": "MIG Specifications"
+    }
+  },
+  {
+    "id": "tig_weldable_materials",
+    "claim": "TIG welding supports Mild Steel, Stainless Steel, and Chrome Moly.",
+    "process_scope": "TIG",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_2",
+      "entity_id": null,
+      "section": "TIG Specifications"
+    }
+  },
+  {
+    "id": "stick_weldable_materials",
+    "claim": "Stick welding supports Mild Steel and Stainless Steel.",
+    "process_scope": "Stick",
+    "citation": {
+      "page": 7,
+      "table_id": "table_7_3",
+      "entity_id": null,
+      "section": "Stick Specifications"
     }
   },
   {
     "id": "mig_polarity_dcep",
-    "claim": "MIG (gas shielded) welding requires DCEP (Direct Current Electrode Positive) polarity.",
+    "claim": "MIG welding (solid core gas-shielded) requires DCEP (electrode positive) polarity.",
     "process_scope": "MIG",
     "citation": {
       "page": 42,
@@ -154,19 +363,19 @@
     }
   },
   {
-    "id": "flux_cored_ground_clamp_positive",
-    "claim": "For flux-cored welding setup, the ground clamp cable is plugged into the Positive (+) Socket.",
+    "id": "flux_cored_polarity_dcen",
+    "claim": "Flux-cored self-shielded welding requires DCEN (electrode negative) polarity.",
     "process_scope": "Flux-Cored",
     "citation": {
-      "page": 13,
-      "table_id": null,
-      "entity_id": "physical_connector_ground_clamp_cable",
-      "section": "Flux-Cored Setup"
+      "page": 42,
+      "table_id": "table_42_1",
+      "entity_id": "welding_process_flux_cored",
+      "section": "MIG/Flux-Cored Welding Troubleshooting"
     }
   },
   {
-    "id": "tig_torch_negative_socket",
-    "claim": "The TIG torch cable plugs into the Negative Socket on the welder, twisted clockwise to lock.",
+    "id": "tig_torch_cable_negative_socket",
+    "claim": "The TIG Torch Cable plugs into the Negative Socket on the welder, twisted clockwise to lock.",
     "process_scope": "TIG",
     "citation": {
       "page": 24,
@@ -177,7 +386,7 @@
   },
   {
     "id": "tig_ground_clamp_positive_socket",
-    "claim": "For TIG welding, the ground clamp cable is plugged into the Positive Socket and twisted clockwise to lock.",
+    "claim": "The Ground Clamp cable for TIG welding plugs into the Positive Socket, twisted clockwise to lock.",
     "process_scope": "TIG",
     "citation": {
       "page": 24,
@@ -187,19 +396,8 @@
     }
   },
   {
-    "id": "stick_ground_clamp_negative_socket",
-    "claim": "For Stick welding, the ground clamp cable connects to the Negative Socket on the welder.",
-    "process_scope": "Stick",
-    "citation": {
-      "page": 27,
-      "table_id": null,
-      "entity_id": "physical_connector_ground_clamp",
-      "section": "Stick Setup"
-    }
-  },
-  {
     "id": "stick_electrode_holder_positive_socket",
-    "claim": "For Stick welding, the electrode holder cable connects to the Positive Socket on the welder, twisted clockwise to lock.",
+    "claim": "The Electrode Holder cable for Stick welding connects to the Positive Socket, twisted clockwise to lock.",
     "process_scope": "Stick",
     "citation": {
       "page": 27,
@@ -209,58 +407,157 @@
     }
   },
   {
-    "id": "solid_wire_vgroove_roller",
-    "claim": "Solid core welding wire requires the V-groove side of the feed roller, available in sizes 0.025 and 0.030/0.035 inches.",
-    "process_scope": "MIG",
+    "id": "stick_ground_clamp_negative_socket",
+    "claim": "The Ground Clamp cable for Stick welding connects to the Negative Socket on the welder.",
+    "process_scope": "Stick",
     "citation": {
-      "page": 12,
+      "page": 27,
       "table_id": null,
-      "entity_id": "welding_wire_solid_core",
-      "section": "Feed Roller Setup"
-    }
-  },
-  {
-    "id": "flux_cored_wire_knurled_roller",
-    "claim": "Flux-cored welding wire requires the knurled groove side of the feed roller, available in sizes 0.030/0.035 and 0.045 inches.",
-    "process_scope": "Flux-Cored",
-    "citation": {
-      "page": 12,
-      "table_id": null,
-      "entity_id": "welding_wire_flux_cored",
-      "section": "Feed Roller Setup"
-    }
-  },
-  {
-    "id": "feed_tensioner_solid_wire",
-    "claim": "Feed tensioner setting for solid wire should be 3–5.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 15,
-      "table_id": null,
-      "entity_id": "welding_parameter_feed_tensioner_setting",
-      "section": "Feed Tensioner Setup"
-    }
-  },
-  {
-    "id": "feed_tensioner_flux_cored_wire",
-    "claim": "Feed tensioner setting for flux-cored wire should be 2–3; too much force will crush the wire and cause feeding problems.",
-    "process_scope": "Flux-Cored",
-    "citation": {
-      "page": 15,
-      "table_id": null,
-      "entity_id": "welding_parameter_feed_tensioner_setting",
-      "section": "Feed Tensioner Setup"
+      "entity_id": "physical_connector_ground_clamp",
+      "section": "Stick Setup"
     }
   },
   {
     "id": "tig_shielding_gas_100_argon",
-    "claim": "TIG welding requires 100% Argon shielding gas supplied from a cylinder secured with two straps.",
+    "claim": "TIG welding requires 100% Argon shielding gas.",
     "process_scope": "TIG",
     "citation": {
       "page": 25,
       "table_id": null,
       "entity_id": "shielding_gas_100_argon",
-      "section": "TIG Shielding Gas Setup"
+      "section": "TIG Shielding Gas"
+    }
+  },
+  {
+    "id": "mig_stainless_shielding_gas",
+    "claim": "MIG stainless steel welding requires Stainless Tri-Mix shielding gas.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 20,
+      "table_id": null,
+      "entity_id": "shielding_gas_stainless_tri_mix",
+      "section": "MIG Settings"
+    }
+  },
+  {
+    "id": "gas_flow_rate_scfh",
+    "claim": "Recommended shielding gas flow rate is 20–30 SCFH.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 20,
+      "table_id": null,
+      "entity_id": "welding_parameter_scfh",
+      "section": "MIG Settings"
+    }
+  },
+  {
+    "id": "solid_wire_feed_roller_vgroove",
+    "claim": "Solid core wire requires a V-groove feed roller.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 12,
+      "table_id": null,
+      "entity_id": "welding_wire_solid_core",
+      "section": "Feed Roller Instructions"
+    }
+  },
+  {
+    "id": "flux_cored_wire_feed_roller_knurled",
+    "claim": "Flux-cored wire requires a knurled groove feed roller.",
+    "process_scope": "Flux-Cored",
+    "citation": {
+      "page": 12,
+      "table_id": null,
+      "entity_id": "welding_wire_flux_cored",
+      "section": "Feed Roller Instructions"
+    }
+  },
+  {
+    "id": "feed_tensioner_solid_wire",
+    "claim": "Feed Tensioner setting for solid wire should be 3–5.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 15,
+      "table_id": null,
+      "entity_id": "welding_parameter_feed_tensioner_setting",
+      "section": "Wire Feed Setup"
+    }
+  },
+  {
+    "id": "feed_tensioner_flux_cored_wire",
+    "claim": "Feed Tensioner setting for flux-cored wire should be 2–3; too much force will crush the wire.",
+    "process_scope": "Flux-Cored",
+    "citation": {
+      "page": 15,
+      "table_id": null,
+      "entity_id": "welding_parameter_feed_tensioner_setting",
+      "section": "Wire Feed Setup"
+    }
+  },
+  {
+    "id": "ctwd_distance",
+    "claim": "Contact Tip to Work Distance (CTWD) should remain within 1/2 inch during MIG welding.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 22,
+      "table_id": null,
+      "entity_id": "welding_parameter_ctwd",
+      "section": "MIG Welding Technique"
+    }
+  },
+  {
+    "id": "mig_gun_push_angle",
+    "claim": "For solid wire MIG with shielding gas, use a push angle of 0–15° away from the direction of welding.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 22,
+      "table_id": null,
+      "entity_id": "welding_parameter_push_angle",
+      "section": "MIG Welding Technique"
+    }
+  },
+  {
+    "id": "flux_cored_drag_angle",
+    "claim": "For flux-cored wire without shielding gas, use a drag angle of 0–15° in the direction of welding.",
+    "process_scope": "Flux-Cored",
+    "citation": {
+      "page": 22,
+      "table_id": null,
+      "entity_id": "welding_parameter_drag_angle",
+      "section": "MIG Welding Technique"
+    }
+  },
+  {
+    "id": "fillet_weld_gun_angle",
+    "claim": "For fillet (T-shaped) welds, hold the MIG gun at a 45° angle.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 22,
+      "table_id": null,
+      "entity_id": "welding_parameter_fillet_weld_angle",
+      "section": "MIG Welding Technique"
+    }
+  },
+  {
+    "id": "butt_weld_gun_angle",
+    "claim": "For butt (end-to-end) welds, hold the MIG gun at 90° (straight up and down).",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 22,
+      "table_id": null,
+      "entity_id": "welding_parameter_butt_weld_angle",
+      "section": "MIG Welding Technique"
+    }
+  },
+  {
+    "id": "10_12lb_spool_unwind_direction",
+    "claim": "A 10–12 lb wire spool must be installed so it unwinds clockwise to prevent wire feed problems.",
+    "process_scope": "MIG",
+    "citation": {
+      "page": 11,
+      "table_id": null,
+      "entity_id": "welding_wire_10_12lb_spool",
+      "section": "Spool Installation"
     }
   },
   {
@@ -275,7 +572,7 @@
     }
   },
   {
-    "id": "ac_tig_aluminum",
+    "id": "ac_tig_materials",
     "claim": "AC TIG welding is used to weld aluminum using a TIG Rod and shielding gas.",
     "process_scope": "TIG",
     "citation": {
@@ -286,107 +583,52 @@
     }
   },
   {
-    "id": "aluminum_welding_spool_gun",
-    "claim": "Aluminum welding is performed with an optional Spool Gun (sold separately) using aluminum wire and shielding gas.",
+    "id": "aluminum_welding_spool_gun_required",
+    "claim": "Aluminum welding requires an optional Spool Gun accessory sold separately.",
     "process_scope": "MIG",
     "citation": {
       "page": 18,
       "table_id": null,
       "entity_id": "welding_process_aluminum",
-      "section": "Aluminum Welding"
+      "section": "Aluminum Welding Setup"
     }
   },
   {
-    "id": "ctwd_half_inch",
-    "claim": "Contact Tip to Work Distance (CTWD) must remain within 1/2 inch during MIG welding.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 22,
-      "table_id": null,
-      "entity_id": "welding_parameter_ctwd",
-      "section": "MIG Welding Technique"
-    }
-  },
-  {
-    "id": "mig_push_angle",
-    "claim": "For MIG welding with solid wire and shielding gas, use a push angle of 0–15° away from the direction of travel.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 22,
-      "table_id": null,
-      "entity_id": "welding_parameter_push_angle",
-      "section": "MIG Welding Technique"
-    }
-  },
-  {
-    "id": "flux_cored_drag_angle",
-    "claim": "For flux-cored welding without shielding gas, use a drag angle of 0–15° in the direction of travel.",
-    "process_scope": "Flux-Cored",
-    "citation": {
-      "page": 22,
-      "table_id": null,
-      "entity_id": "welding_parameter_drag_angle",
-      "section": "MIG/Flux-Cored Welding Technique"
-    }
-  },
-  {
-    "id": "fillet_weld_gun_angle",
-    "claim": "For fillet (T-shaped) welds, hold the MIG gun at a 45° angle to the joint.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 22,
-      "table_id": null,
-      "entity_id": "welding_parameter_fillet_weld_angle",
-      "section": "MIG Welding Technique"
-    }
-  },
-  {
-    "id": "butt_weld_gun_angle",
-    "claim": "For butt (end-to-end) welds, hold the MIG gun at 90° (straight up and down) to the joint.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 22,
-      "table_id": null,
-      "entity_id": "welding_parameter_butt_weld_angle",
-      "section": "MIG Welding Technique"
-    }
-  },
-  {
-    "id": "duty_cycle_exceeded_remedy",
-    "claim": "When the 'Duty Cycle Exceeded' warning screen appears, the machine has thermally tripped; allow it to cool before resuming welding.",
+    "id": "warning_screen_duty_cycle_exceeded",
+    "claim": "When the LCD warning screen displays 'Duty Cycle Exceeded', the machine has thermally tripped; allow the machine to cool before resuming.",
     "process_scope": "all",
     "citation": {
       "page": 23,
       "table_id": "table_23_1",
       "entity_id": null,
-      "section": "Warning Screen Remedies"
+      "section": "Warning Screen Problem and Remedy"
     }
   },
   {
-    "id": "low_voltage_input_warning",
-    "claim": "A 'Low Voltage Input' warning screen indicates input voltage is below the specified limit; inspect and correct input voltage to within machine limits.",
+    "id": "warning_screen_low_voltage",
+    "claim": "The 'Low Voltage Input' warning screen indicates input voltage is below the specified limit; inspect and correct input voltage.",
     "process_scope": "all",
     "citation": {
       "page": 23,
       "table_id": "table_23_1",
       "entity_id": null,
-      "section": "Warning Screen Remedies"
+      "section": "Warning Screen Problem and Remedy"
     }
   },
   {
-    "id": "high_voltage_input_warning",
-    "claim": "A 'High Voltage Input' warning screen indicates input voltage is above the specified limit; inspect and correct input voltage to within machine limits.",
+    "id": "warning_screen_high_voltage",
+    "claim": "The 'High Voltage Input' warning screen indicates input voltage exceeds the specified limit; inspect and correct input voltage.",
     "process_scope": "all",
     "citation": {
       "page": 23,
       "table_id": "table_23_1",
       "entity_id": null,
-      "section": "Warning Screen Remedies"
+      "section": "Warning Screen Problem and Remedy"
     }
   },
   {
     "id": "no_extension_cord",
-    "claim": "Do not use an extension cord with this welder; use only the supplied 120VAC or 240VAC power cord or an identical replacement.",
+    "claim": "Do not use an extension cord with this welder; use only one of the supplied power cords or an identical replacement.",
     "process_scope": "all",
     "citation": {
       "page": 42,
@@ -396,151 +638,41 @@
     }
   },
   {
-    "id": "no_extension_cord_tig_stick",
-    "claim": "Do not use an extension cord with this welder during TIG or Stick operation; use only the supplied power cord or an identical replacement.",
-    "process_scope": "all",
-    "citation": {
-      "page": 44,
-      "table_id": "table_44_1",
-      "entity_id": null,
-      "section": "TIG/Stick Welding Troubleshooting"
-    }
-  },
-  {
-    "id": "tungsten_electrode_sharpening",
-    "claim": "The tungsten electrode must be sharpened on a fine grit grinding wheel before use in TIG welding.",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 26,
-      "table_id": null,
-      "entity_id": "physical_connector_tungsten_electrode",
-      "section": "TIG Torch Preparation"
-    }
-  },
-  {
-    "id": "collet_matched_to_tungsten",
-    "claim": "The collet inside the TIG torch must be matched to the same size as the tungsten electrode being used.",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 26,
-      "table_id": null,
-      "entity_id": "physical_connector_collet",
-      "section": "TIG Torch Assembly"
-    }
-  },
-  {
-    "id": "back_cap_locks_tungsten",
-    "claim": "After inserting the tungsten electrode into the TIG torch collet, the back cap must be tightened to lock the electrode in place.",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 26,
-      "table_id": null,
-      "entity_id": "physical_connector_back_cap",
-      "section": "TIG Torch Assembly"
-    }
-  },
-  {
-    "id": "10_12lb_spool_clockwise_unwind",
-    "claim": "A 10–12 lb wire spool must be set to unwind clockwise when installed on the spool spindle with the adapter to prevent wire feed problems.",
+    "id": "stainless_wire_feed_difficulty",
+    "claim": "Stainless steel welding wire is less flexible than other wire types, making it more difficult to feed through the liner and gun.",
     "process_scope": "MIG",
     "citation": {
-      "page": 11,
+      "page": 15,
       "table_id": null,
-      "entity_id": "welding_wire_10_12lb_spool",
-      "section": "Wire Spool Installation"
+      "entity_id": "welding_wire_stainless_steel",
+      "section": "Wire Setup"
     }
   },
   {
-    "id": "c100_gas_cga_adapter",
-    "claim": "C100 shielding gas requires a CGA 580/320 adapter connected to the inlet of the regulator.",
-    "process_scope": "MIG",
+    "id": "foot_pedal_socket_inside_welder",
+    "claim": "The Foot Pedal Cable (sold separately) connects to the Foot Pedal Socket inside the welder, inserted through the hole on the welder front and secured by turning the collar clockwise until tight.",
+    "process_scope": "TIG",
     "citation": {
-      "page": 14,
+      "page": 24,
       "table_id": null,
-      "entity_id": "shielding_gas_c100",
-      "section": "Shielding Gas Setup"
+      "entity_id": "physical_connector_foot_pedal_cable",
+      "section": "TIG Setup"
     }
   },
   {
-    "id": "gas_cylinder_purge_before_attach",
-    "claim": "Before attaching the regulator, briefly open the gas cylinder valve to blow out dust and dirt.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 14,
-      "table_id": null,
-      "entity_id": "physical_connector_gas_cylinder_valve",
-      "section": "Shielding Gas Setup"
-    }
-  },
-  {
-    "id": "danger_death_serious_injury",
-    "claim": "DANGER indicates a hazardous situation which, if not avoided, will result in death or serious injury.",
+    "id": "save_setting_slots",
+    "claim": "The Save Setting function allows up to 5 different welder configurations to be stored.",
     "process_scope": "all",
     "citation": {
-      "page": 2,
-      "table_id": "table_2_1",
-      "entity_id": null,
-      "section": "Warning Symbols and Definitions"
-    }
-  },
-  {
-    "id": "warning_could_result_death",
-    "claim": "WARNING indicates a hazardous situation which, if not avoided, could result in death or serious injury.",
-    "process_scope": "all",
-    "citation": {
-      "page": 2,
-      "table_id": "table_2_1",
-      "entity_id": null,
-      "section": "Warning Symbols and Definitions"
-    }
-  },
-  {
-    "id": "caution_minor_moderate_injury",
-    "claim": "CAUTION indicates a hazardous situation which, if not avoided, could result in minor or moderate injury.",
-    "process_scope": "all",
-    "citation": {
-      "page": 2,
-      "table_id": "table_2_1",
-      "entity_id": null,
-      "section": "Warning Symbols and Definitions"
+      "page": 21,
+      "table_id": null,
+      "entity_id": "welding_parameter_save_setting",
+      "section": "Optional Settings"
     }
   },
   {
     "id": "pacemaker_hazard",
-    "claim": "Welding processes may interfere with pacemakers; consult a doctor before using the welder if you have a pacemaker.",
-    "process_scope": "all",
-    "citation": {
-      "page": 6,
-      "table_id": "table_6_1",
-      "entity_id": null,
-      "section": "Symbology Table"
-    }
-  },
-  {
-    "id": "arc_ray_helmet_required",
-    "claim": "An arc ray hazard exists during welding; always wear a welding helmet with a properly rated filter lens.",
-    "process_scope": "all",
-    "citation": {
-      "page": 6,
-      "table_id": "table_6_1",
-      "entity_id": null,
-      "section": "Symbology Table"
-    }
-  },
-  {
-    "id": "fire_hazard_spatter",
-    "claim": "A fire hazard exists during welding; keep flammable materials away from the work area because spatter can cause accidental fires.",
-    "process_scope": "all",
-    "citation": {
-      "page": 6,
-      "table_id": "table_6_1",
-      "entity_id": null,
-      "section": "Symbology Table"
-    }
-  },
-  {
-    "id": "inhalation_hazard_ventilation",
-    "claim": "An inhalation hazard exists during welding; keep your head out of fumes and use proper ventilation.",
+    "claim": "Welding processes may interfere with pacemakers; persons with pacemakers must consult a doctor before use.",
     "process_scope": "all",
     "citation": {
       "page": 6,
@@ -551,7 +683,7 @@
   },
   {
     "id": "electric_shock_hazard",
-    "claim": "An electric shock hazard exists; do not touch energized parts of the welder or weld circuit.",
+    "claim": "Do not touch energized parts; the Electric Shock Hazard symbol warns of this risk on the welder.",
     "process_scope": "all",
     "citation": {
       "page": 6,
@@ -561,124 +693,36 @@
     }
   },
   {
-    "id": "save_setting_max_5",
-    "claim": "Up to 5 different welder configurations can be saved using the Save Setting function.",
+    "id": "fire_hazard_spatter",
+    "claim": "Keep flammable materials away during welding; spatter can cause accidental fires.",
     "process_scope": "all",
     "citation": {
-      "page": 21,
-      "table_id": null,
-      "entity_id": "welding_parameter_save_setting",
-      "section": "Optional Settings"
-    }
-  },
-  {
-    "id": "run_in_wfs_percentage",
-    "claim": "Run-In WFS adjusts wire speed before it contacts the workpiece and is expressed as a percentage of the pre-set wire feed speed.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 21,
-      "table_id": null,
-      "entity_id": "welding_parameter_run_in_wfs",
-      "section": "Optional MIG Settings"
-    }
-  },
-  {
-    "id": "inductance_arc_length_effect",
-    "claim": "Increasing Inductance gives a more fluid puddle and flatter bead; decreasing Inductance gives a colder puddle.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 21,
-      "table_id": null,
-      "entity_id": "welding_parameter_inductance",
-      "section": "Optional MIG Settings"
-    }
-  },
-  {
-    "id": "spool_gun_gas_outlet_front_panel",
-    "claim": "The optional Spool Gun gas hose connects to the dedicated Spool Gun Gas Outlet on the front panel of the welder.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 8,
-      "table_id": null,
-      "entity_id": "physical_connector_spool_gun_gas_outlet",
-      "section": "Front Panel Connectors"
-    }
-  },
-  {
-    "id": "foot_pedal_socket_inside_welder",
-    "claim": "The foot pedal (sold separately) connects via its cable to the Foot Pedal Socket inside the welder body, secured by turning the collar clockwise until tight.",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 24,
-      "table_id": null,
-      "entity_id": "physical_connector_foot_pedal_socket_inside",
-      "section": "TIG Setup"
-    }
-  },
-  {
-    "id": "stainless_wire_less_flexible",
-    "claim": "Stainless steel welding wire is less flexible than other wire types, making it more difficult to feed through the liner and gun.",
-    "process_scope": "MIG",
-    "citation": {
-      "page": 15,
-      "table_id": null,
-      "entity_id": "welding_wire_stainless_steel",
-      "section": "Wire Feed Notes"
-    }
-  },
-  {
-    "id": "arc_force_stick_penetration",
-    "claim": "Arc Force is an optional Stick welding setting that adjusts weld penetration and smoothness.",
-    "process_scope": "Stick",
-    "citation": {
-      "page": 33,
-      "table_id": null,
-      "entity_id": "welding_parameter_arc_force",
-      "section": "Stick Optional Settings"
-    }
-  },
-  {
-    "id": "hot_start_arc_ignition",
-    "claim": "Hot Start is an optional Stick welding setting that adjusts amperage at the start of a weld to improve arc ignition.",
-    "process_scope": "Stick",
-    "citation": {
-      "page": 33,
-      "table_id": null,
-      "entity_id": "welding_parameter_hot_start",
-      "section": "Stick Optional Settings"
-    }
-  },
-  {
-    "id": "tig_stick_thermal_trip_remedy",
-    "claim": "If the welder does not function when switched on due to tripped thermal protection, reduce the duration or frequency of welding periods and refer to Duty Cycle specifications on page 29.",
-    "process_scope": "TIG",
-    "citation": {
-      "page": 44,
-      "table_id": "table_44_1",
+      "page": 6,
+      "table_id": "table_6_1",
       "entity_id": null,
-      "section": "TIG/Stick Welding Troubleshooting"
+      "section": "Symbology Table"
     }
   },
   {
-    "id": "input_voltage_range",
-    "claim": "The Vulcan OmniPro 220 accepts AC input of 120–240V at 50/60Hz.",
+    "id": "danger_level_definition",
+    "claim": "DANGER indicates a hazardous situation which, if not avoided, WILL result in death or serious injury.",
     "process_scope": "all",
     "citation": {
-      "page": 45,
-      "table_id": null,
-      "entity_id": "product_specification_input_voltage_120_240vac",
-      "section": "Wiring Schematic"
+      "page": 2,
+      "table_id": "table_2_1",
+      "entity_id": null,
+      "section": "Warning Symbols and Definitions"
     }
   },
   {
-    "id": "product_item_number",
-    "claim": "The Vulcan OmniPro 220 Multiprocess Welding System is manufactured by Harbor Freight Tools with item number 57812.",
+    "id": "warning_level_definition",
+    "claim": "WARNING indicates a hazardous situation which, if not avoided, COULD result in death or serious injury.",
     "process_scope": "all",
     "citation": {
-      "page": 1,
-      "table_id": null,
-      "entity_id": "product_specification_omnipro_220",
-      "section": "Product Identification"
+      "page": 2,
+      "table_id": "table_2_1",
+      "entity_id": null,
+      "section": "Warning Symbols and Definitions"
     }
   }
 ]

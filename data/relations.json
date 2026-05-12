@@ -32,35 +32,35 @@
     "subject_id": "safety_guideline_fume_gas_safety",
     "object_id": "failure_mode_toxic_fume_inhalation",
     "page": 3,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_arc_ray_safety",
     "object_id": "failure_mode_arc_ray_injury",
     "page": 3,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_electrical_safety",
     "object_id": "failure_mode_electric_shock",
     "page": 4,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_fire_safety",
     "object_id": "failure_mode_fire",
     "page": 4,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_cylinder_safety",
     "object_id": "failure_mode_cylinder_explosion",
     "page": 5,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "mitigates_hazard",
@@ -95,14 +95,14 @@
     "subject_id": "safety_guideline_replacement_cords",
     "object_id": "failure_mode_electric_shock",
     "page": 6,
-    "salience": 0.2
+    "salience": 0.1
   },
   {
     "predicate": "indicates_failure",
     "subject_id": "control_element_overheat_indicator",
     "object_id": "failure_mode_overheat_shutdown",
     "page": 6,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -207,70 +207,70 @@
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "welding_process_mig",
     "page": 10,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "welding_process_flux_cored",
     "page": 10,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "reference_diagram_wire_spool_installation",
     "page": 10,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_mig",
     "object_id": "welding_wire_1_2lb_spool",
     "page": 10,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_flux_cored",
     "object_id": "welding_wire_1_2lb_spool",
     "page": 10,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_power_off_before_setup",
     "object_id": "failure_mode_electric_shock",
     "page": 10,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_power_off_before_setup",
     "object_id": "failure_mode_wire_feed_problem",
     "page": 10,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "reference_diagram_10_12lb_spool_loading",
     "page": 11,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "reference_diagram_wire_unwind_direction",
     "page": 11,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_spool_installation",
     "object_id": "reference_diagram_feed_tensioner_idler_arm",
     "page": 11,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -291,7 +291,7 @@
     "subject_id": "setup_procedure_feed_roller_instructions",
     "object_id": "reference_diagram_feed_roller_instructions",
     "page": 12,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -312,42 +312,42 @@
     "subject_id": "welding_process_mig",
     "object_id": "welding_wire_solid_core",
     "page": 12,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_flux_cored",
     "object_id": "welding_wire_flux_cored",
     "page": 12,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_dcen_flux_cored_setup",
     "object_id": "welding_process_flux_cored",
     "page": 13,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_dcen_flux_cored_setup",
     "object_id": "reference_diagram_dcen_polarity_setup",
     "page": 13,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_fully_insert_connector",
     "object_id": "failure_mode_gas_leak",
     "page": 13,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_do_not_overtighten_knob",
     "object_id": "failure_mode_wire_feed_problem",
     "page": 13,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "connects_to",
@@ -368,14 +368,14 @@
     "subject_id": "setup_procedure_dcep_solid_core_setup",
     "object_id": "welding_process_mig_gas_shielded",
     "page": 14,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_dcep_solid_core_setup",
     "object_id": "reference_diagram_dcep_solid_core_setup",
     "page": 14,
-    "salience": 0.9
+    "salience": 1
   },
   {
     "predicate": "requires_shielding_gas",
@@ -389,7 +389,7 @@
     "subject_id": "welding_process_mig_gas_shielded",
     "object_id": "welding_wire_solid_core",
     "page": 14,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "connects_to",
@@ -410,35 +410,35 @@
     "subject_id": "safety_guideline_hold_wire_tension",
     "object_id": "failure_mode_wire_feed_problem",
     "page": 15,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_wire_threading",
     "object_id": "welding_process_mig",
     "page": 15,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_wire_threading",
     "object_id": "welding_process_flux_cored",
     "page": 15,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_threading",
     "object_id": "reference_diagram_wire_threading",
     "page": 15,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_wire_threading",
     "object_id": "reference_diagram_idler_arm_tensioner",
     "page": 15,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -459,35 +459,35 @@
     "subject_id": "welding_process_mig_gas_shielded",
     "object_id": "welding_wire_stainless_steel",
     "page": 15,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_electric_shock_welding_voltage",
     "object_id": "failure_mode_electric_shock",
     "page": 16,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_power_cord_connection",
     "object_id": "reference_diagram_power_input_connection",
     "page": 16,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_power_cord_connection",
     "object_id": "reference_diagram_power_switch_connection",
     "page": 16,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_cold_wire_feed",
     "object_id": "reference_diagram_cold_wire_feed_mig_gun",
     "page": 16,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -508,14 +508,14 @@
     "subject_id": "welding_wire_general",
     "object_id": "physical_connector_mig_gun",
     "page": 16,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_wire_drive_tension_check",
     "object_id": "welding_process_mig",
     "page": 17,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -529,7 +529,7 @@
     "subject_id": "setup_procedure_wire_drive_tension_check",
     "object_id": "reference_diagram_wire_tension_check",
     "page": 17,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -550,28 +550,28 @@
     "subject_id": "safety_guideline_spool_gun_connector_fully_inserted",
     "object_id": "failure_mode_gas_leak",
     "page": 17,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "connects_to",
     "subject_id": "shielding_gas_general",
     "object_id": "physical_connector_spool_gun_gas_outlet",
     "page": 17,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_trigger_3sec_limit",
     "object_id": "failure_mode_wire_feed_problem",
     "page": 17,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
     "subject_id": "welding_process_flux_cored",
     "object_id": "workpiece_material_mild_steel",
     "page": 18,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
@@ -585,7 +585,7 @@
     "subject_id": "welding_process_mig",
     "object_id": "workpiece_material_mild_steel",
     "page": 18,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
@@ -599,14 +599,14 @@
     "subject_id": "welding_process_aluminum",
     "object_id": "workpiece_material_aluminum",
     "page": 18,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_aluminum",
     "object_id": "welding_wire_aluminum",
     "page": 18,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "requires_shielding_gas",
@@ -620,21 +620,21 @@
     "subject_id": "welding_process_aluminum",
     "object_id": "shielding_gas_general",
     "page": 18,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_basic_wire_welding",
     "object_id": "welding_process_mig",
     "page": 18,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_basic_wire_welding",
     "object_id": "welding_process_flux_cored",
     "page": 18,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -648,42 +648,42 @@
     "subject_id": "setup_procedure_basic_wire_welding",
     "object_id": "reference_diagram_basic_wire_welding_overview",
     "page": 18,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_ppe_welding",
     "object_id": "failure_mode_arc_ray_injury",
     "page": 18,
-    "salience": 0.2
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_ppe_welding",
     "object_id": "failure_mode_toxic_fume_inhalation",
     "page": 18,
-    "salience": 0.2
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_welding_tip_grounded",
     "object_id": "failure_mode_fire",
     "page": 18,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_welding_tip_grounded",
     "object_id": "failure_mode_electric_shock",
     "page": 18,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_duty_cycle_warning",
     "object_id": "failure_mode_overheat_shutdown",
     "page": 19,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -697,28 +697,28 @@
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_overheat_warning_screen",
     "page": 19,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "reference_diagram_setting_up_weld",
     "page": 19,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "reference_diagram_ground_clamp_connection",
     "page": 19,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_run_in_wfs",
     "page": 21,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
@@ -739,28 +739,28 @@
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_recall_setting",
     "page": 21,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_save_setting",
     "page": 21,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_run_in_wfs",
     "object_id": "welding_process_mig_gas_shielded",
     "page": 21,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_inductance",
     "object_id": "welding_process_mig_gas_shielded",
     "page": 21,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -774,7 +774,7 @@
     "subject_id": "setup_procedure_gas_shielded_solid_core",
     "object_id": "welding_process_mig_gas_shielded",
     "page": 21,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "requires_shielding_gas",
@@ -809,14 +809,14 @@
     "subject_id": "setup_procedure_basic_wire_welding_technique",
     "object_id": "welding_process_mig",
     "page": 22,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_basic_wire_welding_technique",
     "object_id": "welding_process_flux_cored",
     "page": 22,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -830,49 +830,49 @@
     "subject_id": "setup_procedure_basic_wire_welding_technique",
     "object_id": "reference_diagram_mig_gun_angles_p22",
     "page": 22,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_basic_wire_welding_technique",
     "object_id": "reference_diagram_push_drag_angle_p22",
     "page": 22,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_basic_wire_welding_technique",
     "object_id": "reference_diagram_ctwd_p22",
     "page": 22,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_mig",
     "object_id": "welding_wire_solid_core",
     "page": 22,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_flux_cored",
     "object_id": "welding_wire_flux_cored",
     "page": 22,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_push_angle",
     "object_id": "welding_process_mig",
     "page": 22,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_drag_angle",
     "object_id": "welding_process_flux_cored",
     "page": 22,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
@@ -886,28 +886,28 @@
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_overheat_warning_screen",
     "page": 23,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "indicates_failure",
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_duty_cycle_exceeded",
     "page": 23,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "indicates_failure",
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_low_voltage_input",
     "page": 23,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "indicates_failure",
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_high_voltage_input",
     "page": 23,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -928,14 +928,14 @@
     "subject_id": "safety_guideline_mig_gun_heat_proof_surface",
     "object_id": "failure_mode_electric_shock",
     "page": 23,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_post_welding_shutdown",
     "object_id": "welding_process_mig",
     "page": 23,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "supports_process",
@@ -956,21 +956,21 @@
     "subject_id": "setup_procedure_tig_connect_cables",
     "object_id": "welding_process_tig",
     "page": 24,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_tig_connect_cables",
     "object_id": "reference_diagram_tig_connect_cables",
     "page": 24,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_tig_stick_power_off",
     "object_id": "failure_mode_electric_shock",
     "page": 24,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "connects_to",
@@ -991,7 +991,7 @@
     "subject_id": "welding_process_tig",
     "object_id": "shielding_gas_100_argon",
     "page": 25,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "connects_to",
@@ -1005,7 +1005,7 @@
     "subject_id": "setup_procedure_connect_shielding_gas_tig",
     "object_id": "welding_process_tig",
     "page": 25,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -1033,14 +1033,14 @@
     "subject_id": "setup_procedure_sharpen_tungsten_electrode",
     "object_id": "welding_process_tig",
     "page": 26,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_assemble_tig_torch",
     "object_id": "welding_process_tig",
     "page": 26,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -1054,7 +1054,7 @@
     "subject_id": "setup_procedure_assemble_tig_torch",
     "object_id": "reference_diagram_tig_torch_assembly",
     "page": 26,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -1068,28 +1068,28 @@
     "subject_id": "setup_procedure_stick_connect_cables",
     "object_id": "welding_process_stick",
     "page": 27,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_stick_connect_power_cord",
     "object_id": "welding_process_stick",
     "page": 27,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_stick_connect_cables",
     "object_id": "reference_diagram_stick_connect_cables",
     "page": 27,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_stick_connect_power_cord",
     "object_id": "reference_diagram_stick_connect_power_cord",
     "page": 27,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -1103,84 +1103,84 @@
     "subject_id": "welding_process_dc_tig",
     "object_id": "workpiece_material_mild_steel",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
     "subject_id": "welding_process_dc_tig",
     "object_id": "workpiece_material_stainless_steel",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
     "subject_id": "welding_process_ac_tig",
     "object_id": "workpiece_material_aluminum",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
     "subject_id": "welding_process_stick",
     "object_id": "workpiece_material_mild_steel",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "compatible_with_material",
     "subject_id": "welding_process_stick",
     "object_id": "workpiece_material_stainless_steel",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_dc_tig",
     "object_id": "welding_wire_tig_rod",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_ac_tig",
     "object_id": "welding_wire_tig_rod",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "requires_shielding_gas",
     "subject_id": "welding_process_dc_tig",
     "object_id": "shielding_gas_general",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "requires_shielding_gas",
     "subject_id": "welding_process_ac_tig",
     "object_id": "shielding_gas_general",
     "page": 28,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_stick",
     "object_id": "stick_electrode_general",
     "page": 28,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_basic_tig_stick_welding",
     "object_id": "welding_process_tig",
     "page": 28,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_basic_tig_stick_welding",
     "object_id": "welding_process_stick",
     "page": 28,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -1222,7 +1222,7 @@
     "subject_id": "safety_guideline_duty_cycle_warning",
     "object_id": "failure_mode_overheat_shutdown",
     "page": 29,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -1236,35 +1236,35 @@
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_overheat_warning_screen",
     "page": 29,
-    "salience": 0.9
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "welding_process_tig",
     "page": 29,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "welding_process_stick",
     "page": 29,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "reference_diagram_setting_up_weld_p29",
     "page": 29,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_setting_up_weld",
     "object_id": "reference_diagram_ground_clamp_connection_p29",
     "page": 29,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "supports_process",
@@ -1313,49 +1313,49 @@
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_recall_setting",
     "page": 31,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_save_setting",
     "page": 31,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "uses_consumable",
     "subject_id": "welding_process_tig",
     "object_id": "welding_wire_tig_rod",
     "page": 31,
-    "salience": 0.5
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_tig_welding_ppe",
     "object_id": "failure_mode_arc_ray_injury",
     "page": 31,
-    "salience": 0.2
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_tig_welding_ppe",
     "object_id": "failure_mode_toxic_fume_inhalation",
     "page": 31,
-    "salience": 0.2
+    "salience": 0.4
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_optional_settings_tig",
     "object_id": "diagram_31_1",
     "page": 31,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_optional_settings_tig",
     "object_id": "diagram_31_2",
     "page": 31,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -1369,28 +1369,28 @@
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_hot_start",
     "page": 33,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_arc_force",
     "page": 33,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_recall_setting_stick",
     "page": 33,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "governs_parameter",
     "subject_id": "control_element_main_control_knob",
     "object_id": "welding_parameter_save_setting_stick",
     "page": 33,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
@@ -1418,7 +1418,7 @@
     "subject_id": "welding_process_stick",
     "object_id": "stick_electrode_general",
     "page": 33,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
@@ -1439,28 +1439,28 @@
     "subject_id": "setup_procedure_optional_settings_stick",
     "object_id": "reference_diagram_recall_setting_lcd_stick",
     "page": 33,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_optional_settings_stick",
     "object_id": "reference_diagram_save_setting_lcd_stick",
     "page": 33,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_strike_test",
     "object_id": "welding_process_mig",
     "page": 34,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "setup_procedure_strike_test",
     "object_id": "welding_process_flux_cored",
     "page": 34,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -1495,28 +1495,28 @@
     "subject_id": "safety_guideline_ansi_goggles_strike_test",
     "object_id": "failure_mode_arc_ray_injury",
     "page": 34,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_cleaning_ppe",
     "object_id": "failure_mode_arc_ray_injury",
     "page": 34,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_output_voltage",
     "object_id": "welding_process_mig",
     "page": 35,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
     "subject_id": "welding_parameter_wire_feed_speed",
     "object_id": "welding_process_mig",
     "page": 35,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "controls_process",
@@ -1586,7 +1586,7 @@
     "subject_id": "welding_parameter_travel_speed",
     "object_id": "failure_mode_bend_at_joint",
     "page": 36,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -1663,63 +1663,63 @@
     "subject_id": "safety_guideline_clean_welds_first",
     "object_id": "failure_mode_coat_of_slag",
     "page": 38,
-    "salience": 0.6
+    "salience": 0.4
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_penetration_profile_p39",
     "object_id": "welding_process_stick",
     "page": 39,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_weld_not_adhering_p39",
     "object_id": "welding_process_stick",
     "page": 39,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_bend_at_joint_p39",
     "object_id": "welding_process_stick",
     "page": 39,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_coat_of_slag_p40",
     "object_id": "welding_process_stick_p40",
     "page": 40,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_porosity_p40",
     "object_id": "welding_process_stick_p40",
     "page": 40,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_crooked_wavy_bead_p40",
     "object_id": "welding_process_stick_p40",
     "page": 40,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_excessive_spatter_p40",
     "object_id": "welding_process_stick_p40",
     "page": 40,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
     "subject_id": "reference_diagram_stick_burn_through_p40",
     "object_id": "welding_process_stick_p40",
     "page": 40,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "mitigates_hazard",
@@ -1754,21 +1754,21 @@
     "subject_id": "setup_procedure_mig_gun_nozzle_contact_tip_inspection",
     "object_id": "diagram_41_1",
     "page": 41,
-    "salience": 0.6
+    "salience": 0.7
   },
   {
     "predicate": "described_in",
     "subject_id": "setup_procedure_replacing_lcd_screen_cover",
     "object_id": "diagram_41_2",
     "page": 41,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
     "subject_id": "safety_guideline_mig_flux_cored_troubleshoot_power_off",
     "object_id": "failure_mode_electric_shock",
     "page": 42,
-    "salience": 0.5
+    "salience": 0.4
   },
   {
     "predicate": "mitigates_hazard",
@@ -1803,14 +1803,14 @@
     "subject_id": "safety_guideline_follow_safety_precautions_servicing",
     "object_id": "failure_mode_electric_shock",
     "page": 44,
-    "salience": 0.3
+    "salience": 0.4
   },
   {
     "predicate": "indicates_failure",
     "subject_id": "control_element_lcd_display",
     "object_id": "failure_mode_lcd_no_light",
     "page": 44,
-    "salience": 0.8
+    "salience": 0.7
   },
   {
     "predicate": "applies_to_process",
@@ -1839,5 +1839,418 @@
     "object_id": "reference_diagram_parts_list_p46",
     "page": 46,
     "salience": 0.1
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_power_input",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_current_input",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_welding_current_range",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_max_ocv",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_wire_capacity",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_wire_speed",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_mig_spool_capacity",
+    "object_id": "welding_process_mig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_mig",
+    "object_id": "product_specification_duty_cycle_120vac_40pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_mig",
+    "object_id": "product_specification_duty_cycle_240vac_25pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_mig",
+    "object_id": "workpiece_material_aluminum",
+    "page": 7,
+    "salience": 0.4
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_mig",
+    "object_id": "welding_wire_flux_cored",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_tig_power_input",
+    "object_id": "welding_process_tig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_tig_current_input",
+    "object_id": "welding_process_tig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_tig_welding_current_range",
+    "object_id": "welding_process_tig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_tig_max_ocv",
+    "object_id": "welding_process_tig",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_tig",
+    "object_id": "product_specification_tig_duty_cycle_120vac_100pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_tig",
+    "object_id": "product_specification_tig_duty_cycle_240vac_100pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_tig",
+    "object_id": "workpiece_material_mild_steel",
+    "page": 7,
+    "salience": 0.4
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_tig",
+    "object_id": "workpiece_material_stainless_steel",
+    "page": 7,
+    "salience": 0.4
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_tig",
+    "object_id": "workpiece_material_chrome_moly",
+    "page": 7,
+    "salience": 0.4
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_stick_power_input",
+    "object_id": "welding_process_stick",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_stick_current_input",
+    "object_id": "welding_process_stick",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_stick_welding_current_range",
+    "object_id": "welding_process_stick",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "supports_process",
+    "subject_id": "product_specification_stick_max_ocv",
+    "object_id": "welding_process_stick",
+    "page": 7,
+    "salience": 0.7
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_stick",
+    "object_id": "product_specification_stick_duty_cycle_120vac_100pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "defined_by",
+    "subject_id": "welding_process_stick",
+    "object_id": "product_specification_stick_duty_cycle_240vac_100pct",
+    "page": 7,
+    "salience": 1
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_settings",
+    "object_id": "welding_process_mig_stainless_steel",
+    "page": 20,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_left_knob",
+    "object_id": "welding_parameter_wire_diameter",
+    "page": 20,
+    "salience": 1
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_right_knob",
+    "object_id": "welding_parameter_material_thickness",
+    "page": 20,
+    "salience": 1
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_left_knob",
+    "object_id": "welding_parameter_wire_feed_speed",
+    "page": 20,
+    "salience": 1
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_right_knob",
+    "object_id": "welding_parameter_output_voltage",
+    "page": 20,
+    "salience": 1
+  },
+  {
+    "predicate": "requires_shielding_gas",
+    "subject_id": "welding_process_mig_stainless_steel",
+    "object_id": "shielding_gas_stainless_tri_mix",
+    "page": 20,
+    "salience": 0.7
+  },
+  {
+    "predicate": "compatible_with_material",
+    "subject_id": "welding_process_mig_stainless_steel",
+    "object_id": "workpiece_material_stainless_steel",
+    "page": 20,
+    "salience": 0.4
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_tig_welding_p30",
+    "object_id": "welding_process_tig",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_left_knob",
+    "object_id": "welding_parameter_rod_diameter",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_left_knob",
+    "object_id": "welding_parameter_output_amperage",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_right_knob",
+    "object_id": "welding_parameter_tig_torch_energize",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob",
+    "object_id": "welding_parameter_scfh",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_tig_welding_p30",
+    "object_id": "diagram_30_1",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_tig_welding_p30",
+    "object_id": "diagram_30_2",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_tig_welding_p30",
+    "object_id": "diagram_30_3",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_tig_welding_p30",
+    "object_id": "diagram_30_4",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_output_amperage",
+    "object_id": "welding_process_tig",
+    "page": 30,
+    "salience": 0.7
+  },
+  {
+    "predicate": "applies_to_process",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "welding_process_stick",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "diagram_32_1",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "diagram_32_2",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "diagram_32_3",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "diagram_32_4",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "described_in",
+    "subject_id": "setup_procedure_stick_welding_p32",
+    "object_id": "diagram_32_5",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_electrode_holder_nonconductive",
+    "object_id": "failure_mode_electric_shock",
+    "page": 32,
+    "salience": 0.4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_grounding_clamp_required",
+    "object_id": "failure_mode_electric_shock",
+    "page": 32,
+    "salience": 0.4
+  },
+  {
+    "predicate": "mitigates_hazard",
+    "subject_id": "safety_guideline_welder_energized",
+    "object_id": "failure_mode_electric_shock",
+    "page": 32,
+    "salience": 0.4
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_main_control_knob",
+    "object_id": "welding_parameter_electrode_type",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "governs_parameter",
+    "subject_id": "control_element_left_knob",
+    "object_id": "welding_parameter_electrode_diameter",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_stick",
+    "object_id": "stick_electrode_60xx",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "uses_consumable",
+    "subject_id": "welding_process_stick",
+    "object_id": "stick_electrode_70xx",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_electrode_type",
+    "object_id": "welding_process_stick",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_electrode_diameter",
+    "object_id": "welding_process_stick",
+    "page": 32,
+    "salience": 0.7
+  },
+  {
+    "predicate": "controls_process",
+    "subject_id": "welding_parameter_material_thickness",
+    "object_id": "welding_process_stick",
+    "page": 32,
+    "salience": 0.7
   }
 ]
