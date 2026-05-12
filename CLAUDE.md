@@ -42,7 +42,7 @@ The agent operates in four modes, all sharing the same tool surface. The mode is
 
 - Lookup mode (default) — Q&A with citation, diagram surfacing, table excerpts.
 - Procedure mode — guided one-step-at-a-time UI with postcondition photo verification.
-- Diagnose mode — runs verify_setup first; if clean, enters Bayesian narrowing with a live side panel showing the candidate-cause distribution as bars that compress as questions get answered. Each completed check is rewindable. Terminates when one cause crosses ~0.85 mass OR offers a human handoff.
+- Diagnose mode — runs verify_setup first; if clean, calls list_symptoms() to match the user's reported problem to a canonical symptom, then enters Bayesian narrowing. At each turn in the differential phase the agent picks the next check by maximizing expected entropy reduction over the current belief distribution — the question whose answer most splits the remaining candidate set. The flat-checks structure in diagnostic_trees.json (checks are siblings to causes, not nested inside them) is what makes this cross-cause computation possible. A live side panel shows the candidate-cause distribution as bars that compress as questions are answered. Each completed check is rewindable. Terminates when one cause crosses ~0.85 posterior mass OR offers a human handoff.
 - Configure mode — interactive SVG of the front panel (extracted from the manual's labeled diagrams). User picks process + material + thickness; the panel animates to the recommended settings. User can drag dials and the agent narrates what would change.
 
 ### UI surfaces
