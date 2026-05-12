@@ -9,7 +9,7 @@
     ],
     "rows": [
       {
-        "Symbol": "Safety alert symbol (triangle with exclamation mark)",
+        "Symbol": "Safety Alert Symbol (triangle with exclamation)",
         "Definition": "This is the Safety alert symbol. It is used to alert you to potential personal injury hazards. Obey all Safety messages that follow this symbol to avoid possible injury or death."
       },
       {
@@ -25,129 +25,226 @@
         "Definition": "Indicates a hazardous situation which, if not avoided, could result in minor or moderate injury."
       },
       {
-        "Symbol": "NOTICE CAUTION",
+        "Symbol": "NOTICE / CAUTION",
         "Definition": "Addresses practices not related to personal injury."
       }
     ]
   },
   {
     "id": "table_6_1",
-    "name": "Symbolology Reference",
+    "name": "Symbology Table",
     "page": 6,
     "columns": [
       "Symbol",
-      "Meaning"
+      "Description"
     ],
     "rows": [
       {
-        "Symbol": "Wire Feed (Speed)",
-        "Meaning": "IPM - Inches Per Minute"
+        "Symbol": "Wire Feed (Speed) icon",
+        "Description": "Wire Feed (Speed)"
       },
       {
-        "Symbol": "Workpiece Ground Cable",
-        "Meaning": "Workpiece Ground Cable"
+        "Symbol": "Workpiece Ground Cable icon",
+        "Description": "Workpiece Ground Cable"
       },
       {
-        "Symbol": "Torch Cable",
-        "Meaning": "Torch Cable"
+        "Symbol": "Torch Cable icon",
+        "Description": "Torch Cable"
       },
       {
-        "Symbol": "Overheat Shutdown Indicator",
-        "Meaning": "Overheat Shutdown Indicator"
+        "Symbol": "Overheat Shutdown Indicator icon",
+        "Description": "Overheat Shutdown Indicator"
       },
       {
-        "Symbol": "Cooling Fan",
-        "Meaning": "Cooling Fan"
+        "Symbol": "Cooling Fan icon",
+        "Description": "Cooling Fan"
       },
       {
-        "Symbol": "Housing Ground Point",
-        "Meaning": "Housing Ground Point"
+        "Symbol": "Housing Ground Point icon",
+        "Description": "Housing Ground Point"
       },
       {
         "Symbol": "VAC",
-        "Meaning": "Volts Alternating Current"
+        "Description": "Volts Alternating Current"
       },
       {
         "Symbol": "A",
-        "Meaning": "Amperes"
+        "Description": "Amperes"
       },
       {
         "Symbol": "OCV",
-        "Meaning": "Open Circuit Voltage"
+        "Description": "Open Circuit Voltage"
       },
       {
         "Symbol": "KVA",
-        "Meaning": "Kilovolt Amperes (Volts / 1000 * Amperes)"
+        "Description": "Kilovolt Amperes (Volts / 1000 * Amperes)"
       },
       {
         "Symbol": "IPM",
-        "Meaning": "Inches Per Minute"
+        "Description": "Inches Per Minute"
       },
       {
         "Symbol": "AWG",
-        "Meaning": "American Wire Gauge"
+        "Description": "American Wire Gauge"
       },
       {
-        "Symbol": "Electric Shock Hazard",
-        "Meaning": "Electric Shock Hazard. Do not touch energized parts."
+        "Symbol": "Electric Shock Hazard icon",
+        "Description": "Electric Shock Hazard. Do not touch energized parts."
       },
       {
-        "Symbol": "Inhalation Hazard",
-        "Meaning": "Inhalation Hazard. Keep head out of fumes and use proper ventilation."
+        "Symbol": "Inhalation Hazard icon",
+        "Description": "Inhalation Hazard. Keep head out of fumes and use proper ventilation."
       },
       {
-        "Symbol": "Read manual before setup and/or use",
-        "Meaning": "Read manual before setup and/or use."
+        "Symbol": "Read Manual icon",
+        "Description": "Read manual before setup and/or use."
       },
       {
-        "Symbol": "Fire Hazard",
-        "Meaning": "Fire Hazard. Keep flammable materials away during welding. Spatter can cause accidental fires."
+        "Symbol": "Fire Hazard icon",
+        "Description": "Fire Hazard. Keep flammable materials away during welding. Spatter can cause accidental fires."
       },
       {
-        "Symbol": "Arc Ray Hazard",
-        "Meaning": "Arc Ray Hazard. Wear welding helmet with properly rated filter lens."
+        "Symbol": "Arc Ray Hazard icon",
+        "Description": "Arc Ray Hazard. Wear welding helmet with properly rated filter lens."
       },
       {
-        "Symbol": "Pacemaker Hazard",
-        "Meaning": "Pacemaker Hazard. Welding processes may interfere with pacemakers. Consult doctor before use."
+        "Symbol": "Pacemaker Hazard icon",
+        "Description": "Pacemaker Hazard. Welding processes may interfere with pacemakers. Consult doctor before use."
       }
     ]
   },
   {
     "id": "table_23_1",
-    "name": "Follow Duty Cycle",
+    "name": "Warning Screen Problem and Remedy Table",
     "page": 23,
     "columns": [
-      "Voltage",
-      "Usage Rate",
-      "Duration",
-      "Welding Time",
-      "Rest Time",
-      "Continuous Use"
+      "Problem",
+      "Remedy"
     ],
     "rows": [
       {
-        "voltage": "120VAC",
-        "usage_rate": "40% Use at 100A",
-        "duration": "For 10 Continuous Minutes",
-        "welding_time": "4 Minutes Welding",
-        "rest_time": "6 Minutes Resting",
-        "continuous_use": "100% Continuous Use at 75A"
+        "Problem": "Duty Cycle Exceeded",
+        "Remedy": "The machine has thermally tripped. Allow the machine to cool."
       },
       {
-        "voltage": "240VAC",
-        "usage_rate": "25% Use at 200A",
-        "duration": "For 10 Continuous Minutes",
-        "welding_time": "2-1/2 Minutes Welding",
-        "rest_time": "7-1/2 Minutes Resting",
-        "continuous_use": "100% Continuous Use at 115A"
+        "Problem": "Low Voltage Input",
+        "Remedy": "The voltage input is below the specified limit. Inspect input voltage and ensure it is within machine limits."
+      },
+      {
+        "Problem": "High Voltage Input",
+        "Remedy": "The voltage input is higher than the specified limit. Inspect input voltage and ensure it is within machine limits."
       }
     ]
   },
   {
-    "id": "table_43_1",
-    "name": "Troubleshooting Guide",
-    "page": 43,
+    "id": "table_23_2",
+    "name": "Duty Cycle Summary Table",
+    "page": 23,
+    "columns": [
+      "Input Voltage",
+      "Use Percentage at Amperage",
+      "Duration",
+      "Welding Minutes",
+      "Resting Minutes",
+      "100% Continuous Use"
+    ],
+    "rows": [
+      {
+        "Input Voltage": "120VAC",
+        "Use Percentage at Amperage": "40% Use at 100A",
+        "Duration": "For 10 Continuous Minutes",
+        "Welding Minutes": 4,
+        "Resting Minutes": 6,
+        "100% Continuous Use": "100% Continuous Use at 75A"
+      },
+      {
+        "Input Voltage": "240VAC",
+        "Use Percentage at Amperage": "25% Use at 200A",
+        "Duration": "For 10 Continuous Minutes",
+        "Welding Minutes": 2.5,
+        "Resting Minutes": 7.5,
+        "100% Continuous Use": "100% Continuous Use at 115A"
+      }
+    ]
+  },
+  {
+    "id": "table_29_1",
+    "name": "TIG Rated Duty Cycles",
+    "page": 29,
+    "columns": [
+      "Parameter",
+      "240VAC",
+      "120VAC"
+    ],
+    "rows": [
+      {
+        "Parameter": "Use Percentage",
+        "240VAC": "30% Use at 175A",
+        "120VAC": "40% Use at 125A"
+      },
+      {
+        "Parameter": "Duration",
+        "240VAC": "For 10 Continuous Minutes",
+        "120VAC": "For 10 Continuous Minutes"
+      },
+      {
+        "Parameter": "Minutes Welding",
+        "240VAC": 3,
+        "120VAC": 4
+      },
+      {
+        "Parameter": "Minutes Resting",
+        "240VAC": 7,
+        "120VAC": 6
+      },
+      {
+        "Parameter": "100% Continuous Use",
+        "240VAC": "100% Continuous Use at 105A",
+        "120VAC": "100% Continuous Use at 90A"
+      }
+    ]
+  },
+  {
+    "id": "table_29_2",
+    "name": "Stick Rated Duty Cycles",
+    "page": 29,
+    "columns": [
+      "Parameter",
+      "240VAC",
+      "120VAC"
+    ],
+    "rows": [
+      {
+        "Parameter": "Use Percentage",
+        "240VAC": "25% Use at 175A",
+        "120VAC": "40% Use at 80A"
+      },
+      {
+        "Parameter": "Duration",
+        "240VAC": "For 10 Continuous Minutes",
+        "120VAC": "For 10 Continuous Minutes"
+      },
+      {
+        "Parameter": "Minutes Welding",
+        "240VAC": 2.5,
+        "120VAC": 4
+      },
+      {
+        "Parameter": "Minutes Resting",
+        "240VAC": 7.5,
+        "120VAC": 6
+      },
+      {
+        "Parameter": "100% Continuous Use",
+        "240VAC": "100% Continuous Use at 100A",
+        "120VAC": "100% Continuous Use at 60A"
+      }
+    ]
+  },
+  {
+    "id": "table_42_1",
+    "name": "MIG/Flux-Cored Welding Troubleshooting Table",
+    "page": 42,
     "columns": [
       "Problem",
       "Possible Causes",
@@ -155,30 +252,35 @@
     ],
     "rows": [
       {
-        "Problem": "Welder Does Not Function When Switched On",
-        "Possible Causes": "1. Tripped thermal protection device. 2. Circuit supplies insufficient input voltage or amperage. 3. Faulty or improperly connected Trigger. 4. Machine is in low- or over-voltage protection. 5. Machine is in the incorrect mode.",
-        "Likely_Solutions": "1. If a warning screen appears in the LCD Display window, Welder may have overheated and shut down. Stop and wait with the Power Switch ON for the Welder to cool. The Welder automatically returns to service after cooling off. Reduce duration or frequency of welding periods to help reduce wear on the Welder. Refer to Duty Cycle (Duration of Use) on page 19. 2. Verify that the circuit is designed to supply the required input voltage and amperage as detailed on the Specifications table. If a warning screen appears in the LCD Display window, check the input voltage to ensure it is within specified range. 3. Ensure the gun connection is properly seated on machine. Qualified technician must check and secure/replace Trigger. 4. Check input voltage and ensure it falls within the specified range. If input voltage is correct, press Reset Button on back of machine to reset circuit breaker. 5. Ensure the correct process has been selected."
+        "Problem": "Wire Feed Motor Runs but Wire Does Not Feed Properly",
+        "Possible Causes": "1. Insufficient wire feed pressure. 2. Incorrect wire feed roller size. 3. Damaged MIG Gun, cable, or liner assembly. 4. Feed Tensioner is too tight.",
+        "Likely Solutions": "1. Increase wire feed pressure properly. Follow step 27 on page 17. 2. Flip roll to correct size. Follow the Feed Roller instructions on page 12. 3. Have a qualified technician inspect these parts and replace as necessary. 4. Loosen Feed Tensioner so it applies only enough pressure to prevent continued spinning after the Gun Trigger is released."
       },
       {
-        "Problem": "LCD Display Does Not Light When Welder is Switched On",
-        "Possible_Causes": "1. Unit is not connected to outlet properly. 2. Outlet is unpowered. 3. Plug does not have correct rating. 4. Circuit breaker has tripped due to high input amperage. 5. Input Power Cord is not seated properly.",
-        "Likely_Solutions": "1. Verify the voltage at the outlet and the connection to the outlet. 2. Check circuit breaker/GFCI devices; if any are tripped, determine and remedy cause before resetting. 3. Make sure installed plug is correct rating. See Specifications on page 7. 4. Press Reset Button on back of machine to reset circuit breaker. 5. Ensure the twist lock input Power Cord is fully secured."
+        "Problem": "Wire Creates a Bird's Nest During Operation",
+        "Possible Causes": "1. Excess wire feed pressure. 2. Incorrect Contact Tip size. 3. MIG Gun Cable Connector not fully inserted into Wire Feed mechanism. 4. Damaged liner.",
+        "Likely Solutions": "1. Adjust wire feed pressure properly. Follow step 27 on page 17. 2. Replace with the proper tip for wire used. 3. Insert Gun Cable Connector properly. Follow steps 13 and 14 on page 13. 4. Have a qualified technician inspect and repair/replace as necessary."
       },
       {
-        "Problem": "Wire Feeds, but Arc Does Not Ignite",
-        "Possible_Causes": "1. Improper ground connection. 2. Improperly sized Contact Tip. 3. Excessively worn Contact Tip. 4. Dirty Contact Tip.",
-        "Likely_Solutions": "1. Make certain that the workpiece is contacted properly by the Ground Clamp and that the workpiece is properly cleaned near the ground clamp and the welding location. 2. Verify that Contact Tip is the proper size for welding wire. If needed, replace Contact Tip with proper size and type. 3. Check that the hole in the tip is not deformed or enlarged. If needed, replace Contact Tip with proper size and type. 4. Properly clean Contact Tip."
+        "Problem": "Wire Stops During Welding",
+        "Possible Causes": "1. Gun cable is severely bent and Wire Feed mechanism cannot feed wire. 2. Gun liner is clogged or worn. 3. Gun liner is too small for welding wire being used. 4. Wire is tangled on the spool. 5. Wire is not making contact with Feed Rollers. 6. Feed Roller is not making enough contact with wire or is crushing flux-cored wire.",
+        "Likely Solutions": "1. Straighten Gun cable. 2. Check gun liner for obstruction. Replace if necessary. 3. Check that gun liner is correct size for wire. 4. Check wire for cross winding or tangled spool. 5. Check Feed Rollers and ensure correct groove for wire diameter is being used. 6. Check Feed Tensioner and ensure it is set properly."
       },
       {
-        "Problem": "Porosity in the Weld Metal",
-        "Possible_Causes": "1. Shielding gas bottle is empty. 2. Not enough or too much shielding gas. 3. Dirty workpiece. 4. Gun is being used too far away from workpiece. 5. Polarity is incorrect for the application. 6. Dirty welding wire is introducing contamination into the weld.",
-        "Likely_Solutions": "1. Check gas bottle and replenish as necessary. 2. Check gas regulator to ensure proper flow. 3. Clean workpiece down to bare metal. 4. Check CTWD (contact tip to work distance) for the proper procedure. 5. Check the polarity and ensure it is DCEP for MIG and DCEN for Flux-Cored. 6. Make certain that welding wire is clean and free of rust and residues."
+        "Problem": "Welding Arc Not Stable",
+        "Possible Causes": "1. Wire not feeding properly. 2. Incorrect Contact Tip or liner size or excessive wear. 3. Incorrect wire feed speed. 4. Loose MIG Gun cable or ground cable. 5. Damaged MIG Gun or loose connection within Gun. 6. Incorrect polarity for process being run. 7. Gas coverage may be insufficient or too high. 8. Poor connection with workpiece.",
+        "Likely Solutions": "1. See first Troubleshooting section above. 2. Replace with the proper tip or liner size for wire used. 3. Adjust wire feed speed to achieve a more stable arc. 4. Check to ensure that all connections are tight. 5. Have a qualified technician inspect and repair/replace as necessary. 6. Ensure polarity is correct for operation: DCEP for MIG welding and DCEN for Flux-Cored self-shielded welding. 7. Ensure gas flow rate is set according to Settings Chart. Make sure MIG Gun Cable Connector is fully inserted into Wire Feed mechanism with no O-Rings exposed. 8. Check the ground clamp connection to the workpiece and machine. Ensure the MIG Gun is properly secured."
+      },
+      {
+        "Problem": "Weak Arc Strength",
+        "Possible Causes": "1. Incorrect line voltage. 2. Improper gauge or length of cord. 3. Not enough current.",
+        "Likely Solutions": "1. Check the line voltage and, if insufficient, have a licensed electrician remedy the situation. 2. Do not use an extension cord on this Welder. Use only one of the supplied power cords for this Welder or an identical replacement cord. 3. Switch current to proper setting for metal thickness."
       }
     ]
   },
   {
     "id": "table_44_1",
-    "name": "Troubleshooting - TIG/Stick Welding",
+    "name": "TIG/Stick Welding Troubleshooting Table",
     "page": 44,
     "columns": [
       "Problem",
@@ -188,55 +290,380 @@
     "rows": [
       {
         "Problem": "Welder Does Not Function When Switched On",
-        "Possible_Causes": [
-          "1. Tripped thermal protection device.",
-          "2. Faulty or improperly connected Trigger.",
-          "3. Ground Clamp not attached to workpiece.",
-          "4. Shielding Gas not connected."
-        ],
-        "Likely_Solutions": [
-          "1. Reduce duration or frequency of welding periods to help reduce wear on the welder. Refer to Duty Cycle (Duration of Use) on page 29.",
-          "2. Qualified technician must check and secure/replace Trigger.",
-          "3. Attach Ground Clamp to workpiece.",
-          "4. Connect shielding gas to Welder."
-        ]
+        "Possible Causes": "1. Tripped thermal protection device.",
+        "Likely Solutions": "1. Reduce duration or frequency of welding periods to help reduce wear on the welder. Refer to Duty Cycle (Duration of Use) on page 29."
+      },
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible Causes": "2. Faulty or improperly connected Trigger.",
+        "Likely Solutions": "2. Qualified technician must check and secure/replace Trigger."
+      },
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible Causes": "3. Ground Clamp not attached to workpiece.",
+        "Likely Solutions": "3. Attach Ground Clamp to workpiece."
+      },
+      {
+        "Problem": "Welder Does Not Function When Switched On",
+        "Possible Causes": "4. Shielding Gas not connected.",
+        "Likely Solutions": "4. Connect shielding gas to Welder."
       },
       {
         "Problem": "LCD Display Does Not Light When Welder is Switched On",
-        "Possible_Causes": [
-          "1. Unit is not connected to outlet properly.",
-          "2. Outlet is unpowered."
-        ],
-        "Likely_Solutions": [
-          "1. Verify the voltage at the outlet and the connection to the outlet.",
-          "2. Check circuit breaker/GFCI devices; if any are tripped, determine and remedy cause before resetting. Verify that the circuit is designed to supply the required input amperage as detailed in Specifications on page 7."
-        ]
+        "Possible Causes": "1. Unit is not connected to outlet properly.",
+        "Likely Solutions": "1. Verify the voltage at the outlet and the connection to the outlet."
+      },
+      {
+        "Problem": "LCD Display Does Not Light When Welder is Switched On",
+        "Possible Causes": "2. Outlet is unpowered.",
+        "Likely Solutions": "2. Check circuit breaker/GFCI devices; if any are tripped, determine and remedy cause before resetting. Verify that the circuit is designed to supply the required input amperage as detailed in Specifications on page 7."
       },
       {
         "Problem": "Weak Arc Strength",
-        "Possible_Causes": [
-          "1. Incorrect line voltage.",
-          "2. Improper gauge or length of cord."
-        ],
-        "Likely_Solutions": [
-          "1. Check the line voltage and, if insufficient, have a licensed electrician remedy the situation.",
-          "2. Do not use an extension cord on this Welder. Use only one of the supplied power cords for this Welder or an identical replacement cord."
-        ]
+        "Possible Causes": "1. Incorrect line voltage.",
+        "Likely Solutions": "1. Check the line voltage and, if insufficient, have a licensed electrician remedy the situation."
       },
       {
-        "Problem": "Welding Arc Not Stable",
-        "Possible_Causes": [
-          "1. Loose electrode cable or ground cable.",
-          "2. Damaged electrode holder or loose connection within electrode holder.",
-          "3. Adjust current setting.",
-          "4. Shielding gas getting low."
-        ],
-        "Likely_Solutions": [
-          "1. Check to ensure that all connections are tight.",
-          "2. Have a qualified technician inspect and repair/replace as necessary.",
-          "3. Make sure setting matches recommended setting on chart.",
-          "4. Replace shielding gas cylinder."
-        ]
+        "Problem": "Weak Arc Strength",
+        "Possible Causes": "2. Improper gauge or length of cord.",
+        "Likely Solutions": "2. Do not use an extension cord on this Welder. Use only one of the supplied power cords for this Welder or an identical replacement cord."
+      },
+      {
+        "Problem": "Welding Arc Not Stable.",
+        "Possible Causes": "1. Loose electrode cable or ground cable.",
+        "Likely Solutions": "1. Check to ensure that all connections are tight."
+      },
+      {
+        "Problem": "Welding Arc Not Stable.",
+        "Possible Causes": "2. Damaged electrode holder or loose connection within electrode holder.",
+        "Likely Solutions": "2. Have a qualified technician inspect and repair/replace as necessary."
+      },
+      {
+        "Problem": "Welding Arc Not Stable.",
+        "Possible Causes": "3. Adjust current setting.",
+        "Likely Solutions": "3. Make sure setting matches recommended setting on chart."
+      },
+      {
+        "Problem": "Welding Arc Not Stable.",
+        "Possible Causes": "4. Shielding gas getting low.",
+        "Likely Solutions": "4. Replace shielding gas cylinder."
+      }
+    ]
+  },
+  {
+    "id": "table_46_1",
+    "name": "Parts List",
+    "page": 46,
+    "columns": [
+      "Part",
+      "Description",
+      "Qty"
+    ],
+    "rows": [
+      {
+        "Part": 1,
+        "Description": "Right Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 2,
+        "Description": "Handle Base",
+        "Qty": 1
+      },
+      {
+        "Part": 3,
+        "Description": "Handle Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 4,
+        "Description": "Hinge-Right",
+        "Qty": 2
+      },
+      {
+        "Part": 5,
+        "Description": "Hinge-left",
+        "Qty": 2
+      },
+      {
+        "Part": 6,
+        "Description": "Left Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 7,
+        "Description": "Latch",
+        "Qty": 1
+      },
+      {
+        "Part": 8,
+        "Description": "Middle Bracket",
+        "Qty": 1
+      },
+      {
+        "Part": 9,
+        "Description": "PFC Inductance",
+        "Qty": 1
+      },
+      {
+        "Part": 10,
+        "Description": "Spool",
+        "Qty": 1
+      },
+      {
+        "Part": 11,
+        "Description": "Remote Control PCB",
+        "Qty": 1
+      },
+      {
+        "Part": 12,
+        "Description": "Wire Feeder",
+        "Qty": 1
+      },
+      {
+        "Part": 13,
+        "Description": "Aviation Plug Wire",
+        "Qty": 1
+      },
+      {
+        "Part": 14,
+        "Description": "Miller Plug Connector",
+        "Qty": 1
+      },
+      {
+        "Part": 15,
+        "Description": "Protective Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 16,
+        "Description": "Display PCB",
+        "Qty": 1
+      },
+      {
+        "Part": 17,
+        "Description": "Screen Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 18,
+        "Description": "Screen Frame",
+        "Qty": 1
+      },
+      {
+        "Part": 19,
+        "Description": "MIG Welding Torch",
+        "Qty": 1
+      },
+      {
+        "Part": 20,
+        "Description": "Front Handle Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 21,
+        "Description": "Front Panel",
+        "Qty": 1
+      },
+      {
+        "Part": 22,
+        "Description": "Display",
+        "Qty": 1
+      },
+      {
+        "Part": 23,
+        "Description": "Knob",
+        "Qty": 2
+      },
+      {
+        "Part": 24,
+        "Description": "Knob",
+        "Qty": 1
+      },
+      {
+        "Part": 25,
+        "Description": "Storage Door",
+        "Qty": 1
+      },
+      {
+        "Part": 26,
+        "Description": "Switch",
+        "Qty": 1
+      },
+      {
+        "Part": 27,
+        "Description": "American Air Fitting",
+        "Qty": 2
+      },
+      {
+        "Part": 28,
+        "Description": "Air Connector",
+        "Qty": 3
+      },
+      {
+        "Part": 29,
+        "Description": "Quick Connector",
+        "Qty": 2
+      },
+      {
+        "Part": 30,
+        "Description": "Grounding Clamp Assembly",
+        "Qty": 1
+      },
+      {
+        "Part": 31,
+        "Description": "Welding Clamp Assembly",
+        "Qty": 1
+      },
+      {
+        "Part": 32,
+        "Description": "Polarity Cable",
+        "Qty": 1
+      },
+      {
+        "Part": 33,
+        "Description": "Output Inductor",
+        "Qty": 1
+      },
+      {
+        "Part": 34,
+        "Description": "Air Connector",
+        "Qty": 2
+      },
+      {
+        "Part": 35,
+        "Description": "Solenoid Valve",
+        "Qty": 2
+      },
+      {
+        "Part": 36,
+        "Description": "Bottom Housing",
+        "Qty": 1
+      },
+      {
+        "Part": 37,
+        "Description": "Board Insulation Paper",
+        "Qty": 1
+      },
+      {
+        "Part": 38,
+        "Description": "Main PCB",
+        "Qty": 1
+      },
+      {
+        "Part": 39,
+        "Description": "Control PCB",
+        "Qty": 1
+      },
+      {
+        "Part": 40,
+        "Description": "Fast Recovery Diode",
+        "Qty": 6
+      },
+      {
+        "Part": 41,
+        "Description": "Metal Case Air Way",
+        "Qty": 1
+      },
+      {
+        "Part": 42,
+        "Description": "Rectifier Radiator Support Bar",
+        "Qty": 1
+      },
+      {
+        "Part": 43,
+        "Description": "Rectifier Radiator",
+        "Qty": 1
+      },
+      {
+        "Part": 44,
+        "Description": "Fan",
+        "Qty": 1
+      },
+      {
+        "Part": 45,
+        "Description": "Transformer",
+        "Qty": 1
+      },
+      {
+        "Part": 46,
+        "Description": "IGBT",
+        "Qty": 6
+      },
+      {
+        "Part": 47,
+        "Description": "Bridge Rectifier Heatsink",
+        "Qty": 1
+      },
+      {
+        "Part": 48,
+        "Description": "Fast Recovery Diode",
+        "Qty": 2
+      },
+      {
+        "Part": 49,
+        "Description": "IGBT Heat Sink Support Bar",
+        "Qty": 1
+      },
+      {
+        "Part": 50,
+        "Description": "IGBT Radiator",
+        "Qty": 1
+      },
+      {
+        "Part": 51,
+        "Description": "Bridge Rectifiers",
+        "Qty": 2
+      },
+      {
+        "Part": 52,
+        "Description": "IGBT Radiator",
+        "Qty": 2
+      },
+      {
+        "Part": 53,
+        "Description": "Fan",
+        "Qty": 1
+      },
+      {
+        "Part": 54,
+        "Description": "Y-Type Threaded Tee",
+        "Qty": 1
+      },
+      {
+        "Part": 55,
+        "Description": "120 VAC Power Cord",
+        "Qty": 1
+      },
+      {
+        "Part": 56,
+        "Description": "Rear Panel",
+        "Qty": 1
+      },
+      {
+        "Part": 57,
+        "Description": "Rear Handle Cover",
+        "Qty": 1
+      },
+      {
+        "Part": 58,
+        "Description": "American Power Socket",
+        "Qty": 1
+      },
+      {
+        "Part": 59,
+        "Description": "Overload Protector",
+        "Qty": 1
+      },
+      {
+        "Part": 60,
+        "Description": "Rear Panel",
+        "Qty": 1
+      },
+      {
+        "Part": 61,
+        "Description": "240 VAC Power Cord",
+        "Qty": 1
       }
     ]
   }

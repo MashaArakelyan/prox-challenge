@@ -169,6 +169,18 @@
         "branches": []
       },
       {
+        "step": 13,
+        "instruction": "Loosen the Knob on the Wire Feed mechanism, then insert the Gun Cable Connector through the hole on the Welder front and into the socket on the Wire Feed.",
+        "postcondition": "Gun Cable Connector is seated in the Wire Feed socket.",
+        "expected_image": "Gun Cable Connector inserted through welder front into Wire Feed mechanism socket with knob loosened.",
+        "entity_refs": [
+          "control_element_wire_feed_knob",
+          "physical_connector_gun_cable_connector",
+          "physical_connector_wire_feed_socket"
+        ],
+        "branches": []
+      },
+      {
         "step": 14,
         "instruction": "Remove the Feed Roller Knob to expose the Feed Roller.",
         "postcondition": "The Feed Roller is visible and accessible with the knob fully removed.",
@@ -176,6 +188,18 @@
         "entity_refs": [
           "control_element_feed_roller_knob",
           "control_element_feed_roller"
+        ],
+        "branches": []
+      },
+      {
+        "step": 14,
+        "instruction": "Ensure that the Gun Cable Connector is fully inserted into the socket on the Wire Feed mechanism, then tighten the Knob securely without overtightening.",
+        "postcondition": "Gun Cable Connector is fully inserted and Knob is tightened; no gas leak path.",
+        "expected_image": "Correct insertion diagram showing connector fully seated.",
+        "entity_refs": [
+          "physical_connector_gun_cable_connector",
+          "control_element_wire_feed_knob",
+          "safety_guideline_do_not_overtighten_knob"
         ],
         "branches": []
       },
@@ -202,6 +226,17 @@
         ]
       },
       {
+        "step": 15,
+        "instruction": "Insert the Wire Feed Control Cable through the hole on the Welder front and connect it to the Wire Feed Control Socket inside the machine, aligning the plug to its specific orientation, then tighten the lock ring on the Cable plug.",
+        "postcondition": "Wire Feed Control Cable is connected and lock ring is tightened.",
+        "expected_image": "Wire Feed Control Cable plugged into Wire Feed Control Socket with lock ring tightened.",
+        "entity_refs": [
+          "physical_connector_wire_feed_control_cable",
+          "physical_connector_wire_feed_control_socket"
+        ],
+        "branches": []
+      },
+      {
         "step": 16,
         "instruction": "Screw the Feed Roller Knob back into place to secure the Feed Roller.",
         "postcondition": "The Feed Roller Knob is tightened and the Feed Roller is firmly held in position without play.",
@@ -209,6 +244,19 @@
         "entity_refs": [
           "control_element_feed_roller_knob",
           "control_element_feed_roller"
+        ],
+        "branches": []
+      },
+      {
+        "step": 16,
+        "instruction": "For DCEN (Direct Current Electrode Negative) Flux-Cored gasless welding, plug the Ground Clamp Cable into the Positive (+) Socket and the Wire Feed Power Cable into the Negative (–) Socket, then twist cables clockwise to lock in place.",
+        "postcondition": "Ground Clamp Cable is in Positive Socket and Wire Feed Power Cable is in Negative Socket, both locked.",
+        "expected_image": "DCEN Flux-Cored polarity setup with Wire Feed Power Cable in Negative Socket and Ground Clamp Cable in Positive Socket.",
+        "entity_refs": [
+          "welding_process_flux_cored",
+          "physical_connector_positive_socket",
+          "physical_connector_negative_socket",
+          "reference_diagram_dcen_polarity_setup"
         ],
         "branches": []
       },
@@ -235,6 +283,16 @@
         "branches": []
       },
       {
+        "step": 18,
+        "instruction": "Cut off all bent and crimped wire, ensuring the cut end has no burrs or sharp edges; cut again if needed.",
+        "postcondition": "Wire end is clean with no burrs or sharp edges.",
+        "expected_image": null,
+        "entity_refs": [
+          "welding_wire_welding_wire"
+        ],
+        "branches": []
+      },
+      {
         "step": 19,
         "instruction": "With assistance, set the shielding gas cylinder onto a cabinet or cart near the Welder and secure it in place with two straps to prevent tipping.",
         "postcondition": "The cylinder is upright on a stable surface near the welder and is secured by two straps so it cannot tip over.",
@@ -245,12 +303,36 @@
         "branches": []
       },
       {
+        "step": 19,
+        "instruction": "Keep tension on the wire and guide at least 12 inches of wire into the Wire Inlet Liner and Feed Guide.",
+        "postcondition": "At least 12 inches of welding wire is fed through the Wire Inlet Liner and Feed Guide.",
+        "expected_image": "Hand holding welding wire taut while feeding it from the spool into the Wire Inlet Liner and Feed Guide.",
+        "entity_refs": [
+          "welding_wire_welding_wire",
+          "physical_connector_wire_inlet_liner",
+          "physical_connector_feed_guide"
+        ],
+        "branches": []
+      },
+      {
         "step": 20,
         "instruction": "Remove the cylinder's cap, stand to the side of the valve opening, then briefly open the valve to blow out dust and dirt, then close the cylinder valve.",
         "postcondition": "The valve opening is clear of debris and the cylinder valve is closed.",
         "expected_image": "Photo showing the cylinder valve being briefly opened with an operator standing to the side.",
         "entity_refs": [
           "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 20,
+        "instruction": "Make sure the welding wire is resting in the groove of the Feed Roller, then push the Idler Arm down and swing the Feed Tensioner up to latch it across the tip of the arm; release the wire after the Tensioner holds it. Set tension to 3–5 for solid wire or 2–3 for flux-cored wire.",
+        "postcondition": "Welding wire is seated in the feed roller groove and held by the latched Feed Tensioner at the proper tension setting.",
+        "expected_image": "Idler Arm pushed down and Feed Tensioner latched over the welding wire.",
+        "entity_refs": [
+          "control_element_idler_arm",
+          "control_element_feed_tensioner",
+          "welding_wire_welding_wire"
         ],
         "branches": []
       },
@@ -271,12 +353,32 @@
         ]
       },
       {
+        "step": 21,
+        "instruction": "Pull the Nozzle off the MIG Gun to remove it.",
+        "postcondition": "Nozzle is removed from the MIG Gun.",
+        "expected_image": "MIG Gun with the Nozzle separated.",
+        "entity_refs": [
+          "physical_connector_mig_gun_nozzle"
+        ],
+        "branches": []
+      },
+      {
         "step": 22,
         "instruction": "If using C100 shielding gas, connect the enclosed CGA 580/320 adapter to the inlet connection of the Regulator and wrench-tighten it, then thread the adapter onto the gas cylinder and wrench-tighten.",
         "postcondition": "The CGA 580/320 adapter is securely wrench-tightened at both the Regulator inlet and the cylinder.",
         "expected_image": null,
         "entity_refs": [
           "shielding_gas"
+        ],
+        "branches": []
+      },
+      {
+        "step": 22,
+        "instruction": "Unscrew the Contact Tip counterclockwise and remove it.",
+        "postcondition": "Contact Tip is removed from the MIG Gun.",
+        "expected_image": null,
+        "entity_refs": [
+          "physical_connector_contact_tip"
         ],
         "branches": []
       },
@@ -288,6 +390,17 @@
         "entity_refs": [
           "shielding_gas",
           "physical_connector_gas_inlet"
+        ],
+        "branches": []
+      },
+      {
+        "step": 23,
+        "instruction": "Lay the MIG Gun Cable out in a straight line so the welding wire can move through it easily, leaving the feed mechanism cover open for observation.",
+        "postcondition": "MIG Gun Cable is straight and the feed mechanism cover is open.",
+        "expected_image": "MIG Gun Cable extended straight from the welder.",
+        "entity_refs": [
+          "physical_connector_mig_gun",
+          "welding_wire_welding_wire"
         ],
         "branches": []
       },

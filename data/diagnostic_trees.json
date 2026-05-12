@@ -227,25 +227,49 @@
         {
           "id": "incorrect_welding_technique",
           "label": "Incorrect welding technique (CTWD, arc position, gun angle)",
-          "prior": 0.3,
+          "prior": 0.154,
           "prior_source": "manual_order_heuristic"
         },
         {
           "id": "insufficient_weld_heat",
           "label": "Insufficient weld heat",
-          "prior": 0.3,
+          "prior": 0.154,
           "prior_source": "manual_order_heuristic"
         },
         {
           "id": "workpieces_too_thick_or_close",
           "label": "Workpieces too thick or gap too tight",
-          "prior": 0.2,
+          "prior": 0.103,
           "prior_source": "manual_order_heuristic"
         },
         {
           "id": "insufficient_weld_material",
           "label": "Insufficient weld material (wire feed too low)",
-          "prior": 0.15,
+          "prior": 0.077,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "weld_current_too_low",
+          "label": "Weld current too low",
+          "prior": 0.154,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "travel_speed_too_fast",
+          "label": "Travel speed too fast",
+          "prior": 0.128,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_feed_too_slow",
+          "label": "Wire feed speed too slow",
+          "prior": 0.103,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ctwd_too_long",
+          "label": "Contact-tip-to-work distance too long",
+          "prior": 0.077,
           "prior_source": "manual_order_heuristic"
         }
       ],
@@ -256,6 +280,10 @@
           "modality": "numeric_measurement",
           "positive_meaning": "Excessive stickout reduces current and penetration",
           "likelihood_ratios": {
+            "ctwd_too_long": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            },
             "incorrect_welding_technique": {
               "lr_positive": 5,
               "source": "manual_derived"
@@ -314,6 +342,31 @@
             }
           },
           "recommended_action_if_positive": "Increase wire feed speed"
+        },
+        {
+          "id": "bead_sits_on_top",
+          "question": "Does the weld bead sit on top of the workpiece with little or no fusion into the base metal?",
+          "modality": "self_report",
+          "positive_meaning": "Bead is rounded on the surface, indicating inadequate penetration",
+          "likelihood_ratios": {
+            "weld_current_too_low": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            },
+            "wire_feed_too_slow": {
+              "lr_positive": 2.5,
+              "source": "manual_derived"
+            },
+            "travel_speed_too_fast": {
+              "lr_positive": 2.5,
+              "source": "manual_derived"
+            },
+            "ctwd_too_long": {
+              "lr_positive": 2,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase weld current, decrease travel speed, increase wire feed, or shorten CTWD"
         }
       ],
       "manual_citation": {
@@ -3047,6 +3100,281 @@
       "manual_citation": {
         "page": 43,
         "section": "Troubleshooting - Porosity in the Weld Metal"
+      }
+    },
+    {
+      "id": "excess_penetration_burn_through",
+      "label": "Excess penetration or burn-through",
+      "description": "Weld melts through the workpiece or penetrates excessively; workpiece too hot",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "weld_current_too_high",
+          "label": "Weld current too high",
+          "prior": 0.3,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "travel_speed_too_slow",
+          "label": "Travel speed too slow",
+          "prior": 0.25,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_feed_too_fast",
+          "label": "Wire feed speed too fast",
+          "prior": 0.2,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "ctwd_too_short",
+          "label": "Contact-tip-to-work distance too short",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "hole_or_burnthrough",
+          "question": "Did the weld burn through the workpiece or leave a concave hole on the back side?",
+          "modality": "self_report",
+          "positive_meaning": "Excess penetration / burn-through observed",
+          "likelihood_ratios": {
+            "weld_current_too_high": {
+              "lr_positive": 3,
+              "source": "manual_derived"
+            },
+            "travel_speed_too_slow": {
+              "lr_positive": 2.5,
+              "source": "manual_derived"
+            },
+            "wire_feed_too_fast": {
+              "lr_positive": 2.5,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease weld current, increase travel speed, decrease wire feed, or lengthen CTWD"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Wire Weld Diagnosis – Workpiece Heat Control / Weld Penetration"
+      }
+    },
+    {
+      "id": "narrow_ropey_bead_low_voltage",
+      "label": "Narrow, ropey, tall bead (voltage too low or wire feed too slow)",
+      "description": "Weld bead appears narrow, tall, and ropey with poor wetting at the edges",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "voltage_too_low",
+          "label": "Output voltage too low",
+          "prior": 0.5,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_feed_too_fast_for_voltage",
+          "label": "Wire feed speed too fast for set voltage",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "bead_is_narrow_and_ropey",
+          "question": "Is the bead narrow, tall, and ropey-looking with poor edge fusion?",
+          "modality": "user_photo",
+          "positive_meaning": "Bead profile indicates low voltage or fast wire feed",
+          "likelihood_ratios": {
+            "voltage_too_low": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "wire_feed_too_fast_for_voltage": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Increase output voltage or decrease wire feed speed"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Example Wire Weld Diagrams"
+      }
+    },
+    {
+      "id": "flat_spattery_bead_high_voltage",
+      "label": "Flat, wide, spattery bead (voltage too high or wire feed too fast)",
+      "description": "Weld bead appears flat and wide with excessive spatter around it",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "voltage_too_high",
+          "label": "Output voltage too high",
+          "prior": 0.5,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wire_feed_too_fast",
+          "label": "Wire feed speed too fast",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "spatter_around_bead",
+          "question": "Is there excessive spatter around a flat, wide bead?",
+          "modality": "user_photo",
+          "positive_meaning": "High voltage / fast wire feed signature",
+          "likelihood_ratios": {
+            "voltage_too_high": {
+              "lr_positive": 5,
+              "source": "manual_derived"
+            },
+            "wire_feed_too_fast": {
+              "lr_positive": 4,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Decrease output voltage or decrease wire feed speed"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Example Wire Weld Diagrams"
+      }
+    },
+    {
+      "id": "bead_too_fast_travel",
+      "label": "Narrow stringy bead (travel speed too fast)",
+      "description": "Weld bead is thin and stringy due to gun moving too quickly",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "travel_speed_too_fast",
+          "label": "Travel speed too fast",
+          "prior": 0.8,
+          "prior_source": "manual_derived"
+        }
+      ],
+      "checks": [
+        {
+          "id": "bead_thin_and_stringy",
+          "question": "Is the bead thin and stringy with little buildup?",
+          "modality": "user_photo",
+          "positive_meaning": "Travel speed too fast",
+          "likelihood_ratios": {
+            "travel_speed_too_fast": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Travel slower"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Example Wire Weld Diagrams"
+      }
+    },
+    {
+      "id": "bead_too_slow_travel",
+      "label": "Wide piled-up bead (travel speed too slow)",
+      "description": "Weld bead is wide and piled up because the gun is moving too slowly",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "travel_speed_too_slow",
+          "label": "Travel speed too slow",
+          "prior": 0.8,
+          "prior_source": "manual_derived"
+        }
+      ],
+      "checks": [
+        {
+          "id": "bead_wide_piled_up",
+          "question": "Is the bead very wide with excessive buildup of weld metal?",
+          "modality": "user_photo",
+          "positive_meaning": "Travel speed too slow",
+          "likelihood_ratios": {
+            "travel_speed_too_slow": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Travel faster"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Example Wire Weld Diagrams"
+      }
+    },
+    {
+      "id": "porous_spattery_bead_ctwd_polarity",
+      "label": "Porous bead with heavy spatter (CTWD too long or wrong polarity)",
+      "description": "Weld bead shows porosity, ball-like buildup and heavy surrounding spatter",
+      "process_scope": [
+        "MIG"
+      ],
+      "causes": [
+        {
+          "id": "ctwd_too_long",
+          "label": "Contact-tip-to-work distance too long",
+          "prior": 0.45,
+          "prior_source": "manual_order_heuristic"
+        },
+        {
+          "id": "wrong_polarity",
+          "label": "Wrong polarity for wire type",
+          "prior": 0.4,
+          "prior_source": "manual_order_heuristic"
+        }
+      ],
+      "checks": [
+        {
+          "id": "ctwd_check",
+          "question": "Is the contact-tip-to-work distance greater than 1/2 inch during welding?",
+          "modality": "self_report",
+          "positive_meaning": "CTWD too long",
+          "likelihood_ratios": {
+            "ctwd_too_long": {
+              "lr_positive": 6,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Maintain CTWD less than 1/2 inch"
+        },
+        {
+          "id": "polarity_matches_wire",
+          "question": "Is the machine polarity set correctly for the wire being used (e.g., DCEP for solid wire with gas, DCEN for most flux-core)?",
+          "modality": "self_report",
+          "positive_meaning": "Polarity is incorrect for the wire (answer 'no')",
+          "likelihood_ratios": {
+            "wrong_polarity": {
+              "lr_positive": 8,
+              "source": "manual_derived"
+            }
+          },
+          "recommended_action_if_positive": "Reverse polarity to match wire requirements"
+        }
+      ],
+      "manual_citation": {
+        "page": 35,
+        "section": "Example Wire Weld Diagrams"
       }
     }
   ]

@@ -2,928 +2,623 @@
   {
     "id": "diagram_1_1",
     "page": 1,
-    "caption": "OMNIPRO 220 MULTIPROCESS WELDING SYSTEM",
+    "caption": "Vulcan OmniPro 220 Multiprocess Welding System – product front view showing control panel, display screen, knobs, and front connectors",
     "save_crop": true,
     "regions": [
       {
-        "label": "Front control panel with display and knobs",
+        "label": "OmniPro 220 Welder Unit",
         "bbox": {
-          "x": 0.25,
-          "y": 0.35,
-          "width": 0.25,
-          "height": 0.35
+          "x": 0.2,
+          "y": 0.28,
+          "width": 0.6,
+          "height": 0.48
         }
       },
       {
-        "label": "Carrying handle",
+        "label": "Control Panel / Display Screen",
         "bbox": {
           "x": 0.28,
-          "y": 0.25,
-          "width": 0.19,
-          "height": 0.12
+          "y": 0.31,
+          "width": 0.28,
+          "height": 0.15
         }
       },
       {
-        "label": "Right side panel with VULCAN branding",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.35,
-          "width": 0.27,
-          "height": 0.35
-        }
-      },
-      {
-        "label": "Front lower connectors and outlets",
+        "label": "Front Connectors",
         "bbox": {
           "x": 0.25,
-          "y": 0.62,
-          "width": 0.25,
-          "height": 0.12
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_4_1",
-    "page": 4,
-    "caption": "Electrical Safety warning symbol",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "High voltage warning triangle",
-        "bbox": {
-          "x": 0.85,
-          "y": 0.05,
-          "width": 0.12,
+          "y": 0.67,
+          "width": 0.35,
           "height": 0.08
         }
-      }
-    ]
-  },
-  {
-    "id": "diagram_4_2",
-    "page": 4,
-    "caption": "Fire Safety warning symbol",
-    "save_crop": true,
-    "regions": [
+      },
       {
-        "label": "Fire hazard warning triangle",
+        "label": "Vulcan Brand Label (side)",
         "bbox": {
-          "x": 0.85,
-          "y": 0.63,
-          "width": 0.12,
-          "height": 0.08
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_5_1",
-    "page": 5,
-    "caption": "Gas Shielded Welding - Cylinder Safety hazard warning triangle",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Explosion hazard warning symbol",
-        "bbox": {
-          "x": 0.75,
-          "y": 0.4,
-          "width": 0.15,
+          "x": 0.6,
+          "y": 0.48,
+          "width": 0.2,
           "height": 0.1
         }
       }
-    ]
-  },
-  {
-    "id": "diagram_5_2",
-    "page": 5,
-    "caption": "SAVE THESE INSTRUCTIONS warning symbol",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Triangle warning symbol with exclamation mark",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.85,
-          "width": 0.05,
-          "height": 0.08
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_6_1",
-    "page": 6,
-    "caption": "Symbolology Reference Chart",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Wire Feed (Speed) symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.5,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Workpiece Ground Cable symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.58,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Torch Cable symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.66,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Overheat Shutdown Indicator symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.74,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Cooling Fan symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.82,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Housing Ground Point symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.9,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "VAC symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.98,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Amperes symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 1.06,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "OCV symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 1.14,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "KVA symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 1.22,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "IPM symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.5,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "AWG symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.58,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Electric Shock Hazard symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.66,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Inhalation Hazard symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.74,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Read manual symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.82,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Fire Hazard symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.9,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Arc Ray Hazard symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.98,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Pacemaker Hazard symbol",
-        "bbox": {
-          "x": 0.5,
-          "y": 1.06,
-          "width": 0.15,
-          "height": 0.08
-        }
-      }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_8_1",
     "page": 8,
-    "caption": "Front Panel Controls - VULCAN OMNIPRO 220 welder control layout",
+    "caption": "Front Panel Controls of the Vulcan OmniPro 220 Multiprocess Welder",
     "save_crop": true,
     "regions": [
       {
         "label": "Home Button",
         "bbox": {
-          "x": 0.25,
-          "y": 0.18,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.18,
+          "y": 0.22,
+          "width": 0.1,
+          "height": 0.06
         }
       },
       {
         "label": "Back Button",
         "bbox": {
-          "x": 0.67,
-          "y": 0.18,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.7,
+          "y": 0.22,
+          "width": 0.1,
+          "height": 0.06
         }
       },
       {
         "label": "Control Knob",
         "bbox": {
-          "x": 0.28,
-          "y": 0.3,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.18,
+          "y": 0.29,
+          "width": 0.1,
+          "height": 0.06
         }
       },
       {
         "label": "Left Knob",
         "bbox": {
           "x": 0.18,
-          "y": 0.42,
+          "y": 0.37,
           "width": 0.1,
-          "height": 0.1
-        }
-      },
-      {
-        "label": "Right Knob",
-        "bbox": {
-          "x": 0.72,
-          "y": 0.42,
-          "width": 0.1,
-          "height": 0.1
+          "height": 0.07
         }
       },
       {
         "label": "LCD Display",
         "bbox": {
-          "x": 0.35,
-          "y": 0.22,
-          "width": 0.3,
-          "height": 0.22
+          "x": 0.68,
+          "y": 0.34,
+          "width": 0.12,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Right Knob",
+        "bbox": {
+          "x": 0.7,
+          "y": 0.4,
+          "width": 0.1,
+          "height": 0.07
         }
       },
       {
         "label": "Power Switch",
         "bbox": {
-          "x": 0.15,
-          "y": 0.58,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.18,
+          "y": 0.45,
+          "width": 0.1,
+          "height": 0.05
         }
       },
       {
         "label": "MIG Gun/Spool Gun Cable Socket",
         "bbox": {
-          "x": 0.18,
-          "y": 0.65,
-          "width": 0.12,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Spool Gun Gas Outlet",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.73,
-          "width": 0.08,
+          "x": 0.2,
+          "y": 0.51,
+          "width": 0.13,
           "height": 0.08
         }
       },
       {
         "label": "Storage Compartment",
         "bbox": {
-          "x": 0.55,
+          "x": 0.68,
+          "y": 0.51,
+          "width": 0.14,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Spool Gun Gas Outlet",
+        "bbox": {
+          "x": 0.18,
           "y": 0.6,
-          "width": 0.2,
-          "height": 0.2
+          "width": 0.12,
+          "height": 0.07
         }
       },
       {
         "label": "Positive Socket",
         "bbox": {
-          "x": 0.72,
-          "y": 0.73,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.68,
+          "y": 0.6,
+          "width": 0.12,
+          "height": 0.07
         }
       },
       {
         "label": "Negative Socket",
         "bbox": {
-          "x": 0.28,
-          "y": 0.9,
-          "width": 0.08,
+          "x": 0.3,
+          "y": 0.75,
+          "width": 0.12,
           "height": 0.08
         }
       },
       {
         "label": "Wire Feed Power Cable",
         "bbox": {
-          "x": 0.52,
-          "y": 0.9,
-          "width": 0.1,
+          "x": 0.5,
+          "y": 0.75,
+          "width": 0.14,
           "height": 0.08
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_9_1",
     "page": 9,
-    "caption": "Interior Controls",
+    "caption": "Interior Controls – labeled diagram of internal components of the Vulcan OmniPro 220 welder",
     "save_crop": true,
     "regions": [
       {
         "label": "Cold Wire Feed Switch",
         "bbox": {
-          "x": 0.45,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.12
+          "x": 0.33,
+          "y": 0.06,
+          "width": 0.12,
+          "height": 0.06
         }
       },
       {
         "label": "Feed Tensioner",
         "bbox": {
-          "x": 0.65,
+          "x": 0.68,
           "y": 0.15,
-          "width": 0.15,
-          "height": 0.12
+          "width": 0.14,
+          "height": 0.06
         }
       },
       {
         "label": "Wire Feed Mechanism",
         "bbox": {
-          "x": 0.35,
-          "y": 0.35,
-          "width": 0.35,
-          "height": 0.25
+          "x": 0.22,
+          "y": 0.22,
+          "width": 0.25,
+          "height": 0.12
         }
       },
       {
         "label": "Idler Arm",
         "bbox": {
-          "x": 0.7,
-          "y": 0.3,
+          "x": 0.62,
+          "y": 0.28,
           "width": 0.15,
-          "height": 0.15
+          "height": 0.08
         }
       },
       {
         "label": "Wire Spool",
         "bbox": {
-          "x": 0.12,
-          "y": 0.25,
-          "width": 0.18,
-          "height": 0.3
+          "x": 0.09,
+          "y": 0.3,
+          "width": 0.2,
+          "height": 0.22
         }
       },
       {
         "label": "Spool Knob",
         "bbox": {
-          "x": 0.15,
-          "y": 0.4,
-          "width": 0.12,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Wire Inlet Liner",
-        "bbox": {
-          "x": 0.3,
-          "y": 0.52,
-          "width": 0.18,
-          "height": 0.12
+          "x": 0.18,
+          "y": 0.44,
+          "width": 0.15,
+          "height": 0.1
         }
       },
       {
         "label": "Feed Roller Knob",
         "bbox": {
-          "x": 0.75,
-          "y": 0.52,
+          "x": 0.7,
+          "y": 0.42,
           "width": 0.12,
-          "height": 0.12
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Wire Inlet Liner",
+        "bbox": {
+          "x": 0.25,
+          "y": 0.52,
+          "width": 0.18,
+          "height": 0.06
         }
       },
       {
         "label": "Foot Pedal Socket",
         "bbox": {
           "x": 0.35,
-          "y": 0.75,
-          "width": 0.12,
-          "height": 0.1
+          "y": 0.6,
+          "width": 0.1,
+          "height": 0.07
         }
       },
       {
         "label": "Wire Feed Control Socket",
         "bbox": {
-          "x": 0.52,
-          "y": 0.75,
+          "x": 0.48,
+          "y": 0.6,
           "width": 0.12,
-          "height": 0.1
+          "height": 0.07
         }
       }
-    ]
+    ],
+    "salience": 0.9
   },
   {
     "id": "diagram_10_1",
     "page": 10,
-    "caption": "Power Switch and Wall Outlet Connection",
+    "caption": "Step 1: Turn the Power Switch OFF and unplug the Welder before proceeding",
     "save_crop": true,
     "regions": [
       {
         "label": "Power Switch",
         "bbox": {
-          "x": 0.55,
-          "y": 0.06,
-          "width": 0.35,
-          "height": 0.22
-        }
-      },
-      {
-        "label": "Wall Outlet",
-        "bbox": {
-          "x": 0.7,
-          "y": 0.15,
-          "width": 0.25,
-          "height": 0.2
+          "x": 0.72,
+          "y": 0.14,
+          "width": 0.12,
+          "height": 0.08
         }
       }
-    ]
+    ],
+    "salience": 0.4
   },
   {
     "id": "diagram_10_2",
     "page": 10,
-    "caption": "Door and Door Latch Assembly",
+    "caption": "Step 2: Pull up on the Door Latch, then open the Door",
     "save_crop": true,
     "regions": [
       {
         "label": "Door",
         "bbox": {
-          "x": 0.35,
-          "y": 0.28,
-          "width": 0.55,
-          "height": 0.35
+          "x": 0.55,
+          "y": 0.32,
+          "width": 0.25,
+          "height": 0.12
         }
       },
       {
         "label": "Door Latch",
         "bbox": {
-          "x": 0.35,
-          "y": 0.42,
+          "x": 0.55,
+          "y": 0.44,
           "width": 0.2,
-          "height": 0.12
+          "height": 0.08
         }
       }
-    ]
+    ],
+    "salience": 0.4
   },
   {
     "id": "diagram_10_3",
     "page": 10,
-    "caption": "1-2 lb Spool Loading",
+    "caption": "1-2 lb Spool Loading — components including Wingnut, Spacer, Spool Spindle, 1-2 lb Wire Spool, Spool Brake Pad, and Welder Wall",
     "save_crop": true,
     "regions": [
       {
         "label": "Wingnut",
         "bbox": {
-          "x": 0.42,
-          "y": 0.55,
+          "x": 0.55,
+          "y": 0.62,
           "width": 0.12,
-          "height": 0.08
+          "height": 0.06
         }
       },
       {
         "label": "Spacer",
         "bbox": {
-          "x": 0.42,
-          "y": 0.63,
-          "width": 0.12,
-          "height": 0.06
+          "x": 0.55,
+          "y": 0.67,
+          "width": 0.14,
+          "height": 0.04
         }
       },
       {
         "label": "Spool Spindle",
         "bbox": {
-          "x": 0.42,
-          "y": 0.7,
-          "width": 0.12,
-          "height": 0.06
+          "x": 0.55,
+          "y": 0.72,
+          "width": 0.18,
+          "height": 0.05
         }
       },
       {
         "label": "1-2 lb Wire Spool",
         "bbox": {
-          "x": 0.65,
-          "y": 0.55,
-          "width": 0.2,
-          "height": 0.15
+          "x": 0.73,
+          "y": 0.62,
+          "width": 0.18,
+          "height": 0.12
         }
       },
       {
         "label": "Spool Brake Pad",
         "bbox": {
-          "x": 0.75,
-          "y": 0.75,
-          "width": 0.15,
-          "height": 0.08
+          "x": 0.73,
+          "y": 0.74,
+          "width": 0.18,
+          "height": 0.05
         }
       },
       {
         "label": "Welder Wall",
         "bbox": {
-          "x": 0.35,
-          "y": 0.8,
-          "width": 0.55,
-          "height": 0.1
+          "x": 0.73,
+          "y": 0.79,
+          "width": 0.18,
+          "height": 0.04
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_11_1",
     "page": 11,
-    "caption": "10-12 lb Spool Loading diagram",
+    "caption": "10-12 lb Spool Loading",
     "save_crop": true,
     "regions": [
       {
         "label": "Spool Knob",
         "bbox": {
-          "x": 0.55,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.08
+          "x": 0.48,
+          "y": 0.02,
+          "width": 0.2,
+          "height": 0.07
         }
       },
       {
         "label": "Wingnut",
         "bbox": {
-          "x": 0.55,
-          "y": 0.12,
-          "width": 0.25,
-          "height": 0.08
+          "x": 0.48,
+          "y": 0.1,
+          "width": 0.18,
+          "height": 0.06
         }
       },
       {
         "label": "Spacer",
         "bbox": {
-          "x": 0.55,
-          "y": 0.19,
-          "width": 0.25,
-          "height": 0.06
+          "x": 0.5,
+          "y": 0.17,
+          "width": 0.16,
+          "height": 0.04
         }
       },
       {
         "label": "10-12 lb Wire Spool",
         "bbox": {
-          "x": 0.5,
-          "y": 0.28,
-          "width": 0.35,
-          "height": 0.12
+          "x": 0.44,
+          "y": 0.21,
+          "width": 0.28,
+          "height": 0.13
         }
       },
       {
         "label": "Spool Spindle",
         "bbox": {
-          "x": 0.55,
-          "y": 0.42,
-          "width": 0.25,
-          "height": 0.06
-        }
-      },
-      {
-        "label": "10-12 lb Spool Adapter",
-        "bbox": {
           "x": 0.5,
-          "y": 0.46,
-          "width": 0.35,
-          "height": 0.12
+          "y": 0.34,
+          "width": 0.22,
+          "height": 0.04
         }
       },
       {
         "label": "Spool Brake Pad",
         "bbox": {
-          "x": 0.55,
-          "y": 0.6,
-          "width": 0.25,
+          "x": 0.54,
+          "y": 0.38,
+          "width": 0.2,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "10-12 lb Spool Adapter",
+        "bbox": {
+          "x": 0.34,
+          "y": 0.38,
+          "width": 0.18,
           "height": 0.06
         }
       },
       {
         "label": "Welder Wall",
         "bbox": {
-          "x": 0.45,
-          "y": 0.66,
-          "width": 0.45,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "10-12 lb Spool Loading",
-        "bbox": {
-          "x": 0.45,
-          "y": 0.75,
-          "width": 0.5,
-          "height": 0.08
+          "x": 0.44,
+          "y": 0.43,
+          "width": 0.42,
+          "height": 0.04
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_11_2",
     "page": 11,
-    "caption": "Wire unwind direction diagram",
+    "caption": "Wire must unwind in this direction (counterclockwise arrow shown inside welder)",
     "save_crop": true,
     "regions": [
       {
         "label": "Wire must unwind in this direction",
         "bbox": {
-          "x": 0.4,
-          "y": 0.4,
-          "width": 0.45,
-          "height": 0.3
+          "x": 0.3,
+          "y": 0.53,
+          "width": 0.55,
+          "height": 0.22
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_11_3",
     "page": 11,
-    "caption": "Feed Tensioner Adjustment diagram",
+    "caption": "Feed Tensioner and Idler Arm – loosening the feed tensioner allows the spring-loaded idler arm to move up",
     "save_crop": true,
     "regions": [
       {
         "label": "Feed Tensioner",
         "bbox": {
-          "x": 0.4,
-          "y": 0.48,
-          "width": 0.25,
-          "height": 0.1
+          "x": 0.33,
+          "y": 0.8,
+          "width": 0.18,
+          "height": 0.12
         }
       },
       {
         "label": "Idler Arm",
         "bbox": {
           "x": 0.55,
-          "y": 0.5,
-          "width": 0.2,
-          "height": 0.1
+          "y": 0.78,
+          "width": 0.18,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_12_1",
     "page": 12,
-    "caption": "Feed Roller Knob - Removal and Installation",
+    "caption": "Feed Roller Instructions – Steps A through D showing how to remove, inspect, and reinstall the Feed Roller, with detail of V-groove (solid core) and knurled groove (flux-cored) roller options and groove sizes.",
     "save_crop": true,
     "regions": [
       {
-        "label": "Feed Roller Knob",
+        "label": "Feed Roller Knob (Step A – initial position)",
         "bbox": {
-          "x": 0.65,
-          "y": 0.1,
+          "x": 0.52,
+          "y": 0.05,
           "width": 0.3,
-          "height": 0.25
+          "height": 0.18
         }
       },
       {
-        "label": "Feed Roller",
+        "label": "Feed Roller exposed (Step B)",
         "bbox": {
-          "x": 0.65,
-          "y": 0.35,
-          "width": 0.3,
-          "height": 0.25
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_12_2",
-    "page": 12,
-    "caption": "Feed Roller Groove Types - Solid Core V-Groove vs Flux-Cored Knurled Groove",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Solid Core V-Groove",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.25,
-          "width": 0.25,
-          "height": 0.2
+          "x": 0.6,
+          "y": 0.27,
+          "width": 0.35,
+          "height": 0.22
         }
       },
       {
-        "label": "Flux-Cored Knurled Groove",
+        "label": "Solid Core V-Groove detail (0.025 and 0.030/0.035 grooves)",
         "bbox": {
-          "x": 0.35,
+          "x": 0.48,
+          "y": 0.28,
+          "width": 0.22,
+          "height": 0.22
+        }
+      },
+      {
+        "label": "Flux-Cored Knurled Groove detail (0.045 and 0.030/0.035 grooves)",
+        "bbox": {
+          "x": 0.48,
           "y": 0.5,
-          "width": 0.25,
+          "width": 0.22,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Feed Roller flip/replace (Step C)",
+        "bbox": {
+          "x": 0.6,
+          "y": 0.48,
+          "width": 0.35,
+          "height": 0.22
+        }
+      },
+      {
+        "label": "Feed Roller reinstalled (Step D)",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.7,
+          "width": 0.35,
           "height": 0.2
         }
       }
-    ]
-  },
-  {
-    "id": "diagram_12_3",
-    "page": 12,
-    "caption": "Feed Roller Installation Sequence - Removal and Reinstallation Steps",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Step 1 - Initial Feed Roller",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.1,
-          "width": 0.3,
-          "height": 0.2
-        }
-      },
-      {
-        "label": "Step 2 - Flipped Feed Roller",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.35,
-          "width": 0.3,
-          "height": 0.2
-        }
-      },
-      {
-        "label": "Step 3 - Alternative Feed Roller",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.6,
-          "width": 0.3,
-          "height": 0.2
-        }
-      },
-      {
-        "label": "Step 4 - Final Installation",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.85,
-          "width": 0.3,
-          "height": 0.15
-        }
-      }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_13_1",
     "page": 13,
-    "caption": "Wire Feed Mechanism - Incorrect and Correct Gun Cable Connector Installation",
+    "caption": "Incorrect – Connector not fully inserted",
     "save_crop": true,
     "regions": [
       {
         "label": "Wire Feed Mechanism",
         "bbox": {
-          "x": 0.45,
-          "y": 0.05,
-          "width": 0.5,
-          "height": 0.25
+          "x": 0.31,
+          "y": 0.03,
+          "width": 0.28,
+          "height": 0.12
         }
       },
       {
         "label": "Gun Cable Connector",
         "bbox": {
-          "x": 0.7,
-          "y": 0.08,
-          "width": 0.25,
-          "height": 0.15
+          "x": 0.62,
+          "y": 0.06,
+          "width": 0.22,
+          "height": 0.1
         }
       },
       {
         "label": "Knob",
         "bbox": {
-          "x": 0.48,
-          "y": 0.15,
-          "width": 0.15,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Incorrect—Connector not fully inserted",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.25,
-          "width": 0.6,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Correct—Connector fully inserted",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.55,
-          "width": 0.6,
+          "x": 0.33,
+          "y": 0.13,
+          "width": 0.12,
           "height": 0.08
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_13_2",
     "page": 13,
-    "caption": "Wire Feed Control Cable Installation - Correct Connector Insertion",
+    "caption": "Correct – Connector fully inserted",
     "save_crop": true,
     "regions": [
       {
         "label": "Wire Feed Control Cable",
         "bbox": {
-          "x": 0.75,
-          "y": 0.4,
-          "width": 0.2,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Wire Feed Control Socket",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.45,
-          "width": 0.15,
+          "x": 0.62,
+          "y": 0.38,
+          "width": 0.22,
           "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_13_3",
@@ -932,42 +627,25 @@
     "save_crop": true,
     "regions": [
       {
-        "label": "Wire Feed Mechanism",
-        "bbox": {
-          "x": 0.3,
-          "y": 0.62,
-          "width": 0.4,
-          "height": 0.25
-        }
-      },
-      {
         "label": "Wire Feed Power Cable in Negative Socket",
         "bbox": {
-          "x": 0.25,
-          "y": 0.75,
-          "width": 0.35,
-          "height": 0.12
+          "x": 0.37,
+          "y": 0.64,
+          "width": 0.22,
+          "height": 0.08
         }
       },
       {
         "label": "Ground Clamp Cable in Positive Socket",
         "bbox": {
-          "x": 0.15,
-          "y": 0.82,
-          "width": 0.35,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Welding Machine",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.62,
-          "width": 0.4,
-          "height": 0.3
+          "x": 0.62,
+          "y": 0.86,
+          "width": 0.25,
+          "height": 0.08
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_14_1",
@@ -978,1479 +656,1499 @@
       {
         "label": "Ground Clamp Cable in Negative Socket",
         "bbox": {
-          "x": 0.55,
-          "y": 0.15,
-          "width": 0.4,
-          "height": 0.35
+          "x": 0.35,
+          "y": 0.05,
+          "width": 0.3,
+          "height": 0.2
         }
       },
       {
         "label": "Wire Feed Power Cable in Positive Socket",
         "bbox": {
-          "x": 0.55,
-          "y": 0.35,
-          "width": 0.4,
-          "height": 0.25
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_14_2",
-    "page": 14,
-    "caption": "Gas Cylinder and Regulator Setup",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Gas Cylinder",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.5,
+          "x": 0.6,
+          "y": 0.18,
           "width": 0.25,
-          "height": 0.4
+          "height": 0.12
         }
       },
       {
-        "label": "Regulator with Gauges",
+        "label": "Welder Unit",
         "bbox": {
-          "x": 0.15,
+          "x": 0.6,
+          "y": 0.03,
+          "width": 0.4,
+          "height": 0.32
+        }
+      },
+      {
+        "label": "Gas Cylinder (step c) - Secured with straps",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.33,
+          "width": 0.2,
+          "height": 0.35
+        }
+      },
+      {
+        "label": "Cylinder Valve (step d) - Briefly open to clean",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.43,
+          "width": 0.2,
+          "height": 0.15
+        }
+      },
+      {
+        "label": "Regulator (step e)",
+        "bbox": {
+          "x": 0.42,
           "y": 0.65,
           "width": 0.2,
-          "height": 0.25
+          "height": 0.18
         }
       },
       {
-        "label": "Briefly open valve to clean, then close valve",
+        "label": "Gas Hose connection to Welder (step f)",
         "bbox": {
-          "x": 0.5,
-          "y": 0.55,
-          "width": 0.25,
+          "x": 0.3,
+          "y": 0.75,
+          "width": 0.3,
           "height": 0.2
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_15_1",
     "page": 15,
-    "caption": "Wire Feed Setup and MIG Gun Components",
+    "caption": "Wire threading setup showing Welding Wire fed from Wire Spool through Wire Inlet Liner to Feed Guide, with HOLD WIRE SECURELY instruction.",
     "save_crop": true,
     "regions": [
       {
-        "label": "Wire Spool",
+        "label": "HOLD WIRE SECURELY",
         "bbox": {
-          "x": 0.45,
-          "y": 0.35,
-          "width": 0.15,
-          "height": 0.15
+          "x": 0.42,
+          "y": 0.17,
+          "width": 0.18,
+          "height": 0.05
         }
       },
       {
         "label": "Welding Wire",
         "bbox": {
-          "x": 0.4,
-          "y": 0.25,
+          "x": 0.38,
+          "y": 0.2,
           "width": 0.15,
-          "height": 0.12
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Wire Spool",
+        "bbox": {
+          "x": 0.38,
+          "y": 0.28,
+          "width": 0.12,
+          "height": 0.08
         }
       },
       {
         "label": "Wire Inlet Liner",
         "bbox": {
-          "x": 0.58,
-          "y": 0.35,
-          "width": 0.12,
-          "height": 0.12
+          "x": 0.5,
+          "y": 0.3,
+          "width": 0.15,
+          "height": 0.05
         }
       },
       {
         "label": "Feed Guide",
         "bbox": {
           "x": 0.72,
-          "y": 0.4,
+          "y": 0.18,
           "width": 0.12,
-          "height": 0.1
+          "height": 0.06
         }
-      },
-      {
-        "label": "HOLD WIRE SECURELY",
-        "bbox": {
-          "x": 0.52,
-          "y": 0.22,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
+      }
+    ],
+    "salience": 0.9
+  },
+  {
+    "id": "diagram_15_2",
+    "page": 15,
+    "caption": "Idler Arm and Feed Tensioner engagement: push wire Idler Arm down and swing Feed Tensioner up to latch across the tip of the arm.",
+    "save_crop": true,
+    "regions": [
       {
         "label": "Idler Arm",
         "bbox": {
-          "x": 0.42,
-          "y": 0.55,
-          "width": 0.1,
-          "height": 0.08
+          "x": 0.38,
+          "y": 0.44,
+          "width": 0.18,
+          "height": 0.12
         }
       },
       {
         "label": "Feed Tensioner",
         "bbox": {
-          "x": 0.68,
-          "y": 0.55,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.62,
+          "y": 0.43,
+          "width": 0.2,
+          "height": 0.12
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_15_3",
+    "page": 15,
+    "caption": "MIG Gun with labeled components: MIG Gun, Nozzle, and Contact Tip.",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "MIG Gun",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.6,
+          "width": 0.3,
+          "height": 0.15
         }
       },
       {
         "label": "Nozzle",
         "bbox": {
-          "x": 0.58,
-          "y": 0.72,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.38,
+          "y": 0.68,
+          "width": 0.1,
+          "height": 0.06
         }
       },
       {
         "label": "Contact Tip",
         "bbox": {
-          "x": 0.68,
-          "y": 0.72,
+          "x": 0.47,
+          "y": 0.7,
           "width": 0.1,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "MIG Gun",
-        "bbox": {
-          "x": 0.72,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.12
+          "height": 0.06
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_16_1",
     "page": 16,
-    "caption": "Danger - Electric Shock Safety Warning",
+    "caption": "Power Input Socket Connection - plug 120VAC or 240VAC Power Cord into Power Input Socket",
     "save_crop": true,
     "regions": [
       {
-        "label": "Person being shocked",
+        "label": "Power Input",
         "bbox": {
-          "x": 0.05,
-          "y": 0.05,
-          "width": 0.2,
-          "height": 0.25
-        }
-      },
-      {
-        "label": "DANGER text and safety instructions",
-        "bbox": {
-          "x": 0.25,
-          "y": 0.05,
-          "width": 0.7,
-          "height": 0.25
+          "x": 0.52,
+          "y": 0.22,
+          "width": 0.22,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_16_2",
     "page": 16,
-    "caption": "Welder top panel with Power Input and controls",
+    "caption": "Power Switch and wall outlet connection - plug power cord into GFCI protected receptacle and turn Power Switch ON",
     "save_crop": true,
     "regions": [
       {
-        "label": "Power Input socket",
+        "label": "Power Switch",
         "bbox": {
           "x": 0.55,
-          "y": 0.31,
-          "width": 0.15,
+          "y": 0.46,
+          "width": 0.18,
           "height": 0.1
         }
-      },
-      {
-        "label": "Control panel and display",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.4,
-          "width": 0.3,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Cooling fan",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.55,
-          "width": 0.15,
-          "height": 0.15
-        }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_16_3",
     "page": 16,
-    "caption": "Power cord plug and Vulcan welder connection showing GFCI requirement",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Power cord with plug",
-        "bbox": {
-          "x": 0.4,
-          "y": 0.62,
-          "width": 0.2,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Power Switch on welder",
-        "bbox": {
-          "x": 0.58,
-          "y": 0.62,
-          "width": 0.3,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_16_4",
-    "page": 16,
-    "caption": "Cold Wire Feed setup showing switch location and MIG Gun",
+    "caption": "Cold Wire Feed Switch pressed to feed wire through MIG Gun until 2 inches of welding wire extends from tip",
     "save_crop": true,
     "regions": [
       {
         "label": "Cold Wire Feed Switch",
         "bbox": {
-          "x": 0.35,
-          "y": 0.78,
-          "width": 0.25,
-          "height": 0.12
+          "x": 0.28,
+          "y": 0.72,
+          "width": 0.3,
+          "height": 0.22
         }
       },
       {
         "label": "MIG Gun",
         "bbox": {
-          "x": 0.65,
-          "y": 0.78,
-          "width": 0.2,
-          "height": 0.15
+          "x": 0.68,
+          "y": 0.68,
+          "width": 0.28,
+          "height": 0.25
         }
       },
       {
         "label": "Welding Wire",
         "bbox": {
           "x": 0.7,
-          "y": 0.92,
-          "width": 0.15,
-          "height": 0.05
+          "y": 0.82,
+          "width": 0.2,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_17_1",
+    "page": 17,
+    "caption": "Wire Drive Tension Check - Incrementally increase tension until wire bends at 2-3 inches",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Incrementally increase tension until wire bends",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.04,
+          "width": 0.25,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "2–3\" distance indicator",
+        "bbox": {
+          "x": 0.78,
+          "y": 0.09,
+          "width": 0.1,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "MIG Gun (wire bending against wood)",
+        "bbox": {
+          "x": 0.6,
+          "y": 0.02,
+          "width": 0.38,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Welder with feed mechanism",
+        "bbox": {
+          "x": 0.38,
+          "y": 0.04,
+          "width": 0.25,
+          "height": 0.18
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_17_2",
+    "page": 17,
+    "caption": "MIG Gun components: Nozzle, Contact Tip, and MIG Gun label",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "MIG Gun",
+        "bbox": {
+          "x": 0.6,
+          "y": 0.24,
+          "width": 0.38,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Nozzle",
+        "bbox": {
+          "x": 0.38,
+          "y": 0.32,
+          "width": 0.12,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Contact Tip",
+        "bbox": {
+          "x": 0.48,
+          "y": 0.32,
+          "width": 0.12,
+          "height": 0.06
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_17_3",
+    "page": 17,
+    "caption": "Optional Spool Gun Setup Diagram showing spool gun components and welder connections",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Spool Gun",
+        "bbox": {
+          "x": 0.32,
+          "y": 0.56,
+          "width": 0.18,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "Spool Gun Cable Connector",
+        "bbox": {
+          "x": 0.5,
+          "y": 0.53,
+          "width": 0.15,
+          "height": 0.07
+        }
+      },
+      {
+        "label": "Wire Feed Control Cable",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.58,
+          "width": 0.15,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Spool Gun Gas Outlet",
+        "bbox": {
+          "x": 0.82,
+          "y": 0.62,
+          "width": 0.14,
+          "height": 0.07
+        }
+      },
+      {
+        "label": "Gas Hose",
+        "bbox": {
+          "x": 0.4,
+          "y": 0.74,
+          "width": 0.12,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Ground Clamp Cable in Negative Socket",
+        "bbox": {
+          "x": 0.5,
+          "y": 0.78,
+          "width": 0.18,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Wire Feed Power Cable in Positive Socket",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.78,
+          "width": 0.2,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Welder front panel",
+        "bbox": {
+          "x": 0.62,
+          "y": 0.52,
+          "width": 0.36,
+          "height": 0.38
+        }
+      }
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_18_1",
     "page": 18,
-    "caption": "Protective Gear and Safety Icons",
+    "caption": "Basic Wire Welding Overview - Vulcan welder with Power Switch labeled and MIG gun illustrated",
     "save_crop": true,
     "regions": [
       {
-        "label": "Welding Gloves Icon",
+        "label": "Power Switch",
         "bbox": {
-          "x": 0.65,
-          "y": 0.35,
-          "width": 0.15,
-          "height": 0.15
+          "x": 0.6,
+          "y": 0.61,
+          "width": 0.12,
+          "height": 0.06
         }
       },
       {
-        "label": "NIOSH-Approved Respirator Icon",
+        "label": "Vulcan Welder Unit",
         "bbox": {
-          "x": 0.55,
-          "y": 0.52,
-          "width": 0.15,
-          "height": 0.15
+          "x": 0.43,
+          "y": 0.57,
+          "width": 0.28,
+          "height": 0.2
         }
       },
       {
-        "label": "Welding Mask Warning Symbol",
+        "label": "MIG Gun",
         "bbox": {
-          "x": 0.7,
-          "y": 0.65,
-          "width": 0.15,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_18_2",
-    "page": 18,
-    "caption": "Welder Power Switch and Outlet Setup",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Power Switch Control",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.78,
+          "x": 0.72,
+          "y": 0.57,
           "width": 0.2,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Gun Cable Outlet",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Power Cord Connection",
-        "bbox": {
-          "x": 0.7,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.12
+          "height": 0.2
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_19_1",
     "page": 19,
-    "caption": "Rated Duty Cycle 120VAC - 40% Use at 100A For 10 Continuous Minutes",
+    "caption": "Rated Duty Cycle 120VAC - 40% Use at 100A For 10 Continuous Minutes; 100% Continuous Use at 75A",
     "save_crop": true,
     "regions": [
       {
-        "label": "4 Minutes Welding",
+        "label": "Pie chart: 4 Minutes Welding / 6 Minutes Resting",
         "bbox": {
-          "x": 0.55,
-          "y": 0.27,
+          "x": 0.45,
+          "y": 0.05,
           "width": 0.25,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "6 Minutes Resting",
-        "bbox": {
-          "x": 0.75,
-          "y": 0.32,
-          "width": 0.2,
-          "height": 0.15
+          "height": 0.13
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_19_2",
     "page": 19,
-    "caption": "Rated Duty Cycle 240VAC - 25% Use at 200A For 10 Continuous Minutes",
+    "caption": "Rated Duty Cycle 240VAC - 25% Use at 200A For 10 Continuous Minutes; 100% Continuous Use at 115A",
     "save_crop": true,
     "regions": [
       {
-        "label": "2-1/2 Minutes Welding",
+        "label": "Pie chart: 2-1/2 Minutes Welding / 7-1/2 Minutes Resting",
         "bbox": {
-          "x": 0.55,
-          "y": 0.6,
+          "x": 0.45,
+          "y": 0.22,
           "width": 0.25,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "7-1/2 Minutes Resting",
-        "bbox": {
-          "x": 0.75,
-          "y": 0.65,
-          "width": 0.2,
-          "height": 0.15
+          "height": 0.13
         }
       }
-    ]
+    ],
+    "salience": 1
   },
   {
     "id": "diagram_19_3",
     "page": 19,
-    "caption": "Setting Up The Weld - Workpiece Clamping and Preparation",
+    "caption": "Setting Up The Weld - clamps, workpieces, clean surfaces to bare metal, chamfer thick workpieces",
     "save_crop": true,
     "regions": [
       {
         "label": "clamps",
         "bbox": {
-          "x": 0.08,
-          "y": 0.45,
-          "width": 0.15,
-          "height": 0.12
+          "x": 0.06,
+          "y": 0.39,
+          "width": 0.22,
+          "height": 0.04
         }
       },
       {
         "label": "workpieces",
         "bbox": {
-          "x": 0.25,
-          "y": 0.48,
-          "width": 0.35,
-          "height": 0.18
+          "x": 0.06,
+          "y": 0.41,
+          "width": 0.22,
+          "height": 0.05
         }
       },
       {
         "label": "Clean surfaces to bare metal",
         "bbox": {
-          "x": 0.28,
-          "y": 0.4,
-          "width": 0.28,
-          "height": 0.08
+          "x": 0.1,
+          "y": 0.45,
+          "width": 0.18,
+          "height": 0.04
         }
       },
       {
         "label": "Chamfer thick workpieces",
         "bbox": {
-          "x": 0.12,
-          "y": 0.65,
-          "width": 0.22,
-          "height": 0.08
+          "x": 0.1,
+          "y": 0.5,
+          "width": 0.18,
+          "height": 0.03
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_19_4",
     "page": 19,
-    "caption": "Welder Ground Clamp Cable Connection Setup",
+    "caption": "Ground connection depends on desired welding polarity - Ground Clamp connected to clean bare metal on Workpiece",
     "save_crop": true,
     "regions": [
       {
         "label": "Workpiece",
         "bbox": {
-          "x": 0.65,
-          "y": 0.73,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.72,
+          "y": 0.72,
+          "width": 0.15,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Clean surface to bare metal",
+        "bbox": {
+          "x": 0.75,
+          "y": 0.77,
+          "width": 0.18,
+          "height": 0.05
         }
       },
       {
         "label": "Ground Clamp",
         "bbox": {
           "x": 0.55,
-          "y": 0.8,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Clean surface to bare metal",
-        "bbox": {
-          "x": 0.6,
-          "y": 0.88,
-          "width": 0.18,
-          "height": 0.08
+          "y": 0.82,
+          "width": 0.15,
+          "height": 0.05
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_21_1",
     "page": 21,
-    "caption": "Run-In WFS Optional Setting Screen",
+    "caption": "Optional Settings LCD Screens: Run-In WFS, Inductance, Spot Timer, Recall Setting, Save Setting",
     "save_crop": true,
     "regions": [
       {
-        "label": "Run-In WFS",
+        "label": "Run-In WFS Screen",
         "bbox": {
-          "x": 0.53,
-          "y": 0.055,
-          "width": 0.22,
-          "height": 0.15
+          "x": 0.45,
+          "y": 0.02,
+          "width": 0.42,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "Inductance Screen",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.17,
+          "width": 0.42,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "Spot Timer Screen",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.32,
+          "width": 0.42,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "Recall Setting Screen",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.47,
+          "width": 0.42,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "Save Setting Screen",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.62,
+          "width": 0.42,
+          "height": 0.14
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_21_2",
     "page": 21,
-    "caption": "Inductance Optional Setting Screen",
+    "caption": "Asphyxiation hazard warning triangle for shielding gas",
     "save_crop": true,
     "regions": [
       {
-        "label": "Inductance",
+        "label": "Asphyxiation Warning Triangle",
         "bbox": {
-          "x": 0.53,
-          "y": 0.19,
-          "width": 0.22,
-          "height": 0.15
+          "x": 0.57,
+          "y": 0.77,
+          "width": 0.25,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.2
   },
   {
     "id": "diagram_21_3",
     "page": 21,
-    "caption": "Spot Timer Optional Setting Screen",
+    "caption": "Gas cylinder with regulator and hose for gas shielded solid-core wire welding setup",
     "save_crop": true,
     "regions": [
       {
-        "label": "Spot Timer",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.32,
-          "width": 0.22,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_21_4",
-    "page": 21,
-    "caption": "Recall Setting Screen",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Recall Setting",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.45,
-          "width": 0.22,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_21_5",
-    "page": 21,
-    "caption": "Save Setting Screen",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Save Setting",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.58,
-          "width": 0.22,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_21_6",
-    "page": 21,
-    "caption": "Gas Cylinder and Regulator Assembly",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Gas Cylinder",
+        "label": "Gas Cylinder and Regulator",
         "bbox": {
           "x": 0.55,
-          "y": 0.73,
-          "width": 0.18,
-          "height": 0.25
-        }
-      },
-      {
-        "label": "Regulator Valve",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.73,
-          "width": 0.12,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Flow Gauge",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.85,
-          "width": 0.12,
-          "height": 0.08
+          "y": 0.88,
+          "width": 0.3,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_22_1",
     "page": 22,
-    "caption": "Stringer Bead and Weave Bead Patterns",
+    "caption": "Stringer Bead and Weave Bead illustrations",
     "save_crop": true,
     "regions": [
       {
         "label": "stringer bead",
         "bbox": {
-          "x": 0.45,
-          "y": 0.13,
-          "width": 0.28,
-          "height": 0.15
+          "x": 0.42,
+          "y": 0.04,
+          "width": 0.25,
+          "height": 0.13
         }
       },
       {
         "label": "weave bead",
         "bbox": {
-          "x": 0.68,
-          "y": 0.13,
-          "width": 0.28,
-          "height": 0.15
+          "x": 0.7,
+          "y": 0.04,
+          "width": 0.25,
+          "height": 0.13
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_22_2",
     "page": 22,
-    "caption": "Weld MIG Gun Angles, viewed from front of weld joint",
+    "caption": "Weld MIG Gun angles, viewed from front of weld joint - 45° fillet weld joint and 90° butt weld joint",
     "save_crop": true,
     "regions": [
       {
-        "label": "fillet weld joint",
+        "label": "45° fillet weld joint",
         "bbox": {
-          "x": 0.35,
-          "y": 0.35,
-          "width": 0.28,
-          "height": 0.18
+          "x": 0.42,
+          "y": 0.27,
+          "width": 0.27,
+          "height": 0.22
         }
       },
       {
-        "label": "45°",
+        "label": "90° butt weld joint",
         "bbox": {
-          "x": 0.43,
-          "y": 0.4,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "butt weld joint",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.35,
-          "width": 0.28,
-          "height": 0.18
-        }
-      },
-      {
-        "label": "90°",
-        "bbox": {
-          "x": 0.76,
-          "y": 0.4,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.72,
+          "y": 0.27,
+          "width": 0.25,
+          "height": 0.22
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_22_3",
     "page": 22,
-    "caption": "Push Angle and Drag Angle Technique",
+    "caption": "Push Angle (Solid Wire with Shielding Gas) and Drag Angle (Flux-Cored Wire without Gas) with weld direction arrows",
     "save_crop": true,
     "regions": [
       {
-        "label": "Push Angle",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.53,
-          "width": 0.28,
-          "height": 0.18
-        }
-      },
-      {
-        "label": "0-15°",
-        "bbox": {
-          "x": 0.4,
-          "y": 0.54,
-          "width": 0.1,
-          "height": 0.06
-        }
-      },
-      {
-        "label": "Weld Direction",
+        "label": "Push Angle 0-15° - Solid Wire with Shielding Gas",
         "bbox": {
           "x": 0.42,
-          "y": 0.63,
-          "width": 0.12,
-          "height": 0.04
+          "y": 0.55,
+          "width": 0.27,
+          "height": 0.22
         }
       },
       {
-        "label": "Solid Wire with Shielding Gas",
+        "label": "Drag Angle 0-15° - Flux-Cored Wire without Gas",
         "bbox": {
-          "x": 0.35,
-          "y": 0.71,
-          "width": 0.28,
-          "height": 0.06
-        }
-      },
-      {
-        "label": "Drag Angle",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.53,
-          "width": 0.28,
-          "height": 0.18
-        }
-      },
-      {
-        "label": "0-15°",
-        "bbox": {
-          "x": 0.73,
-          "y": 0.54,
-          "width": 0.1,
-          "height": 0.06
-        }
-      },
-      {
-        "label": "Weld Direction",
-        "bbox": {
-          "x": 0.75,
-          "y": 0.63,
-          "width": 0.12,
-          "height": 0.04
-        }
-      },
-      {
-        "label": "Flux-Cored Wire without Gas",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.71,
-          "width": 0.28,
-          "height": 0.06
+          "x": 0.7,
+          "y": 0.55,
+          "width": 0.27,
+          "height": 0.22
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_22_4",
     "page": 22,
-    "caption": "CTWD (Contact Tip to Work Distance)",
+    "caption": "CTWD - Contact Tip to Work Distance (up to 1/2\")",
     "save_crop": true,
     "regions": [
       {
         "label": "CTWD (up to 1/2\")",
         "bbox": {
           "x": 0.5,
-          "y": 0.78,
-          "width": 0.35,
-          "height": 0.15
+          "y": 0.79,
+          "width": 0.42,
+          "height": 0.19
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_23_1",
     "page": 23,
-    "caption": "Welder Top Panel with LCD Display and Power Switch",
+    "caption": "LCD Display and Warning Screen on Welder Front Panel",
     "save_crop": true,
     "regions": [
       {
         "label": "LCD Display",
         "bbox": {
-          "x": 0.45,
-          "y": 0.08,
-          "width": 0.35,
-          "height": 0.25
+          "x": 0.38,
+          "y": 0.02,
+          "width": 0.18,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Warning Screen",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.02,
+          "width": 0.2,
+          "height": 0.06
         }
       },
       {
         "label": "Power Switch",
         "bbox": {
-          "x": 0.25,
-          "y": 0.35,
-          "width": 0.4,
-          "height": 0.25
+          "x": 0.32,
+          "y": 0.22,
+          "width": 0.12,
+          "height": 0.06
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_23_2",
     "page": 23,
-    "caption": "Warning Screen Display",
+    "caption": "Follow Duty Cycle diagram showing 120VAC and 240VAC welding/resting ratios",
     "save_crop": true,
     "regions": [
       {
-        "label": "Warning Screen",
+        "label": "120VAC 40% Use at 100A - 4 min welding / 6 min resting",
         "bbox": {
-          "x": 0.55,
-          "y": 0.1,
-          "width": 0.4,
-          "height": 0.3
+          "x": 0.32,
+          "y": 0.38,
+          "width": 0.3,
+          "height": 0.14
+        }
+      },
+      {
+        "label": "240VAC 25% Use at 200A - 2.5 min welding / 7.5 min resting",
+        "bbox": {
+          "x": 0.62,
+          "y": 0.38,
+          "width": 0.3,
+          "height": 0.14
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_23_3",
     "page": 23,
-    "caption": "MIG Gun Placement on Heat-Proof Surface",
+    "caption": "Post-Welding Shutdown: MIG Gun on concrete slab, Power Switch off, and gas cylinder valve closure",
     "save_crop": true,
     "regions": [
       {
         "label": "MIG Gun",
         "bbox": {
-          "x": 0.25,
-          "y": 0.62,
-          "width": 0.25,
-          "height": 0.2
+          "x": 0.32,
+          "y": 0.56,
+          "width": 0.22,
+          "height": 0.12
         }
       },
       {
-        "label": "Concrete Slab or Heat-Proof Surface",
+        "label": "concrete slab (or other heat-proof, non-conductive surface)",
         "bbox": {
-          "x": 0.25,
-          "y": 0.78,
-          "width": 0.25,
-          "height": 0.15
+          "x": 0.32,
+          "y": 0.64,
+          "width": 0.22,
+          "height": 0.05
         }
-      }
-    ]
-  },
-  {
-    "id": "diagram_23_4",
-    "page": 23,
-    "caption": "Power Switch and Outlet Location",
-    "save_crop": true,
-    "regions": [
+      },
       {
         "label": "Power Switch",
         "bbox": {
-          "x": 0.5,
-          "y": 0.65,
-          "width": 0.35,
-          "height": 0.25
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_23_5",
-    "page": 23,
-    "caption": "Power Cord Plug Connection",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Power Cord Plug",
-        "bbox": {
-          "x": 0.2,
-          "y": 0.8,
-          "width": 0.25,
-          "height": 0.15
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_23_6",
-    "page": 23,
-    "caption": "Gas Cylinder and Regulator Assembly",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Gas Cylinder Valve",
-        "bbox": {
-          "x": 0.4,
-          "y": 0.78,
-          "width": 0.15,
-          "height": 0.15
+          "x": 0.58,
+          "y": 0.7,
+          "width": 0.12,
+          "height": 0.04
         }
       },
       {
-        "label": "Regulator",
+        "label": "Gas Regulator and Cylinder Valve",
         "bbox": {
-          "x": 0.35,
-          "y": 0.85,
-          "width": 0.25,
+          "x": 0.72,
+          "y": 0.84,
+          "width": 0.22,
           "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_24_1",
     "page": 24,
-    "caption": "TIG Setup - Connect Cables",
+    "caption": "TIG Setup – Connect Cables diagram showing all cable and hose connections to the welder",
     "save_crop": true,
     "regions": [
       {
         "label": "Foot Pedal Socket (inside Welder)",
         "bbox": {
-          "x": 0.65,
-          "y": 0.25,
-          "width": 0.2,
-          "height": 0.1
+          "x": 0.45,
+          "y": 0.22,
+          "width": 0.15,
+          "height": 0.08
         }
       },
       {
         "label": "Foot Pedal (sold separately)",
         "bbox": {
-          "x": 0.15,
-          "y": 0.3,
-          "width": 0.2,
-          "height": 0.12
+          "x": 0.13,
+          "y": 0.27,
+          "width": 0.18,
+          "height": 0.1
         }
       },
       {
         "label": "Foot Pedal Cable",
         "bbox": {
           "x": 0.3,
-          "y": 0.35,
-          "width": 0.35,
+          "y": 0.32,
+          "width": 0.15,
           "height": 0.08
         }
       },
       {
         "label": "Shielding Gas Hose",
         "bbox": {
-          "x": 0.15,
-          "y": 0.55,
-          "width": 0.2,
-          "height": 0.1
+          "x": 0.13,
+          "y": 0.44,
+          "width": 0.18,
+          "height": 0.09
         }
       },
       {
         "label": "TIG Torch Cable in Negative Socket",
         "bbox": {
-          "x": 0.55,
-          "y": 0.48,
-          "width": 0.3,
+          "x": 0.68,
+          "y": 0.4,
+          "width": 0.18,
           "height": 0.1
         }
       },
       {
         "label": "Ground Clamp Cable in Positive Socket",
         "bbox": {
-          "x": 0.45,
-          "y": 0.68,
-          "width": 0.3,
-          "height": 0.1
+          "x": 0.5,
+          "y": 0.52,
+          "width": 0.22,
+          "height": 0.09
         }
       },
       {
         "label": "TIG Torch (sold separately)",
         "bbox": {
-          "x": 0.1,
-          "y": 0.75,
-          "width": 0.2,
-          "height": 0.12
+          "x": 0.08,
+          "y": 0.62,
+          "width": 0.18,
+          "height": 0.1
         }
       },
       {
         "label": "Ground Clamp",
         "bbox": {
-          "x": 0.25,
-          "y": 0.8,
-          "width": 0.15,
-          "height": 0.1
+          "x": 0.38,
+          "y": 0.63,
+          "width": 0.14,
+          "height": 0.09
         }
       }
-    ]
+    ],
+    "salience": 0.9
   },
   {
     "id": "diagram_25_1",
     "page": 25,
-    "caption": "Connect Shielding Gas - Argon cylinder setup with regulator and TIG torch cable connection",
+    "caption": "Connect Shielding Gas - Steps 1-4: Secure Argon cylinder with straps, briefly open valve to clean then close, attach regulator, connect shielding gas hose to regulator outlet.",
     "save_crop": true,
     "regions": [
       {
-        "label": "1",
+        "label": "Step 1 - Argon Cylinder secured with straps",
         "bbox": {
-          "x": 0.55,
-          "y": 0.08,
-          "width": 0.25,
-          "height": 0.35
+          "x": 0.28,
+          "y": 0.04,
+          "width": 0.28,
+          "height": 0.28
         }
       },
       {
-        "label": "2",
+        "label": "Step 2 - Briefly open valve to clean, then close valve",
         "bbox": {
           "x": 0.55,
-          "y": 0.35,
-          "width": 0.25,
-          "height": 0.25
+          "y": 0.04,
+          "width": 0.38,
+          "height": 0.32
         }
       },
       {
-        "label": "3",
+        "label": "Step 3 - Regulator attached to cylinder",
         "bbox": {
-          "x": 0.35,
+          "x": 0.28,
+          "y": 0.32,
+          "width": 0.38,
+          "height": 0.22
+        }
+      },
+      {
+        "label": "Step 4 - Shielding gas hose connected to regulator outlet",
+        "bbox": {
+          "x": 0.18,
           "y": 0.35,
-          "width": 0.2,
+          "width": 0.22,
           "height": 0.15
         }
-      },
-      {
-        "label": "4",
-        "bbox": {
-          "x": 0.2,
-          "y": 0.35,
-          "width": 0.3,
-          "height": 0.35
-        }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_25_2",
     "page": 25,
-    "caption": "Connect Power Cord - Power input socket showing 120VAC or 240VAC plug compatibility",
+    "caption": "Connect Power Cord - Power Input socket on the welder where 120VAC or 240VAC power cord is connected.",
     "save_crop": true,
     "regions": [
       {
-        "label": "Power Input",
+        "label": "Power Input Socket",
         "bbox": {
-          "x": 0.45,
-          "y": 0.65,
-          "width": 0.4,
-          "height": 0.3
+          "x": 0.38,
+          "y": 0.68,
+          "width": 0.18,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_26_1",
     "page": 26,
-    "caption": "Sharpen Tungsten Electrode - Process showing electrode lightly pressed against grinding wheel at an angle with rotation until blunt point is formed",
+    "caption": "Electrode Grinding Technique - showing Electrode pressed against Grinding Wheel at an angle",
     "save_crop": true,
     "regions": [
       {
         "label": "Electrode",
         "bbox": {
-          "x": 0.72,
-          "y": 0.18,
+          "x": 0.58,
+          "y": 0.12,
           "width": 0.18,
-          "height": 0.15
+          "height": 0.12
         }
       },
       {
         "label": "Grinding Wheel",
         "bbox": {
-          "x": 0.58,
-          "y": 0.28,
+          "x": 0.78,
+          "y": 0.14,
           "width": 0.18,
-          "height": 0.15
+          "height": 0.14
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_26_2",
     "page": 26,
-    "caption": "TIG Torch Assembly showing Back Cap, Collet, Collet Body, and Ceramic Nozzle with insertion point labeled for tungsten electrode",
+    "caption": "TIG Torch Assembly Diagram showing Back Cap, Collet, Collet Body, Ceramic Nozzle, and tungsten electrode insertion point",
     "save_crop": true,
     "regions": [
       {
         "label": "Back Cap",
         "bbox": {
-          "x": 0.58,
-          "y": 0.62,
-          "width": 0.08,
+          "x": 0.72,
+          "y": 0.52,
+          "width": 0.12,
           "height": 0.08
         }
       },
       {
         "label": "Collet",
         "bbox": {
-          "x": 0.6,
-          "y": 0.68,
-          "width": 0.06,
+          "x": 0.78,
+          "y": 0.58,
+          "width": 0.16,
+          "height": 0.07
+        }
+      },
+      {
+        "label": "Insert tungsten Electrode here",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.6,
+          "width": 0.22,
           "height": 0.08
         }
       },
       {
         "label": "Collet Body",
         "bbox": {
-          "x": 0.58,
-          "y": 0.78,
-          "width": 0.08,
-          "height": 0.08
+          "x": 0.6,
+          "y": 0.7,
+          "width": 0.16,
+          "height": 0.07
         }
       },
       {
         "label": "Ceramic Nozzle",
         "bbox": {
-          "x": 0.58,
-          "y": 0.86,
-          "width": 0.08,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Insert tungsten Electrode here",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.7,
-          "width": 0.1,
-          "height": 0.08
+          "x": 0.57,
+          "y": 0.77,
+          "width": 0.18,
+          "height": 0.07
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_27_1",
     "page": 27,
-    "caption": "Stick Setup - Connect Cables",
+    "caption": "Stick Setup - Connect Cables Diagram showing ground clamp cable in negative socket and electrode holder cable in positive socket",
     "save_crop": true,
     "regions": [
       {
-        "label": "Ground Clamp",
-        "bbox": {
-          "x": 0.1,
-          "y": 0.25,
-          "width": 0.25,
-          "height": 0.3
-        }
-      },
-      {
         "label": "Ground Clamp Cable in Negative Socket",
         "bbox": {
-          "x": 0.25,
-          "y": 0.35,
-          "width": 0.5,
-          "height": 0.25
+          "x": 0.3,
+          "y": 0.25,
+          "width": 0.25,
+          "height": 0.1
         }
       },
       {
-        "label": "Electrode Holder",
+        "label": "Ground Clamp",
         "bbox": {
-          "x": 0.25,
-          "y": 0.5,
-          "width": 0.35,
-          "height": 0.25
+          "x": 0.05,
+          "y": 0.38,
+          "width": 0.18,
+          "height": 0.14
         }
       },
       {
         "label": "Electrode Holder Cable in Positive Socket",
         "bbox": {
-          "x": 0.35,
-          "y": 0.65,
-          "width": 0.5,
-          "height": 0.2
+          "x": 0.5,
+          "y": 0.43,
+          "width": 0.25,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Electrode Holder",
+        "bbox": {
+          "x": 0.22,
+          "y": 0.52,
+          "width": 0.2,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.9
   },
   {
     "id": "diagram_27_2",
     "page": 27,
-    "caption": "Connect Power Cord",
+    "caption": "Stick Setup - Connect Power Cord Diagram showing Power Input socket on welder front panel",
     "save_crop": true,
     "regions": [
       {
         "label": "Power Input",
         "bbox": {
-          "x": 0.55,
-          "y": 0.48,
-          "width": 0.2,
-          "height": 0.15
+          "x": 0.35,
+          "y": 0.72,
+          "width": 0.35,
+          "height": 0.22
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_28_1",
     "page": 28,
-    "caption": "Protective Gear and Safety Warnings - Warning symbols showing protective gloves, respiratory protection, and arc hazard",
+    "caption": "Basic TIG/Stick Welding Overview - Vulcan welder with Power On label and TIG torch illustration",
     "save_crop": true,
     "regions": [
       {
-        "label": "Protective Gloves Icon",
-        "bbox": {
-          "x": 0.62,
-          "y": 0.18,
-          "width": 0.25,
-          "height": 0.22
-        }
-      },
-      {
-        "label": "Respiratory Protection Icon",
-        "bbox": {
-          "x": 0.62,
-          "y": 0.42,
-          "width": 0.25,
-          "height": 0.22
-        }
-      },
-      {
-        "label": "Arc Hazard Warning Triangle",
-        "bbox": {
-          "x": 0.62,
-          "y": 0.18,
-          "width": 0.19,
-          "height": 0.18
-        }
-      },
-      {
-        "label": "Fire Hazard Warning Triangle",
-        "bbox": {
-          "x": 0.62,
-          "y": 0.42,
-          "width": 0.19,
-          "height": 0.18
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_28_2",
-    "page": 28,
-    "caption": "Welding Unit Power Connection Setup - Vulcan welding unit connected to power outlet",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Welding Unit",
+        "label": "Vulcan Welder (Power On)",
         "bbox": {
           "x": 0.42,
-          "y": 0.62,
-          "width": 0.35,
-          "height": 0.2
+          "y": 0.58,
+          "width": 0.28,
+          "height": 0.18
         }
       },
       {
-        "label": "Power Switch",
+        "label": "Power On Label",
         "bbox": {
-          "x": 0.62,
-          "y": 0.62,
+          "x": 0.67,
+          "y": 0.57,
           "width": 0.12,
-          "height": 0.08
+          "height": 0.05
         }
       },
       {
-        "label": "Power On Indicator",
+        "label": "TIG Torch",
         "bbox": {
-          "x": 0.8,
-          "y": 0.62,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Power Cable",
-        "bbox": {
-          "x": 0.8,
-          "y": 0.65,
-          "width": 0.12,
-          "height": 0.15
+          "x": 0.7,
+          "y": 0.6,
+          "width": 0.2,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
-    "id": "diagram_28_3",
-    "page": 28,
-    "caption": "Practice Welding Technique on Scrap - Instructional box emphasizing practice requirement before welding valuable items",
+    "id": "diagram_29_1",
+    "page": 29,
+    "caption": "Setting Up The Weld - Workpiece and Clamps Setup",
     "save_crop": true,
     "regions": [
       {
-        "label": "Text Box",
+        "label": "clamps",
         "bbox": {
           "x": 0.05,
-          "y": 0.88,
-          "width": 0.9,
-          "height": 0.08
+          "y": 0.42,
+          "width": 0.28,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "workpieces",
+        "bbox": {
+          "x": 0.07,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Clean surfaces to bare metal",
+        "bbox": {
+          "x": 0.09,
+          "y": 0.5,
+          "width": 0.22,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "Chamfer thick workpieces",
+        "bbox": {
+          "x": 0.09,
+          "y": 0.56,
+          "width": 0.22,
+          "height": 0.04
         }
       }
-    ]
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_29_2",
+    "page": 29,
+    "caption": "Ground connection depends on desired welding polarity",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Workpiece",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.72,
+          "width": 0.15,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Clean surface to bare metal",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.78,
+          "width": 0.2,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Ground Clamp",
+        "bbox": {
+          "x": 0.62,
+          "y": 0.83,
+          "width": 0.15,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Welder (Vulcan 220)",
+        "bbox": {
+          "x": 0.45,
+          "y": 0.72,
+          "width": 0.22,
+          "height": 0.2
+        }
+      }
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_31_1",
     "page": 31,
-    "caption": "Recall Setting Screen Display",
+    "caption": "Recall Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
-        "label": "Recall Setting",
+        "label": "Recall Setting screen",
         "bbox": {
-          "x": 0.2,
-          "y": 0.28,
-          "width": 0.6,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Up Arrow Icon",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.34,
-          "width": 0.3,
-          "height": 0.06
+          "x": 0.03,
+          "y": 0.25,
+          "width": 0.42,
+          "height": 0.18
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_31_2",
     "page": 31,
-    "caption": "Save Setting Screen Display",
+    "caption": "Save Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
-        "label": "Save Setting",
+        "label": "Save Setting screen",
         "bbox": {
-          "x": 0.2,
-          "y": 0.52,
-          "width": 0.6,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Down Arrow Icon",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.58,
-          "width": 0.3,
-          "height": 0.06
+          "x": 0.03,
+          "y": 0.43,
+          "width": 0.42,
+          "height": 0.18
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_33_1",
     "page": 33,
-    "caption": "Hot Start Setting Screen Display",
+    "caption": "Hot Start Optional Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
         "label": "Hot Start",
         "bbox": {
-          "x": 0.1,
-          "y": 0.23,
+          "x": 0.05,
+          "y": 0.22,
           "width": 0.35,
-          "height": 0.18
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_33_2",
     "page": 33,
-    "caption": "Arc Force Setting Screen Display",
+    "caption": "Arc Force Optional Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
         "label": "Arc Force",
         "bbox": {
-          "x": 0.1,
-          "y": 0.44,
+          "x": 0.05,
+          "y": 0.34,
           "width": 0.35,
-          "height": 0.18
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_33_3",
     "page": 33,
-    "caption": "Recall Setting Screen Display",
+    "caption": "Recall Setting Optional Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
         "label": "Recall Setting",
         "bbox": {
-          "x": 0.1,
-          "y": 0.65,
+          "x": 0.05,
+          "y": 0.47,
           "width": 0.35,
-          "height": 0.18
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.4
   },
   {
     "id": "diagram_33_4",
     "page": 33,
-    "caption": "Save Setting Screen Display",
+    "caption": "Save Setting Optional Setting LCD Screen",
     "save_crop": true,
     "regions": [
       {
         "label": "Save Setting",
         "bbox": {
-          "x": 0.1,
-          "y": 0.86,
+          "x": 0.05,
+          "y": 0.6,
           "width": 0.35,
           "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.4
   },
   {
     "id": "diagram_34_1",
     "page": 34,
-    "caption": "Strike Test Procedure - Good Weld and Poor Weld Comparison",
+    "caption": "Strike Test - Good Weld (bends and is not brittle) and Poor Weld (snaps or cracks)",
     "save_crop": true,
     "regions": [
       {
-        "label": "Dead-Blow Hammer",
+        "label": "dead-blow hammer (good weld)",
         "bbox": {
-          "x": 0.45,
-          "y": 0.42,
-          "width": 0.15,
-          "height": 0.12
+          "x": 0.42,
+          "y": 0.27,
+          "width": 0.18,
+          "height": 0.08
         }
       },
       {
-        "label": "Scrap Workpiece",
+        "label": "SCRAP workpiece (good weld)",
         "bbox": {
-          "x": 0.65,
-          "y": 0.45,
-          "width": 0.2,
+          "x": 0.6,
+          "y": 0.26,
+          "width": 0.18,
           "height": 0.1
         }
       },
       {
-        "label": "Good Weld - Bends and is not brittle",
+        "label": "clamp (good weld)",
         "bbox": {
-          "x": 0.4,
-          "y": 0.38,
-          "width": 0.45,
-          "height": 0.18
+          "x": 0.78,
+          "y": 0.23,
+          "width": 0.18,
+          "height": 0.1
         }
       },
       {
-        "label": "Poor Weld - Snaps or cracks",
+        "label": "GOOD WELD bends and is not brittle",
         "bbox": {
-          "x": 0.4,
-          "y": 0.62,
-          "width": 0.45,
-          "height": 0.18
+          "x": 0.56,
+          "y": 0.35,
+          "width": 0.25,
+          "height": 0.07
         }
       },
       {
-        "label": "Clamp",
+        "label": "dead-blow hammer (poor weld)",
         "bbox": {
-          "x": 0.8,
-          "y": 0.4,
-          "width": 0.12,
-          "height": 0.15
+          "x": 0.42,
+          "y": 0.46,
+          "width": 0.18,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "SCRAP workpiece (poor weld)",
+        "bbox": {
+          "x": 0.6,
+          "y": 0.45,
+          "width": 0.18,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "clamp (poor weld)",
+        "bbox": {
+          "x": 0.78,
+          "y": 0.42,
+          "width": 0.18,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "POOR WELD snaps or cracks",
+        "bbox": {
+          "x": 0.57,
+          "y": 0.56,
+          "width": 0.24,
+          "height": 0.07
         }
       }
-    ]
+    ],
+    "salience": 0.6
   },
   {
     "id": "diagram_34_2",
     "page": 34,
-    "caption": "Weld Cleaning Tools - Chipping Hammer and Wire Brush",
+    "caption": "Cleaning the Weld - Chipping Hammer and Wire Brush",
     "save_crop": true,
     "regions": [
       {
         "label": "Chipping Hammer",
         "bbox": {
-          "x": 0.4,
-          "y": 0.77,
-          "width": 0.2,
+          "x": 0.5,
+          "y": 0.68,
+          "width": 0.3,
           "height": 0.15
         }
       },
       {
         "label": "Wire Brush",
         "bbox": {
-          "x": 0.65,
-          "y": 0.77,
-          "width": 0.2,
-          "height": 0.15
+          "x": 0.6,
+          "y": 0.82,
+          "width": 0.3,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_35_1",
@@ -2461,76 +2159,59 @@
       {
         "label": "Inadequate Penetration",
         "bbox": {
-          "x": 0.05,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.25
+          "x": 0.03,
+          "y": 0.06,
+          "width": 0.28,
+          "height": 0.18
         }
       },
       {
         "label": "Proper Penetration",
         "bbox": {
-          "x": 0.35,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.25
+          "x": 0.33,
+          "y": 0.06,
+          "width": 0.28,
+          "height": 0.18
         }
       },
       {
         "label": "Excess Penetration or Burn-Through",
         "bbox": {
-          "x": 0.65,
-          "y": 0.05,
-          "width": 0.3,
-          "height": 0.25
+          "x": 0.63,
+          "y": 0.06,
+          "width": 0.33,
+          "height": 0.18
         }
       },
       {
-        "label": "Not hot enough",
+        "label": "Heat Scale (Not hot enough → Ideal heat → Too hot)",
         "bbox": {
-          "x": 0.05,
+          "x": 0.03,
           "y": 0.22,
-          "width": 0.35,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Ideal heat",
-        "bbox": {
-          "x": 0.38,
-          "y": 0.22,
-          "width": 0.25,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Too hot",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.22,
-          "width": 0.3,
-          "height": 0.08
+          "width": 0.93,
+          "height": 0.06
         }
       },
       {
         "label": "How to increase workpiece heat and increase penetration",
         "bbox": {
-          "x": 0.05,
-          "y": 0.32,
-          "width": 0.45,
-          "height": 0.12
+          "x": 0.03,
+          "y": 0.28,
+          "width": 0.44,
+          "height": 0.15
         }
       },
       {
         "label": "How to reduce workpiece heat and limit penetration",
         "bbox": {
-          "x": 0.53,
-          "y": 0.32,
-          "width": 0.42,
-          "height": 0.12
+          "x": 0.49,
+          "y": 0.28,
+          "width": 0.47,
+          "height": 0.15
         }
       }
-    ]
+    ],
+    "salience": 0.8
   },
   {
     "id": "diagram_35_2",
@@ -2541,1307 +2222,1282 @@
       {
         "label": "Good Weld",
         "bbox": {
-          "x": 0.05,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.03,
+          "y": 0.47,
+          "width": 0.13,
+          "height": 0.42
         }
       },
       {
         "label": "Voltage Too Low or Wire Feed Too Slow",
         "bbox": {
-          "x": 0.2,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.18,
+          "y": 0.47,
+          "width": 0.13,
+          "height": 0.42
         }
       },
       {
         "label": "Voltage Too High or Wire Feed Too Fast",
         "bbox": {
-          "x": 0.35,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.33,
+          "y": 0.47,
+          "width": 0.13,
+          "height": 0.42
         }
       },
       {
         "label": "Travel Speed Too Fast",
         "bbox": {
-          "x": 0.5,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.49,
+          "y": 0.47,
+          "width": 0.13,
+          "height": 0.42
         }
       },
       {
         "label": "Travel Speed Too Slow",
         "bbox": {
-          "x": 0.65,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.64,
+          "y": 0.47,
+          "width": 0.13,
+          "height": 0.42
         }
       },
       {
         "label": "CTWD Too Long or Wrong Polarity",
         "bbox": {
-          "x": 0.8,
-          "y": 0.48,
-          "width": 0.15,
-          "height": 0.45
+          "x": 0.79,
+          "y": 0.47,
+          "width": 0.17,
+          "height": 0.42
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
-    "id": "diagram_37_1",
-    "page": 37,
-    "caption": "Wire Weld–Porosity - Small cavities or holes in the bead (TOP VIEW)",
+    "id": "diagram_36_1",
+    "page": 36,
+    "caption": "Wire Weld Penetration (Workpiece Heat Control) - Profile Views showing Excess Penetration/Burn-Through, Proper Penetration, and Inadequate Penetration",
     "save_crop": true,
     "regions": [
       {
-        "label": "Porosity cavities in bead",
+        "label": "Excess Penetration or Burn-Through",
         "bbox": {
-          "x": 0.25,
-          "y": 0.08,
-          "width": 0.5,
-          "height": 0.18
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_37_2",
-    "page": 37,
-    "caption": "Wire Weld–Excessive Spatter - Fine spatter is normal. Spatter that is grainy and large is a problem (TOP VIEW)",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Excessive spatter around bead",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.08,
-          "width": 0.5,
-          "height": 0.18
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_37_3",
-    "page": 37,
-    "caption": "Wire Weld–Crooked/Wavy Bead - Irregular bead shape (TOP VIEW)",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Crooked or wavy bead pattern",
-        "bbox": {
-          "x": 0.1,
-          "y": 0.5,
-          "width": 0.5,
-          "height": 0.18
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_37_4",
-    "page": 37,
-    "caption": "Wire Weld–Burn-Through - Base material melts away, leaving a hole in the weld (TOP VIEW)",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Hole in weld from burn-through",
-        "bbox": {
-          "x": 0.55,
-          "y": 0.5,
-          "width": 0.5,
-          "height": 0.18
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_38_1",
-    "page": 38,
-    "caption": "Stick Weld Diagnosis–Workpiece Heat Control / Weld Penetration",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Inadequate Penetration",
-        "bbox": {
-          "x": 0.07,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.15
+          "x": 0.04,
+          "y": 0.06,
+          "width": 0.28,
+          "height": 0.2
         }
       },
       {
         "label": "Proper Penetration",
         "bbox": {
-          "x": 0.38,
+          "x": 0.35,
+          "y": 0.06,
+          "width": 0.28,
+          "height": 0.2
+        }
+      },
+      {
+        "label": "Inadequate Penetration",
+        "bbox": {
+          "x": 0.65,
+          "y": 0.06,
+          "width": 0.3,
+          "height": 0.2
+        }
+      }
+    ],
+    "salience": 0.8
+  },
+  {
+    "id": "diagram_36_2",
+    "page": 36,
+    "caption": "Bend at Joint - Profile View",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Bend at Joint Profile View",
+        "bbox": {
+          "x": 0.04,
+          "y": 0.44,
+          "width": 0.3,
+          "height": 0.12
+        }
+      }
+    ],
+    "salience": 0.5
+  },
+  {
+    "id": "diagram_36_3",
+    "page": 36,
+    "caption": "Coat of Slag Over Weld - Top View, Partially Chipped Away to Show Weld",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Slag Over Weld (Top View)",
+        "bbox": {
+          "x": 0.04,
+          "y": 0.66,
+          "width": 0.4,
+          "height": 0.12
+        }
+      }
+    ],
+    "salience": 0.5
+  },
+  {
+    "id": "diagram_36_4",
+    "page": 36,
+    "caption": "Weld Not Adhering Properly - Profile View showing gaps between weld and previous bead or workpiece",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Weld Not Adhering Profile View",
+        "bbox": {
+          "x": 0.5,
+          "y": 0.55,
+          "width": 0.44,
+          "height": 0.12
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_37_1",
+    "page": 37,
+    "caption": "Wire Weld – Porosity: Top view showing small cavities or holes in the bead",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Weld bead with porosity (holes/cavities)",
+        "bbox": {
+          "x": 0.08,
+          "y": 0.07,
+          "width": 0.32,
+          "height": 0.09
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_37_2",
+    "page": 37,
+    "caption": "Wire Weld – Excessive Spatter: Top view showing grainy and large spatter around the bead",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Weld bead with excessive spatter",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.07,
+          "width": 0.38,
+          "height": 0.1
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_37_3",
+    "page": 37,
+    "caption": "Wire Weld – Crooked/Wavy Bead: Top view showing irregular bead path",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Crooked/wavy weld bead",
+        "bbox": {
+          "x": 0.08,
+          "y": 0.57,
+          "width": 0.3,
+          "height": 0.09
+        }
+      }
+    ],
+    "salience": 0.5
+  },
+  {
+    "id": "diagram_37_4",
+    "page": 37,
+    "caption": "Wire Weld – Burn-Through: Top view showing base material melted away leaving a hole in the weld",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Burn-through hole in weld",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.57,
+          "width": 0.38,
+          "height": 0.1
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_38_1",
+    "page": 38,
+    "caption": "Stick Weld Diagnosis – Workpiece Heat Control / Weld Penetration",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Inadequate Penetration",
+        "bbox": {
+          "x": 0.04,
           "y": 0.05,
           "width": 0.25,
-          "height": 0.15
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Proper Penetration",
+        "bbox": {
+          "x": 0.33,
+          "y": 0.05,
+          "width": 0.25,
+          "height": 0.18
         }
       },
       {
         "label": "Excess Penetration or Burn-Through",
         "bbox": {
-          "x": 0.68,
+          "x": 0.63,
           "y": 0.05,
-          "width": 0.28,
-          "height": 0.15
+          "width": 0.32,
+          "height": 0.18
         }
       },
       {
         "label": "Not hot enough",
         "bbox": {
-          "x": 0.07,
-          "y": 0.19,
-          "width": 0.25,
-          "height": 0.05
+          "x": 0.04,
+          "y": 0.22,
+          "width": 0.18,
+          "height": 0.04
         }
       },
       {
         "label": "Ideal heat",
         "bbox": {
-          "x": 0.38,
-          "y": 0.19,
-          "width": 0.25,
-          "height": 0.05
+          "x": 0.42,
+          "y": 0.22,
+          "width": 0.15,
+          "height": 0.04
         }
       },
       {
         "label": "Too hot",
         "bbox": {
-          "x": 0.68,
-          "y": 0.19,
-          "width": 0.28,
-          "height": 0.05
-        }
-      },
-      {
-        "label": "Increase current",
-        "bbox": {
-          "x": 0.07,
-          "y": 0.26,
-          "width": 0.25,
-          "height": 0.05
-        }
-      },
-      {
-        "label": "Weld more slowly",
-        "bbox": {
-          "x": 0.07,
-          "y": 0.31,
-          "width": 0.25,
-          "height": 0.05
-        }
-      },
-      {
-        "label": "Decrease current",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.26,
-          "width": 0.28,
-          "height": 0.05
-        }
-      },
-      {
-        "label": "Weld more quickly",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.31,
-          "width": 0.28,
-          "height": 0.05
+          "x": 0.76,
+          "y": 0.22,
+          "width": 0.14,
+          "height": 0.04
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_38_2",
     "page": 38,
-    "caption": "Example Stick Weld Diagrams - CLEAN WELDS FIRST! Stick welds will have a coat of slag over them until cleaned.",
+    "caption": "Example Stick Weld Diagrams",
     "save_crop": true,
     "regions": [
       {
         "label": "Good Weld",
         "bbox": {
-          "x": 0.08,
-          "y": 0.42,
-          "width": 0.12,
-          "height": 0.35
+          "x": 0.03,
+          "y": 0.44,
+          "width": 0.11,
+          "height": 0.38
         }
       },
       {
         "label": "Current Too Low",
         "bbox": {
-          "x": 0.21,
-          "y": 0.42,
-          "width": 0.12,
-          "height": 0.35
+          "x": 0.15,
+          "y": 0.44,
+          "width": 0.11,
+          "height": 0.38
         }
       },
       {
         "label": "Current Too High",
         "bbox": {
-          "x": 0.34,
-          "y": 0.42,
-          "width": 0.12,
-          "height": 0.35
+          "x": 0.27,
+          "y": 0.44,
+          "width": 0.11,
+          "height": 0.38
         }
       },
       {
-        "label": "Travel Speed Too Fast",
+        "label": "Weld Speed Too Fast",
         "bbox": {
-          "x": 0.47,
-          "y": 0.42,
+          "x": 0.39,
+          "y": 0.44,
           "width": 0.12,
-          "height": 0.35
+          "height": 0.45
         }
       },
       {
-        "label": "Travel Speed Too Slow",
+        "label": "Weld Speed Too Slow",
         "bbox": {
-          "x": 0.6,
-          "y": 0.42,
+          "x": 0.52,
+          "y": 0.44,
           "width": 0.12,
-          "height": 0.35
+          "height": 0.45
         }
       },
       {
         "label": "Arc Length Too Short",
         "bbox": {
-          "x": 0.73,
-          "y": 0.42,
+          "x": 0.65,
+          "y": 0.44,
           "width": 0.12,
-          "height": 0.35
+          "height": 0.45
         }
       },
       {
         "label": "Arc Length Too Long",
         "bbox": {
-          "x": 0.86,
-          "y": 0.42,
-          "width": 0.12,
-          "height": 0.35
-        }
-      },
-      {
-        "label": "TO CORRECT: Increase the current",
-        "bbox": {
-          "x": 0.21,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TO CORRECT: Decrease the current",
-        "bbox": {
-          "x": 0.34,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TO CORRECT: Weld slower",
-        "bbox": {
-          "x": 0.47,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TO CORRECT: Weld faster",
-        "bbox": {
-          "x": 0.6,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TO CORRECT: Increase distance",
-        "bbox": {
-          "x": 0.73,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TO CORRECT: Decrease distance",
-        "bbox": {
-          "x": 0.86,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "Electrode angle diagram",
-        "bbox": {
-          "x": 0.47,
-          "y": 0.8,
-          "width": 0.08,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Electrode angle diagram",
-        "bbox": {
-          "x": 0.6,
-          "y": 0.8,
-          "width": 0.08,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Electrode distance diagram",
-        "bbox": {
-          "x": 0.73,
-          "y": 0.8,
-          "width": 0.08,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Electrode distance diagram",
-        "bbox": {
-          "x": 0.86,
-          "y": 0.8,
-          "width": 0.08,
-          "height": 0.12
+          "x": 0.78,
+          "y": 0.44,
+          "width": 0.18,
+          "height": 0.45
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_39_1",
     "page": 39,
-    "caption": "Stick Weld Penetration (Workpiece Heat Control) - Profile Views",
+    "caption": "Stick Weld Penetration Profile Views – Excess Penetration/Burn-Through, Proper Penetration, and Inadequate Penetration",
     "save_crop": true,
     "regions": [
       {
         "label": "EXCESS PENETRATION OR BURN-THROUGH",
         "bbox": {
-          "x": 0.05,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.25
+          "x": 0.03,
+          "y": 0.09,
+          "width": 0.26,
+          "height": 0.22
         }
       },
       {
         "label": "PROPER PENETRATION",
         "bbox": {
-          "x": 0.35,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.25
+          "x": 0.33,
+          "y": 0.09,
+          "width": 0.26,
+          "height": 0.22
         }
       },
       {
         "label": "INADEQUATE PENETRATION",
         "bbox": {
-          "x": 0.65,
-          "y": 0.05,
-          "width": 0.25,
-          "height": 0.25
+          "x": 0.62,
+          "y": 0.09,
+          "width": 0.28,
+          "height": 0.22
         }
       }
-    ]
+    ],
+    "salience": 0.7
   },
   {
     "id": "diagram_39_2",
     "page": 39,
-    "caption": "Stick Weld–Weld Not Adhering Properly",
+    "caption": "Stick Weld – Weld Not Adhering Properly Profile View",
     "save_crop": true,
     "regions": [
       {
-        "label": "PROFILE VIEW",
+        "label": "PROFILE VIEW – Weld Not Adhering Properly",
         "bbox": {
-          "x": 0.1,
-          "y": 0.5,
-          "width": 0.35,
-          "height": 0.25
+          "x": 0.03,
+          "y": 0.52,
+          "width": 0.28,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_39_3",
     "page": 39,
-    "caption": "Stick Weld–Bend at Joint",
+    "caption": "Stick Weld – Bend at Joint Profile View",
     "save_crop": true,
     "regions": [
       {
-        "label": "PROFILE VIEW",
+        "label": "PROFILE VIEW – Bend at Joint",
         "bbox": {
-          "x": 0.1,
-          "y": 0.8,
-          "width": 0.35,
-          "height": 0.15
+          "x": 0.03,
+          "y": 0.78,
+          "width": 0.28,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_40_1",
     "page": 40,
-    "caption": "Stick Weld–Coat of Slag Over Weld (Partially chipped away to show weld)",
+    "caption": "Stick Weld – Coat of Slag Over Weld (Top View, partially chipped away to show weld)",
     "save_crop": true,
     "regions": [
       {
-        "label": "TOP VIEW",
+        "label": "TOP VIEW – Slag over weld, partially chipped away",
         "bbox": {
-          "x": 0.15,
-          "y": 0.08,
-          "width": 0.5,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Slag coating",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.08,
-          "width": 0.5,
-          "height": 0.15
+          "x": 0.13,
+          "y": 0.04,
+          "width": 0.32,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_40_2",
     "page": 40,
-    "caption": "Stick Weld–Porosity (Small cavities or holes in the bead)",
+    "caption": "Stick Weld – Porosity Top View (small cavities or holes in the bead)",
     "save_crop": true,
     "regions": [
       {
-        "label": "TOP VIEW",
+        "label": "TOP VIEW – Porosity in weld bead",
         "bbox": {
-          "x": 0.15,
-          "y": 0.26,
-          "width": 0.5,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Porosity defects",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.26,
-          "width": 0.5,
-          "height": 0.15
+          "x": 0.13,
+          "y": 0.18,
+          "width": 0.32,
+          "height": 0.1
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_40_3",
     "page": 40,
-    "caption": "Stick Weld–Crooked/Wavy Bead",
+    "caption": "Stick Weld – Crooked/Wavy Bead Top View",
     "save_crop": true,
     "regions": [
       {
-        "label": "TOP VIEW",
+        "label": "TOP VIEW – Crooked/wavy weld bead",
         "bbox": {
-          "x": 0.15,
-          "y": 0.44,
-          "width": 0.5,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Wavy bead pattern",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.44,
-          "width": 0.5,
-          "height": 0.15
+          "x": 0.13,
+          "y": 0.36,
+          "width": 0.32,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_40_4",
     "page": 40,
-    "caption": "Stick Weld–Excessive Spatter",
+    "caption": "Stick Weld – Excessive Spatter Top View",
     "save_crop": true,
     "regions": [
       {
-        "label": "TOP VIEW",
+        "label": "TOP VIEW – Excessive spatter around weld",
         "bbox": {
-          "x": 0.15,
-          "y": 0.62,
-          "width": 0.5,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Excessive spatter",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.62,
-          "width": 0.5,
-          "height": 0.15
+          "x": 0.13,
+          "y": 0.56,
+          "width": 0.32,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_40_5",
     "page": 40,
-    "caption": "Stick Weld–Burn-Through (Base material melts away, leaving a hole in the weld)",
+    "caption": "Stick Weld – Burn-Through Top View (base material melts away, leaving a hole in the weld)",
     "save_crop": true,
     "regions": [
       {
-        "label": "TOP VIEW",
+        "label": "TOP VIEW – Burn-through hole in weld",
         "bbox": {
-          "x": 0.15,
-          "y": 0.8,
-          "width": 0.5,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "Burn-through hole",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.8,
-          "width": 0.5,
-          "height": 0.15
+          "x": 0.13,
+          "y": 0.77,
+          "width": 0.32,
+          "height": 0.12
         }
       }
-    ]
+    ],
+    "salience": 0.5
   },
   {
     "id": "diagram_41_1",
     "page": 41,
-    "caption": "MIG Gun Nozzle and Contact Tip Components",
+    "caption": "MIG Gun with labeled Nozzle and Contact Tip",
     "save_crop": true,
     "regions": [
       {
         "label": "Nozzle",
         "bbox": {
-          "x": 0.55,
-          "y": 0.62,
-          "width": 0.15,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Contact Tip",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.58,
-          "width": 0.18,
-          "height": 0.1
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_41_2",
-    "page": 41,
-    "caption": "LCD Screen Cover Replacement Procedure",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Display",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.75,
-          "width": 0.2,
-          "height": 0.2
-        }
-      },
-      {
-        "label": "Screen Cover",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.75,
-          "width": 0.15,
-          "height": 0.12
-        }
-      },
-      {
-        "label": "Screen Frame",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.6,
-          "width": 0.18,
-          "height": 0.12
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_44_1",
-    "page": 44,
-    "caption": "Troubleshooting–TIG/Stick Welding Safety Warning Icon",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "Warning Symbol",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.68,
-          "width": 0.08,
-          "height": 0.1
-        }
-      },
-      {
-        "label": "Safety Precaution Text",
-        "bbox": {
-          "x": 0.13,
-          "y": 0.68,
-          "width": 0.82,
-          "height": 0.1
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_45_1",
-    "page": 45,
-    "caption": "Wiring Schematic",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "LCD SCREEN",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.25,
-          "width": 0.25,
-          "height": 0.25
-        }
-      },
-      {
-        "label": "CONTROL BOARD",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.45,
-          "width": 0.25,
-          "height": 0.3
-        }
-      },
-      {
-        "label": "MOD BOARD",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.55,
-          "width": 0.25,
-          "height": 0.2
-        }
-      },
-      {
-        "label": "REMOTE CONTROL BOARD",
-        "bbox": {
-          "x": 0.48,
-          "y": 0.75,
-          "width": 0.25,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "OUTPUT",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.15,
-          "width": 0.15,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "FAN",
-        "bbox": {
-          "x": 0.3,
-          "y": 0.75,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "TRANSFORMER",
-        "bbox": {
-          "x": 0.2,
-          "y": 0.35,
-          "width": 0.2,
-          "height": 0.15
-        }
-      },
-      {
-        "label": "IGBT MODULES",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.45,
-          "width": 0.25,
-          "height": 0.25
-        }
-      }
-    ]
-  },
-  {
-    "id": "diagram_47_1",
-    "page": 47,
-    "caption": "Assembly Diagram",
-    "save_crop": true,
-    "regions": [
-      {
-        "label": "1",
-        "bbox": {
-          "x": 0.85,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "2",
-        "bbox": {
-          "x": 0.78,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "3",
-        "bbox": {
-          "x": 0.65,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "4",
-        "bbox": {
-          "x": 0.52,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "5",
-        "bbox": {
-          "x": 0.45,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "6",
-        "bbox": {
           "x": 0.37,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "7",
-        "bbox": {
-          "x": 0.3,
-          "y": 0.12,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "8",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.3,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "9",
-        "bbox": {
-          "x": 0.2,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "10",
-        "bbox": {
-          "x": 0.28,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "11",
-        "bbox": {
-          "x": 0.35,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "12",
-        "bbox": {
-          "x": 0.43,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "13",
-        "bbox": {
-          "x": 0.5,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "14",
-        "bbox": {
-          "x": 0.58,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "15",
-        "bbox": {
-          "x": 0.63,
-          "y": 0.32,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "16",
-        "bbox": {
-          "x": 0.08,
-          "y": 0.28,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "17",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.35,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "18",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.42,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "19",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.5,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "20",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.58,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "21",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.65,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "22",
-        "bbox": {
-          "x": 0.05,
-          "y": 0.72,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "23",
-        "bbox": {
-          "x": 0.08,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "24",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.8,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "25",
-        "bbox": {
-          "x": 0.08,
-          "y": 0.87,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "26",
-        "bbox": {
-          "x": 0.15,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "27",
-        "bbox": {
-          "x": 0.23,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "28",
-        "bbox": {
-          "x": 0.3,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "29",
-        "bbox": {
-          "x": 0.38,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "30",
-        "bbox": {
-          "x": 0.45,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "31",
-        "bbox": {
-          "x": 0.53,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "32",
-        "bbox": {
-          "x": 0.6,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "33",
-        "bbox": {
-          "x": 0.68,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "34",
-        "bbox": {
-          "x": 0.75,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "35",
-        "bbox": {
-          "x": 0.83,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "36",
-        "bbox": {
-          "x": 0.9,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "37",
-        "bbox": {
-          "x": 0.98,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "38",
-        "bbox": {
-          "x": 1.05,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "39",
-        "bbox": {
-          "x": 1.12,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "40",
-        "bbox": {
-          "x": 1.2,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "41",
-        "bbox": {
-          "x": 1.27,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "42",
-        "bbox": {
-          "x": 1.35,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "43",
-        "bbox": {
-          "x": 1.42,
-          "y": 0.92,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "44",
-        "bbox": {
-          "x": 0.92,
-          "y": 0.78,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "45",
-        "bbox": {
-          "x": 0.92,
-          "y": 0.7,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "46",
-        "bbox": {
-          "x": 0.92,
-          "y": 0.62,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "47",
-        "bbox": {
-          "x": 0.92,
-          "y": 0.55,
-          "width": 0.12,
-          "height": 0.08
-        }
-      },
-      {
-        "label": "48",
-        "bbox": {
-          "x": 0.92,
           "y": 0.47,
           "width": 0.12,
           "height": 0.08
         }
       },
       {
-        "label": "49",
+        "label": "Contact Tip",
         "bbox": {
-          "x": 0.92,
-          "y": 0.4,
+          "x": 0.52,
+          "y": 0.47,
           "width": 0.12,
           "height": 0.08
+        }
+      }
+    ],
+    "salience": 0.6
+  },
+  {
+    "id": "diagram_41_2",
+    "page": 41,
+    "caption": "LCD Screen Cover Replacement – Display, Screen Cover, and Screen Frame",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "Display",
+        "bbox": {
+          "x": 0.08,
+          "y": 0.66,
+          "width": 0.18,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "Screen Cover",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.7,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Screen Frame",
+        "bbox": {
+          "x": 0.7,
+          "y": 0.65,
+          "width": 0.15,
+          "height": 0.14
+        }
+      }
+    ],
+    "salience": 0.4
+  },
+  {
+    "id": "diagram_45_1",
+    "page": 45,
+    "caption": "Wiring Schematic – Full electrical wiring diagram for the Vulcan OmniPro 220 Multiprocess Welding System (Item 57812)",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "OUT+ (Positive Output)",
+        "bbox": {
+          "x": 0.1,
+          "y": 0.06,
+          "width": 0.08,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "OUT- (Negative Output)",
+        "bbox": {
+          "x": 0.38,
+          "y": 0.06,
+          "width": 0.08,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "LCD SCREEN",
+        "bbox": {
+          "x": 0.52,
+          "y": 0.22,
+          "width": 0.24,
+          "height": 0.18
+        }
+      },
+      {
+        "label": "MCU BOARD",
+        "bbox": {
+          "x": 0.47,
+          "y": 0.42,
+          "width": 0.22,
+          "height": 0.3
+        }
+      },
+      {
+        "label": "PFC/IGBT",
+        "bbox": {
+          "x": 0.2,
+          "y": 0.52,
+          "width": 0.14,
+          "height": 0.12
+        }
+      },
+      {
+        "label": "Rectifier",
+        "bbox": {
+          "x": 0.1,
+          "y": 0.6,
+          "width": 0.12,
+          "height": 0.08
+        }
+      },
+      {
+        "label": "Solenoid Valve (1)",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.53,
+          "width": 0.1,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Solenoid Valve (2)",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.6,
+          "width": 0.1,
+          "height": 0.06
+        }
+      },
+      {
+        "label": "Wire Feeder Motor (M)",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.67,
+          "width": 0.1,
+          "height": 0.07
+        }
+      },
+      {
+        "label": "Remote Board",
+        "bbox": {
+          "x": 0.47,
+          "y": 0.73,
+          "width": 0.18,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Aviation Plug",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.73,
+          "width": 0.12,
+          "height": 0.1
+        }
+      },
+      {
+        "label": "Fast Wire Feed Switch",
+        "bbox": {
+          "x": 0.38,
+          "y": 0.64,
+          "width": 0.18,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "FAN2",
+        "bbox": {
+          "x": 0.28,
+          "y": 0.84,
+          "width": 0.08,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "FAN",
+        "bbox": {
+          "x": 0.37,
+          "y": 0.84,
+          "width": 0.08,
+          "height": 0.05
+        }
+      },
+      {
+        "label": "K1 AC 120-240V/50/60Hz Input (AC1, AC2, Ground)",
+        "bbox": {
+          "x": 0.06,
+          "y": 0.88,
+          "width": 0.18,
+          "height": 0.08
+        }
+      }
+    ],
+    "salience": 0.3
+  },
+  {
+    "id": "diagram_47_1",
+    "page": 47,
+    "caption": "Assembly Diagram – Exploded view of the Vulcan OmniPro 220 welder with numbered parts 1 through 61",
+    "save_crop": true,
+    "regions": [
+      {
+        "label": "1",
+        "bbox": {
+          "x": 0.72,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "2",
+        "bbox": {
+          "x": 0.65,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "3",
+        "bbox": {
+          "x": 0.6,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "4",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "5",
+        "bbox": {
+          "x": 0.48,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "6",
+        "bbox": {
+          "x": 0.4,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "7",
+        "bbox": {
+          "x": 0.33,
+          "y": 0.17,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "8",
+        "bbox": {
+          "x": 0.53,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "9",
+        "bbox": {
+          "x": 0.48,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "10",
+        "bbox": {
+          "x": 0.44,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "11",
+        "bbox": {
+          "x": 0.4,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "12",
+        "bbox": {
+          "x": 0.36,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "13",
+        "bbox": {
+          "x": 0.32,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "14",
+        "bbox": {
+          "x": 0.28,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "15",
+        "bbox": {
+          "x": 0.23,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "16",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.35,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "17",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.4,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "18",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.46,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "19",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.52,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "20",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.57,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "21",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.62,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "22",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.66,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "23",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.7,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "24",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.74,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "25",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.78,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "26",
+        "bbox": {
+          "x": 0.05,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "27",
+        "bbox": {
+          "x": 0.09,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "28",
+        "bbox": {
+          "x": 0.13,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "29",
+        "bbox": {
+          "x": 0.17,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "30",
+        "bbox": {
+          "x": 0.22,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "31",
+        "bbox": {
+          "x": 0.27,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "32",
+        "bbox": {
+          "x": 0.31,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "33",
+        "bbox": {
+          "x": 0.35,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "34",
+        "bbox": {
+          "x": 0.39,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "35",
+        "bbox": {
+          "x": 0.43,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "36",
+        "bbox": {
+          "x": 0.47,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "37",
+        "bbox": {
+          "x": 0.51,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "38",
+        "bbox": {
+          "x": 0.55,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "39",
+        "bbox": {
+          "x": 0.59,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "40",
+        "bbox": {
+          "x": 0.63,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "41",
+        "bbox": {
+          "x": 0.67,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "42",
+        "bbox": {
+          "x": 0.71,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "43",
+        "bbox": {
+          "x": 0.75,
+          "y": 0.83,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "44",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.78,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "45",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.74,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "46",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.7,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "47",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.66,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "48",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.62,
+          "width": 0.04,
+          "height": 0.03
+        }
+      },
+      {
+        "label": "49",
+        "bbox": {
+          "x": 0.87,
+          "y": 0.57,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "50",
         "bbox": {
-          "x": 0.92,
-          "y": 0.33,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.52,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "51",
         "bbox": {
-          "x": 0.92,
-          "y": 0.58,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.48,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "52",
         "bbox": {
-          "x": 0.92,
-          "y": 0.5,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.42,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "53",
         "bbox": {
-          "x": 0.92,
-          "y": 0.43,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.38,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "54",
         "bbox": {
-          "x": 0.92,
-          "y": 0.35,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.33,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "55",
         "bbox": {
-          "x": 0.92,
-          "y": 0.28,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.29,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "56",
         "bbox": {
-          "x": 0.92,
-          "y": 0.22,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.25,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "57",
         "bbox": {
-          "x": 0.92,
-          "y": 0.15,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.78,
+          "y": 0.25,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "58",
         "bbox": {
-          "x": 0.85,
-          "y": 0.18,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.74,
+          "y": 0.25,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "59",
         "bbox": {
-          "x": 0.78,
-          "y": 0.2,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.69,
+          "y": 0.25,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "60",
         "bbox": {
-          "x": 0.7,
-          "y": 0.2,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.64,
+          "y": 0.25,
+          "width": 0.04,
+          "height": 0.03
         }
       },
       {
         "label": "61",
         "bbox": {
-          "x": 0.92,
-          "y": 0.1,
-          "width": 0.12,
-          "height": 0.08
+          "x": 0.87,
+          "y": 0.19,
+          "width": 0.04,
+          "height": 0.03
         }
       }
-    ]
+    ],
+    "salience": 0.2
   }
 ]

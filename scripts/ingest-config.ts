@@ -2,13 +2,13 @@
 // All three extraction scripts import MODEL_* from here — never hardcode model IDs elsewhere.
 //
 // Model selection rationale:
-//   Structural  → Haiku 4.5   : transcription-heavy (table rows, entity names, bbox labels)
+//   Structural  → Sonnet 4.6  : upgraded from Haiku 4.5; table extraction quality was too low
 //   Procedural  → Sonnet 4.6  : moderate reasoning (step boundaries, postcondition language)
 //   Diagnostic  → Opus 4.7    : strong reasoning (prior estimation, likelihood ratio assignment)
 //
-// This split drops a full ingestion run from ~$25 to ~$5–8, making prompt iteration cheap.
+// Sonnet structural adds ~$2–3 to a full run but recovers the tables the manual is judged on.
 
-export const MODEL_STRUCTURAL  = "claude-haiku-4-5-20251001";
+export const MODEL_STRUCTURAL  = "claude-sonnet-4-6";
 export const MODEL_PROCEDURAL  = "claude-sonnet-4-6";
 export const MODEL_DIAGNOSTIC  = "claude-opus-4-7";
 
