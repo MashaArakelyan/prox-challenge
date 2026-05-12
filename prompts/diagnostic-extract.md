@@ -91,12 +91,10 @@ RULES:
    This field determines whether the UI prompts for a photo upload, a number input, or a yes/no button.
 6. Checks must be phrased as yes/no questions or numeric observations the user can answer
    while standing at the machine (e.g., "Is the wire feed speed above 300 IPM?").
-7. Vernacular synonyms must reflect how a non-expert would describe the problem
-   (e.g., "holes in the weld", "weld blew through", "burn hole").
-8. process_scope should name the specific process(es) if known, or "all" if universal.
+7. process_scope should name the specific process(es) if known, or "all" if universal.
    Use the process names as they appear in the manual.
-9. If a page contains no diagnostic content, return: { "symptoms": [] }
-10. Return ONLY the JSON object.
+8. If a page contains no diagnostic content, return: { "symptoms": [] }
+9. Return ONLY the JSON object.
 
 REQUIRED OUTPUT SHAPE:
 {
@@ -106,7 +104,6 @@ REQUIRED OUTPUT SHAPE:
       "id": "symptom_slug_in_snake_case",
       "label": "Short human-readable label",
       "description": "What the user observes",
-      "vernacular_synonyms": ["informal phrase 1", "informal phrase 2"],
       "process_scope": ["process name 1", "process name 2"] | "all",
       "causes": [
         {
@@ -166,15 +163,6 @@ Using the priors policy (5 causes, listing order only → `manual_order_heuristi
       "id": "wire_weld_porosity",
       "label": "Porosity / Gas Pockets in Weld",
       "description": "Small holes or pits visible on the weld surface or in cross-section; weld appears porous or bubbly",
-      "vernacular_synonyms": [
-        "holes in the weld",
-        "pits in the bead",
-        "bubbly weld",
-        "weld looks like Swiss cheese",
-        "pinholes",
-        "gas pockets",
-        "weld is porous"
-      ],
       "process_scope": ["MIG", "Flux-Cored"],
       "causes": [
         {
@@ -316,8 +304,8 @@ Using the priors policy (5 causes, listing order only → `manual_order_heuristi
 - All likelihood ratios are `llm_estimated` because the manual does not quantify them.
 - Each check declares a `modality`: the regulator reading is `numeric_measurement` (triggers a number input), surface contamination is `user_photo` (triggers camera/upload), polarity checks are `self_report` (yes/no buttons).
 - The polarity checks use inverted likelihood ratios (< 1) to reduce belief when polarity is confirmed correct.
-- Vernacular synonyms are intentionally colloquial to match fuzzy user queries.
-- Prior for cause 3 (insufficient gas) increased slightly vs the formula schedule because it is process-specific (MIG only) and therefore a higher fraction of the applicable-process prior mass.
+- Prior for cause 3 (insufficient gas) is slightly higher than the formula schedule because it is process-specific (MIG only) — a larger fraction of the MIG-applicable prior mass.
+- Symptom matching from user vocabulary ("Swiss cheese weld" → this symptom) happens at runtime: the agent calls list_symptoms(), receives the canonical IDs and descriptions, and reasons over them against the user's words. No synonym pre-computation needed.
 
 ---
 

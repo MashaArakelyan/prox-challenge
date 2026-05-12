@@ -17,19 +17,18 @@ Pipeline stages, in order:
 2. Three parallel extraction passes against the inferred schema, page-by-page, using Claude with vision:
    - Structural pass — entities, relations, tables (parsed into rows), diagrams with bounding boxes for every labeled region, embedded photos. Output: data/entities.json, data/relations.json, data/tables.json, data/diagrams.json, data/images/.
    - Procedural pass — every "how to..." section becomes a state machine: ordered steps, explicit postconditions per step (e.g., "wire protrudes 1/4 inch past contact tip"), branching on failure. Output: data/procedures.json.
-   - Diagnostic pass — for every symptom in the manual, build a Bayesian network: candidate causes with priors, checks with likelihood ratios, vernacular synonyms. Every numeric prior/likelihood must carry a source flag: manual_derived or llm_estimated. Output: data/diagnostic_trees.json.
+   - Diagnostic pass — for every symptom in the manual, build a Bayesian network: candidate causes with priors, checks with likelihood ratios. Every numeric prior/likelihood must carry a source flag: manual_derived, manual_order_heuristic, or llm_estimated. Output: data/diagnostic_trees.json.
 3. Salience synthesis. Reads the assembled stores (not the raw PDF again) and produces:
    - data/critical_facts.json — atomic, quotable assertions like "MIG duty cycle at 200A on 240V is 30%", "TIG ground clamp goes in the negative DINSE socket". One fact, one citation per entry.
    - Salience weights (0–1) attached to every entity, relation, and diagram. Stored as updates to the existing JSON files.
    - data/canonical_setups.json — pre-computed cross-section assemblies for common task patterns (e.g., "full setup for 1/8" mild steel MIG").
 4. Cross-page resolution. Links duplicate entity mentions across pages, resolves "see figure 7-3" references to hard pointers, attaches canonical citations (page + region bbox + photo if applicable) to every entity. Mutates the existing JSON files in place.
-5. Vernacular embedding index. Embed only the symptom synonyms from diagnostic_trees.json (expect ~500 vectors total). Store as data/vernacular.index.json — a plain JSON file with vectors inline. Do not use Pinecone, Weaviate, or any external vector DB. A cosine-similarity loop over an in-memory array is the correct implementation.
 
 ### Tier 2 — Knowledge layer (committed JSON, no database)
-Six stores plus one tiny embedding index, all in data/. A thin TypeScript query layer in lib/knowledge/ exposes typed functions over them. The graph is small enough (≤500 entities) that the entire JS query layer is ~200 lines. Do not add a database, do not chunk for RAG, do not add a vector DB beyond the vernacular index. If you feel the urge, write the question in a comment and ask me first.
+Five stores in data/: entities+relations, tables, procedures, diagnostic_trees, diagrams. A thin TypeScript query layer in lib/knowledge/ exposes typed functions over them. The graph is small enough (≤500 entities) that the entire JS query layer is ~200 lines. Do not add a database, do not chunk for RAG, do not add a vector DB. If you feel the urge, write the question in a comment and ask me first.
 
 ### Tier 3 — Runtime (Claude Agent SDK)
-Use the official Claude Agent SDK for TypeScript. The agent has six tools:
+Use the official Claude Agent SDK for TypeScript. The agent has seven tools:
 
 - query_graph(start_entity, relation, depth) — graph traversal
 - get_table(name, filters) — typed row lookup
@@ -37,6 +36,7 @@ Use the official Claude Agent SDK for TypeScript. The agent has six tools:
 - render_artifact(spec) — emits a widget descriptor that renders in the artifact panel (contract defined in Stage 0, see below)
 - diagnose_loop(belief_state, last_observation) — Bayesian update + next-best-check selection
 - verify_setup(procedure_id, current_step) — walks postconditions, returns the first failure or ok
+- list_symptoms() — returns the full list of canonical symptom IDs and short descriptions from diagnostic_trees.json; used at diagnose-mode entry to match the user's reported problem to the correct Bayesian tree via LLM reasoning over the list
 
 The agent operates in four modes, all sharing the same tool surface. The mode is determined by an intent router that runs on each user turn:
 
@@ -60,6 +60,7 @@ The agent operates in four modes, all sharing the same tool surface. The mode is
 - Live AR overlay — requires WebRTC + edge inference, way out of scope for the time budget.
 - Cross-product compatibility queries — needs a multi-product graph, only meaningful in the SaaS version.
 - Fully freeform LLM-generated JSX as artifacts — we constrain to a small set of widget templates for reliability; mention you considered the freeform path.
+- Vernacular embedding index — considered pre-computing symptom synonyms ("Swiss cheese weld" → porosity) and embedding them for fuzzy matching at runtime. The LLM does this natively: the agent calls list_symptoms(), gets the canonical list, and reasons over it against the user's words. Pre-computing synonyms means guessing what users will say — exactly the brittleness an LLM should erase. The embedding path becomes worth it past ~200 symptoms, where the list grows too long to fit in a single tool-result context window.
 
 ## Rubric (the four things being graded)
 
@@ -102,7 +103,7 @@ These are the three places where guessing now will cost 1–2 days of rework lat
 Stop after Stage 0 and show me the three documents before proceeding.
 
 ### Stage 1 — Run ingestion against the actual PDF and commit results
-Implement the schema inference script first, run it against files/owners-manual.pdf, eyeball the output. If the schema is sane, proceed to the three extraction passes, then salience synthesis, then cross-page resolution, then the vernacular index. Commit every JSON output to data/. Add npm run ingest to package.json but mark in README that it should not be run unless re-ingesting.
+Run schema inference first against files/owner-manual.pdf and eyeball the output — cheap insurance before spending on extraction. If the schema is sane, proceed to the three extraction passes in parallel, then salience synthesis, then cross-page resolution. Commit all five JSON outputs to data/. Add npm run ingest to package.json but mark in README that it must not be run as part of dev startup.
 
 ### Stage 2 — Knowledge query layer
 TypeScript modules in lib/knowledge/ exposing typed query functions over the JSON stores. ~200 lines total. Unit tests for non-trivial query paths (graph traversal, salience-ranked diagram retrieval).
