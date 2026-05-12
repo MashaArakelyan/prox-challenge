@@ -1,0 +1,533 @@
+{
+  "domain_summary": "The Vulcan OmniPro 220 is a multiprocess welding system supporting MIG, Flux-Cored, TIG, and Stick welding processes with adjustable current, wire feed speed, and digital controls.",
+  "entity_types": [
+    {
+      "name": "welding_process",
+      "description": "A selectable welding mode or method the operator runs on the machine, such as MIG, Flux-Cored, TIG, or Stick",
+      "meta_role": "operator_concept",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "process_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "MIG",
+            "Flux-Cored",
+            "TIG",
+            "Stick"
+          ]
+        },
+        {
+          "name": "polarity",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "DCEP",
+            "DCEN",
+            "AC"
+          ]
+        },
+        {
+          "name": "requires_shielding_gas",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "welding_parameter",
+      "description": "A numeric or enumerated setting that controls welding output, such as current, voltage, or wire feed speed",
+      "meta_role": "parameter",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "parameter_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "welding_current",
+            "wire_feed_speed",
+            "voltage",
+            "duty_cycle"
+          ]
+        },
+        {
+          "name": "minimum_value",
+          "type": "number",
+          "required": false,
+          "expected_unit": "A or IPM"
+        },
+        {
+          "name": "maximum_value",
+          "type": "number",
+          "required": false,
+          "expected_unit": "A or IPM"
+        },
+        {
+          "name": "unit",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "A",
+            "IPM",
+            "V",
+            "%"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "control_element",
+      "description": "A physical button, knob, switch, or display on the welder front panel used by the operator to configure or monitor the machine",
+      "meta_role": "control_element",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "element_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Home Button",
+            "Back Button",
+            "Control Knob",
+            "Left Knob",
+            "Right Knob",
+            "Power Switch",
+            "LCD Display"
+          ]
+        },
+        {
+          "name": "element_type",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "button",
+            "knob",
+            "switch",
+            "display"
+          ]
+        },
+        {
+          "name": "location",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "front panel",
+            "rear panel"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical_connector",
+      "description": "A physical socket, port, outlet, or terminal on the welder body used to connect cables, guns, or gas hoses",
+      "meta_role": "physical_interface",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "connector_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Positive Socket",
+            "Negative Socket",
+            "MIG Gun/Spool Gun Cable Socket",
+            "Spool Gun Gas Outlet",
+            "Wire Feed Power Cable"
+          ]
+        },
+        {
+          "name": "polarity",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "positive",
+            "negative",
+            "neutral"
+          ]
+        },
+        {
+          "name": "connector_type",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "welding_wire",
+      "description": "A consumable wire electrode fed through the MIG gun or spool gun during MIG or Flux-Cored welding",
+      "meta_role": "consumable_input",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "wire_type",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Solid Core",
+            "Flux Cored"
+          ]
+        },
+        {
+          "name": "diameter",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "0.025\"",
+            "0.030\"",
+            "0.035\"",
+            "0.045\""
+          ]
+        },
+        {
+          "name": "spool_weight_capacity",
+          "type": "number",
+          "required": false,
+          "expected_unit": "lb"
+        }
+      ]
+    },
+    {
+      "name": "shielding_gas",
+      "description": "A consumable gas used to protect the weld pool from atmospheric contamination during MIG or TIG welding",
+      "meta_role": "consumable_input",
+      "salience_hint": "medium",
+      "attributes": [
+        {
+          "name": "gas_type",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "C25",
+            "100% CO2",
+            "100% Argon",
+            "Argon/CO2 mix"
+          ]
+        },
+        {
+          "name": "compatible_process",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "MIG",
+            "TIG"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stick_electrode",
+      "description": "A consumable stick electrode used during Stick (SMAW) welding",
+      "meta_role": "consumable_input",
+      "salience_hint": "medium",
+      "attributes": [
+        {
+          "name": "electrode_classification",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "diameter",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "workpiece_material",
+      "description": "A material that the welder acts upon, such as mild steel, stainless steel, or aluminum",
+      "meta_role": "workpiece_material",
+      "salience_hint": "medium",
+      "attributes": [
+        {
+          "name": "material_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Mild Steel",
+            "Stainless Steel",
+            "Aluminum",
+            "Chrome Moly"
+          ]
+        },
+        {
+          "name": "compatible_process",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "MIG",
+            "TIG",
+            "Stick"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "product_specification",
+      "description": "A numeric product-level rating or constraint such as input voltage, current range, OCV, or duty cycle",
+      "meta_role": "specification",
+      "salience_hint": "medium",
+      "attributes": [
+        {
+          "name": "spec_name",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Power Input",
+            "Welding Current Range",
+            "Rated Duty Cycle",
+            "Maximum OCV",
+            "Wire Speed",
+            "Wire Spool Capacity"
+          ]
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "VAC",
+            "A",
+            "VDC",
+            "IPM",
+            "lb",
+            "%"
+          ]
+        },
+        {
+          "name": "applicable_process",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "MIG",
+            "TIG",
+            "Stick"
+          ]
+        },
+        {
+          "name": "input_voltage_context",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "120VAC",
+            "240VAC"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup_procedure",
+      "description": "An ordered sequence of steps the operator follows to configure or operate the welder for a specific welding process or task",
+      "meta_role": "procedure",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "procedure_name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "applicable_process",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "MIG",
+            "Flux-Cored",
+            "TIG",
+            "Stick"
+          ]
+        },
+        {
+          "name": "step_count",
+          "type": "number",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "failure_mode",
+      "description": "An observable symptom, fault condition, overheat event, or error state that indicates a problem with the welder",
+      "meta_role": "failure_mode",
+      "salience_hint": "high",
+      "attributes": [
+        {
+          "name": "symptom_description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "indicated_by",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "Overheat Shutdown Indicator",
+            "LCD Display",
+            "no arc"
+          ]
+        },
+        {
+          "name": "recommended_action",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "safety_guideline",
+      "description": "A safety rule or precaution from the manual that the operator must observe to prevent injury or equipment damage",
+      "meta_role": "other",
+      "salience_hint": "low",
+      "attributes": [
+        {
+          "name": "hazard_type",
+          "type": "enum",
+          "required": true,
+          "sample_values": [
+            "Electric Shock",
+            "Fire",
+            "Fume Inhalation",
+            "Arc Ray",
+            "Cylinder Explosion"
+          ]
+        },
+        {
+          "name": "severity",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "DANGER",
+            "WARNING",
+            "CAUTION",
+            "NOTICE"
+          ]
+        },
+        {
+          "name": "guideline_text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "reference_diagram",
+      "description": "A figure, diagram, table, or illustration in the manual used to convey layout, wiring, or parts information",
+      "meta_role": "reference_artifact",
+      "salience_hint": "low",
+      "attributes": [
+        {
+          "name": "diagram_title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page_number",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "diagram_type",
+          "type": "enum",
+          "required": false,
+          "sample_values": [
+            "front panel diagram",
+            "parts list",
+            "wiring diagram",
+            "specifications table"
+          ]
+        }
+      ]
+    }
+  ],
+  "relation_predicates": [
+    {
+      "predicate": "supports_process",
+      "subject_type": "product_specification",
+      "object_type": "welding_process",
+      "description": "A specification value applies to or is rated for a particular welding process"
+    },
+    {
+      "predicate": "uses_consumable",
+      "subject_type": "welding_process",
+      "object_type": "welding_wire",
+      "description": "A welding process consumes a specific type of welding wire"
+    },
+    {
+      "predicate": "uses_consumable",
+      "subject_type": "welding_process",
+      "object_type": "stick_electrode",
+      "description": "A welding process consumes a stick electrode"
+    },
+    {
+      "predicate": "requires_shielding_gas",
+      "subject_type": "welding_process",
+      "object_type": "shielding_gas",
+      "description": "A welding process requires a specific shielding gas for proper operation"
+    },
+    {
+      "predicate": "compatible_with_material",
+      "subject_type": "welding_process",
+      "object_type": "workpiece_material",
+      "description": "A welding process can be applied to a particular workpiece material"
+    },
+    {
+      "predicate": "governs_parameter",
+      "subject_type": "control_element",
+      "object_type": "welding_parameter",
+      "description": "A control element is used to set or adjust a welding parameter"
+    },
+    {
+      "predicate": "connects_to",
+      "subject_type": "welding_wire",
+      "object_type": "physical_connector",
+      "description": "A welding wire is fed through or connected at a physical connector"
+    },
+    {
+      "predicate": "connects_to",
+      "subject_type": "shielding_gas",
+      "object_type": "physical_connector",
+      "description": "A shielding gas supply connects to a specific gas outlet or port on the welder"
+    },
+    {
+      "predicate": "indicates_failure",
+      "subject_type": "control_element",
+      "object_type": "failure_mode",
+      "description": "A display or indicator control element signals a particular failure mode to the operator"
+    },
+    {
+      "predicate": "defined_by",
+      "subject_type": "welding_process",
+      "object_type": "product_specification",
+      "description": "A welding process is characterized by specific product-level specifications such as current range and duty cycle"
+    },
+    {
+      "predicate": "described_in",
+      "subject_type": "setup_procedure",
+      "object_type": "reference_diagram",
+      "description": "A setup procedure references a diagram or figure in the manual for visual guidance"
+    },
+    {
+      "predicate": "applies_to_process",
+      "subject_type": "setup_procedure",
+      "object_type": "welding_process",
+      "description": "A setup procedure is intended for configuring or executing a specific welding process"
+    },
+    {
+      "predicate": "mitigates_hazard",
+      "subject_type": "safety_guideline",
+      "object_type": "failure_mode",
+      "description": "A safety guideline reduces the risk of or prevents a specific failure mode or hazard"
+    },
+    {
+      "predicate": "controls_process",
+      "subject_type": "welding_parameter",
+      "object_type": "welding_process",
+      "description": "A welding parameter directly influences the output or behavior of a welding process"
+    }
+  ]
+}
