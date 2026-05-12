@@ -28,6 +28,8 @@ Pipeline stages, in order:
 ### Tier 2 — Knowledge layer (committed JSON, no database)
 Five stores in data/: entities+relations, tables, procedures, diagnostic_trees, diagrams. A thin TypeScript query layer in lib/knowledge/ exposes typed functions over them. The graph is small enough (≤500 entities) that the entire JS query layer is ~200 lines. Do not add a database, do not chunk for RAG, do not add a vector DB. If you feel the urge, write the question in a comment and ask me first.
 
+**README honesty note to include near the knowledge layer description:** "Relations are intra-page only; cross-page navigation works through shared entity IDs and citation sets rather than graph edges. The alternative would have invited hallucinated relations between entities the LLM never observed together."
+
 ### Tier 3 — Runtime (Claude Agent SDK)
 Use the official Claude Agent SDK for TypeScript. The agent has seven tools:
 
@@ -45,6 +47,25 @@ The agent operates in four modes, all sharing the same tool surface. The mode is
 - Procedure mode — guided one-step-at-a-time UI with postcondition photo verification.
 - Diagnose mode — runs verify_setup first; if clean, calls list_symptoms() to match the user's reported problem to a canonical symptom, then enters Bayesian narrowing. At each turn in the differential phase the agent picks the next check by maximizing expected entropy reduction over the current belief distribution — the question whose answer most splits the remaining candidate set. The flat-checks structure in diagnostic_trees.json (checks are siblings to causes, not nested inside them) is what makes this cross-cause computation possible. A live side panel shows the candidate-cause distribution as bars that compress as questions are answered. Each completed check is rewindable. Terminates when one cause crosses ~0.85 posterior mass OR offers a human handoff.
 - Configure mode — interactive SVG of the front panel (extracted from the manual's labeled diagrams). User picks process + material + thickness; the panel animates to the recommended settings. User can drag dials and the agent narrates what would change.
+
+### Lookup mode response classifier
+
+Lookup mode is the demo's centerpiece and serves every rubric question shape — short factual answers, diagram surfacing, on-the-fly artifact generation. To stay consistent across runs, the first action on every Lookup-mode turn is an explicit classification of the expected response shape. This classifier is a structured-output call — either a Haiku 4.5 call for cost, or a structured tool call from the main Opus turn, whichever fits the SDK ergonomics best.
+
+Output classes (exactly one per turn):
+
+- text_only — short factual answer with no useful visual. Example: "What's the maximum input current at 120V?" → look up the spec, cite the page, return text + citation badge.
+- text_plus_surfaced_diagram — the answer references a diagram already in the manual. Example: "Which socket does the ground clamp go into for TIG?" → return text + crop of the front panel diagram with the relevant region highlighted.
+- text_plus_generated_artifact — the question is about relationships between variables or asks for an interactive widget. Example: "How does duty cycle change with amperage at 240V vs 120V?" → text + a generated artifact (one of the five kinds: react, html, svg, mermaid, template).
+- needs_clarification — the question is ambiguous in a way that one short clarifier resolves. Example: "What polarity should I use?" with no process context → reply with quick-pick chips (MIG / TIG / Flux-cored / Stick) and wait.
+
+The classifier prompt runs on the user message plus the last 2 turns of conversation context, and returns one of the four classes plus an optional reason string. Confidence below ~0.6 → default to text_only and surface the answer with a "want me to show this as a diagram or interactive widget?" affordance at the end.
+
+The chosen class is included in the agent's system-prompt context for that turn (e.g., "Current response shape: text_plus_generated_artifact") so the rest of the response composition follows from it.
+
+Without this explicit classifier the agent improvises differently across runs — sometimes generating artifacts when text would suffice, sometimes answering in prose when a diagram is the right call. The classifier makes Lookup mode legible, testable, and consistent. It's also what enables unit tests against Lookup behavior — pin the class, send a user message, assert on the response shape.
+
+Do not implement the classifier yet. This is documentation for what Stage 3 will build.
 
 ### UI surfaces
 
