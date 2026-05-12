@@ -14,10 +14,11 @@ Reviewers must not pay your API bill. Run ingestion once on your own key, commit
 Pipeline stages, in order:
 
 1. Schema inference. Claude reads the manual's table of contents, the first ~8 pages, and any spec/safety summary, then proposes a domain-specific ontology as JSON: entity types, relation predicates, expected attributes per entity type. Output committed as data/schema.json. This step is what lets the system generalize across product classes.
-2. Three parallel extraction passes against the inferred schema, page-by-page, using Claude with vision:
-   - Structural pass — entities, relations, tables (parsed into rows), diagrams with bounding boxes for every labeled region, embedded photos. Output: data/entities.json, data/relations.json, data/tables.json, data/diagrams.json, data/images/.
-   - Procedural pass — every "how to..." section becomes a state machine: ordered steps, explicit postconditions per step (e.g., "wire protrudes 1/4 inch past contact tip"), branching on failure. Output: data/procedures.json.
-   - Diagnostic pass — for every symptom in the manual, build a Bayesian network: candidate causes with priors, checks with likelihood ratios. Every numeric prior/likelihood must carry a source flag: manual_derived, manual_order_heuristic, or llm_estimated. Output: data/diagnostic_trees.json.
+2. Three parallel extraction passes against the inferred schema, page-by-page, using Claude with vision. Each pass uses the model best suited to its task — model constants live in scripts/ingest-config.ts:
+   - Structural pass (Haiku 4.5) — transcription-heavy work: entities, relations, tables parsed into rows, diagrams with bounding boxes for every labeled region, embedded photos. Output: data/entities.json, data/relations.json, data/tables.json, data/diagrams.json, data/images/.
+   - Procedural pass (Sonnet 4.6) — moderate reasoning: every "how to..." section becomes a state machine with ordered steps, explicit postconditions per step (e.g., "wire protrudes 1/4 inch past contact tip"), and branching on failure. Output: data/procedures.json.
+   - Diagnostic pass (Opus 4.7) — strong reasoning required: for every symptom, build a Bayesian network with flat checks and per-cause likelihood ratios. Every prior and likelihood ratio carries a source flag (manual_derived, manual_order_heuristic, or llm_estimated). Output: data/diagnostic_trees.json.
+   This split drops a full ingestion run from ~$25 to ~$5–8, making extraction-prompt iteration cheap.
 3. Salience synthesis. Reads the assembled stores (not the raw PDF again) and produces:
    - data/critical_facts.json — atomic, quotable assertions like "MIG duty cycle at 200A on 240V is 30%", "TIG ground clamp goes in the negative DINSE socket". One fact, one citation per entry.
    - Salience weights (0–1) attached to every entity, relation, and diagram. Stored as updates to the existing JSON files.
