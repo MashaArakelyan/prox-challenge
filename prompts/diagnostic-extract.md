@@ -21,31 +21,41 @@ so the model can read diagram labels alongside prose.
 
 ## Priors policy
 
-**Rule:** priors must be grounded in the manual's own ordering when possible.
+There are three source values for numeric values in the diagnostic output:
 
-The manual lists causes in troubleshooting tables. The ordering of causes within a table is
-treated as editorial signal — causes listed first are presumed more common. We convert this
-position into a prior:
+| Source | Meaning | UI badge |
+|--------|---------|----------|
+| `manual_derived` | A number stated explicitly in the manual (e.g., "this is the most common cause") | solid badge |
+| `manual_order_heuristic` | Inferred from the listing order in a troubleshooting table — first-listed = more common | dashed badge |
+| `llm_estimated` | Claude's domain knowledge; no manual grounding | light badge |
+
+The README's honesty section names all three explicitly. The diagnosis side panel renders
+a different confidence badge for each, so reviewers can see the epistemics at a glance.
+
+**Position-to-prior conversion (for `manual_order_heuristic`):**
+
+When the manual lists causes in a numbered or bulleted sequence without explicit frequencies,
+treat listing order as editorial signal and assign priors using this schedule:
 
 ```
-position 1 of N causes → prior = 0.5
-position 2 of N causes → prior = 0.3
-position 3 of N causes → prior = 0.15
-position 4+ of N causes → prior split equally over remaining probability mass
+position 1 of N → prior = 0.40
+position 2 of N → prior = 0.25
+position 3 of N → prior = 0.15
+position 4+ of N → remaining mass (1 - sum of above) split equally, minus 0.05 for unknowns
 ```
 
-These are rough but internally consistent. Every prior derived this way gets
-`"source": "manual_derived"`.
+These numbers are deliberately softer than the previous 0.50/0.30/0.15 schedule to reflect
+the fact that listing order is a heuristic, not a frequency measurement. Every prior from
+this schedule carries `"prior_source": "manual_order_heuristic"`.
 
-When the manual does not provide an ordering, or when a cause is inferred from context
-(not explicitly named in the manual), use domain-knowledge estimation:
-`"source": "llm_estimated"`.
+When the manual does provide an explicit statement of frequency ("almost always", "rarely"),
+use `manual_derived` and note the quoted phrase in a `prior_note` field.
 
-**This distinction is surfaced in the UI** as a small indicator next to each belief bar
-in the diagnosis side panel, and is disclosed in the README.
+When a cause is inferred from context (not explicitly named in the manual), use
+`"prior_source": "llm_estimated"`.
 
-Likelihood ratios (how much a positive check shifts belief) are always `llm_estimated`
-unless the manual explicitly says something like "this is almost always caused by X."
+Likelihood ratios are always `llm_estimated` unless the manual says something like
+"almost always" or "rarely" adjacent to a specific cause. In that case use `manual_derived`.
 
 ---
 
@@ -69,15 +79,24 @@ RULES:
 1. A "symptom" is observable by the user without tools (visual, auditory, tactile).
    Do not create symptoms for internal machine states the user cannot observe.
 2. Priors across all causes for one symptom must sum to ≤ 1.0 (leave slack for unknown causes).
-3. Every numeric value (prior, likelihood_ratio) must include a "source" field:
-   - "manual_derived" if the value is grounded in the manual's explicit ordering or text
-   - "llm_estimated" if the value is based on domain knowledge not stated in the manual
-4. Checks must be phrased as yes/no questions or binary observations the user can answer
+3. Every prior must include a "prior_source" field with one of:
+   - "manual_derived"         — explicit frequency stated in the manual
+   - "manual_order_heuristic" — inferred from listing order in a manual table
+   - "llm_estimated"          — Claude's domain knowledge; no manual grounding
+4. Every likelihood_ratio must include a "likelihood_ratio_source" with the same three values.
+5. Each check must declare its "modality" — how the user answers it:
+   - "self_report"         — user recalls or observes something (yes/no answer)
+   - "user_photo"          — user takes or uploads a photo for interpretation
+   - "numeric_measurement" — user reads a gauge, display, or meter
+   This field determines whether the UI prompts for a photo upload, a number input, or a yes/no button.
+6. Checks must be phrased as yes/no questions or numeric observations the user can answer
    while standing at the machine (e.g., "Is the wire feed speed above 300 IPM?").
-5. Vernacular synonyms must reflect how a non-expert in a garage would describe the problem
+7. Vernacular synonyms must reflect how a non-expert would describe the problem
    (e.g., "holes in the weld", "weld blew through", "burn hole").
-6. If a page contains no diagnostic content, return: { "symptoms": [] }
-7. Return ONLY the JSON object.
+8. process_scope should name the specific process(es) if known, or "all" if universal.
+   Use the process names as they appear in the manual.
+9. If a page contains no diagnostic content, return: { "symptoms": [] }
+10. Return ONLY the JSON object.
 
 REQUIRED OUTPUT SHAPE:
 {
@@ -88,20 +107,22 @@ REQUIRED OUTPUT SHAPE:
       "label": "Short human-readable label",
       "description": "What the user observes",
       "vernacular_synonyms": ["informal phrase 1", "informal phrase 2"],
-      "welding_process_scope": ["MIG", "TIG", "Flux-Cored", "Stick"] | "all",
+      "process_scope": ["process name 1", "process name 2"] | "all",
       "causes": [
         {
           "id": "cause_slug",
           "label": "Cause name",
           "prior": 0.0–1.0,
-          "prior_source": "manual_derived" | "llm_estimated",
+          "prior_source": "manual_derived" | "manual_order_heuristic" | "llm_estimated",
+          "prior_note": "optional: quoted phrase from manual if manual_derived",
           "checks": [
             {
               "id": "check_slug",
-              "question": "Yes/no question or binary observation",
-              "positive_meaning": "What it means when the answer is yes",
+              "question": "Yes/no question or numeric observation",
+              "modality": "self_report" | "user_photo" | "numeric_measurement",
+              "positive_meaning": "What it means when the answer is yes / above threshold",
               "likelihood_ratio_positive": number,
-              "likelihood_ratio_source": "manual_derived" | "llm_estimated",
+              "likelihood_ratio_source": "manual_derived" | "manual_order_heuristic" | "llm_estimated",
               "recommended_action_if_positive": "What to do"
             }
           ]
@@ -129,13 +150,13 @@ The manual lists these causes and solutions in order:
 4. Wire feeding too fast → reduce wire feed speed
 5. CTWD too long → reduce CTWD
 
-Using the priors policy (5 causes):
-- Cause 1: prior = 0.50 (manual_derived)
-- Cause 2: prior = 0.25 (manual_derived) — second listed
-- Cause 3: prior = 0.12 (manual_derived) — third listed
-- Cause 4: prior = 0.07 (manual_derived) — fourth listed
-- Cause 5: prior = 0.04 (manual_derived) — fifth listed
-- Unknown causes: remaining 0.02
+Using the priors policy (5 causes, listing order only → `manual_order_heuristic`):
+- Cause 1: prior = 0.40 (manual_order_heuristic)
+- Cause 2: prior = 0.25 (manual_order_heuristic) — second listed
+- Cause 3: prior = 0.15 (manual_order_heuristic) — third listed
+- Cause 4: prior = 0.10 (manual_order_heuristic) — remaining mass split over 4 + 5, minus 0.05 for unknowns
+- Cause 5: prior = 0.05 (manual_order_heuristic)
+- Unknown causes: remaining 0.05
 
 ```json
 {
@@ -154,17 +175,18 @@ Using the priors policy (5 causes):
         "gas pockets",
         "weld is porous"
       ],
-      "welding_process_scope": ["MIG", "Flux-Cored"],
+      "process_scope": ["MIG", "Flux-Cored"],
       "causes": [
         {
           "id": "dirty_workpiece_or_wire",
           "label": "Dirty workpiece or welding wire",
-          "prior": 0.50,
-          "prior_source": "manual_derived",
+          "prior": 0.40,
+          "prior_source": "manual_order_heuristic",
           "checks": [
             {
               "id": "check_surface_contamination",
               "question": "Is there visible rust, paint, oil, or mill scale on the workpiece surface?",
+              "modality": "user_photo",
               "positive_meaning": "Surface contamination is introducing gas into the arc",
               "likelihood_ratio_positive": 6.0,
               "likelihood_ratio_source": "llm_estimated",
@@ -173,6 +195,7 @@ Using the priors policy (5 causes):
             {
               "id": "check_wire_condition",
               "question": "Is the welding wire discolored, rusty, or coated with residue?",
+              "modality": "user_photo",
               "positive_meaning": "Wire contamination is introducing gas into the arc",
               "likelihood_ratio_positive": 5.0,
               "likelihood_ratio_source": "llm_estimated",
@@ -184,22 +207,24 @@ Using the priors policy (5 causes):
           "id": "incorrect_polarity",
           "label": "Incorrect polarity",
           "prior": 0.25,
-          "prior_source": "manual_derived",
+          "prior_source": "manual_order_heuristic",
           "checks": [
             {
               "id": "check_polarity_mig",
               "question": "For MIG solid wire: is the MIG gun cable in the positive (+) socket and the ground in the negative (−) socket?",
+              "modality": "self_report",
               "positive_meaning": "Polarity is correct for MIG — this cause is unlikely",
               "likelihood_ratio_positive": 0.1,
-              "likelihood_ratio_source": "manual_derived",
+              "likelihood_ratio_source": "llm_estimated",
               "recommended_action_if_positive": "Polarity is fine — investigate other causes"
             },
             {
               "id": "check_polarity_fcaw",
               "question": "For Flux-Cored wire: is the MIG gun cable in the negative (−) socket and the ground in the positive (+) socket?",
+              "modality": "self_report",
               "positive_meaning": "Polarity is correct for FCAW — this cause is unlikely",
               "likelihood_ratio_positive": 0.1,
-              "likelihood_ratio_source": "manual_derived",
+              "likelihood_ratio_source": "llm_estimated",
               "recommended_action_if_positive": "Polarity is fine — investigate other causes"
             }
           ]
@@ -207,13 +232,14 @@ Using the priors policy (5 causes):
         {
           "id": "insufficient_shielding_gas",
           "label": "Insufficient shielding gas (MIG only)",
-          "prior": 0.12,
-          "prior_source": "manual_derived",
+          "prior": 0.15,
+          "prior_source": "manual_order_heuristic",
           "checks": [
             {
               "id": "check_gas_flow_rate",
-              "question": "Is the gas flow rate below 20 CFH on the regulator?",
-              "positive_meaning": "Low flow rate is allowing atmospheric air to contaminate the weld pool",
+              "question": "What is the flow rate shown on your regulator? (in CFH)",
+              "modality": "numeric_measurement",
+              "positive_meaning": "Flow rate below 20 CFH is allowing atmospheric air to contaminate the weld pool",
               "likelihood_ratio_positive": 7.0,
               "likelihood_ratio_source": "llm_estimated",
               "recommended_action_if_positive": "Set flow rate to 20–25 CFH; check for kinks in the gas hose"
@@ -221,6 +247,7 @@ Using the priors policy (5 causes):
             {
               "id": "check_nozzle_blockage",
               "question": "Is the nozzle interior caked with spatter buildup?",
+              "modality": "user_photo",
               "positive_meaning": "Spatter is restricting gas flow to the arc",
               "likelihood_ratio_positive": 4.0,
               "likelihood_ratio_source": "llm_estimated",
@@ -229,6 +256,7 @@ Using the priors policy (5 causes):
             {
               "id": "check_ctwd_gas",
               "question": "Is the contact-tip-to-work distance (CTWD) greater than 1/2 inch?",
+              "modality": "self_report",
               "positive_meaning": "Excessive CTWD disperses the gas shield before it reaches the arc",
               "likelihood_ratio_positive": 3.5,
               "likelihood_ratio_source": "llm_estimated",
@@ -239,12 +267,13 @@ Using the priors policy (5 causes):
         {
           "id": "wire_feed_too_fast",
           "label": "Wire feeding too fast",
-          "prior": 0.07,
-          "prior_source": "manual_derived",
+          "prior": 0.10,
+          "prior_source": "manual_order_heuristic",
           "checks": [
             {
               "id": "check_wire_speed_setting",
               "question": "Is the wire feed speed set above the recommended range for the material thickness?",
+              "modality": "self_report",
               "positive_meaning": "Excess wire is outrunning the gas shield and shielded arc",
               "likelihood_ratio_positive": 3.0,
               "likelihood_ratio_source": "llm_estimated",
@@ -255,12 +284,13 @@ Using the priors policy (5 causes):
         {
           "id": "ctwd_too_long",
           "label": "CTWD too long",
-          "prior": 0.04,
-          "prior_source": "manual_derived",
+          "prior": 0.05,
+          "prior_source": "manual_order_heuristic",
           "checks": [
             {
               "id": "check_ctwd_length",
               "question": "Is the visible wire stickout between the contact tip and workpiece greater than 1/2 inch?",
+              "modality": "self_report",
               "positive_meaning": "Long stickout reduces shielding gas coverage and increases resistive heating",
               "likelihood_ratio_positive": 3.0,
               "likelihood_ratio_source": "llm_estimated",
@@ -282,11 +312,12 @@ Using the priors policy (5 causes):
 
 ## Notes on the worked example
 
-- All five causes are `manual_derived` because the manual explicitly lists them in order.
+- All five causes are `manual_order_heuristic` — the manual lists them in order but gives no explicit frequencies.
 - All likelihood ratios are `llm_estimated` because the manual does not quantify them.
-- The checks are phrased so a user standing at the machine can answer them in under 10 seconds.
+- Each check declares a `modality`: the regulator reading is `numeric_measurement` (triggers a number input), surface contamination is `user_photo` (triggers camera/upload), polarity checks are `self_report` (yes/no buttons).
 - The polarity checks use inverted likelihood ratios (< 1) to reduce belief when polarity is confirmed correct.
 - Vernacular synonyms are intentionally colloquial to match fuzzy user queries.
+- Prior for cause 3 (insufficient gas) increased slightly vs the formula schedule because it is process-specific (MIG only) and therefore a higher fraction of the applicable-process prior mass.
 
 ---
 

@@ -35,20 +35,35 @@ that a knowledge graph for this product should use.
 Output only valid JSON matching the schema below. No prose, no markdown fences.
 
 RULES:
-1. Entity type names must be singular nouns in snake_case (e.g., "welding_process", "connector").
+1. Entity type names must be singular nouns in snake_case (e.g., "cutting_path", "valve", "fault_code").
+   Do not use product-specific names — name the concept, not the instance.
 2. No two entity types may overlap in the set of things they describe.
    If you are unsure, merge into a more general type rather than split.
-3. Relation predicates must be snake_case verb phrases (e.g., "requires", "connects_to", "outputs_at").
+3. Each entity type must declare a meta_role from this fixed set:
+   - "operator_concept"   — a process, mode, or cycle the operator selects or runs
+   - "physical_interface" — a physical connector, port, socket, valve, or terminal
+   - "control_element"    — a knob, button, switch, display, or adjustment on the machine
+   - "parameter"          — a numeric or enumerated setting (speed, current, temperature)
+   - "procedure"          — an ordered sequence of steps the operator follows
+   - "consumable_input"   — a replaceable or expendable material used by the machine
+   - "workpiece_material" — a material the machine acts upon
+   - "failure_mode"       — an observable symptom, fault code, or error condition
+   - "specification"      — a product-level numeric constraint or rating
+   - "reference_artifact" — a diagram, figure, photo, or table in the manual
+   - "other"              — use only if none of the above fit; explain in description
+   Downstream code queries by meta_role (e.g., "all failure_mode entities") so this field
+   must be precise. When in doubt, pick the closest fit rather than "other".
+4. Relation predicates must be snake_case verb phrases (e.g., "requires", "connects_to", "outputs_at").
    Every predicate must be directional: subject → object.
-4. Every attribute must list its expected type: "string" | "number" | "boolean" | "enum" | "range".
+5. Every attribute must list its expected type: "string" | "number" | "boolean" | "enum" | "range".
    For "enum", include a non-exhaustive sample_values array.
    For "range", include expected_unit (e.g., "A", "V", "%", "IPM").
-5. Include a "salience_hint" field per entity type: "high" | "medium" | "low".
-   High = directly actionable (settings, procedures, connectors).
+6. Include a "salience_hint" field per entity type: "high" | "medium" | "low".
+   High = directly actionable (settings, procedures, interfaces).
    Medium = reference context (materials, processes, specifications).
    Low = administrative (warranty, contact info, legal).
-6. Include a top-level "domain_summary" string: one sentence naming the product and its primary function.
-7. Return ONLY the JSON object. Any non-JSON output will be rejected.
+7. Include a top-level "domain_summary" string: one sentence naming the product and its primary function.
+8. Return ONLY the JSON object. Any non-JSON output will be rejected.
 
 REQUIRED OUTPUT SHAPE:
 {
@@ -57,6 +72,9 @@ REQUIRED OUTPUT SHAPE:
     {
       "name": "snake_case_name",
       "description": "what instances of this type are",
+      "meta_role": "operator_concept" | "physical_interface" | "control_element" | "parameter" |
+                   "procedure" | "consumable_input" | "workpiece_material" | "failure_mode" |
+                   "specification" | "reference_artifact" | "other",
       "salience_hint": "high" | "medium" | "low",
       "attributes": [
         {
@@ -82,23 +100,12 @@ REQUIRED OUTPUT SHAPE:
 
 ---
 
-## Expected entity types (grounded in Vulcan OmniPro 220)
+## Why meta_role instead of required type names
 
-The validator enforces these types are present. Additional types are allowed.
-
-| Name | Description | Salience |
-|------|-------------|----------|
-| `welding_process` | A welding mode (MIG, TIG, Flux-Cored, Stick) | high |
-| `connector` | A physical socket or terminal on the machine | high |
-| `control` | A knob, button, switch, or display element | high |
-| `setting` | A numeric or mode parameter (amperage, wire speed, voltage) | high |
-| `procedure` | An ordered sequence of steps | high |
-| `consumable` | A replaceable item (wire, electrode, contact tip) | medium |
-| `material` | A workpiece material (mild steel, stainless, aluminum) | medium |
-| `symptom` | An observable problem during welding | high |
-| `specification` | A product-level numeric constraint | medium |
-| `safety_rule` | An imperative safety instruction | low |
-| `diagram` | A figure, schematic, or photo in the manual | medium |
+We do not require specific entity type names because type names are product-specific:
+a welder has `welding_process`, a CNC mill has `toolpath`, a furnace has `heating_cycle` —
+but all three are `operator_concept`. Downstream code always queries by meta_role, so it
+is product-agnostic. The agent inherits the same stable hooks regardless of which PDF was ingested.
 
 ---
 
@@ -107,31 +114,38 @@ The validator enforces these types are present. Additional types are allowed.
 The validator runs after each Claude response and checks:
 
 ```typescript
+const VALID_META_ROLES = [
+  "operator_concept", "physical_interface", "control_element", "parameter",
+  "procedure", "consumable_input", "workpiece_material", "failure_mode",
+  "specification", "reference_artifact", "other"
+] as const
+
 type ValidationError =
-  | { code: "MISSING_ENTITY_TYPE"; expected: string }
+  | { code: "MISSING_DOMAIN_SUMMARY" }
+  | { code: "TOO_FEW_ENTITY_TYPES"; count: number; min: number }
+  | { code: "TOO_MANY_ENTITY_TYPES"; count: number; max: number }
   | { code: "DUPLICATE_ENTITY_TYPE"; name: string }
   | { code: "OVERLAPPING_TYPES"; a: string; b: string; reason: string }
+  | { code: "INVALID_META_ROLE"; entity: string; value: string }
+  | { code: "MISSING_REQUIRED_META_ROLES"; missing: string[] }
   | { code: "MISSING_FIELD"; entity: string; field: string }
   | { code: "INVALID_PREDICATE_FORMAT"; predicate: string }
   | { code: "UNKNOWN_TYPE_REFERENCE"; predicate: string; ref: string }
-  | { code: "MISSING_DOMAIN_SUMMARY" }
 ```
 
 **Checks performed:**
 1. `domain_summary` is a non-empty string.
-2. All required entity type names from the table above are present.
+2. Entity type count is between 5 and 15 inclusive (sanity bounds — fewer suggests incomplete extraction, more suggests over-splitting).
 3. No two entity type names are identical (case-insensitive).
-4. No two entity types have identical descriptions (catches copy-paste overlaps).
-5. Every attribute has `name`, `type`, and `required` fields.
-6. Enum attributes have non-empty `sample_values`.
-7. Range attributes have a non-empty `expected_unit`.
-8. All predicate names match `/^[a-z][a-z_]+$/`.
-9. `subject_type` and `object_type` in every predicate reference a defined entity type name.
-10. No predicate is missing `description`.
-
-**Overlap check** (check #4 extended): For entity types with descriptions that share >60% of
-trigrams with another type's description, emit `OVERLAPPING_TYPES` with an explanation.
-This is a heuristic; Claude must resolve it by merging or clarifying.
+4. No two entity types have descriptions sharing >60% trigram overlap (`OVERLAPPING_TYPES`). Claude must resolve by merging or clarifying the boundary.
+5. Every entity type's `meta_role` is a value from `VALID_META_ROLES`.
+6. The schema covers at least these four meta_roles: `failure_mode`, `procedure`, `physical_interface`, `operator_concept`. A product manual that lacks any of these is probably missing a section. (This is a coverage check on meta_roles, not on type names — it generalizes across products.)
+7. Every attribute has `name`, `type`, and `required` fields.
+8. Enum attributes have non-empty `sample_values`.
+9. Range attributes have a non-empty `expected_unit`.
+10. All predicate names match `/^[a-z][a-z_]+$/`.
+11. `subject_type` and `object_type` in every predicate reference a defined entity type name.
+12. No predicate is missing `description`.
 
 ---
 

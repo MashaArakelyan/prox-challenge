@@ -28,47 +28,56 @@ components. This is deliberately more constrained than letting the agent generat
 
 ## Widget types
 
-### 1. `duty_cycle_calculator`
-A multi-input calculator that computes allowable run time and cool-down time from
-amperage, voltage (input), and the machine's duty cycle curve.
+### 1. `parameter_calculator`
+A multi-input calculator where the agent supplies inputs, a formula derived from a manual
+table, and output annotation (e.g., thermal headroom, recommended range). The user can
+adjust inputs and see the output update live.
 
-**When to use:** User asks "how long can I weld at X amps?" or any question about
-thermal limits, overheating, or duty cycle percentages.
+**When to use:** Any question where the answer is a number computed from user inputs and
+a table or formula in the manual. "How long can I run at X amps?" "What's the correct
+wire speed for this thickness?" → this widget.
+
+**Agent supplies:** input field labels + units, formula or lookup table as row data,
+output label + unit, optional warning thresholds.
 
 ### 2. `two_curve_chart`
-A Recharts line chart with two series (e.g., duty cycle at 120V vs 240V).
-X-axis is numeric (amperage). Y-axis is percentage or another numeric measure.
+A Recharts line chart with two series. X-axis is numeric. Y-axis is any numeric measure.
+The agent supplies axis labels, units, and both data series as `[x, y]` arrays.
 
 **When to use:** Any relationship between two numeric settings across a range of values.
-"Show me the duty cycle curve" → this widget.
+"Show me the duty cycle curve at 120V vs 240V" → this widget.
 
-### 3. `polarity_router`
-An SVG schematic of the front panel connectors. Highlights which cable goes in which
-socket based on the selected welding process. Connectors light up with color coding.
+### 3. `connection_diagram`
+An SVG of a connection panel or interface with labeled regions. The agent supplies
+the SVG source (extracted from `data/diagrams.json`) and a highlight spec — which
+regions to color, with what color and label, for the current scenario.
 
-**When to use:** Any question about polarity setup, cable routing, which socket to use.
-"Which socket does the ground go in for TIG?" → this widget.
+**When to use:** Any question about physical connection routing — which port, socket, valve,
+or terminal gets which cable or hose, and in what configuration. The agent resolves the
+content (e.g., "MIG = gun to positive socket") and the template renders it visually.
 
 ### 4. `troubleshooting_flowchart`
 A directed graph rendered as a vertical flowchart. Nodes are checks or decisions,
 edges are yes/no answers, leaf nodes are recommended actions.
 
-**When to use:** Diagnosing a problem that has a structured decision tree from the manual.
-Used by the agent when it wants to show the full tree, not just advance one step.
+**When to use:** Diagnosing a problem that has a structured decision tree in the manual.
+Used when the agent wants to show the full tree overview, not advance one step at a time.
 
-### 5. `front_panel_twin`
-An SVG twin of the machine's front panel with interactive knobs and buttons.
-The agent pre-fills recommended settings; user can see the recommended state visually.
+### 5. `interactive_panel`
+An SVG of any machine control surface with elements that can be highlighted or animated.
+The agent supplies the SVG source (from `data/diagrams.json`), a list of element IDs to
+highlight (mapped to recommended settings), and optional animation spec (e.g., "dial
+rotates to 140A position"). User can click elements to get narration from the agent.
 
-**When to use:** Configure mode, or "what settings should I use for X material at Y thickness?"
-This is the signature artifact for the configure flow.
+**When to use:** Configure mode, or any question whose answer is a physical setting on the
+machine's control surface. The agent pre-fills the recommended configuration visually.
 
 ### 6. `comparison_table`
 A styled HTML table with sortable columns and optional row highlighting.
 Rows can carry a `highlight: boolean` to visually emphasize specific cells.
 
-**When to use:** Comparing specs across processes, material compatibility tables,
-wire selection guides.
+**When to use:** Comparing specs across modes, material compatibility, wire selection,
+any tabular data from the manual.
 
 ---
 
@@ -76,11 +85,11 @@ wire selection guides.
 
 ```typescript
 type ArtifactSpec =
-  | DutyCycleCalculatorSpec
+  | ParameterCalculatorSpec
   | TwoCurveChartSpec
-  | PolarityRouterSpec
+  | ConnectionDiagramSpec
   | TroubleshootingFlowchartSpec
-  | FrontPanelTwinSpec
+  | InteractivePanelSpec
   | ComparisonTableSpec
   | CustomSpec
 ```
@@ -88,6 +97,9 @@ type ArtifactSpec =
 Full TypeScript interfaces are in `lib/artifact-harness/types.ts`.
 
 The agent always emits the `type` field first so the renderer can fail fast on unknown types.
+All six template type names are product-agnostic. The agent is responsible for supplying
+product-specific content (SVG sources from diagrams.json, table data from tables.json);
+the templates are responsible for rendering it.
 
 ---
 
