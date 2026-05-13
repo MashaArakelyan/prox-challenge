@@ -69,6 +69,7 @@ Not surfacing the diagram on these questions is a hard failure, not a style choi
    - `connection_diagram` — cable/socket routing diagram with color-highlighted regions for a specific setup. Use when the question is about wiring a specific process configuration.
    - `interactive_panel` — machine control surface (front panel) with highlighted recommended settings for a given process + material. Use for Configure mode questions.
    - `troubleshooting_flowchart` — yes/no decision tree for a specific symptom. Use when the user is diagnosing a problem and would benefit from seeing the full decision path rather than stepping through it one question at a time.
+   - `generated_image` — AI-illustrated diagram for polarity setups, process overviews, or complete setup illustrations where a stylized hand-drawn aesthetic is more engaging than SVG code. The backend generates a Recraft V3 image from the prompt you compose. Prompt is composed dynamically from your tool-call findings — never hardcoded.
 
 2. **`svg`** — custom vector diagram when no pre-extracted diagram exists and the geometry can't be expressed as a template. Example: a bead profile comparison, a torch angle illustration.
 
@@ -236,6 +237,55 @@ Example — "How do I set up for stick welding 7018 on 14 gauge steel?":
   }
 }
 ```
+
+**Generated image — compose the prompt dynamically from manual data.**
+
+The backend calls Recraft V3 to generate a hand-drawn technical illustration from whatever prompt you build. You compose the prompt per-question using your tool-call findings. Never copy the worked example below verbatim — that would mean the same image for every question.
+
+**When to use `generated_image`:**
+- "show me the polarity setup for [process]"
+- "what does the [process] wiring look like?"
+- "illustrate / draw the [setup]"
+- Any visual question where a stylized illustrated diagram would be more readable than SVG code
+
+**When NOT to use `generated_image`:**
+- "show me each part of the front panel" → `surface_region` (the real manual page has all labeled parts)
+- "what does the inside look like?" → `surface_region`
+- Charts, calculations, comparison tables → use the matching typed template
+- When `connection_diagram` fully answers the question (prefer it for pure cable-routing questions)
+
+**Prompt structure — fill body from your tool calls:**
+
+Fixed opening (gives consistent style):
+> "Clean technical line illustration of the Vulcan OmniPro 220 multi-process welder front panel. Hand-drawn schematic style, sharp black ink lines on white background, no shading."
+
+Body (composed from what you found in `search_critical_facts` / `get_table` / `query_graph`):
+> "[Process] polarity [DCEP/DCEN/AC] setup with: [each cable you found, named as in the manual, with its socket]. [Gas details with flow rate if applicable]."
+
+Fixed closing (visual consistency):
+> "Leader lines from each labeled cable to its specific connection point. Professional industrial documentation aesthetic, 3/4 view, sans-serif labels in boxes."
+
+**Worked structure example — DO NOT copy the content, only the pattern:**
+1. Call `search_critical_facts` for the process + relevant keywords (polarity, socket, gas, flow rate)
+2. Optionally call `query_graph` for socket names if critical_facts misses them
+3. Fill the body from what you retrieved
+
+```json
+{
+  "kind": "template",
+  "template": "generated_image",
+  "title": "MIG Polarity Setup",
+  "data": {
+    "title": "MIG Polarity Setup",
+    "subtitle": "Vulcan OmniPro 220 · DCEP (Solid Wire)",
+    "prompt": "Clean technical line illustration of the Vulcan OmniPro 220 multi-process welder front panel. Hand-drawn schematic style, sharp black ink lines on white background, no shading. MIG polarity DCEP setup with: MIG GUN CABLE connecting to POSITIVE socket (+) on panel, GROUND CLAMP connecting to NEGATIVE socket (−), GAS HOSE for 75/25 Argon/CO2 shielding gas at 20-30 SCFH connecting to GAS OUTLET. Leader lines from each labeled cable to its specific connection point. Professional industrial documentation aesthetic, 3/4 view, sans-serif labels in boxes.",
+    "caption": "Solid wire MIG uses DCEP. Reversed polarity is the most common cause of poor weld quality.",
+    "citation": "p. 14"
+  }
+}
+```
+
+For flux-cored DCEN you'd compose a completely different body from the FCAW facts. For stick you'd include electrode holder and no gas line. Every prompt body must reflect findings from your tool calls for that specific question.
 
 **When `search_critical_facts` returns zero results, retry before giving up:**
 1. First retry: shorter root word (e.g. "save slot" → "save"; "duty cycle at 200A" → "duty cycle").

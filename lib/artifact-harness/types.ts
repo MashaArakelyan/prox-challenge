@@ -146,6 +146,14 @@ export interface TroubleshootingFlowchartData {
   citation?: string;
 }
 
+export interface GeneratedImageData {
+  title: string;
+  subtitle?: string;
+  prompt: string;       // composed by agent from manual data, min 20 chars
+  caption?: string;
+  citation?: string;
+}
+
 // ── Top-level artifact discriminated union ────────────────────────────────────
 
 /** Template artifacts — preferred; bounded and safe. */
@@ -155,7 +163,8 @@ export type TemplateArtifact =
   | { kind: "template"; template: "parameter_calculator";     title: string; data: ParameterCalculatorData }
   | { kind: "template"; template: "connection_diagram";       title: string; data: ConnectionDiagramData }
   | { kind: "template"; template: "interactive_panel";        title: string; data: InteractivePanelData }
-  | { kind: "template"; template: "troubleshooting_flowchart"; title: string; data: TroubleshootingFlowchartData };
+  | { kind: "template"; template: "troubleshooting_flowchart"; title: string; data: TroubleshootingFlowchartData }
+  | { kind: "template"; template: "generated_image";          title: string; data: GeneratedImageData };
 
 /** React artifact — genuinely interactive widgets not covered by templates. */
 export interface ReactArtifact {
@@ -207,6 +216,7 @@ export const TEMPLATE_NAMES = [
   "connection_diagram",
   "interactive_panel",
   "troubleshooting_flowchart",
+  "generated_image",
 ] as const;
 
 export type ArtifactKind   = typeof ARTIFACT_KINDS[number];

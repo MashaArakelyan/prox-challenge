@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { ArtifactSpec } from "./types.js";
+import type { ArtifactSpec, GeneratedImageData } from "./types.js";
 import TwoCurveChart from "./templates/two_curve_chart.js";
 import ComparisonTable from "./templates/comparison_table.js";
 import ParameterCalculator from "./templates/parameter_calculator.js";
 import ConnectionDiagram from "./templates/connection_diagram.js";
 import InteractivePanel from "./templates/interactive_panel.js";
 import TroubleshootingFlowchart from "./templates/troubleshooting_flowchart.js";
+import GeneratedImage from "./templates/generated_image.js";
 
 export default function ArtifactRenderer({ spec }: { spec: ArtifactSpec }) {
   switch (spec.kind) {
@@ -32,6 +33,7 @@ function TemplateRenderer({ spec }: { spec: Extract<ArtifactSpec, { kind: "templ
     case "connection_diagram":      return <ConnectionDiagram data={spec.data} />;
     case "interactive_panel":       return <InteractivePanel data={spec.data} />;
     case "troubleshooting_flowchart": return <TroubleshootingFlowchart data={spec.data} />;
+    case "generated_image":         return <GeneratedImage data={spec.data as GeneratedImageData} />;
   }
 }
 
