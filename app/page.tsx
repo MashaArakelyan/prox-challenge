@@ -1,12 +1,34 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, type FormEvent } from "react";
+import React, { useState, useRef, useEffect, useCallback, type FormEvent } from "react";
 import type { ArtifactSpec } from "../lib/artifact-harness/types.js";
 import type { MessageParam } from "@anthropic-ai/sdk/resources/messages";
 import ArtifactRenderer from "../lib/artifact-harness/renderer.js";
 import ReactMarkdown from "react-markdown";
 import ApiKeyModal from "./components/ApiKeyModal.js";
 import KeyIndicator from "./components/KeyIndicator.js";
+
+// Transforms "(p. 23)" / "(p. 7, table name)" inline spans into subtle citation chips
+const CITATION_RE = /(\(p\.\s*\d+(?:[^)]*)??\))/g;
+
+const mdComponents = {
+  p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement> & { children?: React.ReactNode }) => {
+    const transformed = React.Children.map(children, (child) => {
+      if (typeof child !== "string") return child;
+      const parts = child.split(CITATION_RE);
+      return parts.map((part, i) =>
+        CITATION_RE.test(part) ? (
+          <span key={i} className="text-xs text-zinc-500 font-mono bg-zinc-900 rounded px-1.5 py-0.5 ml-1 whitespace-nowrap">
+            {part.slice(1, -1)}
+          </span>
+        ) : part
+      );
+    });
+    // Reset lastIndex after test()
+    CITATION_RE.lastIndex = 0;
+    return <p {...props}>{transformed}</p>;
+  },
+};
 
 interface ChatImage {
   path: string;
@@ -384,7 +406,7 @@ function ChatBubble({ msg }: { msg: Message }) {
       <div className="flex-1 min-w-0 space-y-3">
         {msg.text && (
           <div className="prose prose-invert prose-sm max-w-none prose-p:my-1.5 prose-ul:my-1.5 prose-li:my-0">
-            <ReactMarkdown>{msg.text}</ReactMarkdown>
+            <ReactMarkdown components={mdComponents}>{msg.text}</ReactMarkdown>
           </div>
         )}
         {msg.images?.map((img, i) => (
