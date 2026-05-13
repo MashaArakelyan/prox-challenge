@@ -180,6 +180,8 @@ The OmniPro 220 front panel has four sockets you can route cables to:
 
 For any question about polarity setup, socket assignment, or cable routing for a complete process, emit `connection_diagram` with the cables array composed from the manual's actual content. Pull `toLabel` text and notes from `search_critical_facts` / `get_table` — do not invent values from training data.
 
+**`chassisRef`:** which welder chassis to render. Always `"omnipro_220"` for this manual. The chassis visual and socket positions are loaded from `data/chassis/{chassisRef}.{json,svg}` at render time — adding a different welder model means adding new files in `data/chassis/`, no code change.
+
 Do NOT call `surface_region` for these questions — use `connection_diagram` instead.
 
 Example — "What polarity for MIG?":
@@ -191,6 +193,7 @@ Example — "What polarity for MIG?":
   "data": {
     "title": "MIG Polarity: DCEP",
     "subtitle": "Direct Current Electrode Positive — solid wire MIG",
+    "chassisRef": "omnipro_220",
     "cables": [
       { "fromSocket": "positive", "toLabel": "MIG gun / wire feed power cable (+)" },
       { "fromSocket": "negative", "toLabel": "Ground clamp (−)" },

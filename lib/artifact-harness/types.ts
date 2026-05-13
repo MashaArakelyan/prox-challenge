@@ -103,6 +103,7 @@ export interface ConnectionDiagramCable {
 export interface ConnectionDiagramData {
   title: string;
   subtitle?: string;
+  chassisRef?: string;   // chassis id to load (defaults to "omnipro_220")
   cables: ConnectionDiagramCable[];
   notes?: string[];
   citation?: string;

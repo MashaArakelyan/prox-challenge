@@ -87,6 +87,8 @@ const VALID_SOCKETS = ["positive", "negative", "gas", "wire_feeder"] as const;
 function validateConnectionDiagram(data: unknown): string | null {
   if (!isObject(data)) return "connection_diagram data must be an object";
   if (!isString(data.title)) return "connection_diagram data.title is required";
+  if (data.chassisRef !== undefined && !isString(data.chassisRef))
+    return "connection_diagram data.chassisRef must be a string if present";
   if (!isArray(data.cables) || data.cables.length === 0)
     return "connection_diagram data.cables is required and non-empty";
   for (const c of data.cables as unknown[]) {

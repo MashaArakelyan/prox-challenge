@@ -1,0 +1,30 @@
+{
+  "id": "omnipro_220",
+  "name": "Vulcan OmniPro 220",
+  "viewBox": "0 0 800 580",
+  "screen": {
+    "x": 400,
+    "labelY": 175,
+    "valueY": 205,
+    "modelY": 232,
+    "modelText": "OMNIPRO 220"
+  },
+  "sockets": {
+    "gas":         { "x": 245, "y": 485, "label": "GAS"  },
+    "wire_feeder": { "x": 335, "y": 485, "label": "FEED" },
+    "negative":    { "x": 445, "y": 485, "label": "−"    },
+    "positive":    { "x": 555, "y": 485, "label": "+"    }
+  },
+  "labelSlots": {
+    "gas":         { "x": 15,  "y": 220, "width": 155, "height": 64, "side": "left"  },
+    "wire_feeder": { "x": 15,  "y": 400, "width": 155, "height": 64, "side": "left"  },
+    "negative":    { "x": 630, "y": 400, "width": 155, "height": 64, "side": "right" },
+    "positive":    { "x": 630, "y": 220, "width": 155, "height": 64, "side": "right" }
+  },
+  "defaultColors": {
+    "positive":    "#c43d2b",
+    "negative":    "#2154a8",
+    "gas":         "#3b8a3f",
+    "wire_feeder": "#9a6a23"
+  }
+}
