@@ -4,12 +4,14 @@ import { definition as searchCriticalFactsDef, handle as handleSearchCriticalFac
 import { definition as getTableDef, handle as handleGetTable } from "./get-table.js";
 import { definition as surfaceRegionDef, handle as handleSurfaceRegion } from "./surface-region.js";
 import { definition as queryGraphDef, handle as handleQueryGraph } from "./query-graph.js";
+import { definition as renderArtifactDef, handle as handleRenderArtifact } from "./render-artifact.js";
 
 export const tools: Tool[] = [
   searchCriticalFactsDef,
   getTableDef,
   surfaceRegionDef,
   queryGraphDef,
+  renderArtifactDef,
 ];
 
 // Dispatch a tool call by name. Returns a JSON string ready for tool_result content.
@@ -19,6 +21,7 @@ export function dispatch(name: string, input: unknown): string {
     case "get_table":             return handleGetTable(input as Parameters<typeof handleGetTable>[0]);
     case "surface_region":        return handleSurfaceRegion(input as Parameters<typeof handleSurfaceRegion>[0]);
     case "query_graph":           return handleQueryGraph(input as Parameters<typeof handleQueryGraph>[0]);
+    case "render_artifact":       return handleRenderArtifact(input);
     default: return JSON.stringify({ error: `Unknown tool: ${name}` });
   }
 }
