@@ -94,36 +94,33 @@ export interface ParameterCalculatorData {
   citation?: string;
 }
 
-export interface DiagramHighlight {
-  regionLabel: string;    // matches diagram region label (case-insensitive)
-  color: string;          // CSS color for the highlight overlay
-  description: string;    // narration shown on hover
+export interface ConnectionDiagramCable {
+  fromSocket: "positive" | "negative" | "gas" | "wire_feeder";
+  toLabel: string;
+  color?: string;
 }
 
 export interface ConnectionDiagramData {
   title: string;
-  description?: string;
-  diagramId: string;      // id from diagrams.json; renderer fetches SVG
-  imagePath: string;      // data/images/<page>_<id>.png — fallback if SVG unavailable
-  highlights: DiagramHighlight[];
-  caption?: string;
+  subtitle?: string;
+  cables: ConnectionDiagramCable[];
+  notes?: string[];
   citation?: string;
 }
 
-export interface PanelHighlight {
-  elementId: string;      // SVG element id within the panel SVG
+export interface ConfiguratorControl {
+  id: string;
   label: string;
-  recommendedValue: string;
-  color?: string;
+  options: string[];
+  defaultIndex?: number;
 }
 
 export interface InteractivePanelData {
   title: string;
-  description?: string;
-  diagramId: string;
-  imagePath: string;
-  highlights: PanelHighlight[];
-  caption?: string;
+  subtitle?: string;
+  wireOrElectrode: string;
+  controls: ConfiguratorControl[];
+  setupNotes?: string[];
   citation?: string;
 }
 

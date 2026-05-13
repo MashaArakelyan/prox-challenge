@@ -52,6 +52,7 @@ const EXAMPLES = [
   { q: "Show me how duty cycle changes between 120V and 240V", tag: "chart" },
   { q: "Which socket does the TIG torch cable go into?", tag: "diagram" },
   { q: "My MIG weld has porosity — tiny holes in the bead", tag: "diagnose" },
+  { q: "How do I set up the machine for stick welding 7018?", tag: "configure" },
 ];
 
 const STORAGE_KEY_CHAT = "chat_history";

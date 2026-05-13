@@ -169,6 +169,74 @@ Column keys must match cell keys. `highlight: true` bolds the row. `data.title` 
 }
 ```
 
+**Connection diagram — compose dynamically from manual content.**
+
+The OmniPro 220 front panel has four sockets you can route cables to:
+- `positive` — anode socket (red by default)
+- `negative` — cathode socket (blue by default)
+- `gas` — shielding gas inlet (green by default)
+- `wire_feeder` — wire feed cable connector (brown by default)
+
+For any question about polarity setup, socket assignment, or cable routing for a complete process, emit `connection_diagram` with the cables array composed from the manual's actual content. Pull `toLabel` text and notes from `search_critical_facts` / `get_table` — do not invent values from training data.
+
+Do NOT call `surface_region` for these questions — use `connection_diagram` instead.
+
+Example — "What polarity for MIG?":
+```json
+{
+  "kind": "template",
+  "template": "connection_diagram",
+  "title": "MIG Polarity: DCEP",
+  "data": {
+    "title": "MIG Polarity: DCEP",
+    "subtitle": "Direct Current Electrode Positive — solid wire MIG",
+    "cables": [
+      { "fromSocket": "positive", "toLabel": "MIG gun / wire feed power cable (+)" },
+      { "fromSocket": "negative", "toLabel": "Ground clamp (−)" },
+      { "fromSocket": "gas", "toLabel": "Shielding gas — 75/25 Argon/CO₂, 20–30 SCFH" }
+    ],
+    "notes": [
+      "Solid wire MIG uses DCEP — opposite of flux-cored.",
+      "Reversed polarity causes poor fusion and excessive spatter."
+    ],
+    "citation": "p. 13"
+  }
+}
+```
+
+**Interactive panel — compose dynamically from manual content.**
+
+For any setup or configuration question ("how do I set up the machine for X?"), emit `interactive_panel` with:
+- `wireOrElectrode`: the recommended consumable for this process+material (from `canonical_setups` or `critical_facts`)
+- `controls`: toggles the user can adjust — typically wire/rod diameter, material thickness, and other process axes. Use actual values from the manual's welding guide chart. Pre-select defaults matching what the user described.
+- `setupNotes`: 3–5 bullet points pulled from the manual: which socket each cable plugs into, gas/no-gas, rod-specific notes, polarity warnings.
+
+Example — "How do I set up for stick welding 7018 on 14 gauge steel?":
+```json
+{
+  "kind": "template",
+  "template": "interactive_panel",
+  "title": "Stick Welding Setup",
+  "data": {
+    "title": "OmniPro 220 — Stick Configuration",
+    "subtitle": "Stick (SMAW)",
+    "wireOrElectrode": "7018 or 6013 electrode rod",
+    "controls": [
+      { "id": "electrode_type", "label": "Electrode Type", "options": ["60xx", "70xx"], "defaultIndex": 1 },
+      { "id": "diameter", "label": "Electrode Diameter", "options": ["3/32\"", "1/8\"", "5/32\""], "defaultIndex": 0 },
+      { "id": "thickness", "label": "Material Thickness", "options": ["16 Ga", "14 Ga", "12 Ga", "10 Ga", "3/16\"", "1/4\""], "defaultIndex": 1 }
+    ],
+    "setupNotes": [
+      "Electrode holder plugs into the Positive (+) socket directly.",
+      "Ground clamp plugs into the Negative (−) socket.",
+      "Set polarity to DCEP for most stick rods including 7018.",
+      "No shielding gas required — Stick is a self-shielded process."
+    ],
+    "citation": "p. 27"
+  }
+}
+```
+
 **When `search_critical_facts` returns zero results, retry before giving up:**
 1. First retry: shorter root word (e.g. "save slot" → "save"; "duty cycle at 200A" → "duty cycle").
 2. Second retry: alternate phrasing or synonym (e.g. "engine oil" → "lubricant"; "wire speed" → "IPM").

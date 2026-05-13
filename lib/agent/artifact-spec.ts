@@ -81,21 +81,41 @@ function validateParameterCalculator(data: unknown): string | null {
   return null;
 }
 
+const VALID_SOCKETS = ["positive", "negative", "gas", "wire_feeder"] as const;
+
 function validateConnectionDiagram(data: unknown): string | null {
   if (!isObject(data)) return "connection_diagram data must be an object";
   if (!isString(data.title)) return "connection_diagram data.title is required";
-  if (!isString(data.diagramId)) return "connection_diagram data.diagramId is required";
-  if (!isString(data.imagePath)) return "connection_diagram data.imagePath is required";
-  if (!isArray(data.highlights)) return "connection_diagram data.highlights must be an array";
+  if (!isArray(data.cables) || data.cables.length === 0)
+    return "connection_diagram data.cables is required and non-empty";
+  for (const c of data.cables as unknown[]) {
+    if (!isObject(c)) return "each cable must be an object";
+    const cable = c as Record<string, unknown>;
+    if (!isString(cable.fromSocket))
+      return "cable.fromSocket is required";
+    if (!(VALID_SOCKETS as readonly string[]).includes(cable.fromSocket))
+      return `cable.fromSocket must be one of: ${VALID_SOCKETS.join(", ")}`;
+    if (!isString(cable.toLabel))
+      return "cable.toLabel is required";
+  }
   return null;
 }
 
 function validateInteractivePanel(data: unknown): string | null {
   if (!isObject(data)) return "interactive_panel data must be an object";
   if (!isString(data.title)) return "interactive_panel data.title is required";
-  if (!isString(data.diagramId)) return "interactive_panel data.diagramId is required";
-  if (!isString(data.imagePath)) return "interactive_panel data.imagePath is required";
-  if (!isArray(data.highlights)) return "interactive_panel data.highlights must be an array";
+  if (!isString(data.wireOrElectrode))
+    return "interactive_panel data.wireOrElectrode is required";
+  if (!isArray(data.controls) || data.controls.length === 0)
+    return "interactive_panel data.controls is required and non-empty";
+  for (const c of data.controls as unknown[]) {
+    if (!isObject(c)) return "each control must be an object";
+    const ctrl = c as Record<string, unknown>;
+    if (!isString(ctrl.id) || !isString(ctrl.label))
+      return "each control must have id and label";
+    if (!isArray(ctrl.options) || (ctrl.options as unknown[]).length === 0)
+      return "each control must have a non-empty options array";
+  }
   return null;
 }
 
