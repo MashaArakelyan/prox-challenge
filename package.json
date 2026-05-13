@@ -16,6 +16,7 @@
     "rescue:procedural": "tsx scripts/rescue-procedural.ts",
     "rescue:diagnostic": "tsx scripts/rescue-diagnostic.ts",
     "test": "node --import tsx/esm --test lib/knowledge/__tests__/index.test.ts",
+    "audit": "tsx scripts/audit-data.ts",
     "schema:review": "node scripts/schema-review.js"
   },
   "dependencies": {

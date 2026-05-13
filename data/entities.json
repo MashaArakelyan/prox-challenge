@@ -5023,5 +5023,17 @@
     ],
     "is_new": true,
     "salience": 0.7
+  },
+  {
+    "id": "welding_parameter_polarity",
+    "name": "Polarity",
+    "type": "welding_parameter",
+    "description": "DC polarity setting (DCEP — electrode positive, or DCEN — electrode negative). Determines current flow direction through the circuit. DCEP for solid-core MIG and Stick; DCEN for flux-cored self-shielded.",
+    "page_refs": [
+      13,
+      14
+    ],
+    "is_new": true,
+    "salience": 0.9
   }
 ]

@@ -167,3 +167,11 @@ Then: BYO-key Vercel deployment, README polish, record a 3-minute video walkthro
 - README is the most important document in the repo after CLAUDE.md. Write it like a senior engineer is reading it. Lead with the three load-bearing decisions and what was cut.
 - Honesty in the documentation is a feature. The llm_estimated flag on diagnostic priors, the schema-review escape hatch, the deliberate scope cuts — all of these are listed prominently. The reviewer is more impressed by honest scope than by hidden weaknesses.
 - Every commit message is a sentence, not a fragment.
+
+## Known data limitations
+
+**Procedure step entity_refs use type-name hints, not specific entity IDs.**
+Procedure steps list refs like `"welding_wire"` or `"shielding_gas"` rather than specific IDs like `"welding_wire_solid_core"`. This happened because the procedural extraction pass ran in parallel with structural extraction and had no access to the real entity ID set at the time it ran. The agent should treat these as type hints — when a step needs to dereference an entity, call `getEntitiesByType()` and select by context (e.g., the process currently in use). The `verify_setup` tool should degrade gracefully when an entity ref doesn't resolve: cite the step text directly rather than failing.
+
+**Image files are named `{page}_{diagram_id}.png`, not `{diagram_id}.png`.**
+The structural extraction script saves cropped diagram images as `data/images/{page}_{diagram_id}.png` (e.g., `14_diagram_14_1.png`). Any tooling that constructs image paths must use both fields from the diagram record. The audit script (`scripts/audit-data.ts`) enforces this naming convention.
