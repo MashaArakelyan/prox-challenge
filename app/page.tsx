@@ -24,7 +24,6 @@ const mdComponents = {
         ) : part
       );
     });
-    // Reset lastIndex after test()
     CITATION_RE.lastIndex = 0;
     return <p {...props}>{transformed}</p>;
   },
@@ -81,7 +80,6 @@ export default function Page() {
   const [apiHistory, setApiHistory] = useState<MessageParam[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [activeArtifact, setActiveArtifact] = useState<ArtifactSpec | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [hydrated, setHydrated] = useState(false);
@@ -97,22 +95,18 @@ export default function Page() {
     } else {
       setShowModal(true);
     }
-
     const chat = loadChat();
     if (chat) {
       setMessages(chat.messages);
       setApiHistory(chat.apiHistory);
-      const lastArtifact = [...chat.messages].reverse().find((m) => m.artifact)?.artifact;
-      if (lastArtifact) setActiveArtifact(lastArtifact);
     }
     setHydrated(true);
   }, []);
 
-  // Debounced persistence — writes ~300ms after the last state change
+  // Debounced persistence
   const scheduleSave = useCallback((msgs: Message[], history: MessageParam[]) => {
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
-      // Cap at MAX_HISTORY_TURNS complete exchanges (user+assistant = 2 messages)
       const cappedMsgs = msgs.slice(-MAX_HISTORY_TURNS * 2);
       const cappedHistory = history.slice(-MAX_HISTORY_TURNS * 2);
       saveChat({ messages: cappedMsgs, apiHistory: cappedHistory });
@@ -122,6 +116,21 @@ export default function Page() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  const messagesRef = useRef(messages);
+  const historyRef = useRef(apiHistory);
+  useEffect(() => { messagesRef.current = messages; }, [messages]);
+  useEffect(() => { historyRef.current = apiHistory; }, [apiHistory]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    scheduleSave(messagesRef.current, historyRef.current);
+  }, [messages, hydrated, scheduleSave]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    scheduleSave(messagesRef.current, historyRef.current);
+  }, [apiHistory, hydrated, scheduleSave]);
 
   function handleKey(key: string) {
     localStorage.setItem(STORAGE_KEY_API_KEY, key);
@@ -140,7 +149,6 @@ export default function Page() {
     if (messages.length > 0 && !confirm("Start a new chat? This will clear the current conversation.")) return;
     setMessages([]);
     setApiHistory([]);
-    setActiveArtifact(null);
     localStorage.removeItem(STORAGE_KEY_CHAT);
     setTimeout(() => inputRef.current?.focus(), 50);
   }
@@ -156,8 +164,7 @@ export default function Page() {
     const assistantId = crypto.randomUUID();
     const assistantMsg: Message = { id: assistantId, role: "assistant", text: "", images: [] };
 
-    const nextMessages = [...messages, userMsg, assistantMsg];
-    setMessages(nextMessages);
+    setMessages((prev) => [...prev, userMsg, assistantMsg]);
 
     let streamText = "";
     let streamImages: ChatImage[] = [];
@@ -177,7 +184,6 @@ export default function Page() {
       });
 
       if (res.status === 401) {
-        // Key rejected — prompt user to re-enter
         localStorage.removeItem(STORAGE_KEY_API_KEY);
         setApiKey(null);
         setShowModal(true);
@@ -216,14 +222,9 @@ export default function Page() {
               streamImages = [...streamImages, { path, caption: String(ev.caption ?? "") }];
               patchAssistant({ images: streamImages });
             } else if (ev.type === "artifact") {
-              const spec = ev.spec as ArtifactSpec;
-              setActiveArtifact(spec);
-              patchAssistant({ artifact: spec });
+              patchAssistant({ artifact: ev.spec as ArtifactSpec });
             } else if (ev.type === "turn_messages") {
-              setApiHistory((prev) => {
-                const next = [...prev, ...(ev.messages as MessageParam[])];
-                return next;
-              });
+              setApiHistory((prev) => [...prev, ...(ev.messages as MessageParam[])]);
             }
           } catch {
             // malformed SSE line — skip
@@ -240,32 +241,10 @@ export default function Page() {
     inputRef.current?.focus();
   }
 
-  // Keep refs in sync so the debounced saver always has the latest values.
-  const messagesRef = useRef(messages);
-  const historyRef = useRef(apiHistory);
-  useEffect(() => { messagesRef.current = messages; }, [messages]);
-  useEffect(() => { historyRef.current = apiHistory; }, [apiHistory]);
-
-  // Persist chat whenever messages or apiHistory change (after hydration)
-  useEffect(() => {
-    if (!hydrated) return;
-    scheduleSave(messagesRef.current, historyRef.current);
-  }, [messages, hydrated, scheduleSave]);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    scheduleSave(messagesRef.current, historyRef.current);
-  }, [apiHistory, hydrated, scheduleSave]);
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     void send(input);
   }
-
-  const panelArtifact =
-    activeArtifact ??
-    [...messages].reverse().find((m) => m.artifact)?.artifact ??
-    null;
 
   const isDiagnose = apiHistory.some((m) => {
     if (m.role !== "assistant" || typeof m.content === "string") return false;
@@ -277,11 +256,10 @@ export default function Page() {
   return (
     <>
       {showModal && <ApiKeyModal onKey={handleKey} />}
-      <div className="flex h-screen bg-zinc-950 text-zinc-100">
-        {/* ── LEFT: Chat ─────────────────────────────────────────────────── */}
-        <div className="flex flex-col w-[460px] min-w-[320px] border-r border-zinc-800 shrink-0">
-          {/* Header */}
-          <header className="flex items-center gap-3 px-5 py-4 border-b border-zinc-800 shrink-0">
+      <div className="flex flex-col h-screen bg-zinc-950 text-zinc-100">
+        {/* Header */}
+        <header className="border-b border-zinc-800 shrink-0">
+          <div className="max-w-3xl mx-auto w-full px-4 py-4 flex items-center gap-3">
             <div className="w-7 h-7 rounded flex items-center justify-center text-xs font-bold text-white bg-orange-600 shrink-0">
               V
             </div>
@@ -307,55 +285,26 @@ export default function Page() {
                 </button>
               )}
             </div>
-          </header>
+          </div>
+        </header>
 
-          {/* Message list */}
-          <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+        {/* Message list */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="max-w-3xl mx-auto w-full px-4 py-6 space-y-5">
             {messages.length === 0 && hydrated && (
-              <div className="space-y-4">
-                <p className="text-sm text-zinc-400">
-                  Try one of these — or ask anything about specs, setup, wiring, or troubleshooting.
-                </p>
-                <div className="space-y-1.5">
-                  {EXAMPLES.map(({ q, tag }) => (
-                    <button
-                      key={q}
-                      onClick={() => void send(q)}
-                      disabled={!apiKey}
-                      className="block w-full text-left text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900 rounded px-2 py-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                    >
-                      <span className="text-[9px] uppercase tracking-widest text-zinc-600 font-semibold mr-2">{tag}</span>
-                      {q}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <EmptyState send={send} apiKey={apiKey} />
             )}
-
             {messages.map((msg) => (
               <ChatBubble key={msg.id} msg={msg} />
             ))}
-
-            {isLoading && messages.at(-1)?.role === "user" && (
-              <div className="flex gap-1 py-1 px-1">
-                {[0, 150, 300].map((d) => (
-                  <span
-                    key={d}
-                    className="w-2 h-2 rounded-full bg-zinc-600 animate-bounce"
-                    style={{ animationDelay: `${d}ms` }}
-                  />
-                ))}
-              </div>
-            )}
-
+            {isLoading && messages.at(-1)?.role === "user" && <TypingIndicator />}
             <div ref={bottomRef} />
           </div>
+        </div>
 
-          {/* Input */}
-          <form
-            onSubmit={handleSubmit}
-            className="px-4 py-4 border-t border-zinc-800 shrink-0"
-          >
+        {/* Input */}
+        <form onSubmit={handleSubmit} className="border-t border-zinc-800 shrink-0">
+          <div className="max-w-3xl mx-auto w-full px-4 py-4">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -374,31 +323,52 @@ export default function Page() {
                 Send
               </button>
             </div>
-          </form>
-        </div>
-
-        {/* ── RIGHT: Artifact panel ───────────────────────────────────────── */}
-        <div className="flex-1 flex flex-col min-w-0">
-          {panelArtifact ? (
-            <>
-              <header className="flex items-center gap-3 px-5 py-3.5 border-b border-zinc-800 shrink-0">
-                <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold">
-                  {panelArtifact.kind === "template"
-                    ? panelArtifact.template.replace(/_/g, " ")
-                    : panelArtifact.kind}
-                </span>
-                <span className="text-sm font-medium text-zinc-200">{panelArtifact.title}</span>
-              </header>
-              <div className="flex-1 overflow-auto p-6">
-                <ArtifactRenderer spec={panelArtifact} />
-              </div>
-            </>
-          ) : (
-            <EmptyArtifactPanel />
-          )}
-        </div>
+          </div>
+        </form>
       </div>
     </>
+  );
+}
+
+function EmptyState({ send, apiKey }: { send: (t: string) => void; apiKey: string | null }) {
+  return (
+    <div className="space-y-4 pt-8">
+      <p className="text-sm text-zinc-400">
+        Try one of these — or ask anything about specs, setup, wiring, or troubleshooting.
+      </p>
+      <div className="space-y-1.5">
+        {EXAMPLES.map(({ q, tag }) => (
+          <button
+            key={q}
+            onClick={() => send(q)}
+            disabled={!apiKey}
+            className="block w-full text-left text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900 rounded px-2 py-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <span className="text-[9px] uppercase tracking-widest text-zinc-600 font-semibold mr-2">{tag}</span>
+            {q}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TypingIndicator() {
+  return (
+    <div className="flex gap-3">
+      <div className="w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold text-white shrink-0">
+        V
+      </div>
+      <div className="flex gap-1 items-center py-2">
+        {[0, 150, 300].map((d) => (
+          <span
+            key={d}
+            className="w-2 h-2 rounded-full bg-zinc-600 animate-bounce"
+            style={{ animationDelay: `${d}ms` }}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -425,7 +395,7 @@ function ChatBubble({ msg }: { msg: Message }) {
           </div>
         )}
         {msg.images?.map((img, i) => (
-          <div key={i} className="rounded-lg overflow-hidden border border-zinc-800">
+          <div key={i} className="rounded-lg overflow-hidden border border-zinc-800 max-w-md">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={img.path} alt={img.caption} className="w-full h-auto block" />
             {img.caption && (
@@ -434,40 +404,20 @@ function ChatBubble({ msg }: { msg: Message }) {
           </div>
         ))}
         {msg.artifact && (
-          <div className="text-xs text-zinc-600 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 inline-block" />
-            Artifact rendered in the right panel
+          <div className="rounded-lg border border-zinc-800 overflow-hidden bg-zinc-950/50">
+            <div className="px-4 py-2.5 bg-zinc-900/80 border-b border-zinc-800 flex items-center gap-3">
+              <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold">
+                {msg.artifact.kind === "template"
+                  ? msg.artifact.template.replace(/_/g, " ")
+                  : msg.artifact.kind}
+              </span>
+              <span className="text-sm font-medium text-zinc-200">{msg.artifact.title}</span>
+            </div>
+            <div className="p-4">
+              <ArtifactRenderer spec={msg.artifact} />
+            </div>
           </div>
         )}
-      </div>
-    </div>
-  );
-}
-
-function EmptyArtifactPanel() {
-  return (
-    <div className="flex-1 flex flex-col items-center justify-center gap-4 text-zinc-700">
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="2.5" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
-      <div className="text-center">
-        <p className="text-sm text-zinc-600">Artifact panel</p>
-        <p className="text-xs text-zinc-700 mt-1">
-          Charts, calculators, and diagrams appear here
-        </p>
-        <p className="text-xs text-zinc-800 mt-3">
-          Try: &ldquo;Show me how duty cycle changes between 120V and 240V&rdquo;
-        </p>
       </div>
     </div>
   );
