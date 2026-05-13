@@ -22,36 +22,60 @@ function cableColor(cable: ConnectionDiagramCable): string {
 
 export default function ConnectionDiagram({ data }: { data: ConnectionDiagramData }) {
   return (
-    <div className="w-full text-zinc-100">
-      <div className="mb-4">
-        <div className="text-base font-bold tracking-wide">{data.title}</div>
-        {data.subtitle && <div className="text-xs text-zinc-400 mt-1">{data.subtitle}</div>}
+    <div className="w-full text-zinc-100 space-y-4">
+      <div>
+        <h3 className="font-['Playfair_Display'] italic text-2xl text-zinc-100 leading-tight">
+          {data.title}
+        </h3>
+        {data.subtitle && (
+          <div className="text-xs uppercase tracking-widest text-orange-400/80 mt-2 font-medium">
+            {data.subtitle}
+          </div>
+        )}
+        <div className="h-px bg-gradient-to-r from-orange-500/40 via-zinc-700 to-transparent mt-3" />
       </div>
 
-      <svg viewBox="0 0 600 480" className="w-full bg-zinc-950 rounded border border-zinc-800">
+      <svg viewBox="0 0 600 520" className="w-full bg-gradient-to-br from-zinc-950 to-zinc-900 rounded-lg border border-zinc-800">
         {/* Welder body */}
         <rect x="60" y="60" width="480" height="280" rx="12" fill="#1f1f23" stroke="#3f3f46" strokeWidth="2" />
+
+        {/* Display screen */}
         <rect x="220" y="100" width="160" height="60" rx="4" fill="#0a0a0a" stroke="#52525b" />
-        <text x="300" y="135" textAnchor="middle" fill="#a1a1aa" fontSize="10" fontFamily="monospace">VULCAN OmniPro 220</text>
+        <text x="300" y="125" textAnchor="middle" fill="#a1a1aa" fontSize="9" fontFamily="monospace" letterSpacing="2">VULCAN OMNIPRO 220</text>
+        <text x="300" y="145" textAnchor="middle" fill="#f97316" fontSize="11" fontFamily="monospace" fontWeight="bold">{(data.subtitle ?? data.title).split(":")[0].toUpperCase()}</text>
+
+        {/* Vents */}
+        {[0, 1, 2, 3].map(i => (
+          <line key={`vl-${i}`} x1="90" y1={210 + i * 8} x2="160" y2={210 + i * 8} stroke="#3f3f46" strokeWidth="1" />
+        ))}
+        {[0, 1, 2, 3].map(i => (
+          <line key={`vr-${i}`} x1="440" y1={210 + i * 8} x2="510" y2={210 + i * 8} stroke="#3f3f46" strokeWidth="1" />
+        ))}
 
         {/* Knobs */}
         <circle cx="120" cy="140" r="22" fill="#27272a" stroke="#52525b" strokeWidth="2" />
         <circle cx="120" cy="140" r="6" fill="#52525b" />
-        <text x="120" y="180" textAnchor="middle" fill="#71717a" fontSize="9">LEFT KNOB</text>
+        <line x1="120" y1="125" x2="120" y2="135" stroke="#71717a" strokeWidth="2" />
+        <text x="120" y="180" textAnchor="middle" fill="#71717a" fontSize="9" letterSpacing="1">LEFT</text>
+
         <circle cx="480" cy="140" r="22" fill="#27272a" stroke="#52525b" strokeWidth="2" />
         <circle cx="480" cy="140" r="6" fill="#52525b" />
-        <text x="480" y="180" textAnchor="middle" fill="#71717a" fontSize="9">RIGHT KNOB</text>
+        <line x1="480" y1="125" x2="480" y2="135" stroke="#71717a" strokeWidth="2" />
+        <text x="480" y="180" textAnchor="middle" fill="#71717a" fontSize="9" letterSpacing="1">RIGHT</text>
+
         <circle cx="300" cy="225" r="20" fill="#27272a" stroke="#52525b" strokeWidth="2" />
         <circle cx="300" cy="225" r="6" fill="#52525b" />
-        <text x="300" y="265" textAnchor="middle" fill="#71717a" fontSize="9">MAIN</text>
+        <line x1="300" y1="210" x2="300" y2="220" stroke="#71717a" strokeWidth="2" />
+        <text x="300" y="265" textAnchor="middle" fill="#71717a" fontSize="9" letterSpacing="1">MAIN</text>
 
-        {/* Sockets — highlighted when a cable uses them */}
+        {/* Sockets — halo + fill when in use */}
         {(Object.entries(SOCKETS) as [keyof typeof SOCKETS, { x: number; y: number; label: string }][]).map(([key, s]) => {
           const inUse = data.cables.find((c) => c.fromSocket === key);
           return (
             <g key={key}>
+              {inUse && <circle cx={s.x} cy={s.y} r="22" fill={cableColor(inUse)} opacity="0.15" />}
               <circle cx={s.x} cy={s.y} r="16" fill={inUse ? cableColor(inUse) : "#27272a"} stroke="#52525b" strokeWidth="2" />
-              <text x={s.x} y={s.y + 5} textAnchor="middle" fill="#fafafa" fontSize="13" fontWeight="bold">{s.label}</text>
+              <text x={s.x} y={s.y + 5} textAnchor="middle" fill="#fafafa" fontSize="14" fontWeight="bold">{s.label}</text>
             </g>
           );
         })}
@@ -62,7 +86,7 @@ export default function ConnectionDiagram({ data }: { data: ConnectionDiagramDat
           if (!sock) return null;
           const isLeft = i % 2 === 0;
           const endX = isLeft ? 80 : 520;
-          const endY = 400 + Math.floor(i / 2) * 32;
+          const endY = 410 + Math.floor(i / 2) * 36;
           const labelX = isLeft ? 96 : 504;
           const labelAnchor: "start" | "end" = isLeft ? "start" : "end";
           const color = cableColor(cable);
@@ -71,11 +95,13 @@ export default function ConnectionDiagram({ data }: { data: ConnectionDiagramDat
               <path
                 d={`M ${sock.x} ${sock.y + 16} Q ${sock.x} ${sock.y + 60}, ${endX} ${endY}`}
                 stroke={color}
-                strokeWidth="3"
+                strokeWidth="2.5"
                 fill="none"
+                strokeLinecap="round"
               />
-              <circle cx={endX} cy={endY} r="5" fill={color} />
-              <text x={labelX} y={endY + 4} textAnchor={labelAnchor} fill={color} fontSize="11" fontWeight="500">
+              <circle cx={endX} cy={endY} r="6" fill={color} />
+              <circle cx={endX} cy={endY} r="3" fill="#0a0a0a" />
+              <text x={labelX} y={endY + 5} textAnchor={labelAnchor} fill={color} fontSize="13" fontWeight="500">
                 {cable.toLabel}
               </text>
             </g>
@@ -84,15 +110,20 @@ export default function ConnectionDiagram({ data }: { data: ConnectionDiagramDat
       </svg>
 
       {data.notes && data.notes.length > 0 && (
-        <div className="mt-4 p-3 bg-zinc-900/50 rounded border border-zinc-800">
-          <ul className="space-y-1.5 text-xs text-zinc-300">
-            {data.notes.map((n, i) => <li key={i}>• {n}</li>)}
+        <div className="rounded-lg border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-transparent p-4">
+          <ul className="space-y-2 text-sm text-zinc-300">
+            {data.notes.map((n, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="text-orange-500/60 font-bold shrink-0">›</span>
+                <span>{n}</span>
+              </li>
+            ))}
           </ul>
         </div>
       )}
 
       {data.citation && (
-        <p className="text-xs text-zinc-600 mt-2 text-right font-mono">{data.citation}</p>
+        <p className="text-xs text-zinc-600 text-right font-mono">{data.citation}</p>
       )}
     </div>
   );
