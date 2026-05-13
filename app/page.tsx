@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback, type FormEvent } from "react"
 import type { ArtifactSpec } from "../lib/artifact-harness/types.js";
 import type { MessageParam } from "@anthropic-ai/sdk/resources/messages";
 import ArtifactRenderer from "../lib/artifact-harness/renderer.js";
+import ReactMarkdown from "react-markdown";
 import ApiKeyModal from "./components/ApiKeyModal.js";
 import KeyIndicator from "./components/KeyIndicator.js";
 
@@ -273,7 +274,7 @@ export default function Page() {
           </header>
 
           {/* Message list */}
-          <div className="flex-1 overflow-y-auto px-4 py-5 space-y-5">
+          <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4">
             {messages.length === 0 && hydrated && (
               <div className="space-y-4">
                 <p className="text-sm text-zinc-400">
@@ -378,8 +379,8 @@ function ChatBubble({ msg }: { msg: Message }) {
   return (
     <div className="space-y-3 max-w-[95%]">
       {msg.text && (
-        <div className="text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap">
-          {msg.text}
+        <div className="prose prose-invert prose-sm max-w-none prose-p:my-1.5 prose-ul:my-1.5 prose-li:my-0">
+          <ReactMarkdown>{msg.text}</ReactMarkdown>
         </div>
       )}
       {msg.images?.map((img, i) => (
