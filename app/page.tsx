@@ -49,10 +49,10 @@ interface PersistedChat {
 }
 
 const EXAMPLES = [
-  "Show me how duty cycle changes between 120V and 240V",
-  "Which socket does the TIG torch cable go into?",
-  "Build me a duty cycle calculator",
-  "My MIG weld on mild steel has porosity — tiny holes in the bead",
+  { q: "What's the duty cycle for MIG at 200A on 240V?", tag: "lookup" },
+  { q: "Show me how duty cycle changes between 120V and 240V", tag: "chart" },
+  { q: "Which socket does the TIG torch cable go into?", tag: "diagram" },
+  { q: "My MIG weld has porosity — tiny holes in the bead", tag: "diagnose" },
 ];
 
 const STORAGE_KEY_CHAT = "chat_history";
@@ -314,16 +314,17 @@ export default function Page() {
             {messages.length === 0 && hydrated && (
               <div className="space-y-4">
                 <p className="text-sm text-zinc-400">
-                  Ask anything about the welder — specs, setup, troubleshooting, or wiring.
+                  Try one of these — or ask anything about specs, setup, wiring, or troubleshooting.
                 </p>
                 <div className="space-y-1.5">
-                  {EXAMPLES.map((q) => (
+                  {EXAMPLES.map(({ q, tag }) => (
                     <button
                       key={q}
                       onClick={() => void send(q)}
                       disabled={!apiKey}
                       className="block w-full text-left text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900 rounded px-2 py-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                     >
+                      <span className="text-[9px] uppercase tracking-widest text-zinc-600 font-semibold mr-2">{tag}</span>
                       {q}
                     </button>
                   ))}
