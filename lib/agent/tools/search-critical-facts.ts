@@ -7,7 +7,8 @@ export const definition: Tool = {
     "Search the manual's extracted critical facts — atomic, citation-backed assertions like " +
     "duty cycle numbers, socket assignments, polarity rules, safety limits, and gas requirements. " +
     "Use this before get_table when you need a quick factual answer with a page citation. " +
-    "Filter by processScope (MIG | TIG | Stick | Flux-Cored) and/or a substring in the claim text.",
+    "Filter by processScope (MIG | TIG | Stick | Flux-Cored) and/or a substring in the claim text. " +
+    "Substring matching is case-insensitive but exact — try shorter or alternate phrasings if the first query returns nothing.",
   input_schema: {
     type: "object" as const,
     properties: {

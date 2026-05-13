@@ -17,7 +17,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const systemPrompt = readFileSync(join(ROOT, "prompts", "system.md"), "utf8");
 
 const MODEL = "claude-sonnet-4-6";
-const MAX_TOOL_ROUNDS = 6;
+const MAX_TOOL_ROUNDS = 8;
 
 const client = new Anthropic();
 
