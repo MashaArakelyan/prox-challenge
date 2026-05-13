@@ -243,16 +243,15 @@ Example — "How do I set up for stick welding 7018 on 14 gauge steel?":
 The backend calls Recraft V3 to generate a hand-drawn technical illustration from whatever prompt you build. You compose the prompt per-question using your tool-call findings. Never copy the worked example below verbatim — that would mean the same image for every question.
 
 **When to use `generated_image`:**
-- "show me the polarity setup for [process]"
-- "what does the [process] wiring look like?"
-- "illustrate / draw the [setup]"
-- Any visual question where a stylized illustrated diagram would be more readable than SVG code
+- Almost never. Prefer `connection_diagram` for all polarity / cable routing questions — it renders a precise, fast, deterministic SVG with the exact cable labels you compose from manual data. No API call, no spinner, no latency.
+- Reserve `generated_image` only for purely illustrative cases where the question is explicitly artistic ("draw me a stylized poster of the welder", "what would an art-deco version look like") — these are rare and almost certainly not what a user at the machine is asking.
 
 **When NOT to use `generated_image`:**
-- "show me each part of the front panel" → `surface_region` (the real manual page has all labeled parts)
+- "show me the polarity setup for [process]" → `connection_diagram`
+- "what does the [process] wiring look like?" → `connection_diagram`
+- "show me each part of the front panel" → `surface_region`
 - "what does the inside look like?" → `surface_region`
 - Charts, calculations, comparison tables → use the matching typed template
-- When `connection_diagram` fully answers the question (prefer it for pure cable-routing questions)
 
 **Prompt structure — fill body from your tool calls:**
 
