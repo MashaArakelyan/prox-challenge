@@ -17,9 +17,13 @@ export async function POST(req: Request) {
     return Response.json({ error: "message is required" }, { status: 400 });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return Response.json({ error: "ANTHROPIC_API_KEY not configured" }, { status: 500 });
+  // BYO-key: prefer header sent by the browser; fall back to server env var for local dev.
+  const apiKey = req.headers.get("X-Anthropic-Key") ?? process.env.ANTHROPIC_API_KEY ?? "";
+  if (!apiKey || !apiKey.startsWith("sk-ant-")) {
+    return Response.json(
+      { error: "API key required. Set your Anthropic API key in the UI." },
+      { status: 401 },
+    );
   }
 
   const client = new Anthropic({ apiKey });
