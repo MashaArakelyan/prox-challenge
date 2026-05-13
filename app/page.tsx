@@ -267,6 +267,13 @@ export default function Page() {
     [...messages].reverse().find((m) => m.artifact)?.artifact ??
     null;
 
+  const isDiagnose = apiHistory.some((m) => {
+    if (m.role !== "assistant" || typeof m.content === "string") return false;
+    return (m.content as Array<{ type: string; name?: string }>).some(
+      (b) => b.type === "tool_use" && (b.name === "list_symptoms" || b.name === "diagnose_loop"),
+    );
+  });
+
   return (
     <>
       {showModal && <ApiKeyModal onKey={handleKey} />}
@@ -279,7 +286,14 @@ export default function Page() {
               V
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold leading-none">OmniPro 220 Agent</p>
+              <div className="flex items-center gap-2">
+                <p className="text-sm font-semibold leading-none">OmniPro 220 Agent</p>
+                {isDiagnose && (
+                  <span className="text-[10px] uppercase tracking-widest font-semibold text-orange-500 bg-orange-500/10 rounded px-1.5 py-0.5">
+                    Diagnose
+                  </span>
+                )}
+              </div>
               <p className="text-xs text-zinc-500 mt-0.5">Vulcan multiprocess welder</p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
