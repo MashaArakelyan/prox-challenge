@@ -7,7 +7,6 @@ export type {
   ReactArtifact, HtmlArtifact, SvgArtifact, MermaidArtifact,
   TwoCurveChartData, ComparisonTableData, ParameterCalculatorData,
   ConnectionDiagramData, InteractivePanelData, TroubleshootingFlowchartData,
-  GeneratedImageData,
   DataSeries, DataPoint, ImportRef,
 } from "../artifact-harness/types.js";
 
@@ -132,15 +131,6 @@ function validateTroubleshootingFlowchart(data: unknown): string | null {
   return null;
 }
 
-function validateGeneratedImage(data: unknown): string | null {
-  if (!isObject(data)) return "generated_image data must be an object";
-  if (!isString(data.title)) return "generated_image data.title is required";
-  if (!isString(data.prompt)) return "generated_image data.prompt is required";
-  if ((data.prompt as string).length < 20)
-    return "generated_image data.prompt must be >= 20 characters — be specific about what to draw";
-  return null;
-}
-
 function validateAnnotations(annotations: unknown): string | null {
   if (annotations === undefined) return null;
   if (!isArray(annotations)) return "annotations must be an array if present";
@@ -171,7 +161,6 @@ const templateValidators: Record<TemplateName, (d: unknown) => string | null> = 
   connection_diagram:        validateConnectionDiagram,
   interactive_panel:         validateInteractivePanel,
   troubleshooting_flowchart: validateTroubleshootingFlowchart,
-  generated_image:           validateGeneratedImage,
 };
 
 // ── Top-level validation entry point ─────────────────────────────────────────

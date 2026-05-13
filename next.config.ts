@@ -2,12 +2,7 @@ import type { NextConfig } from "next";
 
 const config: NextConfig = {
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "v3.fal.media" },
-      { protocol: "https", hostname: "fal.media" },
-      { protocol: "https", hostname: "*.fal.media" },
-      { protocol: "https", hostname: "fal.run" },
-    ],
+    remotePatterns: [],
   },
   // Remap .js imports → .tsx / .ts / .js so ESM-style imports from lib/ work in webpack.
   // This lets the app/ tree import the same lib/ modules that tsx scripts use
