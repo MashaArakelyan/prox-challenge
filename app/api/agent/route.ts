@@ -6,12 +6,12 @@ import { tools, dispatch } from "../../../lib/agent/tools/index.js";
 
 const systemPrompt = readFileSync(join(process.cwd(), "prompts", "system.md"), "utf8");
 const MODEL = "claude-sonnet-4-6";
-const MAX_TOOL_ROUNDS = 8;
+const MAX_TOOL_ROUNDS = 10;
 
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-  const body = (await req.json()) as { message?: string };
+  const body = (await req.json()) as { message?: string; history?: MessageParam[] };
   const message = body.message?.trim();
   if (!message) {
     return Response.json({ error: "message is required" }, { status: 400 });
@@ -24,6 +24,7 @@ export async function POST(req: Request) {
 
   const client = new Anthropic({ apiKey });
   const encoder = new TextEncoder();
+  const history: MessageParam[] = Array.isArray(body.history) ? body.history : [];
 
   const stream = new ReadableStream({
     async start(controller) {
@@ -32,7 +33,7 @@ export async function POST(req: Request) {
       }
 
       try {
-        await runAgentLoop(client, message, emit);
+        await runAgentLoop(client, message, history, emit);
         emit({ type: "done" });
       } catch (err) {
         emit({ type: "error", message: err instanceof Error ? err.message : "Unknown error" });
@@ -54,9 +55,17 @@ export async function POST(req: Request) {
 async function runAgentLoop(
   client: Anthropic,
   userMessage: string,
+  history: MessageParam[],
   emit: (event: object) => void,
 ): Promise<void> {
-  const messages: MessageParam[] = [{ role: "user", content: userMessage }];
+  // Prepend conversation history so the agent knows the current diagnostic state
+  const messages: MessageParam[] = [
+    ...history,
+    { role: "user", content: userMessage },
+  ];
+  const turnStart = messages.length - 1; // index of the new user message
+
+  let finalContent: MessageParam["content"] | null = null;
 
   for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
     const anthropicStream = client.messages.stream({
@@ -73,9 +82,13 @@ async function runAgentLoop(
     });
 
     const msg = await anthropicStream.finalMessage();
-
     const toolUseBlocks = msg.content.filter((b) => b.type === "tool_use");
-    if (msg.stop_reason === "end_turn" || toolUseBlocks.length === 0) break;
+
+    if (msg.stop_reason === "end_turn" || toolUseBlocks.length === 0) {
+      // Final response — capture content for history but do not push yet
+      finalContent = msg.content;
+      break;
+    }
 
     messages.push({ role: "assistant", content: msg.content });
 
@@ -114,4 +127,12 @@ async function runAgentLoop(
 
     messages.push({ role: "user", content: toolResults });
   }
+
+  // Emit the complete turn message exchange so the client can thread history
+  // into the next request. Includes all new messages added this turn + final response.
+  const newMessages: MessageParam[] = messages.slice(turnStart);
+  if (finalContent) {
+    newMessages.push({ role: "assistant", content: finalContent });
+  }
+  emit({ type: "turn_messages", messages: newMessages });
 }

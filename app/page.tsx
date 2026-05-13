@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, type FormEvent } from "react";
 import type { ArtifactSpec } from "../lib/artifact-harness/types.js";
+import type { MessageParam } from "@anthropic-ai/sdk/resources/messages";
 import ArtifactRenderer from "../lib/artifact-harness/renderer.js";
 
 interface ChatImage {
@@ -21,11 +22,13 @@ const EXAMPLES = [
   "Show me how duty cycle changes between 120V and 240V",
   "Which socket does the TIG torch cable go into?",
   "Build me a duty cycle calculator",
-  "What's the maximum input current on 120V?",
+  "My MIG weld on mild steel has porosity — tiny holes in the bead",
 ];
 
 export default function Page() {
   const [messages, setMessages] = useState<Message[]>([]);
+  // Full Anthropic message exchange for multi-turn context (diagnose mode)
+  const [apiHistory, setApiHistory] = useState<MessageParam[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [activeArtifact, setActiveArtifact] = useState<ArtifactSpec | null>(null);
@@ -61,7 +64,7 @@ export default function Page() {
       const res = await fetch("/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
+        body: JSON.stringify({ message: trimmed, history: apiHistory }),
       });
 
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
@@ -98,6 +101,9 @@ export default function Page() {
               const spec = ev.spec as ArtifactSpec;
               setActiveArtifact(spec);
               patchAssistant({ artifact: spec });
+            } else if (ev.type === "turn_messages") {
+              // Accumulate full API message exchange for multi-turn context (diagnose mode)
+              setApiHistory((prev) => [...prev, ...(ev.messages as MessageParam[])]);
             }
           } catch {
             // malformed SSE line — skip
