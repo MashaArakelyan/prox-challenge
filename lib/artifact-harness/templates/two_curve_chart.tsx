@@ -29,8 +29,8 @@ export default function TwoCurveChart({ data }: { data: TwoCurveChartData }) {
 
   return (
     <div className="w-full">
-      <ResponsiveContainer width="100%" height={280}>
-        <LineChart data={chartData} margin={{ top: 8, right: 24, bottom: 28, left: 8 }}>
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart data={chartData} margin={{ top: 20, right: 30, bottom: 40, left: 20 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
           <XAxis
             dataKey="x"
@@ -38,9 +38,9 @@ export default function TwoCurveChart({ data }: { data: TwoCurveChartData }) {
             label={{
               value: `${data.xAxis.label} (${data.xAxis.unit})`,
               position: "insideBottom",
-              offset: -18,
+              offset: -15,
               fill: "#a1a1aa",
-              fontSize: 11,
+              fontSize: 12,
             }}
           />
           <YAxis
@@ -50,9 +50,8 @@ export default function TwoCurveChart({ data }: { data: TwoCurveChartData }) {
               value: `${yAxis.label} (${yAxis.unit})`,
               angle: -90,
               position: "insideLeft",
-              offset: 12,
               fill: "#a1a1aa",
-              fontSize: 11,
+              fontSize: 12,
             }}
           />
           <Tooltip
@@ -62,7 +61,7 @@ export default function TwoCurveChart({ data }: { data: TwoCurveChartData }) {
             formatter={(v, name) => [`${v}${yAxis.unit}`, String(name ?? "")]}
             labelFormatter={(l) => `${l} ${data.xAxis.unit}`}
           />
-          <Legend wrapperStyle={{ color: "#a1a1aa", fontSize: 12, paddingTop: 8 }} />
+          <Legend verticalAlign="top" height={36} wrapperStyle={{ color: "#a1a1aa", fontSize: 12, paddingBottom: 10 }} />
           {data.series.map((s, i) => (
             <Line
               key={s.label}
