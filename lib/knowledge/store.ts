@@ -2,11 +2,11 @@
 // The graph is small (≤500 entities) — no lazy loading needed.
 
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import type { Entity, Relation, Table, Diagram, Procedure, Symptom, CriticalFact, CanonicalSetup } from "./types.js";
 
-const DATA = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "data");
+// process.cwd() is the project root in both tsx scripts and Next.js API routes.
+const DATA = join(process.cwd(), "data");
 
 function load<T>(name: string): T {
   return JSON.parse(readFileSync(join(DATA, name), "utf8")) as T;

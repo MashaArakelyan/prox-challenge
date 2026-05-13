@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- React 18 + ReactDOM -->
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<!-- Babel standalone for JSX transpilation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.10/babel.min.js"></script>
+<!-- Recharts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.10.3/Recharts.umd.min.js"></script>
+<!-- Tailwind CDN (v2 for simplicity in iframe) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+<style>
+  body { margin: 0; background: #09090b; color: #f4f4f5; font-family: system-ui, sans-serif; }
+  #root { padding: 12px; }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+(function () {
+  "use strict";
+
+  // Minimal require shim for Babel-transpiled CommonJS output
+  var require = function (mod) {
+    if (mod === "react")        return window.React;
+    if (mod === "react-dom")    return window.ReactDOM;
+    if (mod === "recharts")     return window.Recharts;
+    if (mod === "lucide-react") return {};   // stub — return empty; components degrade gracefully
+    return {};
+  };
+
+  var _root = null;
+
+  function renderCode(code) {
+    try {
+      // Transpile JSX + ESM → CommonJS via Babel
+      var transformed = Babel.transform(code, {
+        presets: ["react", ["env", { modules: "commonjs", targets: { chrome: 90 } }]],
+        filename: "widget.jsx",
+      }).code;
+
+      // Execute in a fresh module scope
+      var mod = { exports: {} };
+      // eslint-disable-next-line no-new-func
+      var fn = new Function("require", "module", "exports", "React", "ReactDOM", transformed);
+      fn(require, mod, mod.exports, window.React, window.ReactDOM);
+
+      var Widget = mod.exports["default"] || mod.exports;
+      if (typeof Widget !== "function") throw new Error("No default export found in widget code");
+
+      var rootEl = document.getElementById("root");
+      if (!_root) {
+        _root = window.ReactDOM.createRoot(rootEl);
+      }
+      _root.render(window.React.createElement(Widget));
+
+      // Report height after paint so the parent can resize the iframe
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          window.parent.postMessage({ type: "resize", height: document.body.scrollHeight }, "*");
+        });
+      });
+    } catch (err) {
+      window.parent.postMessage({ type: "error", message: err.message }, "*");
+    }
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.data && e.data.type === "render" && typeof e.data.code === "string") {
+      renderCode(e.data.code);
+    }
+  });
+
+  // Signal ready; parent will send the code once it receives this
+  window.parent.postMessage({ type: "ready" }, "*");
+})();
+</script>
+</body>
+</html>
