@@ -3,6 +3,7 @@
 
 export type {
   ArtifactSpec, ArtifactKind, TemplateName, TemplateArtifact,
+  ImageArtifact, Annotation,
   ReactArtifact, HtmlArtifact, SvgArtifact, MermaidArtifact,
   TwoCurveChartData, ComparisonTableData, ParameterCalculatorData,
   ConnectionDiagramData, InteractivePanelData, TroubleshootingFlowchartData,
@@ -140,6 +141,29 @@ function validateGeneratedImage(data: unknown): string | null {
   return null;
 }
 
+function validateAnnotations(annotations: unknown): string | null {
+  if (annotations === undefined) return null;
+  if (!isArray(annotations)) return "annotations must be an array if present";
+  for (const a of annotations as unknown[]) {
+    if (!isObject(a)) return "each annotation must be an object";
+    const ann = a as Record<string, unknown>;
+    if (typeof ann.number !== "number") return "annotation.number must be a number";
+    if (typeof ann.x !== "number" || ann.x < 0 || ann.x > 1) return "annotation.x must be 0–1";
+    if (typeof ann.y !== "number" || ann.y < 0 || ann.y > 1) return "annotation.y must be 0–1";
+    if (!isString(ann.label)) return "annotation.label must be a string";
+  }
+  return null;
+}
+
+function validateImage(raw: Record<string, unknown>): string | null {
+  if (!isString(raw.src)) return "image artifact requires src: string (URL to the image)";
+  if (raw.annotations !== undefined) {
+    const err = validateAnnotations(raw.annotations);
+    if (err) return err;
+  }
+  return null;
+}
+
 const templateValidators: Record<TemplateName, (d: unknown) => string | null> = {
   two_curve_chart:           validateTwoCurveChart,
   comparison_table:          validateComparisonTable,
@@ -171,6 +195,12 @@ export function validateArtifactSpec(raw: unknown): ValidationResult {
         return err(`template must be one of: ${TEMPLATE_NAMES.join(", ")}; got "${String(template)}"`);
       const dataErr = templateValidators[template as TemplateName](raw.data);
       if (dataErr) return err(dataErr);
+      return ok(raw as unknown as ArtifactSpec);
+    }
+
+    case "image": {
+      const imageErr = validateImage(raw);
+      if (imageErr) return err(imageErr);
       return ok(raw as unknown as ArtifactSpec);
     }
 

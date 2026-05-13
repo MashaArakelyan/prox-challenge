@@ -155,6 +155,23 @@ export interface GeneratedImageData {
   citation?: string;
 }
 
+export interface Annotation {
+  number: number;
+  x: number;      // normalized 0-1 (anchor point on the image)
+  y: number;      // normalized 0-1
+  label: string;  // 1-4 words, pulled from manual's actual phrasing
+}
+
+/** Manual page image with optional annotation overlay (orange badges + leader lines). */
+export interface ImageArtifact {
+  kind: "image";
+  title: string;
+  src: string;         // URL, e.g. /api/images/8_diagram_8_1.png
+  caption?: string;
+  citation?: string;
+  annotations?: Annotation[];
+}
+
 // ── Top-level artifact discriminated union ────────────────────────────────────
 
 /** Template artifacts — preferred; bounded and safe. */
@@ -204,12 +221,13 @@ export interface MermaidArtifact {
 
 export type ArtifactSpec =
   | TemplateArtifact
+  | ImageArtifact
   | ReactArtifact
   | HtmlArtifact
   | SvgArtifact
   | MermaidArtifact;
 
-export const ARTIFACT_KINDS = ["template", "react", "html", "svg", "mermaid"] as const;
+export const ARTIFACT_KINDS = ["template", "image", "react", "html", "svg", "mermaid"] as const;
 export const TEMPLATE_NAMES = [
   "two_curve_chart",
   "comparison_table",

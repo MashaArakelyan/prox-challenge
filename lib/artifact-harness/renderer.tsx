@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { ArtifactSpec, GeneratedImageData } from "./types.js";
+import type { ArtifactSpec, GeneratedImageData, ImageArtifact } from "./types.js";
 import TwoCurveChart from "./templates/two_curve_chart.js";
 import ComparisonTable from "./templates/comparison_table.js";
 import ParameterCalculator from "./templates/parameter_calculator.js";
@@ -9,11 +9,16 @@ import ConnectionDiagram from "./templates/connection_diagram.js";
 import InteractivePanel from "./templates/interactive_panel.js";
 import TroubleshootingFlowchart from "./templates/troubleshooting_flowchart.js";
 import GeneratedImage from "./templates/generated_image.js";
+import AnnotatedImage from "./templates/annotated_image.js";
 
 export default function ArtifactRenderer({ spec }: { spec: ArtifactSpec }) {
   switch (spec.kind) {
     case "template":
       return <TemplateRenderer spec={spec} />;
+    case "image": {
+      const img = spec as ImageArtifact;
+      return <AnnotatedImage src={img.src} title={img.title} caption={img.caption} citation={img.citation} annotations={img.annotations} />;
+    }
     case "react":
       return <ReactArtifact code={spec.code} />;
     case "html":

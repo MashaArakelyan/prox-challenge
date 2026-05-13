@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback, type FormEvent } from "react";
-import type { ArtifactSpec } from "../lib/artifact-harness/types.js";
+import type { ArtifactSpec, Annotation } from "../lib/artifact-harness/types.js";
 import type { MessageParam } from "@anthropic-ai/sdk/resources/messages";
 import ArtifactRenderer from "../lib/artifact-harness/renderer.js";
+import AnnotatedImage from "../lib/artifact-harness/templates/annotated_image.js";
 import ReactMarkdown from "react-markdown";
 import ApiKeyModal from "./components/ApiKeyModal.js";
 import KeyIndicator from "./components/KeyIndicator.js";
@@ -32,6 +33,7 @@ const mdComponents = {
 interface ChatImage {
   path: string;
   caption: string;
+  annotations?: Annotation[];
 }
 
 interface Message {
@@ -220,7 +222,11 @@ export default function Page() {
               const path = raw.startsWith("data/images/")
                 ? raw.replace("data/images/", "/api/images/")
                 : `/api/images/${raw.split("/").pop() ?? raw}`;
-              streamImages = [...streamImages, { path, caption: String(ev.caption ?? "") }];
+              streamImages = [...streamImages, {
+                path,
+                caption: String(ev.caption ?? ""),
+                annotations: Array.isArray(ev.annotations) ? ev.annotations as Annotation[] : undefined,
+              }];
               patchAssistant({ images: streamImages });
             } else if (ev.type === "artifact") {
               patchAssistant({ artifact: ev.spec as ArtifactSpec });
@@ -396,12 +402,12 @@ function ChatBubble({ msg }: { msg: Message }) {
           </div>
         )}
         {msg.images?.map((img, i) => (
-          <div key={i} className="rounded-lg overflow-hidden border border-zinc-800 max-w-md">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img.path} alt={img.caption} className="w-full h-auto block" />
-            {img.caption && (
-              <p className="px-3 py-2 text-xs text-zinc-400 bg-zinc-900/80">{img.caption}</p>
-            )}
+          <div key={i} className="max-w-md">
+            <AnnotatedImage
+              src={img.path}
+              caption={img.caption || undefined}
+              annotations={img.annotations}
+            />
           </div>
         ))}
         {msg.artifact && (

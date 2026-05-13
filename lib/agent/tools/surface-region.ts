@@ -38,6 +38,16 @@ export function handle(input: { diagramId: string; regionLabel?: string }): stri
   const { diagram, region } = result;
   const imagePath = `data/images/${diagram.page}_${diagram.id}.png`;
 
+  // allRegions lets the agent derive annotation coordinates from bbox centers:
+  // annotation x = bbox.x + bbox.width/2, y = bbox.y + bbox.height/2 (all normalized 0-1)
+  const allRegions = diagram.regions.map((r, i) => ({
+    number: i + 1,
+    label: r.label,
+    bbox: r.bbox,
+    annotationX: r.bbox.x + r.bbox.width / 2,
+    annotationY: r.bbox.y + r.bbox.height / 2,
+  }));
+
   return JSON.stringify({
     found: true,
     diagram: {
@@ -49,7 +59,9 @@ export function handle(input: { diagramId: string; regionLabel?: string }): stri
     region: region
       ? { label: region.label, bbox: region.bbox }
       : null,
+    allRegions,
     imagePath,
-    note: "Image file is at imagePath relative to the repo root.",
+    imageUrl: imagePath.replace("data/images/", "/api/images/"),
+    note: "After surfacing an image, call render_artifact with kind='image', the imageUrl as src, and an annotations array built from allRegions (pick the regions relevant to the user's question).",
   });
 }

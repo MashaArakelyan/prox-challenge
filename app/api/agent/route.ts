@@ -108,10 +108,21 @@ async function runAgentLoop(
 
         if (block.name === "surface_region" && result.found && result.imagePath) {
           const diagram = result.diagram as Record<string, unknown> | undefined;
+          const allRegions = result.allRegions as Array<{
+            number: number; label: string;
+            annotationX: number; annotationY: number;
+          }> | undefined;
+          const annotations = (allRegions ?? []).slice(0, 7).map((r) => ({
+            number: r.number,
+            x: r.annotationX,
+            y: r.annotationY,
+            label: r.label,
+          }));
           emit({
             type: "image",
             path: result.imagePath as string,
             caption: diagram?.caption ?? "",
+            annotations: annotations.length > 0 ? annotations : undefined,
           });
         }
 

@@ -16,10 +16,14 @@ export const definition: Tool = {
     "   • connection_diagram — cable/socket routing diagram with highlighted regions\n" +
     "   • interactive_panel — machine control surface with highlighted recommended settings\n" +
     "   • troubleshooting_flowchart — yes/no decision tree for diagnosing a symptom\n" +
-    "2. svg — custom vector diagram when no pre-extracted diagram covers the question\n" +
-    "3. react — genuinely interactive widget not covered by any template (custom calculators, configurators)\n" +
-    "4. html — layout-heavy content that is not a React component\n" +
-    "5. mermaid — flowcharts, state machines, decision trees (text-based; simpler than troubleshooting_flowchart)\n" +
+    "2. image — manual page diagram with annotation overlay (orange numbered badges + leader lines). " +
+    "   Use after calling surface_region to show the image with annotations. " +
+    "   Required: src (use imageUrl from surface_region result). " +
+    "   Optional: annotations array [{number, x, y, label}] using annotationX/annotationY from allRegions.\n" +
+    "3. svg — custom vector diagram when no pre-extracted diagram covers the question\n" +
+    "4. react — genuinely interactive widget not covered by any template (custom calculators, configurators)\n" +
+    "5. html — layout-heavy content that is not a React component\n" +
+    "6. mermaid — flowcharts, state machines, decision trees (text-based; simpler than troubleshooting_flowchart)\n" +
     "\n" +
     "DISCIPLINE: Do NOT emit artifacts for simple factual answers, socket lookups, or anything " +
     "surface_region already handles well. An artifact is warranted when the answer is a relationship " +
@@ -57,9 +61,27 @@ export const definition: Tool = {
         type: "string",
         description: "Required when kind='mermaid'. Mermaid DSL (no surrounding fences).",
       },
+      src: {
+        type: "string",
+        description: "Required when kind='image'. URL to the image (use imageUrl from surface_region result).",
+      },
+      annotations: {
+        type: "array",
+        description: "Optional for kind='image'. Array of {number, x, y, label} annotations to overlay on the image. Use annotationX/annotationY values from surface_region allRegions.",
+        items: {
+          type: "object",
+          properties: {
+            number: { type: "number" },
+            x: { type: "number", description: "Normalized 0-1 horizontal position" },
+            y: { type: "number", description: "Normalized 0-1 vertical position" },
+            label: { type: "string", description: "1-4 words" },
+          },
+          required: ["number", "x", "y", "label"],
+        },
+      },
       caption: {
         type: "string",
-        description: "Optional caption shown below svg or mermaid artifacts.",
+        description: "Optional caption shown below svg, mermaid, or image artifacts.",
       },
       imports: {
         type: "array",
