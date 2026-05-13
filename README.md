@@ -50,11 +50,10 @@ The standard RAG playbook (chunk → embed → retrieve → synthesize) fails on
 - **Visual content.** The weld-diagnosis photos, the front-panel labels, the polarity wiring diagram — these exist only as images. RAG over text misses them entirely. Three parallel vision-capable extraction passes using Claude with the actual page images build `data/diagrams.json` with bounding-box-level regions, `data/entities.json`, `data/relations.json`, and `data/tables.json`.
 
 The three passes use different models matched to task complexity:
-- **Haiku 4.5** — structural / transcription-heavy work (entities, tables, diagram regions)
-- **Sonnet 4.6** — procedural pass (state machines with ordered steps + postconditions)
+- **Sonnet 4.6** — structural pass (entities, tables, diagram regions) and procedural pass (state machines)
 - **Opus 4.7** — diagnostic pass (Bayesian networks requiring strong causal reasoning)
 
-This split drops a full re-ingestion from ~\$25 to ~\$5–8, making prompt iteration cheap.
+The structural pass initially used Haiku 4.5 for cost. It failed on a dense duty-cycle page where rotated text and multi-row spans defeated the model. The page was rescued with Opus and the structural pass was promoted to Sonnet 4.6 for the full run. The lesson — *cost optimization is for hot paths, not cold paths* — drove the upgrade. Ingestion runs once; pay for it.
 
 ### 3. Salience synthesis and critical facts
 
@@ -82,7 +81,7 @@ Constraining to templates first and reaching for freeform JSX only as a last res
 
 When a user reports a weld defect or machine problem, the agent switches to Diagnose mode:
 
-1. `list_symptoms()` — returns every canonical symptom ID + label from `data/diagnostic_trees.json`. The agent reasons over this list against the user's words to find the best match. No embedding index needed at this scale (~15 symptoms); the LLM does fuzzy matching natively.
+1. `list_symptoms()` — returns every canonical symptom ID + label from `data/diagnostic_trees.json`. The agent reasons over this list against the user's words to find the best match. No embedding index needed at this scale (~35 symptoms); the LLM does fuzzy matching natively.
 
 2. `verify_setup(process, material)` — checks reported settings against the canonical setup for that process/material. Mismatches surface immediately, before the Bayesian loop starts. Most "porosity" complaints are setup errors, not root-cause unknowns.
 
@@ -132,13 +131,13 @@ files/
 
 data/
   schema.json               inferred domain ontology
-  entities.json             ~480 extracted entities with salience weights
+  entities.json             450 extracted entities with salience weights
   relations.json            intra-page relations
   tables.json               typed table rows (duty cycle, wire specs, etc.)
   diagrams.json             labeled diagram regions with bounding boxes
   procedures.json           state machines with postconditions
   diagnostic_trees.json     Bayesian networks: symptoms → causes → checks
-  critical_facts.json       ~120 atomic quotable assertions with citations
+  critical_facts.json       66 atomic quotable assertions with citations
   canonical_setups.json     pre-computed setups for common process/material combos
   images/                   cropped diagram region PNGs (committed)
 
@@ -169,7 +168,7 @@ Ingestion is pre-computed and committed. You do not need to run it. If you want 
 ANTHROPIC_API_KEY=sk-ant-... npm run ingest
 ```
 
-This re-runs all four pipeline stages (schema inference, three parallel extraction passes, salience synthesis, cross-page resolution) and overwrites `data/`. Expect ~\$5–8 in API costs and 15–20 minutes.
+This re-runs all four pipeline stages (schema inference, three parallel extraction passes, salience synthesis, cross-page resolution) and overwrites `data/`. Expect 15–20 minutes.
 
 Do not run `npm run ingest` as part of `npm run dev`.
 
