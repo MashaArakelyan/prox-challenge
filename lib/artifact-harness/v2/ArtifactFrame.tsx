@@ -31,7 +31,7 @@ export function ArtifactFrame({ code, minHeight = 120 }: Props) {
     <div style={{ width: '100%', border: '1px solid #e5e7eb', borderRadius: 8, overflow: 'hidden', background: '#fff' }}>
       <iframe
         ref={iframeRef}
-        src="/artifact-frame-v2.html"
+        src="/artifact-frame.html"
         sandbox="allow-scripts"
         style={{ width: '100%', height, border: 'none', display: 'block' }}
         title="Artifact"

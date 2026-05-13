@@ -1,3 +1,8 @@
+'use client';
+// ARCHIVED: original template dispatcher. Kept for reference during v2 rebuild.
+// To restore, uncomment the block below and remove the stub export.
+
+/*
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -125,7 +130,6 @@ function SvgArtifact({ content, caption }: { content: string; caption?: string }
       {html ? (
         <div
           className="w-full overflow-auto"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
@@ -175,5 +179,18 @@ function MermaidArtifact({ diagram, caption }: { diagram: string; caption?: stri
 function LoadingPlaceholder() {
   return (
     <div className="text-zinc-500 text-sm p-4 text-center">Loading…</div>
+  );
+}
+*/
+
+import type { ArtifactSpec } from './types';
+
+export default function ArtifactRenderer({ spec: _spec }: { spec: ArtifactSpec }) {
+  // v2 rebuild in progress. Old templates archived above.
+  // New renderer lives in lib/artifact-harness/v2/.
+  return (
+    <div style={{ padding: 12, color: '#9ca3af', fontSize: 13, fontStyle: 'italic', border: '1px dashed #e5e7eb', borderRadius: 6 }}>
+      Artifact renderer offline during rebuild — spec received, no render path yet.
+    </div>
   );
 }
