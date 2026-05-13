@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Artifact Frame</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; font-family: system-ui, -apple-system, sans-serif; }
+    #root { padding: 0; }
+    .error { color: #b91c1c; padding: 12px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; margin: 12px; font-size: 13px; font-family: ui-monospace, monospace; white-space: pre-wrap; }
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-runner@1.0.5/dist/react-runner.umd.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    let currentCode = null;
+
+    function App() {
+      if (!currentCode) return React.createElement('div', { style: { padding: 16, color: '#9ca3af' } }, 'Waiting for code…');
+      return React.createElement(ReactRunner.Runner, {
+        code: currentCode,
+        scope: { React, ...React },
+        onRendered: function (err) {
+          if (err) {
+            window.parent.postMessage({ type: 'ARTIFACT_ERROR', message: err.message || String(err) }, '*');
+          } else {
+            setTimeout(function () {
+              window.parent.postMessage({ type: 'ARTIFACT_RESIZE', height: document.body.scrollHeight }, '*');
+            }, 50);
+          }
+        }
+      });
+    }
+
+    function rerender() { root.render(React.createElement(App)); }
+
+    window.addEventListener('message', function (event) {
+      var msg = event.data;
+      if (msg && msg.type === 'ARTIFACT_RENDER') {
+        currentCode = msg.code;
+        rerender();
+      }
+    });
+
+    window.parent.postMessage({ type: 'ARTIFACT_READY' }, '*');
+  </script>
+</body>
+</html>
