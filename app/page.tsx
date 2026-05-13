@@ -369,35 +369,40 @@ function ChatBubble({ msg }: { msg: Message }) {
   if (msg.role === "user") {
     return (
       <div className="flex justify-end">
-        <div className="max-w-[88%] bg-zinc-800 rounded-2xl rounded-tr-sm px-4 py-3">
-          <p className="text-sm text-zinc-100">{msg.text}</p>
+        <div className="bg-zinc-800 rounded-2xl rounded-br-md px-4 py-2.5 max-w-[85%] text-sm whitespace-pre-wrap">
+          {msg.text}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-3 max-w-[95%]">
-      {msg.text && (
-        <div className="prose prose-invert prose-sm max-w-none prose-p:my-1.5 prose-ul:my-1.5 prose-li:my-0">
-          <ReactMarkdown>{msg.text}</ReactMarkdown>
-        </div>
-      )}
-      {msg.images?.map((img, i) => (
-        <div key={i} className="rounded-lg overflow-hidden border border-zinc-800">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={img.path} alt={img.caption} className="w-full h-auto block" />
-          {img.caption && (
-            <p className="px-3 py-2 text-xs text-zinc-400 bg-zinc-900/80">{img.caption}</p>
-          )}
-        </div>
-      ))}
-      {msg.artifact && (
-        <div className="text-xs text-zinc-600 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-500 inline-block" />
-          Artifact rendered in the right panel
-        </div>
-      )}
+    <div className="flex gap-3">
+      <div className="w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5">
+        V
+      </div>
+      <div className="flex-1 min-w-0 space-y-3">
+        {msg.text && (
+          <div className="prose prose-invert prose-sm max-w-none prose-p:my-1.5 prose-ul:my-1.5 prose-li:my-0">
+            <ReactMarkdown>{msg.text}</ReactMarkdown>
+          </div>
+        )}
+        {msg.images?.map((img, i) => (
+          <div key={i} className="rounded-lg overflow-hidden border border-zinc-800">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.path} alt={img.caption} className="w-full h-auto block" />
+            {img.caption && (
+              <p className="px-3 py-2 text-xs text-zinc-400 bg-zinc-900/80">{img.caption}</p>
+            )}
+          </div>
+        ))}
+        {msg.artifact && (
+          <div className="text-xs text-zinc-600 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 inline-block" />
+            Artifact rendered in the right panel
+          </div>
+        )}
+      </div>
     </div>
   );
 }
