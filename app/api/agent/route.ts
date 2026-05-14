@@ -106,6 +106,11 @@ async function runAgentLoop(
       emit({ type: "tool_call", name: block.name, input: block.input });
       const resultStr = await dispatch(block.name, block.input, { geminiKey });
 
+      // contentForClaude is what we put back into the conversation.
+      // For tools that return large binary data (e.g. base64 images), we strip the payload
+      // and tell Claude "success — displayed to user" so we don't blow the context window.
+      let contentForClaude = resultStr;
+
       try {
         const result = JSON.parse(resultStr) as Record<string, unknown>;
 
@@ -132,6 +137,17 @@ async function runAgentLoop(
         if (block.name === "render_artifact" && result.accepted === true && result.spec) {
           emit({ type: "artifact", spec: result.spec });
         }
+
+        // generate_image returns a base64 data URL (~1-2 MB). Strip it from the tool_result
+        // before feeding it back to Claude — otherwise it blows the context window.
+        // Emit the image as an artifact instead and tell Claude it succeeded.
+        if (block.name === "generate_image" && typeof result.url === "string") {
+          emit({ type: "artifact", spec: { kind: "image", url: result.url } });
+          contentForClaude = JSON.stringify({
+            success: true,
+            note: "Image generated and displayed to the user in the artifact panel. Do NOT call render_artifact — the image is already showing. Describe what the diagram shows in your text response.",
+          });
+        }
       } catch {
         // non-JSON result is fine — just pass it through
       }
@@ -139,7 +155,7 @@ async function runAgentLoop(
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
-        content: resultStr,
+        content: contentForClaude,
       });
     }
 

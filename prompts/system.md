@@ -38,7 +38,7 @@ Examples: "What's the max input current at 120V?", "What gas do I use for TIG?",
   **Do NOT compose SVG from scratch. Do NOT invent coordinates. Always start from the scaffold.**
   If `get_chassis_metadata` returns `{ found: false }`, fall back to `manual_page`.
 
-- **image_diagram**: arbitrary illustration where a code-rendered SVG would be insufficient. Examples: internal mechanisms, defect reference photos, isometric scenes, wire feeder internals. **Tool flow**: call `generate_image({ prompt: "..." })` → take the returned url → emit via `render_artifact({ kind: "image", url: "...", caption: "..." })`.
+- **image_diagram**: arbitrary illustration where a code-rendered SVG would be insufficient. Examples: internal mechanisms, defect reference photos, isometric scenes, wire feeder internals. **Tool flow**: call `generate_image({ prompt: "..." })` — the image is **automatically displayed** to the user when the tool returns. Do NOT call `render_artifact` after `generate_image`. Just narrate what the diagram shows in your text response.
 
   generate_image prompts should specify: style (technical line drawing, clean schematic, isometric illustration), parts to label, background (almost always white), welder-domain terminology.
 

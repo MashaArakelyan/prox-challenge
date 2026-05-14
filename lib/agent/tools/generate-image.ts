@@ -10,8 +10,11 @@ export const definition: Tool = {
     "Generate an AI illustration via Gemini 2.5 Flash Image. Use ONLY when no polished " +
     "code-rendered SVG covers the visual — e.g., internal mechanisms, defect reference photos, " +
     "isometric scenes. Do NOT use for socket/polarity/connection diagrams — those use code " +
-    "generation with get_chassis_metadata. Returns { url } on success or { error } on failure. " +
-    "Pass the returned url to render_artifact with kind: 'image'.",
+    "generation with get_chassis_metadata. " +
+    "IMPORTANT: The image is automatically displayed to the user as soon as this tool returns. " +
+    "Do NOT call render_artifact after this tool — the image is already showing. " +
+    "Just describe what the diagram shows in your text response. " +
+    "Returns { success: true } on success or { error } on failure.",
   input_schema: {
     type: "object" as const,
     properties: {
