@@ -77,7 +77,7 @@ async function runAgentLoop(
   for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
     const anthropicStream = client.messages.stream({
       model: MODEL,
-      max_tokens: 2048,
+      max_tokens: 8192,
       system: systemPrompt,
       tools,
       messages,

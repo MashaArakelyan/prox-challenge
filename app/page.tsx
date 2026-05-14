@@ -234,6 +234,8 @@ export default function Page() {
               patchAssistant({ artifact: ev.spec as ArtifactSpec });
             } else if (ev.type === "turn_messages") {
               setApiHistory((prev) => [...prev, ...(ev.messages as MessageParam[])]);
+            } else if (ev.type === "error") {
+              patchAssistant({ text: `Error: ${ev.message as string}` });
             }
           } catch {
             // malformed SSE line — skip

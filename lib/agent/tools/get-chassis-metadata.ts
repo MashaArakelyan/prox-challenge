@@ -34,7 +34,7 @@ interface ChassisMetadata {
   defaultColors: Record<string, string>;
 }
 
-function buildScaffold(metadata: ChassisMetadata, chassisInner: string): string {
+function buildScaffold(metadata: ChassisMetadata, id: string): string {
   const { viewBox, sockets, labelSlots, defaultColors } = metadata;
 
   // Socket connectors — drawn on top of the chassis body
@@ -73,14 +73,14 @@ function buildScaffold(metadata: ChassisMetadata, chassisInner: string): string 
     .map(([k, v]) => `${k}="${v}"`)
     .join(", ");
 
-  return `function ConnectionDiagram() {
-  // Chassis body — pre-rendered, do not modify
-  const chassisBody = ${JSON.stringify(chassisInner)};
+  // Parse viewBox to get width/height for the <image> element
+  const [, , vbW, vbH] = viewBox.split(" ").map(Number);
 
+  return `function ConnectionDiagram() {
   return (
     <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', background: '#FAF6EC', borderRadius: 8 }}>
-      {/* ── Chassis body ─────────────────────────────────────────────── */}
-      <g dangerouslySetInnerHTML={{ __html: chassisBody }} />
+      {/* ── Chassis body (static asset) ─────────────────────────────── */}
+      <image href="/chassis/${id}.svg" x="0" y="0" width="${vbW}" height="${vbH}" />
 
       {/* ── Socket connectors (colors: ${colorRef}) ── */}
 ${socketElems}
@@ -112,18 +112,13 @@ export function handle(input: { chassisId: string }): string {
 
   try {
     const dataDir = join(process.cwd(), "data", "chassis");
-    const metaRaw  = readFileSync(join(dataDir, `${id}.json`), "utf-8");
-    const svgRaw   = readFileSync(join(dataDir, `${id}.svg`),  "utf-8");
-
-    const metadata  = JSON.parse(metaRaw) as ChassisMetadata;
-    const chassisInner = svgRaw
-      .replace(/^[\s\S]*?<svg[^>]*>/, "")
-      .replace(/<\/svg>\s*$/, "")
-      .trim();
-
-    const scaffoldCode = buildScaffold(metadata, chassisInner);
+    const metaRaw = readFileSync(join(dataDir, `${id}.json`), "utf-8");
+    const metadata = JSON.parse(metaRaw) as ChassisMetadata;
+    const scaffoldCode = buildScaffold(metadata, id);
+    console.log(`[chassis-tool] returning scaffold length=${scaffoldCode.length} for chassisId=${id}`);
     return JSON.stringify({ found: true, metadata, scaffoldCode });
   } catch (e: unknown) {
+    console.error(`[chassis-tool] failed for chassisId=${id}:`, e);
     return JSON.stringify({ found: false, error: `chassis '${id}' not found: ${(e as Error).message}` });
   }
 }
