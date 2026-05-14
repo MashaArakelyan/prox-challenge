@@ -26,6 +26,8 @@ export async function POST(req: Request) {
     );
   }
 
+  const geminiKey = req.headers.get("x-gemini-key") ?? process.env.GEMINI_API_KEY ?? "";
+
   const client = new Anthropic({ apiKey });
   const encoder = new TextEncoder();
   const history: MessageParam[] = Array.isArray(body.history) ? body.history : [];
@@ -37,7 +39,7 @@ export async function POST(req: Request) {
       }
 
       try {
-        await runAgentLoop(client, message, history, emit);
+        await runAgentLoop(client, message, history, emit, geminiKey);
         emit({ type: "done" });
       } catch (err) {
         emit({ type: "error", message: err instanceof Error ? err.message : "Unknown error" });
@@ -61,6 +63,7 @@ async function runAgentLoop(
   userMessage: string,
   history: MessageParam[],
   emit: (event: object) => void,
+  geminiKey: string,
 ): Promise<void> {
   // Prepend conversation history so the agent knows the current diagnostic state
   const messages: MessageParam[] = [
@@ -101,7 +104,7 @@ async function runAgentLoop(
       if (block.type !== "tool_use") continue;
 
       emit({ type: "tool_call", name: block.name, input: block.input });
-      const resultStr = dispatch(block.name, block.input);
+      const resultStr = await dispatch(block.name, block.input, { geminiKey });
 
       try {
         const result = JSON.parse(resultStr) as Record<string, unknown>;

@@ -13,17 +13,11 @@ export default function ImageTestPage() {
     setImageUrl(null);
     try {
       const geminiKey = typeof window !== 'undefined' ? localStorage.getItem('gemini_api_key') : null;
-      if (!geminiKey) {
-        setError('No Gemini key in localStorage. Add one via the main app key modal, or paste this in DevTools:\nlocalStorage.setItem("gemini_api_key", "YOUR_KEY")');
-        setLoading(false);
-        return;
-      }
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (geminiKey) headers['x-gemini-key'] = geminiKey;
       const resp = await fetch('/api/generate', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-gemini-key': geminiKey,
-        },
+        headers,
         body: JSON.stringify({ prompt }),
       });
       const data = await resp.json() as { error?: string; detail?: string; url?: string };

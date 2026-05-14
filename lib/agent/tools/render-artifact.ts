@@ -1,102 +1,56 @@
 import type { Tool } from "@anthropic-ai/sdk/resources/messages";
-import { validateArtifactSpec, ARTIFACT_KINDS, TEMPLATE_NAMES } from "../artifact-spec.js";
+import { validateArtifactSpec } from "../artifact-spec.js";
 
 export const definition: Tool = {
   name: "render_artifact",
   description:
-    "Emit a visual artifact — a chart, table, diagram, calculator, or interactive widget. " +
-    "Call this BEFORE your prose response so the panel loads while the text streams in. " +
-    "The artifact appears in the right-side panel; your text response is the narration. " +
-    "\n\n" +
-    "KIND SELECTION — prefer in this order:\n" +
-    "1. template (PREFERRED — safe, bounded, renders reliably):\n" +
-    "   • two_curve_chart — any two numeric series over a shared x-axis (duty cycle curves, current ranges)\n" +
-    "   • comparison_table — tabular spec comparison across modes, voltages, wire types\n" +
-    "   • parameter_calculator — live calculator where user adjusts inputs and sees updated output\n" +
-    "   • connection_diagram — cable/socket routing diagram with highlighted regions\n" +
-    "   • interactive_panel — machine control surface with highlighted recommended settings\n" +
-    "   • troubleshooting_flowchart — yes/no decision tree for diagnosing a symptom\n" +
-    "2. image — manual page diagram with annotation overlay (orange numbered badges + leader lines). " +
-    "   Use after calling surface_region to show the image with annotations. " +
-    "   Required: src (use imageUrl from surface_region result). " +
-    "   Optional: annotations array [{number, x, y, label}] using annotationX/annotationY from allRegions.\n" +
-    "3. svg — custom vector diagram when no pre-extracted diagram covers the question\n" +
-    "4. react — genuinely interactive widget not covered by any template (custom calculators, configurators)\n" +
-    "5. html — layout-heavy content that is not a React component\n" +
-    "6. mermaid — flowcharts, state machines, decision trees (text-based; simpler than troubleshooting_flowchart)\n" +
-    "\n" +
-    "DISCIPLINE: Do NOT emit artifacts for simple factual answers, socket lookups, or anything " +
-    "surface_region already handles well. An artifact is warranted when the answer is a relationship " +
-    "between variables, an interactive comparison, or a decision process.",
+    "Emit a visual artifact into the right-side panel. Call this BEFORE your prose response " +
+    "so the panel loads while text streams in. Three kinds:\n\n" +
+    "• kind='code' — JSX function expression rendered in an iframe sandbox. Use for structured " +
+    "diagrams (connection diagrams, SVG layouts, calculators). Always call get_chassis_metadata " +
+    "first for socket/polarity diagrams so geometry is accurate.\n" +
+    "• kind='image' — rendered image from generate_image tool. Pass the url returned by that tool. " +
+    "Use for internal mechanisms, defect reference photos, isometric scenes.\n" +
+    "• kind='manual_page' — manual diagram surfaced by surface_region. Pass the imageUrl from " +
+    "that tool result as pageRef. Use when the manual itself has the exact diagram needed.",
   input_schema: {
     type: "object" as const,
     properties: {
       kind: {
         type: "string",
-        enum: [...ARTIFACT_KINDS],
-        description: "Top-level artifact kind.",
-      },
-      title: {
-        type: "string",
-        description: "Short title displayed above the artifact in the panel.",
-      },
-      template: {
-        type: "string",
-        enum: [...TEMPLATE_NAMES],
-        description: "Required when kind='template'. Which template to render.",
-      },
-      data: {
-        type: "object",
-        description: "Required when kind='template'. Template-specific data payload. Shape depends on template.",
+        enum: ["code", "image", "manual_page"],
+        description: "Artifact kind — code, image, or manual_page.",
       },
       code: {
         type: "string",
-        description: "Required when kind='react'. JSX string with 'export default function Widget() { ... }'.",
+        description:
+          "Required when kind='code'. JSX function expression returning a React element, " +
+          "followed by a render expression like <MyComponent />. React is in scope. No imports.",
       },
-      content: {
+      title: {
         type: "string",
-        description: "Required when kind='html' or kind='svg'. Full HTML/SVG markup string.",
+        description: "Optional short title shown above the artifact (code kind only).",
       },
-      diagram: {
+      url: {
         type: "string",
-        description: "Required when kind='mermaid'. Mermaid DSL (no surrounding fences).",
+        description: "Required when kind='image'. The data URL or image URL from generate_image.",
       },
-      src: {
+      alt: {
         type: "string",
-        description: "Required when kind='image'. URL to the image (use imageUrl from surface_region result).",
-      },
-      annotations: {
-        type: "array",
-        description: "Optional for kind='image'. Array of {number, x, y, label} annotations to overlay on the image. Use annotationX/annotationY values from surface_region allRegions.",
-        items: {
-          type: "object",
-          properties: {
-            number: { type: "number" },
-            x: { type: "number", description: "Normalized 0-1 horizontal position" },
-            y: { type: "number", description: "Normalized 0-1 vertical position" },
-            label: { type: "string", description: "1-4 words" },
-          },
-          required: ["number", "x", "y", "label"],
-        },
+        description: "Optional alt text for image kind.",
       },
       caption: {
         type: "string",
-        description: "Optional caption shown below svg, mermaid, or image artifacts.",
+        description: "Optional caption shown below image or manual_page artifacts.",
       },
-      imports: {
-        type: "array",
-        description: "Optional import declarations for kind='react'. Allowed modules: react, recharts, lucide-react.",
-        items: {
-          type: "object",
-          properties: {
-            module: { type: "string", enum: ["react", "recharts", "lucide-react"] },
-            names: { type: "array", items: { type: "string" } },
-          },
-          required: ["module", "names"],
-        },
+      pageRef: {
+        type: "string",
+        description:
+          "Required when kind='manual_page'. Pass the imageUrl from surface_region result " +
+          "(e.g. /api/images/14_diagram_14_1.png).",
       },
     },
-    required: ["kind", "title"],
+    required: ["kind"],
   },
 };
 
@@ -106,12 +60,10 @@ export function handle(input: unknown): string {
     return JSON.stringify({
       accepted: false,
       error: result.error,
-      hint: "Fix the spec and retry. Check that 'kind' is one of: template, react, html, svg, mermaid. " +
-            "For template kind, 'template' must name one of the six templates and 'data' must match its schema.",
+      hint: `Fix the spec and retry. kind must be one of: code, image, manual_page. ` +
+            `code requires 'code' string; image requires 'url' string; manual_page requires 'pageRef' string.`,
     });
   }
 
-  // Accepted — return the validated spec so the UI can render it.
-  // In Stage 4 this goes to the ArtifactPanel via server-sent event.
   return JSON.stringify({ accepted: true, spec: result.spec });
 }

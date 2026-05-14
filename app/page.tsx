@@ -177,11 +177,13 @@ export default function Page() {
     }
 
     try {
+      const geminiKey = localStorage.getItem("gemini_api_key") ?? "";
       const res = await fetch("/api/agent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-Anthropic-Key": apiKey,
+          ...(geminiKey ? { "x-gemini-key": geminiKey } : {}),
         },
         body: JSON.stringify({ message: trimmed, history: apiHistory }),
       });
@@ -414,11 +416,11 @@ function ChatBubble({ msg }: { msg: Message }) {
           <div className="rounded-lg border border-zinc-800 overflow-hidden bg-zinc-950/50">
             <div className="px-4 py-2.5 bg-zinc-900/80 border-b border-zinc-800 flex items-center gap-3">
               <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold">
-                {msg.artifact.kind === "template"
-                  ? msg.artifact.template.replace(/_/g, " ")
-                  : msg.artifact.kind}
+                {msg.artifact.kind.replace(/_/g, " ")}
               </span>
-              <span className="text-sm font-medium text-zinc-200">{msg.artifact.title}</span>
+              {'title' in msg.artifact && msg.artifact.title && (
+                <span className="text-sm font-medium text-zinc-200">{msg.artifact.title}</span>
+              )}
             </div>
             <div className="p-4">
               <ArtifactRenderer spec={msg.artifact} />

@@ -63,7 +63,7 @@ async function runTurn(userMessage: string): Promise<void> {
       process.stderr.write(
         `[tool] ${toolCall.name}(${JSON.stringify(toolCall.input, null, 0)})\n`,
       );
-      const result = dispatch(toolCall.name, toolCall.input);
+      const result = await dispatch(toolCall.name, toolCall.input);
       toolResults.push({
         type: "tool_result",
         tool_use_id: toolCall.id,
