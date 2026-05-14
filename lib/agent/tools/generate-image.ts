@@ -34,12 +34,19 @@ export async function handle(
   input: { prompt: string },
   ctx?: ToolContext,
 ): Promise<string> {
+  console.log(`[generate-image] called, prompt length=${input.prompt?.length ?? 0}`);
+
+  const keySource = ctx?.geminiKey ? "ctx" : process.env.GEMINI_API_KEY ? "env" : "none";
   const geminiKey = ctx?.geminiKey ?? process.env.GEMINI_API_KEY ?? "";
+  console.log(`[generate-image] key source=${keySource}, has key=${!!geminiKey}`);
+
   if (!geminiKey) {
+    console.error("[generate-image] no key available — returning error");
     return JSON.stringify({ error: "No Gemini API key — user must add one in settings to enable image generation." });
   }
 
   try {
+    console.log("[generate-image] calling Gemini API...");
     const resp = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
       {
@@ -55,9 +62,12 @@ export async function handle(
       },
     );
 
+    console.log(`[generate-image] Gemini status=${resp.status}`);
+
     if (!resp.ok) {
       const errorText = await resp.text();
-      return JSON.stringify({ error: `Gemini API error ${resp.status}: ${errorText.slice(0, 300)}` });
+      console.error(`[generate-image] Gemini error: ${errorText.slice(0, 300)}`);
+      return JSON.stringify({ error: `Gemini API error ${resp.status}: ${errorText.slice(0, 200)}` });
     }
 
     const data = await resp.json() as {
@@ -67,12 +77,15 @@ export async function handle(
     const imagePart = parts.find((p) => p.inlineData?.mimeType?.startsWith("image/"));
 
     if (!imagePart?.inlineData) {
+      console.error(`[generate-image] no image part in response. candidates: ${JSON.stringify(data?.candidates).slice(0, 300)}`);
       return JSON.stringify({ error: "No image returned by Gemini" });
     }
 
     const dataUrl = `data:${imagePart.inlineData.mimeType};base64,${imagePart.inlineData.data}`;
+    console.log(`[generate-image] success, data URL length=${dataUrl.length}`);
     return JSON.stringify({ url: dataUrl });
   } catch (e: unknown) {
+    console.error("[generate-image] threw:", e);
     return JSON.stringify({ error: `Image generation failed: ${(e as Error).message}` });
   }
 }

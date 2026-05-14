@@ -25,20 +25,26 @@ export function ArtifactRenderer({ spec }: { spec: ArtifactSpec }) {
       );
     }
 
-    case 'image':
+    case 'image': {
+      const url = spec.url?.trim();
+      if (!url || url.length < 20 || (!url.startsWith('data:') && !url.startsWith('http'))) {
+        return null;
+      }
       return (
         <div style={{ marginTop: 8 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={spec.url}
+            src={url}
             alt={spec.alt || 'Generated diagram'}
             style={{ maxWidth: '100%', borderRadius: 8, border: '1px solid #3f3f46', display: 'block' }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
           {spec.caption && (
             <div style={{ fontSize: 12, color: '#71717a', marginTop: 6, fontStyle: 'italic' }}>{spec.caption}</div>
           )}
         </div>
       );
+    }
 
     case 'manual_page': {
       // pageRef is the resolved image URL from surface_region (e.g. /api/images/14_diagram_14_1.png)
