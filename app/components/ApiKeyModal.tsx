@@ -7,15 +7,20 @@ interface Props {
 }
 
 export default function ApiKeyModal({ onKey }: Props) {
-  const [value, setValue] = useState("");
+  const [anthropicKey, setAnthropicKey] = useState("");
+  const [geminiKey, setGeminiKey] = useState("");
   const [error, setError] = useState("");
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    const trimmed = value.trim();
+    const trimmed = anthropicKey.trim();
     if (!trimmed.startsWith("sk-ant-")) {
-      setError("Key must start with sk-ant-");
+      setError("Anthropic key must start with sk-ant-");
       return;
+    }
+    const geminiTrimmed = geminiKey.trim();
+    if (geminiTrimmed) {
+      localStorage.setItem("gemini_api_key", geminiTrimmed);
     }
     onKey(trimmed);
   }
@@ -29,47 +34,75 @@ export default function ApiKeyModal({ onKey }: Props) {
           </div>
           <div>
             <p className="text-sm font-semibold text-zinc-100">OmniPro 220 Agent</p>
-            <p className="text-xs text-zinc-500">Anthropic API key required</p>
+            <p className="text-xs text-zinc-500">API keys required</p>
           </div>
         </div>
 
         <p className="text-sm text-zinc-300 mb-1">
-          Paste your Anthropic API key to get started.
+          Paste your API keys to get started.
         </p>
         <p className="text-xs text-zinc-500 mb-5">
-          Stored only in your browser. Sent only to the official Anthropic API. Never logged.
+          Stored only in your browser. Never logged server-side.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            type="password"
-            value={value}
-            onChange={(e) => { setValue(e.target.value); setError(""); }}
-            placeholder="sk-ant-..."
-            autoFocus
-            className="w-full bg-zinc-800 border border-zinc-600 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 outline-none focus:border-zinc-400 transition-colors font-mono"
-          />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-zinc-400 uppercase tracking-wide">
+              Anthropic API Key <span className="text-orange-500">*</span>
+            </label>
+            <input
+              type="password"
+              value={anthropicKey}
+              onChange={(e) => { setAnthropicKey(e.target.value); setError(""); }}
+              placeholder="sk-ant-..."
+              autoFocus
+              className="w-full bg-zinc-800 border border-zinc-600 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 outline-none focus:border-zinc-400 transition-colors font-mono"
+            />
+            <p className="text-xs text-zinc-600">
+              <a
+                href="https://console.anthropic.com/settings/keys"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-zinc-300 underline"
+              >
+                Get one at console.anthropic.com
+              </a>
+            </p>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-zinc-400 uppercase tracking-wide">
+              Gemini API Key <span className="text-zinc-600">(optional — enables image generation)</span>
+            </label>
+            <input
+              type="password"
+              value={geminiKey}
+              onChange={(e) => setGeminiKey(e.target.value)}
+              placeholder="AIza..."
+              className="w-full bg-zinc-800 border border-zinc-600 rounded-lg px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 outline-none focus:border-zinc-400 transition-colors font-mono"
+            />
+            <p className="text-xs text-zinc-600">
+              <a
+                href="https://aistudio.google.com/app/apikey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-zinc-300 underline"
+              >
+                Get a free Gemini API key →
+              </a>
+            </p>
+          </div>
+
           {error && <p className="text-xs text-red-400">{error}</p>}
+
           <button
             type="submit"
-            disabled={!value.trim()}
+            disabled={!anthropicKey.trim()}
             className="w-full py-2.5 bg-orange-600 hover:bg-orange-500 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg text-sm font-medium text-white transition-colors"
           >
-            Save key and continue
+            Save keys and continue
           </button>
         </form>
-
-        <p className="text-xs text-zinc-600 mt-4 text-center">
-          No key?{" "}
-          <a
-            href="https://console.anthropic.com/settings/keys"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-zinc-200 underline"
-          >
-            Get one at console.anthropic.com
-          </a>
-        </p>
       </div>
     </div>
   );
