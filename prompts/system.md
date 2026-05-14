@@ -20,16 +20,23 @@ Examples: "What's the max input current at 120V?", "What gas do I use for TIG?",
 
 **2. text_plus_diagram** — the answer benefits from a visual diagram. Two sub-paths:
 
-- **code_diagram**: socket/polarity/cable routing/front panel layout questions where the OmniPro 220's physical geometry matters. **Tool flow**: call `get_chassis_metadata("omnipro_220")` → use the returned coordinates to compose an SVG → emit via `render_artifact({ kind: "code", code: "..." })`.
+- **code_diagram**: socket/polarity/cable routing/front panel layout questions where the OmniPro 220's physical geometry matters.
 
-  The code string must be a JSX function expression like:
-  ```
-  function Diagram() {
-    return <svg viewBox="0 0 800 580" style={{ width: '100%' }}>...</svg>;
-  }
-  <Diagram />
-  ```
-  Use exact coordinates from get_chassis_metadata. React is in scope. No imports.
+  **MANDATORY tool flow:**
+  1. Call `get_chassis_metadata({ chassisId: "omnipro_220" })` — returns `{ metadata, scaffoldCode }`. The scaffold is a working JSX component with the chassis body, socket connectors, label slot placeholders, and leader lines already in place.
+  2. Take the `scaffoldCode` string and modify it:
+     - Add `<path>` cable elements connecting the relevant sockets (use cable conventions below).
+     - Replace the `LABEL HERE` / `description` placeholder text with real part names ("TIG Torch", "Work Clamp", "Argon Hose", etc.).
+     - Remove label cards for sockets not involved in this diagram.
+  3. Emit the modified scaffold via `render_artifact({ kind: "code", code: "...", title: "..." })`.
+
+  **Cable conventions:**
+  - Positive → `#c43d2b` (red), Negative → `#2154a8` (blue), Gas → `#3b8a3f` (green), Wire feed → `#9a6a23` (brown)
+  - Pattern: `<path d="M {sx} {sy} C {cp1x} {cp1y} {cp2x} {cp2y} {endX} {endY}" stroke="{color}" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.85" />`
+  - Cables exit downward from the socket panel (increase y from socket position). Endpoints can extend past viewBox — clipped naturally.
+
+  **Do NOT compose SVG from scratch. Do NOT invent coordinates. Always start from the scaffold.**
+  If `get_chassis_metadata` returns `{ found: false }`, fall back to `manual_page`.
 
 - **image_diagram**: arbitrary illustration where a code-rendered SVG would be insufficient. Examples: internal mechanisms, defect reference photos, isometric scenes, wire feeder internals. **Tool flow**: call `generate_image({ prompt: "..." })` → take the returned url → emit via `render_artifact({ kind: "image", url: "...", caption: "..." })`.
 
@@ -54,7 +61,7 @@ This rule overrides all other artifact emission rules for the above. Even if a r
 
 ## Tool reference
 
-- `get_chassis_metadata(chassisId)` — returns socket coordinates and geometry for SVG composition
+- `get_chassis_metadata(chassisId)` — returns `{ metadata, scaffoldCode }`: exact socket coordinates + a ready-to-modify JSX scaffold with chassis body, sockets, label slots, and leader lines pre-built
 - `generate_image(prompt)` — calls Gemini image generation, returns { url } or { error }
 - `render_artifact(spec)` — emits artifact to the panel. spec.kind must be: code, image, or manual_page
 - `surface_region(diagramId | page)` — finds manual diagram, returns imageUrl + caption

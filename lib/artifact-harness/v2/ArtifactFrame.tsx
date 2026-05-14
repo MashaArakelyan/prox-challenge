@@ -29,16 +29,18 @@ export function ArtifactFrame({ code, minHeight = 120 }: Props) {
 
   return (
     <div style={{ width: '100%', border: '1px solid #e5e7eb', borderRadius: 8, overflow: 'hidden', background: '#fff' }}>
-      <iframe
-        ref={iframeRef}
-        src="/artifact-frame.html"
-        sandbox="allow-scripts"
-        style={{ width: '100%', height, border: 'none', display: 'block' }}
-        title="Artifact"
-      />
+      {!error && (
+        <iframe
+          ref={iframeRef}
+          src="/artifact-frame.html"
+          sandbox="allow-scripts"
+          style={{ width: '100%', height, border: 'none', display: 'block' }}
+          title="Artifact"
+        />
+      )}
       {error && (
-        <div style={{ padding: 12, color: '#b91c1c', background: '#fef2f2', fontSize: 13, fontFamily: 'ui-monospace, monospace', whiteSpace: 'pre-wrap', borderTop: '1px solid #fecaca' }}>
-          {error}
+        <div style={{ padding: 12, color: '#b91c1c', background: '#fef2f2', fontSize: 13, fontFamily: 'ui-monospace, monospace', whiteSpace: 'pre-wrap' }}>
+          Render error: {error}
         </div>
       )}
     </div>

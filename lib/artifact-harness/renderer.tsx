@@ -12,15 +12,18 @@ export function ArtifactRenderer({ spec }: { spec: ArtifactSpec }) {
   }
 
   switch (spec.kind) {
-    case 'code':
+    case 'code': {
+      const code = spec.code?.trim();
+      if (!code || code.length < 20) return null;
       return (
         <div style={{ marginTop: 8 }}>
           {spec.title && (
             <div style={{ fontSize: 13, fontWeight: 500, color: '#d4d4d8', marginBottom: 6 }}>{spec.title}</div>
           )}
-          <ArtifactFrame code={spec.code} />
+          <ArtifactFrame code={code} />
         </div>
       );
+    }
 
     case 'image':
       return (
