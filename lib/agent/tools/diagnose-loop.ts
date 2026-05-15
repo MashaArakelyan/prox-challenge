@@ -5,17 +5,16 @@ import type { Cause, Check } from "../../knowledge/types.js";
 export const definition: Tool = {
   name: "diagnose_loop",
   description:
-    "Bayesian narrowing tool for Diagnose mode. Inputs: symptomId + optional currentBeliefs " +
-    "and the user's answer to the last check (lastAnswer). " +
+    "Bayesian narrowing tool for Diagnose mode. " +
     "On first call (no lastAnswer): initialise posteriors from priors, pick the check that " +
-    "maximises expected entropy reduction across all candidate causes, return it. " +
-    "On subsequent calls: apply Bayes rule with the answered check's likelihood ratios, " +
+    "maximises expected entropy reduction, return it. " +
+    "On subsequent calls: apply Bayes rule, zero out eliminated causes (<2% of max), " +
     "recompute posteriors, pick the next entropy-maximising check. " +
-    "Returns nextCheck (the question to ask the user), updatedBeliefs (cause → probability map), " +
-    "leadingCause, confidence (leading posterior), and recommendedAction once confidence > 0.70 " +
-    "or all checks exhausted. " +
-    "The agent MUST emit a comparison_table artifact showing updatedBeliefs after every call — " +
-    "this is the live belief-state panel the user watches narrow.",
+    "Returns: nextCheck, rankedBeliefs (with probability, previousProbability, delta, eliminated), " +
+    "leadingCause, confidence, done. Terminates when confidence > 0.50 or checks exhausted. " +
+    "After each call, narrate the belief shift inline: 'porosity: 45% ▲ from 31%' or " +
+    "'gas flow: 0% ▼ (ruled out)'. Do NOT emit any artifact — just narrate in text. " +
+    "Pass updatedBeliefs and answeredCheckIds back on every subsequent call.",
   input_schema: {
     type: "object" as const,
     properties: {
@@ -120,6 +119,14 @@ function bayesUpdate(
     updated[cause.id] = prior * likelihood;
   }
 
+  // Zero out practically eliminated causes before normalising
+  for (const id in updated) {
+    const maxPossible = Math.max(...Object.values(updated));
+    if (maxPossible > 0 && updated[id] / maxPossible < ELIMINATION_THRESHOLD) {
+      updated[id] = 0;
+    }
+  }
+
   // Normalise
   const total = Object.values(updated).reduce((s, p) => s + p, 0);
   if (total === 0) return beliefs; // degenerate — leave unchanged
@@ -130,7 +137,8 @@ function bayesUpdate(
 
 // ── Handler ───────────────────────────────────────────────────────────────────
 
-const CONFIDENCE_THRESHOLD = 0.70;
+const CONFIDENCE_THRESHOLD = 0.50;
+const ELIMINATION_THRESHOLD = 0.02; // causes below this after update are zeroed out
 
 export function handle(input: {
   symptomId: string;
@@ -155,6 +163,9 @@ export function handle(input: {
     }
   }
 
+  // Snapshot beliefs before update so we can compute deltas for UI display
+  const beliefsBeforeUpdate = { ...beliefs };
+
   // Apply Bayes update for the last answered check
   if (input.lastAnswer) {
     const check = checks.find((c) => c.id === input.lastAnswer!.checkId);
@@ -171,13 +182,20 @@ export function handle(input: {
   const leading = sortedCauses[0];
   const confidence = beliefs[leading.id] ?? 0;
 
-  // Rank beliefs for the response
-  const rankedBeliefs = sortedCauses.map((c) => ({
-    causeId: c.id,
-    label: c.label,
-    probability: Math.round((beliefs[c.id] ?? 0) * 1000) / 1000,
-    prior_source: c.prior_source,
-  }));
+  // Rank beliefs with deltas — agent uses these to narrate "X% ▲ from Y%" changes
+  const rankedBeliefs = sortedCauses.map((c) => {
+    const current = Math.round((beliefs[c.id] ?? 0) * 1000) / 1000;
+    const previous = Math.round((beliefsBeforeUpdate[c.id] ?? 0) * 1000) / 1000;
+    return {
+      causeId: c.id,
+      label: c.label,
+      probability: current,
+      previousProbability: previous,
+      delta: Math.round((current - previous) * 1000) / 1000,
+      eliminated: current === 0 && previous > 0,
+      prior_source: c.prior_source,
+    };
+  });
 
   // Check if we should stop
   const remainingChecks = checks.filter((c) => !answered.has(c.id));

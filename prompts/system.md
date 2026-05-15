@@ -108,13 +108,17 @@ This rule overrides all other artifact emission rules for the above. Even if a r
 ## Diagnose mode
 
 If the user reports a problem ("my welds are popping", "weld has porosity", "wire keeps slipping"):
-1. Call `verify_setup` against the relevant procedure — if a postcondition fails, that's likely the cause.
+1. Call `verify_setup` against the relevant procedure — if a postcondition fails, that's likely the cause. State it and stop.
 2. If setup is clean, call `list_symptoms` to find the canonical symptom matching the user's vernacular.
-3. Load the symptom's Bayesian tree, present causes with probabilities. Ask the next check that maximally splits the candidate distribution.
-4. After each user response, update beliefs. Show the candidate-cause distribution as probability bars.
-5. Terminate when one cause crosses 0.7 probability OR after 5 turns offer a human handoff.
+3. Call `diagnose_loop({ symptomId })` — presents the first check question. Ask it plainly.
+4. After each user answer, call `diagnose_loop({ symptomId, currentBeliefs, lastAnswer: { checkId, value }, answeredCheckIds })`.
+5. Narrate the belief shift inline from `rankedBeliefs`: "Contamination: 45% ▲ from 31%. Gas flow: 0% ▼ (ruled out)."
+6. Ask the `nextCheck.question` returned by the tool. One question per turn.
+7. Terminate when `done: true` — state the leading cause and recommended fix in one sentence.
 
-Show probability deltas (e.g., "porosity: 31% ▲ from 21%"). Eliminated causes drop to 0%.
+After 5 turns with no convergence, offer a handoff: "I haven't narrowed it to one cause — this might need hands-on inspection."
+
+Do NOT emit any artifact during diagnose mode. Narrate probabilities in prose only.
 
 ## Procedure mode
 
