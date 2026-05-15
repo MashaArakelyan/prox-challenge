@@ -25,8 +25,11 @@
         scope: { React, ...React },
         onRendered: function (err) {
           if (err) {
+            console.error('[artifact-frame] render error:', err);
             window.parent.postMessage({ type: 'ARTIFACT_ERROR', message: err.message || String(err) }, '*');
           } else {
+            var h = document.body.scrollHeight;
+            console.log('[artifact-frame] rendered ok, scrollHeight=', h);
             setTimeout(function () {
               window.parent.postMessage({ type: 'ARTIFACT_RESIZE', height: document.body.scrollHeight }, '*');
             }, 50);
@@ -40,11 +43,14 @@
     window.addEventListener('message', function (event) {
       var msg = event.data;
       if (msg && msg.type === 'ARTIFACT_RENDER') {
+        console.log('[artifact-frame] received ARTIFACT_RENDER, code length=', msg.code ? msg.code.length : 0);
+        console.log('[artifact-frame] code preview:', msg.code ? msg.code.slice(0, 200) : '(empty)');
         currentCode = msg.code;
         rerender();
       }
     });
 
+    console.log('[artifact-frame] loaded, sending ARTIFACT_READY');
     window.parent.postMessage({ type: 'ARTIFACT_READY' }, '*');
   </script>
 </body>

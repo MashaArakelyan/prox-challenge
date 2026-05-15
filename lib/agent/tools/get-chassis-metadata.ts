@@ -78,8 +78,8 @@ function buildScaffold(metadata: ChassisMetadata, id: string): string {
 
   return `function ConnectionDiagram() {
   return (
-    <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', background: '#FAF6EC', borderRadius: 8 }}>
-      {/* ── Chassis body (static asset) ─────────────────────────────── */}
+    <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: ${vbH}, display: 'block', background: '#FAF6EC', borderRadius: 8 }}>
+      {/* ── Chassis body (/chassis/${id}.svg is substituted to a data URL by the renderer) */}
       <image href="/chassis/${id}.svg" x="0" y="0" width="${vbW}" height="${vbH}" />
 
       {/* ── Socket connectors (colors: ${colorRef}) ── */}

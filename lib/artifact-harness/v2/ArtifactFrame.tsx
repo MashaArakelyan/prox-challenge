@@ -3,6 +3,41 @@ import { useEffect, useRef, useState } from 'react';
 
 type Props = { code: string; minHeight?: number };
 
+// Fetch a same-origin SVG and return a base64 data URL.
+// Called from the parent page (not the sandboxed iframe) so origin is fine.
+async function svgToDataUrl(path: string): Promise<string> {
+  const resp = await fetch(path);
+  const text = await resp.text();
+  // btoa requires Latin-1; encode UTF-8 via TextEncoder then base64
+  const bytes = new TextEncoder().encode(text);
+  let binary = '';
+  bytes.forEach(b => { binary += String.fromCharCode(b); });
+  return `data:image/svg+xml;base64,${btoa(binary)}`;
+}
+
+// Replace /chassis/*.svg hrefs in code with data URLs so the sandboxed
+// iframe (null origin) can load them without cross-origin issues.
+async function inlineChassisAssets(code: string): Promise<string> {
+  const matches = [...code.matchAll(/\/chassis\/([a-z0-9_-]+)\.svg/g)];
+  if (matches.length === 0) return code;
+
+  const seen = new Set<string>();
+  const unique = matches.filter(m => { if (seen.has(m[0])) return false; seen.add(m[0]); return true; });
+
+  const replacements = await Promise.all(
+    unique.map(async ([full]) => {
+      const dataUrl = await svgToDataUrl(full);
+      return [full, dataUrl] as [string, string];
+    })
+  );
+
+  let result = code;
+  for (const [original, dataUrl] of replacements) {
+    result = result.split(original).join(dataUrl);
+  }
+  return result;
+}
+
 export function ArtifactFrame({ code, minHeight = 120 }: Props) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(minHeight);
@@ -24,7 +59,14 @@ export function ArtifactFrame({ code, minHeight = 120 }: Props) {
   useEffect(() => {
     if (!ready) return;
     setError(null);
-    iframeRef.current?.contentWindow?.postMessage({ type: 'ARTIFACT_RENDER', code }, '*');
+
+    inlineChassisAssets(code).then(processedCode => {
+      iframeRef.current?.contentWindow?.postMessage({ type: 'ARTIFACT_RENDER', code: processedCode }, '*');
+    }).catch(err => {
+      // Fallback: send original code if asset substitution fails
+      console.warn('[ArtifactFrame] chassis asset inline failed:', err);
+      iframeRef.current?.contentWindow?.postMessage({ type: 'ARTIFACT_RENDER', code }, '*');
+    });
   }, [ready, code]);
 
   return (
